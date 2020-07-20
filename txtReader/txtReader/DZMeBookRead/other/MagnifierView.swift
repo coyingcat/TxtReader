@@ -57,23 +57,13 @@ class MagnifierView: UIWindow {
                 if _targetPoint.y > bounds.height * 0.5{
                     anchor.y = targetPoint.y - self.bounds.height / 2
                 }
-                self.center = CGPoint(x: anchor.x + self.offsetPoint.x, y: anchor.y + self.offsetPoint.y)
+                /// 放大镜位置偏移调整 (调整放大镜在原始位置上的偏移 默认: CGPointMake(0, -40))
+                let offsetPoint = CGPoint(x: 0, y: -40)
+                self.center = CGPoint(x: anchor.x + offsetPoint.x, y: anchor.y + offsetPoint.y)
                 contentLayer.setNeedsLayout()
             }
         }
     }
-    
-
-     
-    /// 放大镜位置偏移调整 (调整放大镜在原始位置上的偏移 默认: CGPointMake(0, -40))
-    let offsetPoint = CGPoint(x: 0, y: -40)
-      
-
-
-    /// 放大比例 默认: MV_SCALE
-    let scale: CGFloat = MagnifierAnima.scale
-    
-  
     
     lazy var contentLayer = { () -> CALayer in
         let layer = CALayer()
@@ -110,9 +100,7 @@ class MagnifierView: UIWindow {
     }
     
     
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
+    
     
     
     /// 移除 (移除对象 并释放内部强引用)
@@ -145,6 +133,7 @@ class MagnifierView: UIWindow {
     
     override func draw(_ layer: CALayer, in ctx: CGContext) {
         ctx.translateBy(x: MagnifierAnima.wh, y: MagnifierAnima.wh)
+        /// 放大比例 默认: MV_SCALE
         ctx.scaleBy(x: MagnifierAnima.scale, y: MagnifierAnima.scale)
         ctx.translateBy(x: -1 * targetPoint.x, y: -1 * targetPoint.y)
         targetWindow?.layer.render(in: ctx)
@@ -152,7 +141,9 @@ class MagnifierView: UIWindow {
     
     
 
-    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
 }
 
    
