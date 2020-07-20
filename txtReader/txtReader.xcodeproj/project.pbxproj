@@ -9,16 +9,10 @@
 /* Begin PBXBuildFile section */
 		26CDB17324C54E50007C05A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB17224C54E50007C05A9 /* AppDelegate.swift */; };
 		26CDB17524C54E50007C05A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB17424C54E50007C05A9 /* SceneDelegate.swift */; };
-		26CDB17724C54E50007C05A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB17624C54E50007C05A9 /* ViewController.swift */; };
 		26CDB17A24C54E50007C05A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26CDB17824C54E50007C05A9 /* Main.storyboard */; };
 		26CDB17C24C54E55007C05A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26CDB17B24C54E55007C05A9 /* Assets.xcassets */; };
 		26CDB17F24C54E55007C05A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26CDB17D24C54E55007C05A9 /* LaunchScreen.storyboard */; };
 		26CDB1E724C54ECF007C05A9 /* DZMReadController+Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB18724C54ECE007C05A9 /* DZMReadController+Operation.swift */; };
-		26CDB1E824C54ECF007C05A9 /* IndexPathMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB18924C54ECE007C05A9 /* IndexPathMore.swift */; };
-		26CDB1E924C54ECF007C05A9 /* ArrayMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB18A24C54ECE007C05A9 /* ArrayMore.swift */; };
-		26CDB1EA24C54ECF007C05A9 /* NSRangeMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB18B24C54ECE007C05A9 /* NSRangeMore.swift */; };
-		26CDB1EB24C54ECF007C05A9 /* FloatMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB18C24C54ECE007C05A9 /* FloatMore.swift */; };
-		26CDB1EC24C54ECF007C05A9 /* NSNumberMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB18D24C54ECE007C05A9 /* NSNumberMore.swift */; };
 		26CDB1ED24C54ECF007C05A9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB19124C54ECE007C05A9 /* String+Extension.swift */; };
 		26CDB1EE24C54ECF007C05A9 /* UIPageViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB19224C54ECE007C05A9 /* UIPageViewController+Extension.swift */; };
 		26CDB1EF24C54ECF007C05A9 /* DZMPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB19424C54ECE007C05A9 /* DZMPublic.swift */; };
@@ -82,24 +76,23 @@
 		26CDB22924C54ECF007C05A9 /* DZMReadContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1E524C54ECF007C05A9 /* DZMReadContentView.swift */; };
 		26CDB22A24C54ECF007C05A9 /* DZMReadController+EffectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1E624C54ECF007C05A9 /* DZMReadController+EffectType.swift */; };
 		26CDB22C24C54F13007C05A9 /* DZMMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB22B24C54F13007C05A9 /* DZMMainController.swift */; };
+		26CDB23024C550CE007C05A9 /* 三国演义.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26CDB22F24C550CE007C05A9 /* 三国演义.txt */; };
+		26CDB23724C5678F007C05A9 /* IndexPathMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB23224C5678F007C05A9 /* IndexPathMore.swift */; };
+		26CDB23824C5678F007C05A9 /* ArrayMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB23324C5678F007C05A9 /* ArrayMore.swift */; };
+		26CDB23924C5678F007C05A9 /* NSRangeMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB23424C5678F007C05A9 /* NSRangeMore.swift */; };
+		26CDB23A24C5678F007C05A9 /* FloatMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB23524C5678F007C05A9 /* FloatMore.swift */; };
+		26CDB23B24C5678F007C05A9 /* NSNumberMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB23624C5678F007C05A9 /* NSNumberMore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		26CDB16F24C54E50007C05A9 /* txtReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = txtReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26CDB17224C54E50007C05A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26CDB17424C54E50007C05A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		26CDB17624C54E50007C05A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		26CDB17924C54E50007C05A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26CDB17B24C54E55007C05A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26CDB17E24C54E55007C05A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26CDB18024C54E55007C05A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26CDB18724C54ECE007C05A9 /* DZMReadController+Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DZMReadController+Operation.swift"; sourceTree = "<group>"; };
-		26CDB18924C54ECE007C05A9 /* IndexPathMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexPathMore.swift; sourceTree = "<group>"; };
-		26CDB18A24C54ECE007C05A9 /* ArrayMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayMore.swift; sourceTree = "<group>"; };
-		26CDB18B24C54ECE007C05A9 /* NSRangeMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSRangeMore.swift; sourceTree = "<group>"; };
-		26CDB18C24C54ECE007C05A9 /* FloatMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatMore.swift; sourceTree = "<group>"; };
-		26CDB18D24C54ECE007C05A9 /* NSNumberMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberMore.swift; sourceTree = "<group>"; };
-		26CDB18F24C54ECE007C05A9 /* DZMeBookRead-Bridging-Pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DZMeBookRead-Bridging-Pch.h"; sourceTree = "<group>"; };
 		26CDB19124C54ECE007C05A9 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		26CDB19224C54ECE007C05A9 /* UIPageViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+Extension.swift"; sourceTree = "<group>"; };
 		26CDB19424C54ECE007C05A9 /* DZMPublic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMPublic.swift; sourceTree = "<group>"; };
@@ -170,6 +163,12 @@
 		26CDB1E624C54ECF007C05A9 /* DZMReadController+EffectType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DZMReadController+EffectType.swift"; sourceTree = "<group>"; };
 		26CDB22B24C54F13007C05A9 /* DZMMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMMainController.swift; sourceTree = "<group>"; };
 		26CDB22D24C54F55007C05A9 /* Bridging-Pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Pch.h"; sourceTree = "<group>"; };
+		26CDB22F24C550CE007C05A9 /* 三国演义.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "三国演义.txt"; sourceTree = "<group>"; };
+		26CDB23224C5678F007C05A9 /* IndexPathMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexPathMore.swift; sourceTree = "<group>"; };
+		26CDB23324C5678F007C05A9 /* ArrayMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayMore.swift; sourceTree = "<group>"; };
+		26CDB23424C5678F007C05A9 /* NSRangeMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSRangeMore.swift; sourceTree = "<group>"; };
+		26CDB23524C5678F007C05A9 /* FloatMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatMore.swift; sourceTree = "<group>"; };
+		26CDB23624C5678F007C05A9 /* NSNumberMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberMore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,16 +201,17 @@
 		26CDB17124C54E50007C05A9 /* txtReader */ = {
 			isa = PBXGroup;
 			children = (
-				26CDB22D24C54F55007C05A9 /* Bridging-Pch.h */,
-				26CDB22B24C54F13007C05A9 /* DZMMainController.swift */,
-				26CDB18624C54ECE007C05A9 /* DZMeBookRead */,
 				26CDB17224C54E50007C05A9 /* AppDelegate.swift */,
-				26CDB17424C54E50007C05A9 /* SceneDelegate.swift */,
-				26CDB17624C54E50007C05A9 /* ViewController.swift */,
-				26CDB17824C54E50007C05A9 /* Main.storyboard */,
 				26CDB17B24C54E55007C05A9 /* Assets.xcassets */,
-				26CDB17D24C54E55007C05A9 /* LaunchScreen.storyboard */,
+				26CDB22D24C54F55007C05A9 /* Bridging-Pch.h */,
+				26CDB18624C54ECE007C05A9 /* DZMeBookRead */,
+				26CDB22B24C54F13007C05A9 /* DZMMainController.swift */,
 				26CDB18024C54E55007C05A9 /* Info.plist */,
+				26CDB17D24C54E55007C05A9 /* LaunchScreen.storyboard */,
+				26CDB17824C54E50007C05A9 /* Main.storyboard */,
+				26CDB17424C54E50007C05A9 /* SceneDelegate.swift */,
+				26CDB22E24C550CE007C05A9 /* src */,
+				26CDB23124C5678F007C05A9 /* Util */,
 			);
 			path = txtReader;
 			sourceTree = "<group>";
@@ -219,37 +219,23 @@
 		26CDB18624C54ECE007C05A9 /* DZMeBookRead */ = {
 			isa = PBXGroup;
 			children = (
-				26CDB18724C54ECE007C05A9 /* DZMReadController+Operation.swift */,
-				26CDB18824C54ECE007C05A9 /* Util */,
-				26CDB18E24C54ECE007C05A9 /* other */,
-				26CDB1B424C54ECE007C05A9 /* ReadView */,
-				26CDB1C224C54ECF007C05A9 /* ReadParser */,
 				26CDB1C624C54ECF007C05A9 /* DZMReadConfigure.swift */,
-				26CDB1C724C54ECF007C05A9 /* menuUI */,
 				26CDB1D524C54ECF007C05A9 /* DZMReadController.swift */,
-				26CDB1D624C54ECF007C05A9 /* model */,
-				26CDB1DE24C54ECF007C05A9 /* view */,
 				26CDB1E624C54ECF007C05A9 /* DZMReadController+EffectType.swift */,
+				26CDB18724C54ECE007C05A9 /* DZMReadController+Operation.swift */,
+				26CDB1C724C54ECF007C05A9 /* menuUI */,
+				26CDB1D624C54ECF007C05A9 /* model */,
+				26CDB18E24C54ECE007C05A9 /* other */,
+				26CDB1C224C54ECF007C05A9 /* ReadParser */,
+				26CDB1B424C54ECE007C05A9 /* ReadView */,
+				26CDB1DE24C54ECF007C05A9 /* view */,
 			);
 			path = DZMeBookRead;
-			sourceTree = "<group>";
-		};
-		26CDB18824C54ECE007C05A9 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				26CDB18924C54ECE007C05A9 /* IndexPathMore.swift */,
-				26CDB18A24C54ECE007C05A9 /* ArrayMore.swift */,
-				26CDB18B24C54ECE007C05A9 /* NSRangeMore.swift */,
-				26CDB18C24C54ECE007C05A9 /* FloatMore.swift */,
-				26CDB18D24C54ECE007C05A9 /* NSNumberMore.swift */,
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 		26CDB18E24C54ECE007C05A9 /* other */ = {
 			isa = PBXGroup;
 			children = (
-				26CDB18F24C54ECE007C05A9 /* DZMeBookRead-Bridging-Pch.h */,
 				26CDB19024C54ECE007C05A9 /* extension */,
 				26CDB19324C54ECE007C05A9 /* public */,
 				26CDB19924C54ECE007C05A9 /* custom */,
@@ -466,6 +452,26 @@
 			path = DZMReadLeftView;
 			sourceTree = "<group>";
 		};
+		26CDB22E24C550CE007C05A9 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				26CDB22F24C550CE007C05A9 /* 三国演义.txt */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		26CDB23124C5678F007C05A9 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				26CDB23224C5678F007C05A9 /* IndexPathMore.swift */,
+				26CDB23324C5678F007C05A9 /* ArrayMore.swift */,
+				26CDB23424C5678F007C05A9 /* NSRangeMore.swift */,
+				26CDB23524C5678F007C05A9 /* FloatMore.swift */,
+				26CDB23624C5678F007C05A9 /* NSNumberMore.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -529,6 +535,7 @@
 				26CDB17C24C54E55007C05A9 /* Assets.xcassets in Resources */,
 				26CDB17A24C54E50007C05A9 /* Main.storyboard in Resources */,
 				26CDB1FD24C54ECF007C05A9 /* magnifier_0.png in Resources */,
+				26CDB23024C550CE007C05A9 /* 三国演义.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,49 +554,47 @@
 				26CDB1EF24C54ECF007C05A9 /* DZMPublic.swift in Sources */,
 				26CDB1F024C54ECF007C05A9 /* DZMSpaceList.swift in Sources */,
 				26CDB20724C54ECF007C05A9 /* DZMReadViewStatusBottomView.swift in Sources */,
-				26CDB1E824C54ECF007C05A9 /* IndexPathMore.swift in Sources */,
 				26CDB22424C54ECF007C05A9 /* DZMReadCatalogCell.swift in Sources */,
 				26CDB1F424C54ECF007C05A9 /* DZMKeyedArchiver.swift in Sources */,
 				26CDB22224C54ECF007C05A9 /* DZMReadChapterModel.swift in Sources */,
 				26CDB22924C54ECF007C05A9 /* DZMReadContentView.swift in Sources */,
 				26CDB1F724C54ECF007C05A9 /* DZMCoverController.m in Sources */,
 				26CDB21324C54ECF007C05A9 /* DZMRMSettingView.swift in Sources */,
-				26CDB1EA24C54ECF007C05A9 /* NSRangeMore.swift in Sources */,
 				26CDB22324C54ECF007C05A9 /* DZMReadPageModel.swift in Sources */,
 				26CDB1FA24C54ECF007C05A9 /* ASValuePopUpView.m in Sources */,
 				26CDB1F524C54ECF007C05A9 /* DZMCoreText.swift in Sources */,
 				26CDB20824C54ECF007C05A9 /* DZMReadLongPressView.swift in Sources */,
 				26CDB20F24C54ECF007C05A9 /* DZMReadParser.swift in Sources */,
-				26CDB17724C54E50007C05A9 /* ViewController.swift in Sources */,
 				26CDB22A24C54ECF007C05A9 /* DZMReadController+EffectType.swift in Sources */,
+				26CDB23724C5678F007C05A9 /* IndexPathMore.swift in Sources */,
 				26CDB21C24C54ECF007C05A9 /* DZMReadController.swift in Sources */,
 				26CDB21724C54ECF007C05A9 /* DZMRMTopView.swift in Sources */,
 				26CDB21A24C54ECF007C05A9 /* DZMRMBottomView.swift in Sources */,
-				26CDB1EC24C54ECF007C05A9 /* NSNumberMore.swift in Sources */,
 				26CDB21F24C54ECF007C05A9 /* DZMReadModel+Mark.swift in Sources */,
 				26CDB21424C54ECF007C05A9 /* DZMRMEffectTypeView.swift in Sources */,
 				26CDB22724C54ECF007C05A9 /* DZMReadMarkView.swift in Sources */,
-				26CDB1EB24C54ECF007C05A9 /* FloatMore.swift in Sources */,
 				26CDB1EE24C54ECF007C05A9 /* UIPageViewController+Extension.swift in Sources */,
 				26CDB21224C54ECF007C05A9 /* DZMRMFontTypeView.swift in Sources */,
 				26CDB1F824C54ECF007C05A9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				26CDB20924C54ECF007C05A9 /* DZMReadViewStatusTopView.swift in Sources */,
+				26CDB23A24C5678F007C05A9 /* FloatMore.swift in Sources */,
 				26CDB20324C54ECF007C05A9 /* DZMReadViewController.swift in Sources */,
 				26CDB1E724C54ECF007C05A9 /* DZMReadController+Operation.swift in Sources */,
 				26CDB22024C54ECF007C05A9 /* DZMReadChapterListModel.swift in Sources */,
 				26CDB22C24C54F13007C05A9 /* DZMMainController.swift in Sources */,
 				26CDB17324C54E50007C05A9 /* AppDelegate.swift in Sources */,
+				26CDB23924C5678F007C05A9 /* NSRangeMore.swift in Sources */,
 				26CDB20524C54ECF007C05A9 /* DZMReadViewCell.swift in Sources */,
 				26CDB1F324C54ECF007C05A9 /* DZMFontList.swift in Sources */,
 				26CDB1FB24C54ECF007C05A9 /* ASValueTrackingSlider.m in Sources */,
 				26CDB22124C54ECF007C05A9 /* DZMReadMarkModel.swift in Sources */,
 				26CDB1F224C54ECF007C05A9 /* DZMEnumList.swift in Sources */,
-				26CDB1E924C54ECF007C05A9 /* ArrayMore.swift in Sources */,
 				26CDB21624C54ECF007C05A9 /* DZMReadMenu.swift in Sources */,
 				26CDB22824C54ECF007C05A9 /* DZMReadLeftView.swift in Sources */,
 				26CDB1ED24C54ECF007C05A9 /* String+Extension.swift in Sources */,
 				26CDB17524C54E50007C05A9 /* SceneDelegate.swift in Sources */,
 				26CDB20024C54ECF007C05A9 /* DZMViewController.swift in Sources */,
+				26CDB23B24C5678F007C05A9 /* NSNumberMore.swift in Sources */,
 				26CDB21824C54ECF007C05A9 /* DZMRMBaseView.swift in Sources */,
 				26CDB20224C54ECF007C05A9 /* DZMReadLongPressViewController.swift in Sources */,
 				26CDB22524C54ECF007C05A9 /* DZMReadCatalogView.swift in Sources */,
@@ -608,6 +613,7 @@
 				26CDB1F924C54ECF007C05A9 /* DZMSegmentedControl.m in Sources */,
 				26CDB1F124C54ECF007C05A9 /* DZMColorList.swift in Sources */,
 				26CDB20A24C54ECF007C05A9 /* DZMReadLongPressCursorView.swift in Sources */,
+				26CDB23824C5678F007C05A9 /* ArrayMore.swift in Sources */,
 				26CDB1FF24C54ECF007C05A9 /* DZMTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

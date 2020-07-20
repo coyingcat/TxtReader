@@ -93,9 +93,9 @@ class DZMReadMarkCell: UITableViewCell {
         let itemW = (contentW - SPACE_SA_10) / 2
         
         
-        title.frame = CGRect(x: itemX, y: itemY, width: itemW, height: itemH)
-        
-        time.frame = CGRect(x: w - itemW - itemX, y: itemY, width: itemW, height: itemH)
+        title.frame = CGRect(x: itemX, y: itemY, width: itemW * 4/3, height: itemH)
+        let timeW = itemW * 2/3
+        time.frame = CGRect(x: w - timeW - itemX, y: itemY, width: timeW, height: itemH)
         
         content.frame = CGRect(x: itemX, y: contentY, width: contentW, height: READ_MARK_CELL_HEIGHT - contentY - SPACE_SA_15)
         
