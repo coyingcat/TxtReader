@@ -53,11 +53,11 @@ class MagnifierView: UIWindow {
             _targetPoint = newValue
             if targetWindow != nil{
                
-                let center = CGPoint(x: _targetPoint.x, y:  self.center.y)
-                if targetPoint.y > bounds.height * 0.5{
-                    self.center.y = targetPoint.y - self.bounds.height / 2
+                var anchor = CGPoint(x: _targetPoint.x, y:  self.center.y)
+                if _targetPoint.y > bounds.height * 0.5{
+                    anchor.y = targetPoint.y - self.bounds.height / 2
                 }
-                self.center = CGPoint(x: self.center.x + self.offsetPoint.x, y: self.center.y + self.offsetPoint.y)
+                self.center = CGPoint(x: anchor.x + self.offsetPoint.x, y: anchor.y + self.offsetPoint.y)
                 contentLayer.setNeedsLayout()
             }
         }
