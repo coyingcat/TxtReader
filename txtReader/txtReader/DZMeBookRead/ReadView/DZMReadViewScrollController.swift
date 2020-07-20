@@ -376,10 +376,10 @@ class DZMReadViewScrollController: DZMViewController,UITableViewDelegate,UITable
                     if self != nil {
                         
                         // 当前章节索引
-                        let previousIndex = max(0, (self!.chapterIDs.index(of: chapterModel.id)! - 1))
+                        let previousIndex = max(0, (self!.chapterIDs.firstIndex(of: chapterModel.id)! - 1))
                         
                         // 加载列表索引
-                        let loadIndex = self!.loadChapterIDs.index(of: chapterID!)!
+                        let loadIndex = self!.loadChapterIDs.firstIndex(of: chapterID!)!
                         
                         // 阅读章节ID列表加入
                         self?.chapterIDs.insert(chapterID!, at: previousIndex)
@@ -444,10 +444,10 @@ class DZMReadViewScrollController: DZMViewController,UITableViewDelegate,UITable
                     if self != nil {
                         
                         // 当前章节索引
-                        let nextIndex = self!.chapterIDs.index(of: chapterModel.id)! + 1
+                        let nextIndex = self!.chapterIDs.firstIndex(of: chapterModel.id)! + 1
                         
                         // 加载列表索引
-                        let loadIndex = self!.loadChapterIDs.index(of: chapterID!)!
+                        let loadIndex = self!.loadChapterIDs.firstIndex(of: chapterID!)!
                         
                         // 阅读章节ID列表加入
                         self?.chapterIDs.insert(chapterID!, at: nextIndex)

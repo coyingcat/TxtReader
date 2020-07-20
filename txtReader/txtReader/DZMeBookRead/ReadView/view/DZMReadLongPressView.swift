@@ -79,7 +79,7 @@ class DZMReadLongPressView: DZMReadView {
     private var duration:TimeInterval = READ_AD_TIME
     
     /// 放大镜
-    private var magnifierView:DZMMagnifierView?
+    private var magnifierView: MagnifierView?
     
     override init(frame: CGRect) {
         
@@ -98,7 +98,7 @@ class DZMReadLongPressView: DZMReadView {
         
         if magnifierView == nil {
             
-            magnifierView = DZMMagnifierView()
+            magnifierView = MagnifierView()
             magnifierView?.targetWindow = window
             magnifierView?.targetPoint = windowPoint
         }
@@ -148,7 +148,7 @@ class DZMReadLongPressView: DZMReadView {
             magnifierView?.targetPoint = windowPoint
 
             // 移除
-            magnifierView?.remove({ [weak self] () in
+            magnifierView?.remove(done: { [weak self] () in
 
                 // 清空
                 self?.magnifierView = nil
@@ -290,7 +290,7 @@ class DZMReadLongPressView: DZMReadView {
                 magnifierView?.targetPoint = windowPoint
                 
                 // 移除
-                magnifierView?.remove({ [weak self] () in
+                magnifierView?.remove(done: { [weak self] () in
                     
                     // 清空
                     self?.magnifierView = nil
@@ -460,7 +460,7 @@ class DZMReadLongPressView: DZMReadView {
         cursor(isShow: false)
         
         // (如果有放大镜)移除放大镜
-        magnifierView?.remove({ [weak self] () in
+        magnifierView?.remove(done: { [weak self] () in
             
             // 清空
             self?.magnifierView = nil

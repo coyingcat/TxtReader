@@ -57,17 +57,7 @@ extension String {
         
         return scan.scanInt(&val) && scan.isAtEnd
     }
-    
-    /// 是否为数字或Float
-    var isFloat:Bool {
-        
-        let scan: Scanner = Scanner(string: self)
-        
-        var val:Float = 0
-        
-        return scan.scanFloat(&val) && scan.isAtEnd
-    }
-    
+
     /// 是否为空格
     var isSpace:Bool {
         

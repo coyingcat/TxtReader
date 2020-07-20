@@ -52,7 +52,7 @@ class DZMReadCatalogView: UIView,UITableViewDelegate,UITableViewDataSource {
 
             if let chapterListModel = (read.chapterListModels as NSArray).filtered(using: NSPredicate(format: "id == %@", record.chapterModel.id)).first as? DZMReadChapterListModel{
 
-                tableView.scrollToRow(at: read.chapterListModels.index(of: chapterListModel)!.ip, at: .middle, animated: false)
+                tableView.scrollToRow(at: read.chapterListModels.firstIndex(of: chapterListModel)!.ip, at: .middle, animated: false)
             }
         }
     }

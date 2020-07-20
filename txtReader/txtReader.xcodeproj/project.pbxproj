@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2601CB7C24C577B800E07B3C /* MagnifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2601CB7B24C577B800E07B3C /* MagnifierView.swift */; };
 		26CDB17324C54E50007C05A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB17224C54E50007C05A9 /* AppDelegate.swift */; };
 		26CDB17524C54E50007C05A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB17424C54E50007C05A9 /* SceneDelegate.swift */; };
 		26CDB17A24C54E50007C05A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26CDB17824C54E50007C05A9 /* Main.storyboard */; };
@@ -28,9 +29,6 @@
 		26CDB1F924C54ECF007C05A9 /* DZMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1A524C54ECE007C05A9 /* DZMSegmentedControl.m */; };
 		26CDB1FA24C54ECF007C05A9 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1AA24C54ECE007C05A9 /* ASValuePopUpView.m */; };
 		26CDB1FB24C54ECF007C05A9 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1AB24C54ECE007C05A9 /* ASValueTrackingSlider.m */; };
-		26CDB1FC24C54ECF007C05A9 /* magnifier_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 26CDB1AE24C54ECE007C05A9 /* magnifier_1.png */; };
-		26CDB1FD24C54ECF007C05A9 /* magnifier_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 26CDB1AF24C54ECE007C05A9 /* magnifier_0.png */; };
-		26CDB1FE24C54ECF007C05A9 /* DZMMagnifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1B024C54ECE007C05A9 /* DZMMagnifierView.m */; };
 		26CDB1FF24C54ECF007C05A9 /* DZMTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1B224C54ECE007C05A9 /* DZMTableView.swift */; };
 		26CDB20024C54ECF007C05A9 /* DZMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1B324C54ECE007C05A9 /* DZMViewController.swift */; };
 		26CDB20124C54ECF007C05A9 /* DZMReadViewScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1B524C54ECF007C05A9 /* DZMReadViewScrollController.swift */; };
@@ -85,6 +83,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2601CB7B24C577B800E07B3C /* MagnifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnifierView.swift; sourceTree = "<group>"; };
 		26CDB16F24C54E50007C05A9 /* txtReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = txtReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26CDB17224C54E50007C05A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26CDB17424C54E50007C05A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,10 +112,6 @@
 		26CDB1A924C54ECE007C05A9 /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
 		26CDB1AA24C54ECE007C05A9 /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
 		26CDB1AB24C54ECE007C05A9 /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
-		26CDB1AD24C54ECE007C05A9 /* DZMMagnifierView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZMMagnifierView.h; sourceTree = "<group>"; };
-		26CDB1AE24C54ECE007C05A9 /* magnifier_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnifier_1.png; sourceTree = "<group>"; };
-		26CDB1AF24C54ECE007C05A9 /* magnifier_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnifier_0.png; sourceTree = "<group>"; };
-		26CDB1B024C54ECE007C05A9 /* DZMMagnifierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZMMagnifierView.m; sourceTree = "<group>"; };
 		26CDB1B224C54ECE007C05A9 /* DZMTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMTableView.swift; sourceTree = "<group>"; };
 		26CDB1B324C54ECE007C05A9 /* DZMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMViewController.swift; sourceTree = "<group>"; };
 		26CDB1B524C54ECF007C05A9 /* DZMReadViewScrollController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadViewScrollController.swift; sourceTree = "<group>"; };
@@ -241,6 +236,7 @@
 				26CDB19924C54ECE007C05A9 /* custom */,
 				26CDB19D24C54ECE007C05A9 /* thirdParty */,
 				26CDB1B124C54ECE007C05A9 /* base */,
+				2601CB7B24C577B800E07B3C /* MagnifierView.swift */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -283,7 +279,6 @@
 				26CDB1A124C54ECE007C05A9 /* FDFullscreenPopGesture */,
 				26CDB1A424C54ECE007C05A9 /* DZMSegmentedControl */,
 				26CDB1A724C54ECE007C05A9 /* ASValueTrackingSlider */,
-				26CDB1AC24C54ECE007C05A9 /* DZMMagnifierView */,
 			);
 			path = thirdParty;
 			sourceTree = "<group>";
@@ -324,17 +319,6 @@
 				26CDB1AB24C54ECE007C05A9 /* ASValueTrackingSlider.m */,
 			);
 			path = ASValueTrackingSlider;
-			sourceTree = "<group>";
-		};
-		26CDB1AC24C54ECE007C05A9 /* DZMMagnifierView */ = {
-			isa = PBXGroup;
-			children = (
-				26CDB1AD24C54ECE007C05A9 /* DZMMagnifierView.h */,
-				26CDB1AE24C54ECE007C05A9 /* magnifier_1.png */,
-				26CDB1AF24C54ECE007C05A9 /* magnifier_0.png */,
-				26CDB1B024C54ECE007C05A9 /* DZMMagnifierView.m */,
-			);
-			path = DZMMagnifierView;
 			sourceTree = "<group>";
 		};
 		26CDB1B124C54ECE007C05A9 /* base */ = {
@@ -530,11 +514,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26CDB1FC24C54ECF007C05A9 /* magnifier_1.png in Resources */,
 				26CDB17F24C54E55007C05A9 /* LaunchScreen.storyboard in Resources */,
 				26CDB17C24C54E55007C05A9 /* Assets.xcassets in Resources */,
 				26CDB17A24C54E50007C05A9 /* Main.storyboard in Resources */,
-				26CDB1FD24C54ECF007C05A9 /* magnifier_0.png in Resources */,
 				26CDB23024C550CE007C05A9 /* 三国演义.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,11 +581,11 @@
 				26CDB20224C54ECF007C05A9 /* DZMReadLongPressViewController.swift in Sources */,
 				26CDB22524C54ECF007C05A9 /* DZMReadCatalogView.swift in Sources */,
 				26CDB21B24C54ECF007C05A9 /* DZMRMFuncView.swift in Sources */,
+				2601CB7C24C577B800E07B3C /* MagnifierView.swift in Sources */,
 				26CDB20124C54ECF007C05A9 /* DZMReadViewScrollController.swift in Sources */,
 				26CDB20C24C54ECF007C05A9 /* DZMReadHomeViewCell.swift in Sources */,
 				26CDB21E24C54ECF007C05A9 /* DZMReadModel.swift in Sources */,
 				26CDB20624C54ECF007C05A9 /* DZMReadHomeView.swift in Sources */,
-				26CDB1FE24C54ECF007C05A9 /* DZMMagnifierView.m in Sources */,
 				26CDB21124C54ECF007C05A9 /* DZMRMFontSizeView.swift in Sources */,
 				26CDB21024C54ECF007C05A9 /* DZMReadConfigure.swift in Sources */,
 				26CDB22624C54ECF007C05A9 /* DZMReadMarkCell.swift in Sources */,
@@ -761,6 +743,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D878P8TW6L;
 				INFOPLIST_FILE = txtReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -780,6 +763,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D878P8TW6L;
 				INFOPLIST_FILE = txtReader/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
