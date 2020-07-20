@@ -45,6 +45,8 @@ class DZMReadTextParser: NSObject {
         
         // bookID 为空
         if bookID.isEmpty { return nil }
+        
+        
         guard DZMReadModel.isExist(bookID: bookID) == false else{
             // 存在
             

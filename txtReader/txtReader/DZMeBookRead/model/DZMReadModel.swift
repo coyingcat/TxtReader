@@ -11,7 +11,7 @@ import UIKit
 class DZMReadModel: NSObject,NSCoding {
 
     /// 小说ID
-    var bookID:String!
+    let bookID:String
     
     /// 小说名称
     var bookName:String!
@@ -66,9 +66,7 @@ class DZMReadModel: NSObject,NSCoding {
                
            }else{
                
-               readModel = DZMReadModel()
-               
-               readModel.bookID = bookID
+               readModel = DZMReadModel(key: bookID)
            }
            
            // 获取阅读记录
@@ -77,12 +75,20 @@ class DZMReadModel: NSObject,NSCoding {
            return readModel
     }
     
+    
+    
+    init(key bID: String) {
+        bookID = bID
+        super.init()
+    }
+    
+    
     required init?(coder aDecoder: NSCoder) {
         
+        
+        
+        bookID = aDecoder.decodeObject(forKey: "bookID") as! String
         super.init()
-        
-        bookID = aDecoder.decodeObject(forKey: "bookID") as? String
-        
         bookName = aDecoder.decodeObject(forKey: "bookName") as? String
         
         
@@ -111,16 +117,6 @@ class DZMReadModel: NSObject,NSCoding {
         aCoder.encode(ranges, forKey: "ranges")
     }
     
-    init(_ dict:Any? = nil) {
-        
-        super.init()
-        
-        if dict != nil { setValuesForKeys(dict as! [String : Any]) }
-        
-        
-    }
-    
-    override func setValue(_ value: Any?, forUndefinedKey key: String) { }
 }
 
 
