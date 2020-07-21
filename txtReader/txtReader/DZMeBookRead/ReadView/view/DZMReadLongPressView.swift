@@ -284,6 +284,9 @@ class DZMReadLongPressView: DZMReadView {
             // 触摸结束
    
             // 触摸到光标
+            
+            
+            /*
             if isTouchCursor {
                 
                 // 设置放大镜位置
@@ -308,6 +311,9 @@ class DZMReadLongPressView: DZMReadView {
             
             // 结束触摸
             isTouchCursor = false
+ 
+            */
+            break;
         }
         
         // 重绘

@@ -60,7 +60,7 @@ class MagnifierView: UIWindow {
                 /// 放大镜位置偏移调整 (调整放大镜在原始位置上的偏移 默认: CGPointMake(0, -40))
                 let offsetPoint = CGPoint(x: 0, y: -40)
                 self.center = CGPoint(x: anchor.x + offsetPoint.x, y: anchor.y + offsetPoint.y)
-                contentLayer.setNeedsLayout()
+                contentLayer.setNeedsDisplay()
             }
         }
     }
@@ -81,7 +81,9 @@ class MagnifierView: UIWindow {
     
     init() {
         super.init(frame: CGRect.zero)
-        
+        alpha = 1
+        coverOne.alpha = 1
+        coverTwo.alpha = 1
         
         frame = CGRect(x: 0, y: 0, width: MagnifierAnima.wh, height: MagnifierAnima.wh)
         layer.cornerRadius = MagnifierAnima.wh / 2
@@ -130,20 +132,29 @@ class MagnifierView: UIWindow {
     }
     
    
+
     
-    override func draw(_ layer: CALayer, in ctx: CGContext) {
-        ctx.translateBy(x: MagnifierAnima.wh, y: MagnifierAnima.wh)
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+    
+    
+    
+}
+
+   
+extension MagnifierView{
+    override func draw(_ layer: CALayer, in ctx: CGContext){
+        
+        ctx.translateBy(x: MagnifierAnima.wh * 0.5, y: MagnifierAnima.wh * 0.5)
         /// 放大比例 默认: MV_SCALE
         ctx.scaleBy(x: MagnifierAnima.scale, y: MagnifierAnima.scale)
         ctx.translateBy(x: -1 * targetPoint.x, y: -1 * targetPoint.y)
         targetWindow?.layer.render(in: ctx)
+        
+        
     }
     
     
-
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
+    
 }
-
-   
