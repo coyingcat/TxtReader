@@ -35,6 +35,7 @@ class MagnifierView: UIWindow {
         }
         set{
             _targetWindow = newValue
+            makeKeyAndVisible()
             UIView.animate(withDuration: MagnifierAnima.time) {
                 self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             }
@@ -63,7 +64,7 @@ class MagnifierView: UIWindow {
                 /// 放大镜位置偏移调整 (调整放大镜在原始位置上的偏移 默认: CGPointMake(0, -40))
                 let offsetPoint = CGPoint(x: 0, y: -40)
                 self.center = CGPoint(x: anchor.x + offsetPoint.x, y: anchor.y + offsetPoint.y)
-                makeKeyAndVisible()
+                
                 contentLayer.setNeedsDisplay()
             }
         }

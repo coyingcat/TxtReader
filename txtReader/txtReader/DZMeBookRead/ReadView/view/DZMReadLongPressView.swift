@@ -79,7 +79,7 @@ class DZMReadLongPressView: DZMReadView {
     private var duration:TimeInterval = READ_AD_TIME
     
     /// 放大镜
-    private var magnifierView: MagnifierView?
+    private var magnifierView = MagnifierView()
     
     override init(frame: CGRect) {
         
@@ -96,12 +96,9 @@ class DZMReadLongPressView: DZMReadView {
     /// 创建放大镜
     private func creatMagnifierView(windowPoint: CGPoint) {
         
-        if magnifierView == nil {
-            
-            magnifierView = MagnifierView()
-            magnifierView?.targetWindow = window
-            magnifierView?.targetPoint = windowPoint
-        }
+        magnifierView.targetWindow = window
+        magnifierView.targetPoint = windowPoint
+    
     }
     
     // MARK: 手势事件
@@ -128,10 +125,10 @@ class DZMReadLongPressView: DZMReadView {
             READ_NOTIFICATION_PUSH(userInfo: [READ_KEY_LONG_PRESS_VIEW : NSNumber(value: true)])
 
             // 放大镜
-        //    creatMagnifierView(windowPoint: windowPoint)
+            creatMagnifierView(windowPoint: windowPoint)
         case .changed:
             // 设置放大镜位置
-          //  magnifierView?.targetPoint = windowPoint
+            magnifierView.targetPoint = windowPoint
             break;
         default:
             // 触摸结束
@@ -144,23 +141,22 @@ class DZMReadLongPressView: DZMReadView {
 
             // 显示光标
             cursor(isShow: true)
-/*
+
             // 设置放大镜位置
-            magnifierView?.targetPoint = windowPoint
+            magnifierView.targetPoint = windowPoint
 
             // 移除
-            magnifierView?.remove(done: { [weak self] () in
+            magnifierView.remove(done: { [weak self] () in
 
                 // 清空
                 
-                self?.magnifierView?.targetWindow = nil
-                self?.magnifierView = nil
+                self?.magnifierView.targetWindow = nil
                 
                 // 显示菜单
                 self?.showMenu(isShow: true)
             })
              
-*/
+
             
             
              self.showMenu(isShow: true)
