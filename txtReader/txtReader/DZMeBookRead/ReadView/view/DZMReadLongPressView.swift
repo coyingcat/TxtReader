@@ -94,7 +94,7 @@ class DZMReadLongPressView: DZMReadView {
     }
     
     /// 创建放大镜
-    private func creatMagnifierView(windowPoint: CGPoint) {
+    private func showMagnifierView(windowPoint: CGPoint) {
         
         magnifierView.targetWindow = window
         magnifierView.targetPoint = windowPoint
@@ -125,11 +125,12 @@ class DZMReadLongPressView: DZMReadView {
             READ_NOTIFICATION_PUSH(userInfo: [READ_KEY_LONG_PRESS_VIEW : NSNumber(value: true)])
 
             // 放大镜
-            creatMagnifierView(windowPoint: windowPoint)
+            
+            self.showMagnifierView(windowPoint: windowPoint)
+            
         case .changed:
             // 设置放大镜位置
             magnifierView.targetPoint = windowPoint
-            break;
         default:
             // 触摸结束
 
@@ -146,14 +147,9 @@ class DZMReadLongPressView: DZMReadView {
             magnifierView.targetPoint = windowPoint
 
             // 移除
-            magnifierView.remove(done: { [weak self] () in
-
-                // 清空
-                
-                self?.magnifierView.targetWindow = nil
-                
+            magnifierView.remove(done: {
                 // 显示菜单
-                self?.showMenu(isShow: true)
+                self.showMenu(isShow: true)
             })
             // 重绘
             setNeedsDisplay()
@@ -249,7 +245,7 @@ class DZMReadLongPressView: DZMReadView {
             if isTouchCursor {
                 
                 // 放大镜
-                creatMagnifierView(windowPoint: windowPoint)
+                showMagnifierView(windowPoint: windowPoint)
             }
         case .changed:
             // 触摸中

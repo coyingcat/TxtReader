@@ -34,10 +34,13 @@ class MagnifierView: UIWindow {
             return _targetWindow
         }
         set{
-            _targetWindow = newValue
+           
+            self._targetWindow = newValue
+            self._targetWindow?.addSubview(self)
             UIView.animate(withDuration: MagnifierAnima.time) {
                 self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             }
+            
              
         }
     }
@@ -64,7 +67,7 @@ class MagnifierView: UIWindow {
                 let offsetPoint = CGPoint(x: 0, y: -40)
                 self.center = CGPoint(x: anchor.x + offsetPoint.x, y: anchor.y + offsetPoint.y)
                 
-                contentLayer.setNeedsDisplay()
+           //     contentLayer.setNeedsDisplay()
             }
         }
     }
@@ -86,6 +89,9 @@ class MagnifierView: UIWindow {
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: MagnifierAnima.wh, height: MagnifierAnima.wh))
         alpha = 1
+        isHidden = false
+        
+        
         coverOne.alpha = 1
         coverTwo.alpha = 1
         
@@ -110,20 +116,15 @@ class MagnifierView: UIWindow {
     
     /// 移除 (移除对象 并释放内部强引用)
     func remove(done completionHandler: @escaping ()->Void){
+        guard superview != nil else {
+            return
+        }
+        
         
         UIView.animate(withDuration: MagnifierAnima.time, animations: {
-            self.coverOne.alpha = 0
-            
-            self.coverTwo.alpha = 0
-            
-            self.alpha = 0
             
             self.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
         }) { (finished) in
-            self.coverOne.removeFromSuperview()
-            
-            self.coverTwo.removeFromSuperview()
-            
             self.removeFromSuperview()
             
             completionHandler()
