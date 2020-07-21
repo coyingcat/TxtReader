@@ -28,7 +28,7 @@ struct MagnifierAnima {
 class MagnifierView: UIWindow {
 
       /// 目标视图Window (注意: 传视图的Window 例子: self.view.window)
-    var _targetWindow: UIWindow? = nil
+    weak var _targetWindow: UIWindow? = nil
     var targetWindow: UIWindow?{
         get{
             return _targetWindow
@@ -36,6 +36,9 @@ class MagnifierView: UIWindow {
         set{
            
             self._targetWindow = newValue
+            if self.superview != nil{
+                removeFromSuperview()
+            }
             self._targetWindow?.addSubview(self)
             UIView.animate(withDuration: MagnifierAnima.time) {
                 self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
@@ -75,7 +78,7 @@ class MagnifierView: UIWindow {
     lazy var contentLayer = { () -> CALayer in
         let layer = CALayer()
         layer.frame = self.bounds
-        layer.delegate = self
+    //    layer.delegate = self
         layer.contentsScale = UIScreen.main.scale
         return layer
     }()
@@ -145,7 +148,7 @@ class MagnifierView: UIWindow {
     
     
 }
-
+/*
    
 extension MagnifierView{
     override func draw(_ layer: CALayer, in ctx: CGContext){
@@ -162,3 +165,4 @@ extension MagnifierView{
     
     
 }
+*/
