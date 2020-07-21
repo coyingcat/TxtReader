@@ -242,8 +242,14 @@ NSString *const SliderFillColorAnim = @"fillColor";
         [self.layer animateKey:@"opacity" fromValue:nil toValue:@1.0 customize:^(CABasicAnimation *animation) {
             animation.duration = 0.1;
         }];
-    } [CATransaction commit];
+    }
+    
+    
+    [CATransaction commit];
 }
+
+
+
 
 - (void)hideAnimated:(BOOL)animated completionBlock:(void (^)())block
 {
