@@ -151,8 +151,10 @@ class DZMReadLongPressView: DZMReadView {
             magnifierView?.remove(done: { [weak self] () in
 
                 // 清空
+                
+                self?.magnifierView?.targetWindow = nil
                 self?.magnifierView = nil
-
+                
                 // 显示菜单
                 self?.showMenu(isShow: true)
             })
@@ -494,18 +496,13 @@ class DZMReadLongPressView: DZMReadView {
                 let copy = UIMenuItem(title: "复制", action: #selector(clickCopy))
                 
                 menuController.menuItems = [copy]
-                
-                menuController.setTargetRect(rect, in: self)
-                
                 DelayHandle {
-                    
-                    menuController.setMenuVisible(true, animated: true)
+                    menuController.showMenu(from: self, rect: rect)
                 }
             }
             
         }else{ // 隐藏
-            
-            UIMenuController.shared.setMenuVisible(false, animated: true)
+            UIMenuController.shared.hideMenu(from: self)
         }
     }
     

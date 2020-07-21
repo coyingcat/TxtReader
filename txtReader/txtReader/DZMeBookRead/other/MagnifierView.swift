@@ -28,10 +28,14 @@ struct MagnifierAnima {
 class MagnifierView: UIWindow {
 
       /// 目标视图Window (注意: 传视图的Window 例子: self.view.window)
-    
-    weak var targetWindow: UIView?{
-        didSet{
-            makeKeyAndVisible()
+    var _targetWindow: UIView? = nil
+    var targetWindow: UIView?{
+        get{
+            return _targetWindow
+        }
+        set{
+            _targetWindow = newValue
+            self.makeKeyAndVisible()
             UIView.animate(withDuration: MagnifierAnima.time) {
                 self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             }
@@ -80,12 +84,11 @@ class MagnifierView: UIWindow {
   
     
     init() {
-        super.init(frame: CGRect.zero)
+        super.init(frame: CGRect(x: 0, y: 0, width: MagnifierAnima.wh, height: MagnifierAnima.wh))
         alpha = 1
         coverOne.alpha = 1
         coverTwo.alpha = 1
         
-        frame = CGRect(x: 0, y: 0, width: MagnifierAnima.wh, height: MagnifierAnima.wh)
         layer.cornerRadius = MagnifierAnima.wh / 2
         layer.masksToBounds = true
         windowLevel = UIWindow.Level.alert
