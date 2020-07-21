@@ -78,25 +78,16 @@ class MagnifierView: UIWindow {
     lazy var contentLayer = { () -> CALayer in
         let layer = CALayer()
         layer.frame = self.bounds
-        layer.delegate = self
+        
         layer.contentsScale = UIScreen.main.scale
         return layer
     }()
     
-    let coverOne = UIImageView(image: UIImage(named: "magnifier_0"))
-    
-    let coverTwo = UIImageView(image: UIImage(named: "magnifier_1"))
-    
-  
     
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: MagnifierAnima.wh, height: MagnifierAnima.wh))
         alpha = 1
         isHidden = false
-        
-        
-        coverOne.alpha = 1
-        coverTwo.alpha = 1
         
         layer.cornerRadius = MagnifierAnima.wh / 2
         layer.masksToBounds = true
@@ -104,13 +95,6 @@ class MagnifierView: UIWindow {
         layer.addSublayer(contentLayer)
     
         transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        
-        coverOne.frame = CGRect(x: 0, y: 0, width: MagnifierAnima.wh, height: MagnifierAnima.wh)
-        addSubview(coverOne)
-         
-         
-        coverTwo.frame = CGRect(x: 0, y: 0, width: MagnifierAnima.wh, height: MagnifierAnima.wh)
-        addSubview(coverTwo)
     }
     
     
@@ -148,7 +132,6 @@ class MagnifierView: UIWindow {
     
     
 }
-/*
    
 extension MagnifierView{
     override func draw(_ layer: CALayer, in ctx: CGContext){
@@ -165,4 +148,4 @@ extension MagnifierView{
     
     
 }
-*/
+
