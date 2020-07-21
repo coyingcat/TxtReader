@@ -282,22 +282,15 @@ class DZMReadLongPressView: DZMReadView {
             // 触摸结束
    
             // 触摸到光标
-            
-            
-            /*
             if isTouchCursor {
                 
                 // 设置放大镜位置
-                magnifierView?.targetPoint = windowPoint
+                magnifierView.targetPoint = windowPoint
                 
                 // 移除
-                magnifierView?.remove(done: { [weak self] () in
-                    
-                    // 清空
-                    self?.magnifierView = nil
-                    
+                magnifierView.remove(done: {
                     // 显示菜单
-                    self?.showMenu(isShow: true)
+                    self.showMenu(isShow: true)
                 })
                 
             }
@@ -309,9 +302,6 @@ class DZMReadLongPressView: DZMReadView {
             
             // 结束触摸
             isTouchCursor = false
- 
-            */
-            break;
         }
         
         // 重绘
