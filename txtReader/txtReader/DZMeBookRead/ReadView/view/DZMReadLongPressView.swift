@@ -79,7 +79,7 @@ class DZMReadLongPressView: DZMReadView {
     private var duration:TimeInterval = READ_AD_TIME
     
     /// 放大镜
-    private var magnifierView = MagnifierView()
+    private var magnifierView: MagnifierView?
     
     override init(frame: CGRect) {
         
@@ -95,9 +95,9 @@ class DZMReadLongPressView: DZMReadView {
     
     /// 创建放大镜
     private func showMagnifierView(windowPoint: CGPoint) {
-        
-        magnifierView.targetWindow = window
-        magnifierView.targetPoint = windowPoint
+        magnifierView = MagnifierView()
+        magnifierView?.targetWindow = window
+        magnifierView?.targetPoint = windowPoint
     
     }
     
@@ -130,7 +130,7 @@ class DZMReadLongPressView: DZMReadView {
             
         case .changed:
             // 设置放大镜位置
-            magnifierView.targetPoint = windowPoint
+            magnifierView?.targetPoint = windowPoint
         default:
             // 触摸结束
 
@@ -144,11 +144,12 @@ class DZMReadLongPressView: DZMReadView {
             cursor(isShow: true)
 
             // 设置放大镜位置
-            magnifierView.targetPoint = windowPoint
+            magnifierView?.targetPoint = windowPoint
 
             // 移除
-            magnifierView.remove(done: {
+            magnifierView?.remove(done: {
                 // 显示菜单
+                self.magnifierView = nil
                 self.showMenu(isShow: true)
             })
             // 重绘
@@ -253,7 +254,7 @@ class DZMReadLongPressView: DZMReadView {
             if isTouchCursor {
                 
                 // 设置放大镜位置
-                magnifierView.targetPoint = windowPoint
+                magnifierView?.targetPoint = windowPoint
             }
             
             // 判断触摸
@@ -281,11 +282,12 @@ class DZMReadLongPressView: DZMReadView {
             if isTouchCursor {
                 
                 // 设置放大镜位置
-                magnifierView.targetPoint = windowPoint
+                magnifierView?.targetPoint = windowPoint
                 
                 // 移除
-                magnifierView.remove(done: {
+                magnifierView?.remove(done: {
                     // 显示菜单
+                    self.magnifierView = nil
                     self.showMenu(isShow: true)
                 })
                 
@@ -450,7 +452,9 @@ class DZMReadLongPressView: DZMReadView {
         cursor(isShow: false)
         
         // (如果有放大镜)移除放大镜
-        magnifierView.remove(done: {  })
+        magnifierView?.remove(done: {
+            self.magnifierView = nil
+        })
         
         // 重绘
         setNeedsDisplay()
@@ -478,9 +482,12 @@ class DZMReadLongPressView: DZMReadView {
             let copy = UIMenuItem(title: "复制", action: #selector(clickCopy))
             
             menuController.menuItems = [copy]
-            DelayHandle {
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                 menuController.showMenu(from: self, rect: rect)
             }
+                
+            
         }
 
     }

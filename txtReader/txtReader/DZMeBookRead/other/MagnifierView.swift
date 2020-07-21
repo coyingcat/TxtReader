@@ -70,7 +70,7 @@ class MagnifierView: UIWindow {
                 let offsetPoint = CGPoint(x: 0, y: -40)
                 self.center = CGPoint(x: anchor.x + offsetPoint.x, y: anchor.y + offsetPoint.y)
                 
-           //     contentLayer.setNeedsDisplay()
+                contentLayer.setNeedsDisplay()
             }
         }
     }
@@ -78,7 +78,7 @@ class MagnifierView: UIWindow {
     lazy var contentLayer = { () -> CALayer in
         let layer = CALayer()
         layer.frame = self.bounds
-    //    layer.delegate = self
+        layer.delegate = self
         layer.contentsScale = UIScreen.main.scale
         return layer
     }()
@@ -125,7 +125,7 @@ class MagnifierView: UIWindow {
         
         
         UIView.animate(withDuration: MagnifierAnima.time, animations: {
-            
+            self.alpha = 0
             self.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
         }) { (finished) in
             self.removeFromSuperview()
