@@ -487,28 +487,29 @@ class DZMReadLongPressView: DZMReadView {
     
     /// 隐藏或显示菜单
     private func showMenu(isShow:Bool) {
-        
-        if isShow { // 显示
-            
-            if !rects.isEmpty {
-            
-                let rect = DZMCoreText.GetMenuRect(rects: rects, viewFrame: bounds)
-                
-                becomeFirstResponder()
-                
-                let menuController = UIMenuController.shared
-                
-                let copy = UIMenuItem(title: "复制", action: #selector(clickCopy))
-                
-                menuController.menuItems = [copy]
-                DelayHandle {
-                    menuController.showMenu(from: self, rect: rect)
-                }
-            }
-            
-        }else{ // 隐藏
+        guard isShow else {
+             // 隐藏
             UIMenuController.shared.hideMenu(from: self)
+            return
         }
+        // 显示
+            
+        if !rects.isEmpty {
+        
+            let rect = DZMCoreText.GetMenuRect(rects: rects, viewFrame: bounds)
+            
+            becomeFirstResponder()
+            
+            let menuController = UIMenuController.shared
+            
+            let copy = UIMenuItem(title: "复制", action: #selector(clickCopy))
+            
+            menuController.menuItems = [copy]
+            DelayHandle {
+                menuController.showMenu(from: self, rect: rect)
+            }
+        }
+
     }
     
     /// 允许菜单事件
