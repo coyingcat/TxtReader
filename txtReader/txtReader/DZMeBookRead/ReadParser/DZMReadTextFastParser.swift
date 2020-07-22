@@ -265,13 +265,7 @@ class ReadTextFastParser: NSObject {
             let nextChapterID:NSNumber! = isLastChapter ? READ_NO_MORE_CHAPTER : readModel.chapterListModels[priority + 1].id
             
             // 章节内容
-            let chapterModel = ReadChapterModel()
-            
-            // 书ID
-            chapterModel.bookID = chapterListModel.bookID
-            
-            // 章节ID
-            chapterModel.id = chapterListModel.id
+            let chapterModel = ReadChapterModel(id: chapterListModel.id, in: chapterListModel.bookID)
             
             // 章节名
             chapterModel.name = chapterListModel.name

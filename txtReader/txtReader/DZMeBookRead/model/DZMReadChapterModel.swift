@@ -10,10 +10,10 @@ import UIKit
 class ReadChapterModel: NSObject,NSCoding {
     
     /// 小说ID
-    var bookID:String!
+    let bookID: String
     
     /// 章节ID
-    var id:NSNumber!
+    let id: NSNumber
     
     /// 上一章ID
     var previousChapterID:NSNumber!
@@ -43,13 +43,19 @@ class ReadChapterModel: NSObject,NSCoding {
     // MARK: 快捷获取
     
     /// 当前章节是否为第一个章节
-    var isFirstChapter:Bool { return (previousChapterID == READ_NO_MORE_CHAPTER) }
+    var isFirstChapter:Bool {
+        previousChapterID == READ_NO_MORE_CHAPTER
+    }
     
     /// 当前章节是否为最后一个章节
-    var isLastChapter:Bool { return (nextChapterID == READ_NO_MORE_CHAPTER) }
+    var isLastChapter:Bool {
+        nextChapterID == READ_NO_MORE_CHAPTER
+    }
     
     /// 完整章节名称
-    var fullName:String { return READ_CHAPTER_NAME(name) }
+    var fullName:String {
+        READ_CHAPTER_NAME(name)
+    }
     
     /// 完整富文本内容
     var fullContent:NSAttributedString!
@@ -180,25 +186,28 @@ class ReadChapterModel: NSObject,NSCoding {
             
         }
         else{
-            
-            chapterModel = ReadChapterModel()
-            
-            chapterModel.bookID = bookID
-            
-            chapterModel.id = chapterID
+            chapterModel = ReadChapterModel(id: chapterID, in: bookID)
         }
         
         return chapterModel
     }
+    
+    init(id chapter: NSNumber, in key: String){
+        bookID = key
+        id = chapter
+        
+        super.init()
+    }
         
     
     required init?(coder aDecoder: NSCoder) {
+        bookID = aDecoder.decodeObject(forKey: "bookID") as! String
+        
+        id = aDecoder.decodeObject(forKey: "id") as! NSNumber
         
         super.init()
         
-        bookID = aDecoder.decodeObject(forKey: "bookID") as? String
         
-        id = aDecoder.decodeObject(forKey: "id") as? NSNumber
         
         previousChapterID = aDecoder.decodeObject(forKey: "previousChapterID") as? NSNumber
         
@@ -244,12 +253,5 @@ class ReadChapterModel: NSObject,NSCoding {
         aCoder.encode(attributes, forKey: "attributes")
     }
     
-    init(_ dict:Any? = nil) {
-        
-        super.init()
-        
-        if dict != nil { setValuesForKeys(dict as! [String : Any]) }
-    }
-    
-    override func setValue(_ value: Any?, forUndefinedKey key: String) { }
+  
 }

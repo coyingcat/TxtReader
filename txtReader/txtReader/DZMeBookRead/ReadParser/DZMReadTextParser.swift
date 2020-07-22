@@ -109,13 +109,7 @@ class ReadTextParser: NSObject {
         
         guard results.isEmpty == false else {
             // 章节内容
-            let chapterModel = ReadChapterModel()
-            
-            // 书ID
-            chapterModel.bookID = bookID
-            
-            // 章节ID
-            chapterModel.id = NSNumber(value: 1)
+            let chapterModel = ReadChapterModel(id:  NSNumber(value: 1), in: bookID)
             
             // 章节名
             chapterModel.name = "开始"
@@ -167,13 +161,7 @@ class ReadTextParser: NSObject {
             }
             
             // 章节内容
-            let chapterModel = ReadChapterModel()
-            
-            // 书ID
-            chapterModel.bookID = bookID
-            
-            // 章节ID
-            chapterModel.id = NSNumber(value: (i + NSNumber(value: isHavePreface).intValue))
+            let chapterModel = ReadChapterModel(id: NSNumber(value: (i + NSNumber(value: isHavePreface).intValue)), in: bookID)
             
             // 优先级
             chapterModel.priority = NSNumber(value: (i - NSNumber(value: !isHavePreface).intValue))
