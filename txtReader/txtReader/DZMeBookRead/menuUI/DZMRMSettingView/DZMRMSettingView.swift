@@ -1,5 +1,5 @@
 //
-//  DZMRMSettingView.swift
+//  RMSettingView.swift
 
 //
 //  
@@ -16,20 +16,20 @@ let READ_MENU_SETTING_VIEW_HEIGHT:CGFloat = READ_MENU_SETTING_SUB_VIEW_HEIGHT * 
 /// settingView 总高度(内容高度 + iphoneX情况下底部间距)
 let READ_MENU_SETTING_VIEW_TOTAL_HEIGHT:CGFloat = SA(isX: READ_MENU_SETTING_VIEW_HEIGHT + SPACE_SA_20, READ_MENU_SETTING_VIEW_HEIGHT)
 
-class DZMRMSettingView: DZMRMBaseView {
+class RMSettingView: RMBaseView {
     
     /// 字体大小
-    private var fontSizeView:DZMRMFontSizeView!
+    private var fontSizeView:RMFontSizeView!
     
 
     /// 翻页效果
-    private var effectTypeView:DZMRMEffectTypeView!
+    private var effectTypeView:RMEffectTypeView!
     
     /// 字体
-    private var fontTypeView:DZMRMFontTypeView!
+    private var fontTypeView:RMFontTypeView!
     
     /// 间距
-    private var spacingView:DZMRMSpacingView!
+    private var spacingView:RMSpacingView!
 
     override init(frame: CGRect) { super.init(frame: frame) }
     
@@ -42,20 +42,20 @@ class DZMRMSettingView: DZMRMBaseView {
         let h = READ_MENU_SETTING_SUB_VIEW_HEIGHT
         
  
-        fontSizeView = DZMRMFontSizeView(readMenu: readMenu)
+        fontSizeView = RMFontSizeView(readMenu: readMenu)
         addSubview(fontSizeView)
         fontSizeView.frame = CGRect(x: x, y: 0, width: w, height: h)
         
-        effectTypeView = DZMRMEffectTypeView(readMenu: readMenu)
+        effectTypeView = RMEffectTypeView(readMenu: readMenu)
         addSubview(effectTypeView)
         effectTypeView.frame = CGRect(x: x, y: fontSizeView.frame.maxY, width: w, height: h)
         
-        fontTypeView = DZMRMFontTypeView(readMenu: readMenu)
+        fontTypeView = RMFontTypeView(readMenu: readMenu)
         addSubview(fontTypeView)
         fontTypeView.frame = CGRect(x: x, y: effectTypeView.frame.maxY, width: w, height: h)
         
  
-        spacingView = DZMRMSpacingView(readMenu: readMenu)
+        spacingView = RMSpacingView(readMenu: readMenu)
         addSubview(spacingView)
         spacingView.frame = CGRect(x: x, y: fontTypeView.frame.maxY, width: w, height: h)
     }

@@ -1,5 +1,5 @@
 //
-//  DZMRMBaseView.swift
+//  RMBaseView.swift
 
 //
 //  
@@ -7,16 +7,16 @@
 
 import UIKit
 
-class DZMRMBaseView: UIView {
+class RMBaseView: UIView {
 
     /// 菜单对象
-    weak var readMenu:DZMReadMenu!
+    weak var readMenu:ReadMenu!
     
     /// 系统初始化
     override init(frame: CGRect) { super.init(frame: frame) }
     
     /// 初始化
-    convenience init(readMenu:DZMReadMenu!) {
+    convenience init(readMenu:ReadMenu!) {
         
         self.init(frame: CGRect.zero)
         

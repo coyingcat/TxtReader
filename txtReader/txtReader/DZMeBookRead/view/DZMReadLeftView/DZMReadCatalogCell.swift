@@ -1,5 +1,5 @@
 //
-//  DZMReadCatalogCell.swift
+//  ReadCatalogCell.swift
 
 //
 //  
@@ -7,22 +7,22 @@
 
 import UIKit
 
-class DZMReadCatalogCell: UITableViewCell {
+class ReadCatalogCell: UITableViewCell {
 
     private(set) var chapterName = UILabel()
     
     private(set) lazy var spaceLine = SpaceLine(contentView, COLOR_230_230_230)
     
-    class func cell(_ tableView:UITableView) ->DZMReadCatalogCell {
+    class func cell(_ tableView:UITableView) ->ReadCatalogCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "DZMReadCatalogCell")
+        var cell = tableView.dequeueReusableCell(withIdentifier: "ReadCatalogCell")
         
         if cell == nil {
             
-            cell = DZMReadCatalogCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "DZMReadCatalogCell")
+            cell = ReadCatalogCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "ReadCatalogCell")
         }
         
-        return cell as! DZMReadCatalogCell
+        return cell as! ReadCatalogCell
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

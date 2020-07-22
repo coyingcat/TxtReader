@@ -1,5 +1,5 @@
 //
-//  DZMKeyedArchiver.swift
+//  KeyedArchiver.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMKeyedArchiver: NSObject {
+class KeyedArchiver: NSObject {
     
     /// 归档文件
     class func archiver(folderName:String!, fileName:String!, object:AnyObject!) {

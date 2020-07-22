@@ -1,5 +1,5 @@
 //
-//  DZMRMFontSizeView.swift
+//  RMFontSizeView.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMRMFontSizeView: DZMRMBaseView {
+class RMFontSizeView: RMBaseView {
 
     private var title:UILabel!
     
@@ -48,7 +48,7 @@ class DZMRMFontSizeView: DZMRMBaseView {
         addSubview(rightButton)
         
         fontSize = UILabel()
-        fontSize.text = DZMReadConfigure.shared.fontSize.stringValue
+        fontSize.text = ReadConfigure.shared.fontSize.stringValue
         fontSize.font = FONT_SA_16
         fontSize.textColor = READ_COLOR_MENU_COLOR
         fontSize.textAlignment = .center
@@ -57,7 +57,7 @@ class DZMRMFontSizeView: DZMRMBaseView {
         displayProgress = UIButton(type: .custom)
         displayProgress.setBackgroundImage(UIImage(named: "page")!.withRenderingMode(.alwaysTemplate), for: .normal)
         displayProgress.addTarget(self, action: #selector(clickDisplayProgress(button:)), for: .touchUpInside)
-        displayProgress.isSelected = DZMReadConfigure.shared.progressIndex.boolValue
+        displayProgress.isSelected = ReadConfigure.shared.progressIndex.boolValue
         addSubview(displayProgress)
         updateDisplayProgressButton()
     }
@@ -68,9 +68,9 @@ class DZMRMFontSizeView: DZMRMBaseView {
         
         updateDisplayProgressButton()
         
-        DZMReadConfigure.shared.progressIndex = NSNumber(value: button.isSelected)
+        ReadConfigure.shared.progressIndex = NSNumber(value: button.isSelected)
         
-        DZMReadConfigure.shared.save()
+        ReadConfigure.shared.save()
         
         readMenu?.delegate?.readMenuClickDisplayProgress(readMenu: readMenu)
     }
@@ -85,15 +85,15 @@ class DZMRMFontSizeView: DZMRMBaseView {
     
     @objc private func clickLeftButton() {
         
-        let size = NSNumber(value: DZMReadConfigure.shared.fontSize.intValue - READ_FONT_SIZE_SPACE)
+        let size = NSNumber(value: ReadConfigure.shared.fontSize.intValue - READ_FONT_SIZE_SPACE)
         
         if !(size.intValue < READ_FONT_SIZE_MIN) {
             
             fontSize.text = size.stringValue
             
-            DZMReadConfigure.shared.fontSize = size
+            ReadConfigure.shared.fontSize = size
             
-            DZMReadConfigure.shared.save()
+            ReadConfigure.shared.save()
             
             readMenu?.delegate?.readMenuClickFontSize(readMenu: readMenu)
         }
@@ -101,15 +101,15 @@ class DZMRMFontSizeView: DZMRMBaseView {
     
     @objc private func clickRightButton() {
         
-        let size = NSNumber(value: DZMReadConfigure.shared.fontSize.intValue + READ_FONT_SIZE_SPACE)
+        let size = NSNumber(value: ReadConfigure.shared.fontSize.intValue + READ_FONT_SIZE_SPACE)
         
         if size.intValue <= READ_FONT_SIZE_MAX{
             
             fontSize.text = size.stringValue
             
-            DZMReadConfigure.shared.fontSize = size
+            ReadConfigure.shared.fontSize = size
             
-            DZMReadConfigure.shared.save()
+            ReadConfigure.shared.save()
             
             readMenu?.delegate?.readMenuClickFontSize(readMenu: readMenu)
         }

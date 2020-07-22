@@ -24,9 +24,9 @@
 		26CDB1F424C54ECF007C05A9 /* DZMKeyedArchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB19A24C54ECE007C05A9 /* DZMKeyedArchiver.swift */; };
 		26CDB1F524C54ECF007C05A9 /* DZMCoreText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB19B24C54ECE007C05A9 /* DZMCoreText.swift */; };
 		26CDB1F624C54ECF007C05A9 /* DZMUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB19C24C54ECE007C05A9 /* DZMUserDefaults.swift */; };
-		26CDB1F724C54ECF007C05A9 /* DZMCoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1A024C54ECE007C05A9 /* DZMCoverController.m */; };
+		26CDB1F724C54ECF007C05A9 /* CoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1A024C54ECE007C05A9 /* CoverController.m */; };
 		26CDB1F824C54ECF007C05A9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1A324C54ECE007C05A9 /* UINavigationController+FDFullscreenPopGesture.m */; };
-		26CDB1F924C54ECF007C05A9 /* DZMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1A524C54ECE007C05A9 /* DZMSegmentedControl.m */; };
+		26CDB1F924C54ECF007C05A9 /* SegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1A524C54ECE007C05A9 /* SegmentedControl.m */; };
 		26CDB1FA24C54ECF007C05A9 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1AA24C54ECE007C05A9 /* ASValuePopUpView.m */; };
 		26CDB1FB24C54ECF007C05A9 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1AB24C54ECE007C05A9 /* ASValueTrackingSlider.m */; };
 		26CDB1FF24C54ECF007C05A9 /* DZMTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1B224C54ECE007C05A9 /* DZMTableView.swift */; };
@@ -102,12 +102,12 @@
 		26CDB19A24C54ECE007C05A9 /* DZMKeyedArchiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMKeyedArchiver.swift; sourceTree = "<group>"; };
 		26CDB19B24C54ECE007C05A9 /* DZMCoreText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMCoreText.swift; sourceTree = "<group>"; };
 		26CDB19C24C54ECE007C05A9 /* DZMUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMUserDefaults.swift; sourceTree = "<group>"; };
-		26CDB19F24C54ECE007C05A9 /* DZMCoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZMCoverController.h; sourceTree = "<group>"; };
-		26CDB1A024C54ECE007C05A9 /* DZMCoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZMCoverController.m; sourceTree = "<group>"; };
+		26CDB19F24C54ECE007C05A9 /* CoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverController.h; sourceTree = "<group>"; };
+		26CDB1A024C54ECE007C05A9 /* CoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverController.m; sourceTree = "<group>"; };
 		26CDB1A224C54ECE007C05A9 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		26CDB1A324C54ECE007C05A9 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
-		26CDB1A524C54ECE007C05A9 /* DZMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZMSegmentedControl.m; sourceTree = "<group>"; };
-		26CDB1A624C54ECE007C05A9 /* DZMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZMSegmentedControl.h; sourceTree = "<group>"; };
+		26CDB1A524C54ECE007C05A9 /* SegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedControl.m; sourceTree = "<group>"; };
+		26CDB1A624C54ECE007C05A9 /* SegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedControl.h; sourceTree = "<group>"; };
 		26CDB1A824C54ECE007C05A9 /* ASValuePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValuePopUpView.h; sourceTree = "<group>"; };
 		26CDB1A924C54ECE007C05A9 /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
 		26CDB1AA24C54ECE007C05A9 /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
@@ -285,8 +285,8 @@
 		26CDB19E24C54ECE007C05A9 /* DZMCoverController */ = {
 			isa = PBXGroup;
 			children = (
-				26CDB19F24C54ECE007C05A9 /* DZMCoverController.h */,
-				26CDB1A024C54ECE007C05A9 /* DZMCoverController.m */,
+				26CDB19F24C54ECE007C05A9 /* CoverController.h */,
+				26CDB1A024C54ECE007C05A9 /* CoverController.m */,
 			);
 			path = DZMCoverController;
 			sourceTree = "<group>";
@@ -303,8 +303,8 @@
 		26CDB1A424C54ECE007C05A9 /* DZMSegmentedControl */ = {
 			isa = PBXGroup;
 			children = (
-				26CDB1A524C54ECE007C05A9 /* DZMSegmentedControl.m */,
-				26CDB1A624C54ECE007C05A9 /* DZMSegmentedControl.h */,
+				26CDB1A524C54ECE007C05A9 /* SegmentedControl.m */,
+				26CDB1A624C54ECE007C05A9 /* SegmentedControl.h */,
 			);
 			path = DZMSegmentedControl;
 			sourceTree = "<group>";
@@ -540,7 +540,7 @@
 				26CDB1F424C54ECF007C05A9 /* DZMKeyedArchiver.swift in Sources */,
 				26CDB22224C54ECF007C05A9 /* DZMReadChapterModel.swift in Sources */,
 				26CDB22924C54ECF007C05A9 /* DZMReadContentView.swift in Sources */,
-				26CDB1F724C54ECF007C05A9 /* DZMCoverController.m in Sources */,
+				26CDB1F724C54ECF007C05A9 /* CoverController.m in Sources */,
 				26CDB21324C54ECF007C05A9 /* DZMRMSettingView.swift in Sources */,
 				26CDB22324C54ECF007C05A9 /* DZMReadPageModel.swift in Sources */,
 				265D34B624C7E37200A33686 /* NotificationMore.swift in Sources */,
@@ -592,7 +592,7 @@
 				26CDB20E24C54ECF007C05A9 /* DZMReadTextFastParser.swift in Sources */,
 				26CDB21D24C54ECF007C05A9 /* DZMReadRecordModel.swift in Sources */,
 				26CDB21524C54ECF007C05A9 /* DZMRMSpacingView.swift in Sources */,
-				26CDB1F924C54ECF007C05A9 /* DZMSegmentedControl.m in Sources */,
+				26CDB1F924C54ECF007C05A9 /* SegmentedControl.m in Sources */,
 				26CDB1F124C54ECF007C05A9 /* DZMColorList.swift in Sources */,
 				26CDB20A24C54ECF007C05A9 /* DZMReadLongPressCursorView.swift in Sources */,
 				26CDB23824C5678F007C05A9 /* ArrayMore.swift in Sources */,

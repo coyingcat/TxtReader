@@ -1,5 +1,5 @@
 //
-//  DZMReadMarkView.swift
+//  ReadMarkView.swift
 
 //
 //  
@@ -7,25 +7,25 @@
 
 import UIKit
 
-@objc protocol DZMReadMarkViewDelegate:NSObjectProtocol {
+@objc protocol ReadMarkViewDelegate:NSObjectProtocol {
     
     /// 点击章节
-    @objc func markViewClickMark(markView:DZMReadMarkView, markModel:DZMReadMarkModel)
+    @objc func markViewClickMark(markView:ReadMarkView, markModel:ReadMarkModel)
 }
 
-class DZMReadMarkView: UIView{
+class ReadMarkView: UIView{
     
     /// 代理
-    weak var delegate: DZMReadMarkViewDelegate?
+    weak var delegate: ReadMarkViewDelegate?
     
     /// 数据源
-    var readModel:DZMReadModel?{
+    var readModel:ReadModel?{
         didSet{
             tableView.reloadData()
         }
     }
     
-    private(set) var tableView = DZMTableView()
+    private(set) var tableView = TableView()
     
     override init(frame: CGRect) {
         
@@ -53,7 +53,7 @@ class DZMReadMarkView: UIView{
 
 
 
-extension DZMReadMarkView: UITableViewDelegate,UITableViewDataSource{
+extension ReadMarkView: UITableViewDelegate,UITableViewDataSource{
     
     
     // MARK: UITableViewDelegate,UITableViewDataSource
@@ -64,7 +64,7 @@ extension DZMReadMarkView: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = DZMReadMarkCell.cell(tableView)
+        let cell = ReadMarkCell.cell(tableView)
         
         // 设置数据
         if let mark = readModel?.markModels[indexPath.row]{
@@ -72,7 +72,7 @@ extension DZMReadMarkView: UITableViewDelegate,UITableViewDataSource{
         }
         
         // 日夜间
-        if DZMUserDefaults.bool(READ_KEY_MODE_DAY_NIGHT) {
+        if Persisting.bool(READ_KEY_MODE_DAY_NIGHT) {
             cell.spaceLine.backgroundColor = COLOR_230_230_230.withAlphaComponent(0.1)
         }
         else{

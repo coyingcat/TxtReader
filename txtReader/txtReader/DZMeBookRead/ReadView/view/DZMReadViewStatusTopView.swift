@@ -1,5 +1,5 @@
 //
-//  DZMReadViewStatusTopView.swift
+//  ReadViewStatusTopView.swift
 
 //
 //  
@@ -10,7 +10,7 @@ import UIKit
 /// topView 高度
 let READ_STATUS_TOP_VIEW_HEIGHT:CGFloat =  SPACE_SA_40
 
-class DZMReadViewStatusTopView: UIView {
+class ReadViewStatusTopView: UIView {
 
     /// 书名
     private(set) var bookName = UILabel()
@@ -29,13 +29,13 @@ class DZMReadViewStatusTopView: UIView {
         
         // 书名
         bookName.font = FONT_SA_10
-        bookName.textColor = DZMReadConfigure.shared.statusTextColor
+        bookName.textColor = ReadConfigure.shared.statusTextColor
         bookName.textAlignment = .left
         addSubview(bookName)
         
         // 章节名
         chapterName.font = FONT_SA_10
-        chapterName.textColor = DZMReadConfigure.shared.statusTextColor
+        chapterName.textColor = ReadConfigure.shared.statusTextColor
         chapterName.textAlignment = .right
         addSubview(chapterName)
     }

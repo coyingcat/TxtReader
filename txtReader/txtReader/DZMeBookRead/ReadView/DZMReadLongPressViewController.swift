@@ -1,5 +1,5 @@
 //
-//  DZMReadLongPressViewController.swift
+//  ReadLongPressViewController.swift
 
 //
 //  
@@ -7,10 +7,10 @@
 
 import UIKit
 
-class DZMReadLongPressViewController: ReadViewController {
+class ReadLongPressViewController: ReadViewController {
 
     /// 阅读视图
-    private var readView:DZMReadLongPressView!
+    private var readView:ReadLongPressView!
     
     // 初始化阅读视图
     override func initReadView() {
@@ -29,7 +29,7 @@ class DZMReadLongPressViewController: ReadViewController {
             let pageModel = recordModel.pageModel
             
             // 阅读视图
-            readView = DZMReadLongPressView()
+            readView = ReadLongPressView()
             readView.pageModel = pageModel
             view.addSubview(readView)
             readView.frame = CGRect(x: rect.minX, y: rect.minY, width: rect.width, height: pageModel.contentSize.height)

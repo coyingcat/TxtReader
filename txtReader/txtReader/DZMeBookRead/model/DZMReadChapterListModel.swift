@@ -1,5 +1,5 @@
 //
-//  DZMReadChapterListModel.swift
+//  ReadChapterListModel.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMReadChapterListModel: NSObject,NSCoding {
+class ReadChapterListModel: NSObject,NSCoding {
     
     /// 章节ID
     @objc var id:NSNumber!

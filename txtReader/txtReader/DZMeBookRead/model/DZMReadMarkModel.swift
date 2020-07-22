@@ -1,5 +1,5 @@
 //
-//  DZMReadMarkModel.swift
+//  ReadMarkModel.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMReadMarkModel: NSObject,NSCoding {
+class ReadMarkModel: NSObject,NSCoding {
 
     /// 小说ID
     var bookID:String!

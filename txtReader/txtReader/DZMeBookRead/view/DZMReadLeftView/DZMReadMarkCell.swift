@@ -1,5 +1,5 @@
 //
-//  DZMReadMarkCell.swift
+//  ReadMarkCell.swift
 
 //
 //  
@@ -10,7 +10,7 @@ import UIKit
 /// mark cell 高度
 let READ_MARK_CELL_HEIGHT:CGFloat = SPACE_SA_100
 
-class DZMReadMarkCell: UITableViewCell {
+class ReadMarkCell: UITableViewCell {
 
     private var title:UILabel!
     
@@ -20,7 +20,7 @@ class DZMReadMarkCell: UITableViewCell {
     
     private(set) var spaceLine:UIView!
     
-    var markModel:DZMReadMarkModel! {
+    var markModel:ReadMarkModel! {
         
         didSet{
             
@@ -32,16 +32,16 @@ class DZMReadMarkCell: UITableViewCell {
         }
     }
     
-    class func cell(_ tableView:UITableView) ->DZMReadMarkCell {
+    class func cell(_ tableView:UITableView) ->ReadMarkCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "DZMReadMarkCell")
+        var cell = tableView.dequeueReusableCell(withIdentifier: "ReadMarkCell")
         
         if cell == nil {
             
-            cell = DZMReadMarkCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "DZMReadMarkCell")
+            cell = ReadMarkCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "ReadMarkCell")
         }
         
-        return cell as! DZMReadMarkCell
+        return cell as! ReadMarkCell
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

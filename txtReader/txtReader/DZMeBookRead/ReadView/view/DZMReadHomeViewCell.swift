@@ -1,5 +1,5 @@
 //
-//  DZMReadHomeViewCell.swift
+//  ReadHomeViewCell.swift
 
 //
 //  
@@ -7,21 +7,21 @@
 
 import UIKit
 
-class DZMReadHomeViewCell: UITableViewCell {
+class ReadHomeViewCell: UITableViewCell {
 
     /// 书籍首页视图
-    private(set) var homeView = DZMReadHomeView()
+    private(set) var homeView = ReadHomeView()
     
-    class func cell(_ tableView:UITableView) ->DZMReadHomeViewCell {
+    class func cell(_ tableView:UITableView) ->ReadHomeViewCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "DZMReadHomeViewCell")
+        var cell = tableView.dequeueReusableCell(withIdentifier: "ReadHomeViewCell")
         
         if cell == nil {
             
-            cell = DZMReadHomeViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "DZMReadHomeViewCell")
+            cell = ReadHomeViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "ReadHomeViewCell")
         }
         
-        return cell as! DZMReadHomeViewCell
+        return cell as! ReadHomeViewCell
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

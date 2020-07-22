@@ -1,5 +1,5 @@
 //
-//  DZMRMFontTypeView.swift
+//  RMFontTypeView.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMRMFontTypeView: DZMRMBaseView {
+class RMFontTypeView: RMBaseView {
 
     private var fontNames = ["系统","黑体","楷体","宋体"]
     
@@ -44,7 +44,7 @@ class DZMRMFontTypeView: DZMRMBaseView {
             addSubview(item)
             items.append(item)
             
-            if i == DZMReadConfigure.shared.fontIndex.intValue {
+            if i == ReadConfigure.shared.fontIndex.intValue {
                 selectItem(item)
                 
             }
@@ -70,9 +70,9 @@ class DZMRMFontTypeView: DZMRMBaseView {
         
         selectItem(item)
         
-        DZMReadConfigure.shared.fontIndex = NSNumber(value: item.tag)
+        ReadConfigure.shared.fontIndex = NSNumber(value: item.tag)
         
-        DZMReadConfigure.shared.save()
+        ReadConfigure.shared.save()
         
         readMenu?.delegate?.readMenuClickFont(readMenu: readMenu)
     }

@@ -1,5 +1,5 @@
 //
-//  DZMCoreText.swift
+//  CoreText.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMCoreText: NSObject {
+class CoreText: NSObject {
     
     /// 获得 CTFrame
     ///

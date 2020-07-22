@@ -1,5 +1,5 @@
 //
-//  DZMReadViewStatusBottomView.swift
+//  ReadViewStatusBottomView.swift
 
 //
 //  
@@ -10,7 +10,7 @@ import UIKit
 /// bottomView 高度
 let READ_STATUS_BOTTOM_VIEW_HEIGHT:CGFloat =  SPACE_SA_30
 
-class DZMReadViewStatusBottomView: UIView {
+class ReadViewStatusBottomView: UIView {
     
     /// 进度
     private(set) var progress = UILabel()
@@ -24,7 +24,7 @@ class DZMReadViewStatusBottomView: UIView {
   
         // 进度
         progress.font = FONT_SA_10
-        progress.textColor = DZMReadConfigure.shared.statusTextColor
+        progress.textColor = ReadConfigure.shared.statusTextColor
         addSubview(progress)
         
  

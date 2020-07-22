@@ -1,5 +1,5 @@
 //
-//  DZMReadCatalogView.swift
+//  ReadCatalogView.swift
 
 //
 //  
@@ -7,19 +7,19 @@
 
 import UIKit
 
-@objc protocol DZMReadCatalogViewDelegate:NSObjectProtocol {
+@objc protocol ReadCatalogViewDelegate:NSObjectProtocol {
     
     /// 点击章节
-    @objc func catalogViewClickChapter(catalogView:DZMReadCatalogView, chapterListModel:DZMReadChapterListModel)
+    @objc func catalogViewClickChapter(catalogView:ReadCatalogView, chapterListModel:ReadChapterListModel)
 }
 
-class DZMReadCatalogView: UIView,UITableViewDelegate,UITableViewDataSource {
+class ReadCatalogView: UIView,UITableViewDelegate,UITableViewDataSource {
 
     /// 代理
-    weak var delegate: DZMReadCatalogViewDelegate?
+    weak var delegate: ReadCatalogViewDelegate?
     
     /// 数据源
-    var readModel: DZMReadModel?{
+    var readModel: ReadModel?{
         
         didSet{
             
@@ -29,7 +29,7 @@ class DZMReadCatalogView: UIView,UITableViewDelegate,UITableViewDataSource {
         }
     }
     
-    private(set) var tableView = DZMTableView()
+    private(set) var tableView = TableView()
     
     override init(frame: CGRect) {
         
@@ -49,7 +49,7 @@ class DZMReadCatalogView: UIView,UITableViewDelegate,UITableViewDataSource {
        
             
 
-            if let chapterListModel = (read.chapterListModels as NSArray).filtered(using: NSPredicate(format: "id == %@", record.chapterModel.id)).first as? DZMReadChapterListModel{
+            if let chapterListModel = (read.chapterListModels as NSArray).filtered(using: NSPredicate(format: "id == %@", record.chapterModel.id)).first as? ReadChapterListModel{
 
                 tableView.scrollToRow(at: read.chapterListModels.firstIndex(of: chapterListModel)!.ip, at: .middle, animated: false)
             }
@@ -71,7 +71,7 @@ class DZMReadCatalogView: UIView,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = DZMReadCatalogCell.cell(tableView)
+        let cell = ReadCatalogCell.cell(tableView)
         guard let read = readModel else {
             return cell
         }
@@ -82,7 +82,7 @@ class DZMReadCatalogView: UIView,UITableViewDelegate,UITableViewDataSource {
         cell.chapterName.text = read.chapterListModels[indexPath.row].name
         
         // 日夜间
-        if DZMUserDefaults.bool(READ_KEY_MODE_DAY_NIGHT) {
+        if Persisting.bool(READ_KEY_MODE_DAY_NIGHT) {
             
             cell.spaceLine.backgroundColor = COLOR_230_230_230.withAlphaComponent(0.1)
             

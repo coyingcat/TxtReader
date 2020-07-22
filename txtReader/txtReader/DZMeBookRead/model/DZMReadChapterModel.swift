@@ -1,5 +1,5 @@
 //
-//  DZMReadChapterModel.swift
+//  ReadChapterModel.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMReadChapterModel: NSObject,NSCoding {
+class ReadChapterModel: NSObject,NSCoding {
     
     /// 小说ID
     var bookID:String!
@@ -37,7 +37,7 @@ class DZMReadChapterModel: NSObject,NSCoding {
     var pageCount = NSNumber(value: 0)
     
     /// 分页数据
-    var pageModels = [DZMReadPageModel]()
+    var pageModels = [ReadPageModel]()
     
     
     // MARK: 快捷获取
@@ -76,7 +76,7 @@ class DZMReadChapterModel: NSObject,NSCoding {
     /// 更新字体
     func updateFont() {
         
-        let tempAttributes = DZMReadConfigure.shared.attributes(isTitle: false, isPageing: true)
+        let tempAttributes = ReadConfigure.shared.attributes(isTitle: false, isPageing: true)
         
         if !NSDictionary(dictionary: attributes).isEqual(to: tempAttributes) {
             
@@ -84,7 +84,7 @@ class DZMReadChapterModel: NSObject,NSCoding {
             
             fullContent = fullContentAttrString()
             
-            pageModels = DZMReadParser.pageing(attrString: fullContent, rect: CGRect(origin: CGPoint.zero, size: READ_VIEW_RECT.size), isFirstChapter: isFirstChapter)
+            pageModels = ReadParser.pageing(attrString: fullContent, rect: CGRect(origin: CGPoint.zero, size: READ_VIEW_RECT.size), isFirstChapter: isFirstChapter)
             
             pageCount = NSNumber(value: pageModels.count)
             
@@ -95,9 +95,9 @@ class DZMReadChapterModel: NSObject,NSCoding {
     /// 完整内容排版
     private func fullContentAttrString() ->NSMutableAttributedString {
         
-        let titleString = NSMutableAttributedString(string: fullName, attributes: DZMReadConfigure.shared.attributes(isTitle: true))
+        let titleString = NSMutableAttributedString(string: fullName, attributes: ReadConfigure.shared.attributes(isTitle: true))
         
-        let contentString = NSMutableAttributedString(string: content, attributes: DZMReadConfigure.shared.attributes(isTitle: false))
+        let contentString = NSMutableAttributedString(string: content, attributes: ReadConfigure.shared.attributes(isTitle: false))
         
         titleString.append(contentString)
         
@@ -156,32 +156,32 @@ class DZMReadChapterModel: NSObject,NSCoding {
     
     /// 保存
     func persist(){
-        DZMKeyedArchiver.archiver(folderName: bookID, fileName: id.stringValue, object: self)
+        KeyedArchiver.archiver(folderName: bookID, fileName: id.stringValue, object: self)
     }
     
     /// 是否存在章节内容
     class func isExist(bookID:String!, chapterID:NSNumber!) ->Bool {
         
-        return DZMKeyedArchiver.isExist(folderName: bookID, fileName: chapterID.stringValue)
+        return KeyedArchiver.isExist(folderName: bookID, fileName: chapterID.stringValue)
     }
     
     // MARK: 构造
     
     /// 获取章节对象,如果则创建对象返回
-    class func model(bookID:String!, chapterID:NSNumber!, isUpdateFont:Bool = true) ->DZMReadChapterModel {
+    class func model(bookID:String!, chapterID:NSNumber!, isUpdateFont:Bool = true) ->ReadChapterModel {
         
-        var chapterModel:DZMReadChapterModel!
+        var chapterModel:ReadChapterModel!
         
-        if DZMReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
+        if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
             
-            chapterModel = DZMKeyedArchiver.unarchiver(folderName: bookID, fileName: chapterID.stringValue) as? DZMReadChapterModel
+            chapterModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: chapterID.stringValue) as? ReadChapterModel
             
             if isUpdateFont { chapterModel?.updateFont() }
             
         }
         else{
             
-            chapterModel = DZMReadChapterModel()
+            chapterModel = ReadChapterModel()
             
             chapterModel.bookID = bookID
             
@@ -214,7 +214,7 @@ class DZMReadChapterModel: NSObject,NSCoding {
         
         pageCount = aDecoder.decodeObject(forKey: "pageCount") as! NSNumber
         
-        pageModels = aDecoder.decodeObject(forKey: "pageModels") as! [DZMReadPageModel]
+        pageModels = aDecoder.decodeObject(forKey: "pageModels") as! [ReadPageModel]
         
         attributes = aDecoder.decodeObject(forKey: "attributes") as? [NSAttributedString.Key:Any] ?? [:]
     }

@@ -1,5 +1,5 @@
 //
-//  DZMReadLeftView.swift
+//  ReadLeftView.swift
 
 //
 //  
@@ -14,19 +14,19 @@ let READ_LEFT_VIEW_WIDTH:CGFloat = SPACE_SA_335
 /// leftView headerView 高度
 let READ_LEFT_HEADER_VIEW_HEIGHT:CGFloat = SPACE_SA_50
 
-class DZMReadLeftView: UIView {
+class ReadLeftView: UIView {
 
     // 功能栏
-    private var segmentedControl = DZMSegmentedControl(frame: CGRect(x: 0, y: SA(isX: StatusBarHeight, 0), width: READ_LEFT_VIEW_WIDTH, height: READ_LEFT_HEADER_VIEW_HEIGHT))
+    private var segmentedControl = SegmentedControl(frame: CGRect(x: 0, y: SA(isX: StatusBarHeight, 0), width: READ_LEFT_VIEW_WIDTH, height: READ_LEFT_HEADER_VIEW_HEIGHT))
     
     // 分割线
     private lazy var spaceLine = SpaceLine(self, COLOR_230_230_230)
     
     // 目录
-    private(set) var catalogView = DZMReadCatalogView()
+    private(set) var catalogView = ReadCatalogView()
     
     // 书签
-    private(set) var markView = DZMReadMarkView()
+    private(set) var markView = ReadMarkView()
     
     override init(frame: CGRect) {
         
@@ -65,7 +65,7 @@ class DZMReadLeftView: UIView {
     func updateUI() {
         
         // 日夜间切换修改
-        if DZMUserDefaults.bool(READ_KEY_MODE_DAY_NIGHT) {
+        if Persisting.bool(READ_KEY_MODE_DAY_NIGHT) {
             
             spaceLine.backgroundColor = COLOR_230_230_230.withAlphaComponent(0.2)
             
@@ -93,11 +93,11 @@ class DZMReadLeftView: UIView {
 
 
 
-extension DZMReadLeftView: DZMSegmentedControlDelegate{
+extension ReadLeftView: SegmentedControlDelegate{
     
     
-    // MARK: DZMSegmentedControlDelegate
-    func segmentedControl(_ segmentedControl: DZMSegmentedControl, click index: Int) {
+    // MARK: SegmentedControlDelegate
+    func segmentedControl(_ segmentedControl: SegmentedControl, click index: Int) {
          
          UIView.animate(withDuration: READ_AD_TIME) { [weak self] () in
              

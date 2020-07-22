@@ -1,5 +1,5 @@
 //
-//  DZMSegmentedControl.h
+//  SegmentedControl.h
 
 //
 //  
@@ -10,22 +10,22 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /// 滑条宽度自适应填充
-static CGFloat const DZMSegmentedControlSliderWidthFill = -1;
+static CGFloat const SegmentedControlSliderWidthFill = -1;
 
-@class DZMSegmentedControl;
+@class SegmentedControl;
 
-@protocol DZMSegmentedControlDelegate <NSObject>
+@protocol SegmentedControlDelegate <NSObject>
 
 /// 点击了按钮
-- (void)segmentedControl:(DZMSegmentedControl *)segmentedControl clickIndex:(NSInteger)index;
+- (void)segmentedControl:(SegmentedControl *)segmentedControl clickIndex:(NSInteger)index;
 
 
 @end
 
-@interface DZMSegmentedControl : UIView
+@interface SegmentedControl : UIView
 
 /// 代理
-@property (nonatomic, weak) id<DZMSegmentedControlDelegate> delegate;
+@property (nonatomic, weak) id<SegmentedControlDelegate> delegate;
 
 /// 默认字体
 @property (nonatomic, strong) UIFont *normalFont;
@@ -48,7 +48,7 @@ static CGFloat const DZMSegmentedControlSliderWidthFill = -1;
 /// 滑条底部
 @property (nonatomic, assign) CGFloat sliderBottom;
 
-/// 滑条宽度 (小于0为自适应填充, 推荐使用 DZMSegmentedControlSliderWidthFill )
+/// 滑条宽度 (小于0为自适应填充, 推荐使用 SegmentedControlSliderWidthFill )
 @property (nonatomic, assign) CGFloat sliderWidth;
 
 /// 按钮间距

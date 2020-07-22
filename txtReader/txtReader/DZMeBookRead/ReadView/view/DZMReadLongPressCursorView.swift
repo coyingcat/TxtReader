@@ -1,5 +1,5 @@
 //
-//  DZMReadLongPressCursorView.swift
+//  ReadLongPressCursorView.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMReadLongPressCursorView: UIView {
+class ReadLongPressCursorView: UIView {
 
     /// 光标圆圈显示位置: true -> 圆圈在上面 , false -> 圆圈在下面
     var isTorB = true {

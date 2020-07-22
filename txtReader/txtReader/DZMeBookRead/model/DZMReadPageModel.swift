@@ -1,5 +1,5 @@
 //
-//  DZMReadPageModel.swift
+//  ReadPageModel.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMReadPageModel: NSObject,NSCoding {
+class ReadPageModel: NSObject,NSCoding {
 
     // MARK: 常用属性
     
@@ -33,14 +33,14 @@ class DZMReadPageModel: NSObject,NSCoding {
     var headTypeIndex: NSNumber!
     
     /// 当前内容头部类型 (目前主要是滚动模式使用)
-    var headType: DZMPageHeadType? {
+    var headType: PageHeadType? {
         set{
             if let n = newValue{
                 headTypeIndex = NSNumber(value: n.rawValue)
             }
         }
         get{
-            DZMPageHeadType(rawValue: headTypeIndex.intValue)
+            PageHeadType(rawValue: headTypeIndex.intValue)
         }
     }
     
@@ -62,7 +62,7 @@ class DZMReadPageModel: NSObject,NSCoding {
     /// 获取显示内容(考虑可能会变换字体颜色的情况)
     var showContent: NSAttributedString{
         
-        let textColor = DZMReadConfigure.shared.textColor
+        let textColor = ReadConfigure.shared.textColor
         let tempShowContent = NSMutableAttributedString(attributedString: content)
         tempShowContent.addAttributes([.foregroundColor : textColor], range: NSMakeRange(0, content.length))
         return tempShowContent

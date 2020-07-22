@@ -7,36 +7,36 @@
 
 import UIKit
 
-class ReadViewController: DZMViewController {
+class ReadViewController: ViewController {
     
     
     
     // 需要两个对象， 当前页阅读记录 和 阅读对象
     
     /// 当前页阅读记录对象
-    var recordModel:DZMReadRecordModel!
+    var recordModel:ReadRecordModel!
 
     /// 阅读对象  (  用于显示书名以及书籍首页显示书籍信息  )
-    weak var readModel:DZMReadModel!
+    weak var readModel:ReadModel!
     
     /// 顶部状态栏
-    var topView:DZMReadViewStatusTopView!
+    var topView:ReadViewStatusTopView!
     
     /// 底部状态栏
-    var bottomView:DZMReadViewStatusBottomView!
+    var bottomView:ReadViewStatusBottomView!
     
     /// 阅读视图
-    private var readView:DZMReadView!
+    private var readView:ReadView!
     
     /// 书籍首页视图
-    private var homeView:DZMReadHomeView!
+    private var homeView:ReadHomeView!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         // 设置阅读背景
-        view.backgroundColor = DZMReadConfigure.shared.bgColor
+        view.backgroundColor = ReadConfigure.shared.bgColor
         
         // 刷新阅读进度
         
@@ -50,14 +50,14 @@ class ReadViewController: DZMViewController {
         let readRect = READ_RECT
         
         // 顶部状态栏
-        topView = DZMReadViewStatusTopView()
+        topView = ReadViewStatusTopView()
         topView.bookName.text = readModel.bookName
         topView.chapterName.text = recordModel.chapterModel.name
         view.addSubview(topView)
         topView.frame = CGRect(x: readRect.minX, y: readRect.minY, width: readRect.width, height: READ_STATUS_TOP_VIEW_HEIGHT)
         
         // 底部状态栏
-        bottomView = DZMReadViewStatusBottomView()
+        bottomView = ReadViewStatusBottomView()
         view.addSubview(bottomView)
         bottomView.frame = CGRect(x: readRect.minX, y: readRect.maxY - READ_STATUS_BOTTOM_VIEW_HEIGHT, width: readRect.width, height: READ_STATUS_BOTTOM_VIEW_HEIGHT)
         
@@ -74,14 +74,14 @@ class ReadViewController: DZMViewController {
             topView.isHidden = true
             bottomView.isHidden = true
             
-            homeView = DZMReadHomeView()
+            homeView = ReadHomeView()
             homeView.readModel = readModel
             view.addSubview(homeView)
             homeView.frame = READ_VIEW_RECT
             
         }else{
             
-            readView = DZMReadView()
+            readView = ReadView()
             readView.content = recordModel.contentAttributedString
             view.addSubview(readView)
             readView.frame = READ_VIEW_RECT
@@ -90,7 +90,7 @@ class ReadViewController: DZMViewController {
     
     /// 刷新阅读进度显示
     private func reloadProgress() {
-        switch DZMReadConfigure.shared.progressType {
+        switch ReadConfigure.shared.progressType {
         case .total:
             // 总进度
              

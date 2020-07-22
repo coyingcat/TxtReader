@@ -1,5 +1,5 @@
 //
-//  DZMReadViewScrollController.swift
+//  ReadViewScrollController.swift
 
 //
 //  
@@ -7,19 +7,19 @@
 
 import UIKit
 
-class DZMReadViewScrollController: DZMViewController,UITableViewDelegate,UITableViewDataSource {
+class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDataSource {
 
     /// 当前主控制器
-    weak var vc:DZMReadController!
+    weak var vc:ReadController!
     
     /// 顶部状态栏
-    private var topView = DZMReadViewStatusTopView()
+    private var topView = ReadViewStatusTopView()
     
     /// 阅读视图
-    private var tableView = DZMTableView()
+    private var tableView = TableView()
     
     /// 底部状态栏
-    private var bottomView = DZMReadViewStatusBottomView()
+    private var bottomView = ReadViewStatusBottomView()
     
     /// 当前阅读章节ID列表(只会存放本次阅读的列表)
     private var chapterIDs = [NSNumber]()
@@ -28,7 +28,7 @@ class DZMReadViewScrollController: DZMViewController,UITableViewDelegate,UITable
     private var loadChapterIDs = [NSNumber]()
     
     /// 当前阅读的章节列表,通过已有的章节ID列表,来获取章节模型。
-    private var chapterModels = [String:DZMReadChapterModel]()
+    private var chapterModels = [String:ReadChapterModel]()
     
     /// 记录滚动坐标
     private var scrollPoint:CGPoint!
@@ -113,7 +113,7 @@ class DZMReadViewScrollController: DZMViewController,UITableViewDelegate,UITable
         // 是否为书籍首页
         if pageModel.isHomePage {
             
-            let cell = DZMReadHomeViewCell.cell(tableView)
+            let cell = ReadHomeViewCell.cell(tableView)
             
             cell.homeView.readModel = vc.readModel
             
@@ -121,7 +121,7 @@ class DZMReadViewScrollController: DZMViewController,UITableViewDelegate,UITable
             
         }else{
             
-            let cell = DZMReadViewCell.cell(tableView)
+            let cell = ReadViewCell.cell(tableView)
             
             cell.pageModel = pageModel
             
@@ -279,7 +279,7 @@ class DZMReadViewScrollController: DZMViewController,UITableViewDelegate,UITable
     
     /// 刷新阅读进度显示
     private func reloadProgress() {
-        switch DZMReadConfigure.shared.progressType {
+        switch ReadConfigure.shared.progressType {
         case .total:
             // 总进度
             
@@ -303,9 +303,9 @@ class DZMReadViewScrollController: DZMViewController,UITableViewDelegate,UITable
     // MARK: 获得阅读数据
     
     /// 获取章节内容模型
-    private func GetChapterModel(chapterID:NSNumber) ->DZMReadChapterModel? {
+    private func GetChapterModel(chapterID:NSNumber) ->ReadChapterModel? {
         
-        var chapterModel:DZMReadChapterModel? = nil
+        var chapterModel:ReadChapterModel? = nil
         
         if chapterModels.keys.contains(chapterID.stringValue) { // 内存中存在章节内容
             
@@ -316,9 +316,9 @@ class DZMReadViewScrollController: DZMViewController,UITableViewDelegate,UITable
             // 检查是否存在章节内容
 
             // 存在
-            if DZMReadChapterModel.isExist(bookID: vc.readModel.bookID, chapterID: chapterID){
+            if ReadChapterModel.isExist(bookID: vc.readModel.bookID, chapterID: chapterID){
                 
-                chapterModel = DZMReadChapterModel.model(bookID: vc.readModel.bookID, chapterID: chapterID)
+                chapterModel = ReadChapterModel.model(bookID: vc.readModel.bookID, chapterID: chapterID)
                 
                 chapterModels[chapterID.stringValue] = chapterModel
             }
@@ -331,7 +331,7 @@ class DZMReadViewScrollController: DZMViewController,UITableViewDelegate,UITable
     // MARK: 预加载数据
     
     /// 预加载上一个章节
-    private func preloadingPrevious(_ chapterModel:DZMReadChapterModel!) {
+    private func preloadingPrevious(_ chapterModel:ReadChapterModel!) {
    
         // 章节ID
         let chapterID = chapterModel.previousChapterID
@@ -349,22 +349,22 @@ class DZMReadViewScrollController: DZMViewController,UITableViewDelegate,UITable
         DispatchQueue.global().async { [weak self] () in
             
             // 检查是否存在章节内容
-            let isExist = DZMReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
+            let isExist = ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
             
             // 存在
             if isExist{
                 
                 // 章节内容
-                var tempChapterModel:DZMReadChapterModel!
+                var tempChapterModel:ReadChapterModel!
                 
                 // 获取章节数据
                 if !isExist {
                 
-                    tempChapterModel = DZMReadTextFastParser.parser(readModel: self?.vc.readModel, chapterID: chapterID)
+                    tempChapterModel = ReadTextFastParser.parser(readModel: self?.vc.readModel, chapterID: chapterID)
                     
                 }else{
 
-                    tempChapterModel = DZMReadChapterModel.model(bookID: bookID, chapterID: chapterID!)
+                    tempChapterModel = ReadChapterModel.model(bookID: bookID, chapterID: chapterID!)
                 }
             
                 // 加入阅读内容列表
@@ -399,7 +399,7 @@ class DZMReadViewScrollController: DZMViewController,UITableViewDelegate,UITable
     }
     
     /// 预加载下一个章节
-    private func preloadingNext(_ chapterModel:DZMReadChapterModel!) {
+    private func preloadingNext(_ chapterModel:ReadChapterModel!) {
         
         // 章节ID
         let chapterID = chapterModel.nextChapterID
@@ -417,22 +417,22 @@ class DZMReadViewScrollController: DZMViewController,UITableViewDelegate,UITable
         DispatchQueue.global().async { [weak self] () in
             
             // 检查是否存在章节内容
-            let isExist = DZMReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
+            let isExist = ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
             
             // 存在
             if isExist{
                 
                 // 章节内容
-                var tempChapterModel:DZMReadChapterModel!
+                var tempChapterModel:ReadChapterModel!
                 
                 // 获取章节数据
                 if !isExist {
                 
-                    tempChapterModel = DZMReadTextFastParser.parser(readModel: self?.vc.readModel, chapterID: chapterID)
+                    tempChapterModel = ReadTextFastParser.parser(readModel: self?.vc.readModel, chapterID: chapterID)
                 
                 }else{
 
-                    tempChapterModel = DZMReadChapterModel.model(bookID: bookID, chapterID: chapterID!)
+                    tempChapterModel = ReadChapterModel.model(bookID: bookID, chapterID: chapterID!)
                 }
                 
                 // 加入阅读内容列表

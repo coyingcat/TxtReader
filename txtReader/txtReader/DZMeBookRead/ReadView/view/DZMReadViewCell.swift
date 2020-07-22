@@ -1,5 +1,5 @@
 //
-//  DZMReadViewCell.swift
+//  ReadViewCell.swift
 
 //
 //  
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class DZMReadViewCell: UITableViewCell {
+class ReadViewCell: UITableViewCell {
 
     /// 阅读视图
-    private var readView = DZMReadView()
+    private var readView = ReadView()
     
-    var pageModel:DZMReadPageModel?{
+    var pageModel:ReadPageModel?{
         didSet{
             
             readView.pageModel = pageModel
@@ -21,16 +21,16 @@ class DZMReadViewCell: UITableViewCell {
         }
     }
     
-    class func cell(_ tableView:UITableView) ->DZMReadViewCell {
+    class func cell(_ tableView:UITableView) ->ReadViewCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "DZMReadViewCell")
+        var cell = tableView.dequeueReusableCell(withIdentifier: "ReadViewCell")
         
         if cell == nil {
             
-            cell = DZMReadViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "DZMReadViewCell")
+            cell = ReadViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "ReadViewCell")
         }
         
-        return cell as! DZMReadViewCell
+        return cell as! ReadViewCell
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

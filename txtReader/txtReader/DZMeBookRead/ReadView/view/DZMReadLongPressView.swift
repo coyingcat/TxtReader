@@ -1,5 +1,5 @@
 //
-//  DZMReadLongPressView.swift
+//  ReadLongPressView.swift
 
 //
 //  
@@ -24,7 +24,7 @@ let READ_LONG_PRESS_CURSOR_VIEW_OFFSET:CGFloat = -SPACE_20
 
 import UIKit
 
-class DZMReadLongPressView: DZMReadView {
+class ReadLongPressView: ReadView {
     
     /// 开启拖拽
     private(set) var isOpenDrag = false
@@ -42,10 +42,10 @@ class DZMReadLongPressView: DZMReadView {
     private var tapGes:UITapGestureRecognizer?
     
     /// 左光标
-    private var LCursorView:DZMReadLongPressCursorView!
+    private var LCursorView:ReadLongPressCursorView!
     
     /// 右光标
-    private var RCursorView:DZMReadLongPressCursorView!
+    private var RCursorView:ReadLongPressCursorView!
     
     /// 触摸的光标是左还是右
     private var isCursorLorR = true
@@ -96,10 +96,10 @@ class DZMReadLongPressView: DZMReadView {
             // 触摸结束
 
             // 获得选中区域
-            selectRange = DZMCoreText.GetTouchLineRange(point: point, frameRef: frameRef)
+            selectRange = CoreText.GetTouchLineRange(point: point, frameRef: frameRef)
 
             // 获得选中选中范围
-            rects = DZMCoreText.GetRangeRects(range: selectRange!, frameRef: frameRef, content: pageModel.content?.string)
+            rects = CoreText.GetRangeRects(range: selectRange!, frameRef: frameRef, content: pageModel.content?.string)
 
             // 显示光标
             cursor(isShow: true)
@@ -207,7 +207,7 @@ class DZMReadLongPressView: DZMReadView {
             if isTouchCursor , selectRange != nil {
                 
                 // 触摸到的位置
-                let location = DZMCoreText.GetTouchLocation(point: point, frameRef: frameRef)
+                let location = CoreText.GetTouchLocation(point: point, frameRef: frameRef)
                 
                 // 无结果
                 if location == -1 { return }
@@ -216,7 +216,7 @@ class DZMReadLongPressView: DZMReadView {
                 updateSelectRange(location: location)
                 
                 // 获得选中选中范围
-                rects = DZMCoreText.GetRangeRects(range: selectRange, frameRef: frameRef, content: pageModel.content?.string)
+                rects = CoreText.GetRangeRects(range: selectRange, frameRef: frameRef, content: pageModel.content?.string)
                 
                 // 更新光标位置
                 updateCursorFrame()
@@ -320,11 +320,11 @@ class DZMReadLongPressView: DZMReadView {
             
             if !rects.isEmpty , LCursorView == nil {
                 
-                LCursorView = DZMReadLongPressCursorView()
+                LCursorView = ReadLongPressCursorView()
                 LCursorView.isTorB = true
                 addSubview(LCursorView)
                 
-                RCursorView = DZMReadLongPressCursorView()
+                RCursorView = ReadLongPressCursorView()
                 RCursorView.isTorB = false
                 addSubview(RCursorView)
                 
@@ -397,7 +397,7 @@ class DZMReadLongPressView: DZMReadView {
             
             if !rects.isEmpty {
             
-                let rect = DZMCoreText.GetMenuRect(rects: rects, viewFrame: bounds)
+                let rect = CoreText.GetMenuRect(rects: rects, viewFrame: bounds)
                 
                 becomeFirstResponder()
                 

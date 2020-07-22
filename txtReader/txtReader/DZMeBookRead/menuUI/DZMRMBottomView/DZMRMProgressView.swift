@@ -1,5 +1,5 @@
 //
-//  DZMRMProgressView.swift
+//  RMProgressView.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMRMProgressView: DZMRMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSliderDataSource {
+class RMProgressView: RMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSliderDataSource {
     
     /// 上一章
     private var previousChapter:UIButton!
@@ -76,7 +76,7 @@ class DZMRMProgressView: DZMRMBaseView,ASValueTrackingSliderDelegate,ASValueTrac
         // 有阅读记录以及章节数据
         if let read = readModel , (readModel?.recordModel?.chapterModel != nil) {
             
-            if DZMReadConfigure.shared.progressType == .total { // 总进度
+            if ReadConfigure.shared.progressType == .total { // 总进度
                 
                 slider.minimumValue = 0
                 slider.maximumValue = 1
@@ -112,7 +112,7 @@ class DZMRMProgressView: DZMRMBaseView,ASValueTrackingSliderDelegate,ASValueTrac
     // MARK: ASValueTrackingSliderDataSource
     
     func slider(_ slider: ASValueTrackingSlider!, stringForValue value: Float) -> String{
-        switch DZMReadConfigure.shared.progressType {
+        switch ReadConfigure.shared.progressType {
         case .total:
             // 总进度
             
@@ -133,7 +133,7 @@ class DZMRMProgressView: DZMRMBaseView,ASValueTrackingSliderDelegate,ASValueTrac
     /// 进度显示将要隐藏
     func sliderWillHidePopUpView(_ slider: ASValueTrackingSlider!) {
   
-        if DZMReadConfigure.shared.progressType == .total { // 总进度
+        if ReadConfigure.shared.progressType == .total { // 总进度
             
             // 有阅读数据
             let readModel = readMenu.vc.readModel

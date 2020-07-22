@@ -1,5 +1,5 @@
 //
-//  DZMReadController+EffectType.swift
+//  ReadController+EffectType.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension DZMReadController {
+extension ReadController {
 
     // 创建阅读视图
     
@@ -18,7 +18,7 @@ extension DZMReadController {
         clearPageController()
         
         // 创建
-        switch DZMReadConfigure.shared.effectType {
+        switch ReadConfigure.shared.effectType {
         case .simulation:
             // 仿真
             
@@ -47,7 +47,7 @@ extension DZMReadController {
             pageViewController.setViewControllers([displayCtrl], direction: .forward, animated: false, completion: nil)
         case .scroll:
             // 滚动
-            scrollController = DZMReadViewScrollController()
+            scrollController = ReadViewScrollController()
             
             scrollController.vc = self
             
@@ -62,7 +62,7 @@ extension DZMReadController {
              // 覆盖 无效果
             if displayController == nil { return }
             
-            coverController = DZMCoverController()
+            coverController = CoverController()
             
             coverController!.delegate = self
             
@@ -74,7 +74,7 @@ extension DZMReadController {
             
             coverController!.setController(displayController)
             
-            if DZMReadConfigure.shared.effectType == .no {
+            if ReadConfigure.shared.effectType == .no {
                 
                 coverController!.openAnimate = false
             }
@@ -144,12 +144,12 @@ extension DZMReadController {
 
 
 
-extension DZMReadController: DZMCoverControllerDelegate{
+extension ReadController: CoverControllerDelegate{
      
-    // MARK: -- DZMCoverControllerDelegate
+    // MARK: -- CoverControllerDelegate
     
     /// 切换结果
-    func coverController(_ coverController: DZMCoverController, currentController: UIViewController?, finish isFinish: Bool) {
+    func coverController(_ coverController: CoverController, currentController: UIViewController?, finish isFinish: Bool) {
         
         // 记录
         currentDisplayController = currentController as? ReadViewController
@@ -162,19 +162,19 @@ extension DZMReadController: DZMCoverControllerDelegate{
     }
     
     /// 将要显示的控制器
-    func coverController(_ coverController: DZMCoverController, willTransitionToPendingController pendingController: UIViewController?) {
+    func coverController(_ coverController: CoverController, willTransitionToPendingController pendingController: UIViewController?) {
         
         readMenu.showMenu(isShow: false)
     }
     
     /// 获取上一个控制器
-    func coverController(_ coverController: DZMCoverController, getAboveControllerWithCurrentController currentController: UIViewController?) -> UIViewController? {
+    func coverController(_ coverController: CoverController, getAboveControllerWithCurrentController currentController: UIViewController?) -> UIViewController? {
         
         return getAboveReadViewController()
     }
     
     /// 获取下一个控制器
-    func coverController(_ coverController: DZMCoverController, getBelowControllerWithCurrentController currentController: UIViewController?) -> UIViewController? {
+    func coverController(_ coverController: CoverController, getBelowControllerWithCurrentController currentController: UIViewController?) -> UIViewController? {
         
         return getBelowReadViewController()
     }
@@ -184,7 +184,7 @@ extension DZMReadController: DZMCoverControllerDelegate{
 // MARK: -- UIPageViewControllerDelegate
    
 
-extension DZMReadController: UIPageViewControllerDelegate{
+extension ReadController: UIPageViewControllerDelegate{
    
     /// 切换结果
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
@@ -211,7 +211,7 @@ extension DZMReadController: UIPageViewControllerDelegate{
 
 // MARK: -- UIPageViewControllerDataSource
 
-extension DZMReadController: UIPageViewControllerDataSource{
+extension ReadController: UIPageViewControllerDataSource{
     /// 获取上一页
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
@@ -219,11 +219,11 @@ extension DZMReadController: UIPageViewControllerDataSource{
         tempNumber -= 1
         
         // 获取当前页阅读记录
-        var recordModel:DZMReadRecordModel? = (viewController as? ReadViewController)?.recordModel
+        var recordModel:ReadRecordModel? = (viewController as? ReadViewController)?.recordModel
         
         // 如果没有则从背面页面获取
         if recordModel == nil{
-            recordModel = (viewController as? DZMReadViewBGController)?.recordModel
+            recordModel = (viewController as? ReadViewBGController)?.recordModel
         }
         if abs(tempNumber) % 2 == 0 { // 背面
             recordModel = getAboveReadRecordModel(recordModel: recordModel)
@@ -243,12 +243,12 @@ extension DZMReadController: UIPageViewControllerDataSource{
         tempNumber += 1
         
         // 获取当前页阅读记录
-        var recordModel:DZMReadRecordModel? = (viewController as? ReadViewController)?.recordModel
+        var recordModel:ReadRecordModel? = (viewController as? ReadViewController)?.recordModel
         
         // 如果没有则从背面页面获取
         if recordModel == nil {
             
-            recordModel = (viewController as? DZMReadViewBGController)?.recordModel
+            recordModel = (viewController as? ReadViewBGController)?.recordModel
         }
         
         if abs(tempNumber) % 2 == 0 { // 背面

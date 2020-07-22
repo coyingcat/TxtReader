@@ -1,5 +1,5 @@
 //
-//  DZMReadController+Operation.swift
+//  ReadController+Operation.swift
 
 //
 //  
@@ -7,17 +7,17 @@
 
 import UIKit
 
-extension DZMReadController {
+extension ReadController {
     
     /// 获取指定阅读记录阅读页
-    func getReadController(recordModel:DZMReadRecordModel!) ->ReadViewController? {
+    func getReadController(recordModel:ReadRecordModel!) ->ReadViewController? {
         
         if recordModel != nil {
             
-            if DZMReadConfigure.shared.openLongPress {
+            if ReadConfigure.shared.openLongPress {
                 // 需要返回支持长按的控制器
                 
-                let controller = DZMReadLongPressViewController()
+                let controller = ReadLongPressViewController()
                 
                 controller.recordModel = recordModel
                 
@@ -44,7 +44,7 @@ extension DZMReadController {
     /// 获取当前阅读记录阅读页
     func getCurrentReadViewController(isUpdateFont:Bool = false) ->ReadViewController? {
         
-        if DZMReadConfigure.shared.effectType != .scroll { // 滚动模式不需要创建
+        if ReadConfigure.shared.effectType != .scroll { // 滚动模式不需要创建
             
             if isUpdateFont {
                 readModel.recordModel?.updateFont()
@@ -67,9 +67,9 @@ extension DZMReadController {
     }
     
     /// 获取仿真模式背面(只用于仿真模式背面显示)
-    func getBackgroundController(recordModel:DZMReadRecordModel!, targetView:UIView? = nil) -> DZMReadViewBGController {
+    func getBackgroundController(recordModel:ReadRecordModel!, targetView:UIView? = nil) -> ReadViewBGController {
         
-        let vc = DZMReadViewBGController()
+        let vc = ReadViewBGController()
         
         vc.recordModel = recordModel
         
@@ -114,7 +114,7 @@ extension DZMReadController {
         let bookID = recordModel?.bookID
        
         // 检查是否存在章节内容
-        let isExist = DZMReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
+        let isExist = ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
         
         // 存在
         if isExist {
@@ -141,7 +141,7 @@ extension DZMReadController {
     }
     
     /// 获取当前记录上一页阅读记录
-    func getAboveReadRecordModel(recordModel:DZMReadRecordModel!) ->DZMReadRecordModel? {
+    func getAboveReadRecordModel(recordModel:ReadRecordModel!) ->ReadRecordModel? {
         
         // 阅读记录为空
         if recordModel.chapterModel == nil { return nil }
@@ -158,7 +158,7 @@ extension DZMReadController {
         // 第一章 第一页
         if recordModel.isFirstChapter , recordModel.isFirstPage {
             
-            DZMLog("已经是第一页了")
+            Log("已经是第一页了")
             
             return nil
         }
@@ -167,7 +167,7 @@ extension DZMReadController {
         if recordModel.isFirstPage {
             
             // 检查是否存在章节内容
-            let isExist = DZMReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
+            let isExist = ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
             
             // 存在 
             if isExist {
@@ -186,7 +186,7 @@ extension DZMReadController {
     }
     
     /// 获取当前记录下一页阅读记录
-    func getBelowReadRecordModel(recordModel: DZMReadRecordModel!) -> DZMReadRecordModel?{
+    func getBelowReadRecordModel(recordModel: ReadRecordModel!) -> ReadRecordModel?{
         
         // 阅读记录为空
         if recordModel.chapterModel == nil {
@@ -205,7 +205,7 @@ extension DZMReadController {
         // 最后一章 最后一页
         if recordModel.isLastChapter, recordModel.isLastPage {
             
-            DZMLog("已经是最后一页了")
+            Log("已经是最后一页了")
             
             return nil
         }
@@ -214,7 +214,7 @@ extension DZMReadController {
         if recordModel.isLastPage {
             
             // 检查是否存在章节内容
-            if DZMReadChapterModel.isExist(bookID: bookID, chapterID: chapterID){
+            if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID){
                 // 修改阅读记录
                 recordModel.modify(chapterID: chapterID, toPage: 0, isSave: false)
                 
@@ -234,7 +234,7 @@ extension DZMReadController {
     }
     
     /// 更新阅读记录(左右翻页模式)
-    func update(read model:DZMReadRecordModel){
+    func update(read model:ReadRecordModel){
         readModel.recordModel = model
         
         readModel.recordModel?.save()

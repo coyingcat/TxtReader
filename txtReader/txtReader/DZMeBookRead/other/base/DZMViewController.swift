@@ -1,5 +1,5 @@
 //
-//  DZMViewController.swift
+//  ViewController.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMViewController: UIViewController {
+class ViewController: UIViewController {
 
     override func viewDidLoad() {
         

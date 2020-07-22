@@ -1,5 +1,5 @@
 //
-//  DZMTableView.swift
+//  TableView.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMTableView: UITableView {
+class TableView: UITableView {
 
     override init(frame: CGRect, style: UITableView.Style) {
         

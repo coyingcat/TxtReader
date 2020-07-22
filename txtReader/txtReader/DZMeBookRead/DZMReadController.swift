@@ -1,5 +1,5 @@
 //
-//  DZMReadController.swift
+//  ReadController.swift
 
 //
 //  
@@ -7,34 +7,34 @@
 
 import UIKit
 
-class DZMReadController: DZMViewController{
+class ReadController: ViewController{
 
     // MARK: 数据相关
     
     /// 阅读对象
-    var readModel:DZMReadModel!
+    var readModel:ReadModel!
     
     
     // MARK: UI相关
     
     /// 阅读主视图
-    var contentView = DZMReadContentView()
+    var contentView = ReadContentView()
     
     /// 章节列表
-    var leftView = DZMReadLeftView()
+    var leftView = ReadLeftView()
     
     /// 阅读菜单
     // 初始化菜单
-    lazy var readMenu = DZMReadMenu(vc: self, delegate: self)
+    lazy var readMenu = ReadMenu(vc: self, delegate: self)
     
     /// 翻页控制器 (仿真)
     var pageViewController:UIPageViewController!
     
     /// 翻页控制器 (滚动)
-    var scrollController:DZMReadViewScrollController!
+    var scrollController:ReadViewScrollController!
     
     /// 翻页控制器 (无效果,覆盖)
-    var coverController:DZMCoverController!
+    var coverController:CoverController!
     
     /// 非滚动模式时,当前显示 ReadViewController
     var currentDisplayController:ReadViewController?
@@ -58,7 +58,7 @@ class DZMReadController: DZMViewController{
         // 禁止手势返回
         fd_interactivePopDisabled = true
         // 背景颜色
-        view.backgroundColor = DZMReadConfigure.shared.bgColor
+        view.backgroundColor = ReadConfigure.shared.bgColor
         
         // 初始化控制器
         creatPageController(displayController: getCurrentReadViewController(isUpdateFont: true))
@@ -93,7 +93,7 @@ class DZMReadController: DZMViewController{
     // 监控阅读长按视图通知
     private func monitorReadLongPressView() {
         
-        if DZMReadConfigure.shared.openLongPress {
+        if ReadConfigure.shared.openLongPress {
             
             /// 监控阅读长按视图通知
             
@@ -129,13 +129,13 @@ class DZMReadController: DZMViewController{
 
 
 
-extension DZMReadController: DZMReadCatalogViewDelegate{
+extension ReadController: ReadCatalogViewDelegate{
  
     
-    // MARK: DZMReadCatalogViewDelegate
+    // MARK: ReadCatalogViewDelegate
     
     /// 章节目录选中章节
-    func catalogViewClickChapter(catalogView: DZMReadCatalogView, chapterListModel: DZMReadChapterListModel) {
+    func catalogViewClickChapter(catalogView: ReadCatalogView, chapterListModel: ReadChapterListModel) {
         
         showLeftView(isShow: false)
         
@@ -150,10 +150,10 @@ extension DZMReadController: DZMReadCatalogViewDelegate{
 
 
 
-    // MARK: DZMReadMarkViewDelegate
-extension DZMReadController: DZMReadMarkViewDelegate{
+    // MARK: ReadMarkViewDelegate
+extension ReadController: ReadMarkViewDelegate{
     /// 书签列表选中书签
-    func markViewClickMark(markView: DZMReadMarkView, markModel: DZMReadMarkModel) {
+    func markViewClickMark(markView: ReadMarkView, markModel: ReadMarkModel) {
         
         showLeftView(isShow: false)
         
@@ -166,23 +166,23 @@ extension DZMReadController: DZMReadMarkViewDelegate{
 
 
 
-extension DZMReadController: DZMReadContentViewDelegate{
-    // MARK: DZMReadContentViewDelegate
+extension ReadController: ReadContentViewDelegate{
+    // MARK: ReadContentViewDelegate
     
     /// 点击遮罩
-    func contentViewClickCover(contentView: DZMReadContentView) {
+    func contentViewClickCover(contentView: ReadContentView) {
         
         showLeftView(isShow: false)
     }
 }
     
     
-extension DZMReadController: DZMReadMenuDelegate{
+extension ReadController: ReadMenuDelegate{
     
-    // MARK: DZMReadMenuDelegate
+    // MARK: ReadMenuDelegate
     
     /// 菜单将要显示
-    func readMenuWillDisplay(readMenu: DZMReadMenu!) {
+    func readMenuWillDisplay(readMenu: ReadMenu!) {
         
         // 检查当前内容是否包含书签
         readMenu.topView.checkForMark()
@@ -192,7 +192,7 @@ extension DZMReadController: DZMReadMenuDelegate{
     }
     
     /// 点击返回
-    func readMenuClickBack(readMenu: DZMReadMenu!) {
+    func readMenuClickBack(readMenu: ReadMenu!) {
         
         // 清空坐标
         Sand.readRecordCurrentChapterLocation = nil
@@ -202,7 +202,7 @@ extension DZMReadController: DZMReadMenuDelegate{
     }
     
     /// 点击书签
-    func readMenuClickMark(readMenu: DZMReadMenu!, topView: DZMRMTopView!, markButton: UIButton!) {
+    func readMenuClickMark(readMenu: ReadMenu!, topView: RMTopView!, markButton: UIButton!) {
         
         markButton.isSelected = !markButton.isSelected
         
@@ -214,7 +214,7 @@ extension DZMReadController: DZMReadMenuDelegate{
     }
     
     /// 点击目录
-    func readMenuClickCatalogue(readMenu:DZMReadMenu!) {
+    func readMenuClickCatalogue(readMenu:ReadMenu!) {
         
         showLeftView(isShow: true)
         
@@ -226,11 +226,11 @@ extension DZMReadController: DZMReadMenuDelegate{
 
     
     /// 点击上一章
-    func readMenuClickPreviousChapter(readMenu: DZMReadMenu!) {
+    func readMenuClickPreviousChapter(readMenu: ReadMenu!) {
         let first = readModel.recordModel?.isFirstChapter
         if first.ok{
             
-            DZMLog("已经是第一章了")
+            Log("已经是第一章了")
             
         }else if let record = readModel.recordModel{
             
@@ -245,11 +245,11 @@ extension DZMReadController: DZMReadMenuDelegate{
     }
     
     /// 点击下一章
-    func readMenuClickNextChapter(readMenu: DZMReadMenu!) {
+    func readMenuClickNextChapter(readMenu: ReadMenu!) {
         let last = readModel.recordModel?.isLastChapter
         if last.ok{
             
-            DZMLog("已经是最后一章了")
+            Log("已经是最后一章了")
             
         }else{
             
@@ -264,7 +264,7 @@ extension DZMReadController: DZMReadMenuDelegate{
     }
     
     /// 拖拽阅读记录
-    func readMenuDraggingProgress(readMenu: DZMReadMenu!, toPage: Int) {
+    func readMenuDraggingProgress(readMenu: ReadMenu!, toPage: Int) {
         
         if readModel.recordModel?.page != toPage{
             
@@ -278,7 +278,7 @@ extension DZMReadController: DZMReadMenuDelegate{
     }
     
     /// 拖拽章节进度(总文章进度,网络文章也可以使用)
-    func readMenuDraggingProgress(readMenu: DZMReadMenu!, toChapterID: NSNumber, toPage: Int) {
+    func readMenuDraggingProgress(readMenu: ReadMenu!, toChapterID: NSNumber, toPage: Int) {
         
         // 不是当前阅读记录章节
         if toChapterID != readModel!.recordModel?.chapterModel.id {
@@ -291,39 +291,39 @@ extension DZMReadController: DZMReadMenuDelegate{
     }
     
     /// 切换进度显示(分页 || 总进度)
-    func readMenuClickDisplayProgress(readMenu: DZMReadMenu) {
+    func readMenuClickDisplayProgress(readMenu: ReadMenu) {
         
         creatPageController(displayController: getCurrentReadViewController())
     }
     
     /// 点击切换背景颜色
-    func readMenuClickBGColor(readMenu: DZMReadMenu) {
+    func readMenuClickBGColor(readMenu: ReadMenu) {
         
-        view.backgroundColor = DZMReadConfigure.shared.bgColor
+        view.backgroundColor = ReadConfigure.shared.bgColor
         
         creatPageController(displayController: getCurrentReadViewController())
     }
     
     /// 点击切换字体
-    func readMenuClickFont(readMenu: DZMReadMenu) {
+    func readMenuClickFont(readMenu: ReadMenu) {
         
         creatPageController(displayController: getCurrentReadViewController(isUpdateFont: true))
     }
     
     /// 点击切换字体大小
-    func readMenuClickFontSize(readMenu: DZMReadMenu) {
+    func readMenuClickFontSize(readMenu: ReadMenu) {
         
         creatPageController(displayController: getCurrentReadViewController(isUpdateFont: true))
     }
     
     /// 点击切换间距
-    func readMenuClickSpacing(readMenu: DZMReadMenu) {
+    func readMenuClickSpacing(readMenu: ReadMenu) {
         
         creatPageController(displayController: getCurrentReadViewController(isUpdateFont: true))
     }
     
     /// 点击切换翻页效果
-    func readMenuClickEffect(readMenu: DZMReadMenu) {
+    func readMenuClickEffect(readMenu: ReadMenu) {
         
         creatPageController(displayController: getCurrentReadViewController())
     }
@@ -332,7 +332,7 @@ extension DZMReadController: DZMReadMenuDelegate{
     // MARK: 展示动画
     
     /// 辅视图展示
-    func showLeftView(isShow:Bool, completion:DZMAnimationCompletion? = nil) {
+    func showLeftView(isShow:Bool, completion:AnimationCompletion? = nil) {
      
         if isShow { // leftView 将要显示
             

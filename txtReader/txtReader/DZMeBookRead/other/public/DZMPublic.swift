@@ -1,5 +1,5 @@
 //
-//  DZMPublic.swift
+//  Public.swift
 
 //
 //  
@@ -8,7 +8,7 @@
 import UIKit
 
 /// 日志输出
-func DZMLog<T>(_ message:T) {
+func Log<T>(_ message:T) {
     
     #if DEBUG
     
@@ -243,7 +243,7 @@ func DelayHandle(_ delay:TimeInterval, _ execute:@escaping ()->Void) {
 // MARK: Block
 
 /// 动画完成
-typealias DZMAnimationCompletion = ()->Void
+typealias AnimationCompletion = ()->Void
 
 
 // MARK: 其他属性
@@ -261,7 +261,7 @@ let READ_AD_TIME:TimeInterval = 0.2
 
 
 /// 主文件夹名称
-let READ_FOLDER_NAME:String = "DZMeBookRead"
+let READ_FOLDER_NAME:String = "eBookRead"
 
 /// Key - 配置
 let READ_KEY_CONFIGURE:String = "READ_CONFIGURE"

@@ -1,5 +1,5 @@
 //
-//  DZMReadViewBGController.swift
+//  ReadViewBGController.swift
 
 //
 //  
@@ -7,10 +7,10 @@
 
 import UIKit
 
-class DZMReadViewBGController: DZMViewController {
+class ReadViewBGController: ViewController {
 
     /// 当前页阅读记录
-    var recordModel:DZMReadRecordModel!
+    var recordModel:ReadRecordModel!
     
     /// 目标视图(无值则跟阅读背景颜色保持一致)
     var targetView:UIView!
@@ -24,7 +24,7 @@ class DZMReadViewBGController: DZMViewController {
         
         // imageView
         imageView = UIImageView()
-        imageView.backgroundColor = DZMReadConfigure.shared.bgColor
+        imageView.backgroundColor = ReadConfigure.shared.bgColor
         view.addSubview(imageView)
         imageView.frame = view.bounds
         

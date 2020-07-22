@@ -1,5 +1,5 @@
 //
-//  DZMRMBottomView.swift
+//  RMBottomView.swift
 
 //
 //  
@@ -16,13 +16,13 @@ let READ_MENU_PROGRESS_VIEW_HEIGHT:CGFloat = SPACE_SA_55
 /// bottomView 高度 (TabBarHeight就包含了funcView高度, 所以只需要在上面在加progressView高度就好了)
 let READ_MENU_BOTTOM_VIEW_HEIGHT:CGFloat = TabBarHeight + READ_MENU_PROGRESS_VIEW_HEIGHT
 
-class DZMRMBottomView: DZMRMBaseView {
+class RMBottomView: RMBaseView {
     
     /// 进度
-    private(set) var progressView:DZMRMProgressView!
+    private(set) var progressView:RMProgressView!
     
     /// 功能
-    private var funcView:DZMRMFuncView!
+    private var funcView:RMFuncView!
 
     override init(frame: CGRect) { super.init(frame: frame) }
     
@@ -30,10 +30,10 @@ class DZMRMBottomView: DZMRMBaseView {
         
         super.addSubviews()
         
-        progressView = DZMRMProgressView(readMenu: readMenu)
+        progressView = RMProgressView(readMenu: readMenu)
         addSubview(progressView)
         
-        funcView = DZMRMFuncView(readMenu: readMenu)
+        funcView = RMFuncView(readMenu: readMenu)
         addSubview(funcView)
     }
     

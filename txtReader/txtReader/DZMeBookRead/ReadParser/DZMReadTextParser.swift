@@ -1,5 +1,5 @@
 //
-//  DZMReadTextParser.swift
+//  ReadTextParser.swift
 
 //
 //  
@@ -7,14 +7,14 @@
 
 import UIKit
 
-class DZMReadTextParser: NSObject {
+class ReadTextParser: NSObject {
 
     /// 异步解析本地链接
     ///
     /// - Parameters:
     ///   - url: 本地文件地址
     ///   - completion: 解析完成
-    @objc class func resolve(url: URL, completion: @escaping DZMParserCompletion) {
+    @objc class func resolve(url: URL, completion: @escaping ParserCompletion) {
         DispatchQueue.global().async{
             if let readModel = parser(book: url){
                 DispatchQueue.main.async{
@@ -28,7 +28,7 @@ class DZMReadTextParser: NSObject {
     ///
     /// - Parameter url: 本地文件地址
     /// - Returns: 阅读对象
-    private class func parser(book url:URL!) ->DZMReadModel? {
+    private class func parser(book url:URL!) ->ReadModel? {
         
         // 链接不为空且是本地文件路径
         if url == nil || url.absoluteString.isEmpty || !url.isFileURL { return nil }
@@ -43,18 +43,18 @@ class DZMReadTextParser: NSObject {
         if bookID.isEmpty { return nil }
         
         
-        guard DZMReadModel.isExist(bookID: bookID) == false else{
+        guard ReadModel.isExist(bookID: bookID) == false else{
             // 存在
             
             // 返回
-            return DZMReadModel.model(bookID: bookID)
+            return ReadModel.model(bookID: bookID)
         }
      
             
             // 不存在
             
             // 解析数据
-            let content = DZMReadParser.encode(url: url)
+            let content = ReadParser.encode(url: url)
             
             // 解析失败
             guard content.isEmpty == false else { return nil }
@@ -65,7 +65,7 @@ class DZMReadTextParser: NSObject {
             // 解析内容失败
             guard chapterListModels.isEmpty == false else { return nil }
             // 阅读模型
-            let readModel = DZMReadModel.model(bookID: bookID)
+            let readModel = ReadModel.model(bookID: bookID)
             
             // 小说名称
             readModel.bookName = bookName
@@ -90,16 +90,16 @@ class DZMReadTextParser: NSObject {
     ///   - bookID: 小说ID
     ///   - content: 小说内容
     /// - Returns: 章节列表
-    private class func parser(segments bookID:String, content:String) ->[DZMReadChapterListModel] {
+    private class func parser(segments bookID:String, content:String) ->[ReadChapterListModel] {
         
         // 章节列表
-        var chapterListModels = [DZMReadChapterListModel]()
+        var chapterListModels = [ReadChapterListModel]()
         
         // 正则
         let parten = "第[0-9一二三四五六七八九十百千]*[章回].*"
         
         // 排版
-        let content = DZMReadParser.contentTypesetting(content: content)
+        let content = ReadParser.contentTypesetting(content: content)
         
         // 正则匹配结果
         var results = [NSTextCheckingResult]()
@@ -120,7 +120,7 @@ class DZMReadTextParser: NSObject {
         
         guard results.isEmpty == false else {
             // 章节内容
-            let chapterModel = DZMReadChapterModel()
+            let chapterModel = ReadChapterModel()
             
             // 书ID
             chapterModel.bookID = bookID
@@ -153,7 +153,7 @@ class DZMReadTextParser: NSObject {
         var lastRange:NSRange!
         
         // 记录最后一个章节对象C
-        var lastChapterModel:DZMReadChapterModel?
+        var lastChapterModel:ReadChapterModel?
         
         // 有前言
         var isHavePreface = true
@@ -164,7 +164,7 @@ class DZMReadTextParser: NSObject {
             // 章节数量分析:
             // count + 1  = 匹配到的章节数量 + 最后一个章节
             // 1 + count + 1  = 第一章前面的前言内容 + 匹配到的章节数量 + 最后一个章节
-            DZMLog("章节总数: \(count + 1)  当前正在解析: \(i + 1)")
+            Log("章节总数: \(count + 1)  当前正在解析: \(i + 1)")
             
             var range = NSMakeRange(0, 0)
             
@@ -178,7 +178,7 @@ class DZMReadTextParser: NSObject {
             }
             
             // 章节内容
-            let chapterModel = DZMReadChapterModel()
+            let chapterModel = ReadChapterModel()
             
             // 书ID
             chapterModel.bookID = bookID
@@ -260,9 +260,9 @@ class DZMReadTextParser: NSObject {
     ///
     /// - Parameter chapterModel: 章节内容对象
     /// - Returns: 章节列表对象
-    private class func GetChapterList(model chapterModel:DZMReadChapterModel) ->DZMReadChapterListModel {
+    private class func GetChapterList(model chapterModel:ReadChapterModel) ->ReadChapterListModel {
         
-        let chapterListModel = DZMReadChapterListModel()
+        let chapterListModel = ReadChapterListModel()
         
         chapterListModel.bookID = chapterModel.bookID
         

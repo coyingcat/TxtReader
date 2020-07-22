@@ -1,5 +1,5 @@
 //
-//  DZMReadMenu.swift
+//  ReadMenu.swift
 
 //
 //  
@@ -7,60 +7,60 @@
 
 import UIKit
 
-@objc protocol DZMReadMenuDelegate:NSObjectProtocol {
+@objc protocol ReadMenuDelegate:NSObjectProtocol {
     
     /// 菜单将要显示
-    @objc func readMenuWillDisplay(readMenu:DZMReadMenu!)
+    @objc func readMenuWillDisplay(readMenu:ReadMenu!)
     
     /// 点击返回
-    @objc func readMenuClickBack(readMenu:DZMReadMenu!)
+    @objc func readMenuClickBack(readMenu:ReadMenu!)
     
     /// 点击书签
-    @objc func readMenuClickMark(readMenu:DZMReadMenu!, topView:DZMRMTopView!, markButton:UIButton!)
+    @objc func readMenuClickMark(readMenu:ReadMenu!, topView:RMTopView!, markButton:UIButton!)
     
     /// 点击目录
-    @objc func readMenuClickCatalogue(readMenu:DZMReadMenu!)
+    @objc func readMenuClickCatalogue(readMenu:ReadMenu!)
     
 
     /// 点击上一章
-    @objc func readMenuClickPreviousChapter(readMenu:DZMReadMenu!)
+    @objc func readMenuClickPreviousChapter(readMenu:ReadMenu!)
     
     /// 点击下一章
-    @objc func readMenuClickNextChapter(readMenu:DZMReadMenu!)
+    @objc func readMenuClickNextChapter(readMenu:ReadMenu!)
     
     /// 拖拽章节进度(分页进度)
-    @objc func readMenuDraggingProgress(readMenu:DZMReadMenu!, toPage: Int)
+    @objc func readMenuDraggingProgress(readMenu:ReadMenu!, toPage: Int)
     
     /// 拖拽章节进度(总文章进度,网络文章也可以使用)
-    @objc func readMenuDraggingProgress(readMenu:DZMReadMenu!, toChapterID:NSNumber, toPage: Int)
+    @objc func readMenuDraggingProgress(readMenu:ReadMenu!, toChapterID:NSNumber, toPage: Int)
     
 
     /// 点击切换字体
-    @objc func readMenuClickFont(readMenu:DZMReadMenu)
+    @objc func readMenuClickFont(readMenu:ReadMenu)
     
     /// 点击切换字体大小
-    @objc func readMenuClickFontSize(readMenu:DZMReadMenu)
+    @objc func readMenuClickFontSize(readMenu:ReadMenu)
     
     /// 切换进度显示(分页 || 总进度)
-    @objc func readMenuClickDisplayProgress(readMenu:DZMReadMenu)
+    @objc func readMenuClickDisplayProgress(readMenu:ReadMenu)
     
     /// 点击切换间距
-    @objc func readMenuClickSpacing(readMenu:DZMReadMenu)
+    @objc func readMenuClickSpacing(readMenu:ReadMenu)
     
     /// 点击切换翻页效果
-    @objc func readMenuClickEffect(readMenu:DZMReadMenu)
+    @objc func readMenuClickEffect(readMenu:ReadMenu)
 }
 
-class DZMReadMenu: NSObject,UIGestureRecognizerDelegate {
+class ReadMenu: NSObject,UIGestureRecognizerDelegate {
 
     /// 控制器
-    private(set) weak var vc:DZMReadController!
+    private(set) weak var vc:ReadController!
     
     /// 阅读主视图
-    private(set) weak var contentView:DZMReadContentView!
+    private(set) weak var contentView:ReadContentView!
     
     /// 代理
-    private(set) weak var delegate:DZMReadMenuDelegate!
+    private(set) weak var delegate:ReadMenuDelegate!
     
     /// 菜单显示状态
     private(set) var isMenuShow:Bool = false
@@ -69,13 +69,13 @@ class DZMReadMenu: NSObject,UIGestureRecognizerDelegate {
     private(set) var singleTap:UITapGestureRecognizer!
     
     /// TopView
-    private(set) var topView:DZMRMTopView!
+    private(set) var topView:RMTopView!
     
     /// BottomView
-    private(set) var bottomView:DZMRMBottomView!
+    private(set) var bottomView:RMBottomView!
     
     /// SettingView
-    private(set) var settingView:DZMRMSettingView!
+    private(set) var settingView:RMSettingView!
     
   
     
@@ -83,7 +83,7 @@ class DZMReadMenu: NSObject,UIGestureRecognizerDelegate {
     private override init() { super.init() }
     
     /// 初始化
-    convenience init(vc:DZMReadController!, delegate:DZMReadMenuDelegate!) {
+    convenience init(vc:ReadController!, delegate:ReadMenuDelegate!) {
         
         self.init()
         
@@ -133,7 +133,7 @@ class DZMReadMenu: NSObject,UIGestureRecognizerDelegate {
     // MARK: -- UIGestureRecognizerDelegate
     
     /// 点击这些控件不需要执行手势
-    private let ClassStrings:[String] = ["DZMRMTopView","DZMRMBottomView","DZMRMSettingView","DZMRMFontSizeView", "DZMRMFontTypeView","DZMRMLightView","DZMRMSpacingView","DZMRMEffectTypeView","DZMRMBGColorView","DZMRMFuncView","DZMRMProgressView","UIControl","UISlider","ASValueTrackingSlider"]
+    private let ClassStrings:[String] = ["RMTopView","RMBottomView","RMSettingView","RMFontSizeView", "RMFontTypeView","RMLightView","RMSpacingView","RMEffectTypeView","RMBGColorView","RMFuncView","RMProgressView","UIControl","UISlider","ASValueTrackingSlider"]
     
     /// 手势拦截
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
@@ -154,7 +154,7 @@ class DZMReadMenu: NSObject,UIGestureRecognizerDelegate {
     /// 初始化TopView
     private func initTopView() {
         
-        topView = DZMRMTopView(readMenu: self)
+        topView = RMTopView(readMenu: self)
         
         topView.isHidden = !isMenuShow
         
@@ -170,7 +170,7 @@ class DZMReadMenu: NSObject,UIGestureRecognizerDelegate {
     /// 初始化BottomView
     private func initBottomView() {
         
-        bottomView = DZMRMBottomView(readMenu: self)
+        bottomView = RMBottomView(readMenu: self)
     
         bottomView.isHidden = !isMenuShow
         
@@ -216,7 +216,7 @@ class DZMReadMenu: NSObject,UIGestureRecognizerDelegate {
     /// 初始化SettingView
     private func initSettingView() {
         
-        settingView = DZMRMSettingView(readMenu: self)
+        settingView = RMSettingView(readMenu: self)
         
         settingView.isHidden = true
         
@@ -253,7 +253,7 @@ class DZMReadMenu: NSObject,UIGestureRecognizerDelegate {
     }
     
     /// TopView展示
-    func showTopView(isShow:Bool, completion:DZMAnimationCompletion? = nil) {
+    func showTopView(isShow:Bool, completion:AnimationCompletion? = nil) {
         
         if isShow { topView.isHidden = false }
         
@@ -272,7 +272,7 @@ class DZMReadMenu: NSObject,UIGestureRecognizerDelegate {
     }
     
     /// BottomView展示
-    func showBottomView(isShow:Bool, completion:DZMAnimationCompletion? = nil) {
+    func showBottomView(isShow:Bool, completion:AnimationCompletion? = nil) {
   
         if isShow { bottomView.isHidden = false }
 
@@ -291,7 +291,7 @@ class DZMReadMenu: NSObject,UIGestureRecognizerDelegate {
     }
     
     /// SettingView展示
-    func showSettingView(isShow:Bool, completion:DZMAnimationCompletion? = nil) {
+    func showSettingView(isShow:Bool, completion:AnimationCompletion? = nil) {
       
         if isShow { settingView.isHidden = false }
         

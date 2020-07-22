@@ -1,5 +1,5 @@
 //
-//  DZMReadView.swift
+//  ReadView.swift
 
 //
 //  
@@ -7,14 +7,14 @@
 
 import UIKit
 
-class DZMReadView: UIView {
+class ReadView: UIView {
     
     /// 当前页模型(使用contentSize绘制)
-    var pageModel:DZMReadPageModel! {
+    var pageModel:ReadPageModel! {
         
         didSet{
             
-            frameRef = DZMCoreText.GetFrameRef(attrString: pageModel.showContent, rect: CGRect(origin: CGPoint.zero, size: pageModel.contentSize))
+            frameRef = CoreText.GetFrameRef(attrString: pageModel.showContent, rect: CGRect(origin: CGPoint.zero, size: pageModel.contentSize))
         }
     }
     
@@ -23,7 +23,7 @@ class DZMReadView: UIView {
         
         didSet{
             
-            frameRef = DZMCoreText.GetFrameRef(attrString: content, rect: CGRect(origin: CGPoint.zero, size: READ_VIEW_RECT.size))
+            frameRef = CoreText.GetFrameRef(attrString: content, rect: CGRect(origin: CGPoint.zero, size: READ_VIEW_RECT.size))
         }
     }
     

@@ -1,13 +1,13 @@
 //
-//  DZMSegmentedControl.m
+//  SegmentedControl.m
 
 //
 //  
 //
 
-#import "DZMSegmentedControl.h"
+#import "SegmentedControl.h"
 
-@interface DZMSegmentedControl()
+@interface SegmentedControl()
 
 /// 默认字体
 @property (nonatomic, strong) NSMutableArray<UIButton *> *items;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation DZMSegmentedControl
+@implementation SegmentedControl
 
 - (NSMutableArray<UIButton *> *)items {
     
@@ -43,7 +43,7 @@
         self.sliderColor = [UIColor redColor];
         self.sliderHeight = 2;
         self.sliderBottom = 0;
-        self.sliderWidth = DZMSegmentedControlSliderWidthFill;
+        self.sliderWidth = SegmentedControlSliderWidthFill;
         self.itemSpace = 0;
         self.sliderView = [[UIView alloc] init];
         self.insets = UIEdgeInsetsZero;
@@ -108,7 +108,7 @@
     
     if (animated) {
         
-        __weak DZMSegmentedControl *weakSelf = self;
+        __weak SegmentedControl *weakSelf = self;
         
         [UIView animateWithDuration:0.2 animations:^{
             

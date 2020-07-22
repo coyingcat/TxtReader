@@ -1,5 +1,5 @@
 //
-//  DZMRMSpacingView.swift
+//  RMSpacingView.swift
 
 //
 //  
@@ -7,13 +7,13 @@
 
 import UIKit
 
-class DZMRMSpacingView: DZMRMBaseView {
+class RMSpacingView: RMBaseView {
 
     private var spacingIcons:[String] = ["spacing_0","spacing_1","spacing_2"]
     
-    private var items:[DZMRMSpacingItem] = []
+    private var items:[RMSpacingItem] = []
     
-    private var selectItem:DZMRMSpacingItem!
+    private var selectItem:RMSpacingItem!
     
     override init(frame: CGRect) { super.init(frame: frame) }
     
@@ -29,7 +29,7 @@ class DZMRMSpacingView: DZMRMBaseView {
             
             let spacingIcon = spacingIcons[i]
             
-            let item = DZMRMSpacingItem(type: .custom)
+            let item = RMSpacingItem(type: .custom)
             item.tag = i
             item.layer.cornerRadius = SPACE_SA_6
             item.layer.borderColor = READ_COLOR_MENU_COLOR.cgColor
@@ -41,11 +41,11 @@ class DZMRMSpacingView: DZMRMBaseView {
             addSubview(item)
             items.append(item)
             
-            if i == DZMReadConfigure.shared.spacingIndex.intValue { selectItem(item) }
+            if i == ReadConfigure.shared.spacingIndex.intValue { selectItem(item) }
         }
     }
     
-    private func selectItem(_ item:DZMRMSpacingItem) {
+    private func selectItem(_ item:RMSpacingItem) {
         
         selectItem?.tintColor = READ_COLOR_MENU_COLOR
         selectItem?.layer.borderColor = READ_COLOR_MENU_COLOR.cgColor
@@ -56,15 +56,15 @@ class DZMRMSpacingView: DZMRMBaseView {
         selectItem = item
     }
     
-    @objc private func clickItem(_ item:DZMRMSpacingItem) {
+    @objc private func clickItem(_ item:RMSpacingItem) {
         
         if selectItem == item { return }
         
         selectItem(item)
         
-        DZMReadConfigure.shared.spacingIndex = NSNumber(value: item.tag)
+        ReadConfigure.shared.spacingIndex = NSNumber(value: item.tag)
         
-        DZMReadConfigure.shared.save()
+        ReadConfigure.shared.save()
         
         readMenu?.delegate?.readMenuClickSpacing(readMenu: readMenu)
     }
@@ -97,7 +97,7 @@ class DZMRMSpacingView: DZMRMBaseView {
     }
 }
 
-private class DZMRMSpacingItem:UIButton {
+private class RMSpacingItem:UIButton {
     
     override func imageRect(forContentRect contentRect: CGRect) -> CGRect {
         

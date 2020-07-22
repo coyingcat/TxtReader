@@ -1,5 +1,5 @@
 //
-//  DZMUserDefaults.swift
+//  UserDefaults.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMUserDefaults: NSObject {
+class Persisting: NSObject {
 
     // MARK: 删除清空
     
@@ -42,7 +42,7 @@ class DZMUserDefaults: NSObject {
     
     /// 存储String
     class func setString(_ value:String?, _ key:String) {
-        DZMUserDefaults.setObject(value, key)
+        Persisting.setObject(value, key)
     }
     
     /// 存储NSInteger

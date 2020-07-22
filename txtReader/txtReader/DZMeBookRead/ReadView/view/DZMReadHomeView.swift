@@ -1,5 +1,5 @@
 //
-//  DZMReadHomeView.swift
+//  ReadHomeView.swift
 
 //
 //  
@@ -7,13 +7,13 @@
 
 import UIKit
 
-class DZMReadHomeView: UIView {
+class ReadHomeView: UIView {
     
     /// 书籍名称
     private var name = UILabel()
     
     /// 当前阅读模型
-    var readModel:DZMReadModel! {
+    var readModel:ReadModel! {
         
         didSet{
             
@@ -30,7 +30,7 @@ class DZMReadHomeView: UIView {
         // 书籍名称
         name.textAlignment = .center
         name.font = FONT_BOLD_SA(50)
-        name.textColor = DZMReadConfigure.shared.textColor
+        name.textColor = ReadConfigure.shared.textColor
         addSubview(name)
     }
     

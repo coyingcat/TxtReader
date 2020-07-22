@@ -1,5 +1,5 @@
 //
-//  DZMReadParser.swift
+//  ReadParser.swift
 
 //
 //  
@@ -8,9 +8,9 @@
 import UIKit
 
 /// 解析完成
-typealias DZMParserCompletion = (_  readModel: DZMReadModel) ->Void
+typealias ParserCompletion = (_  readModel: ReadModel) ->Void
 
-class DZMReadParser: NSObject {
+class ReadParser: NSObject {
     
     // MARK: -- 内容分页
     
@@ -21,13 +21,13 @@ class DZMReadParser: NSObject {
     ///   - rect: 显示范围
     ///   - isFirstChapter: 是否为本文章第一个展示章节,如果是则加入书籍首页。(小技巧:如果不需要书籍首页,可不用传,默认就是不带书籍首页)
     /// - Returns: 内容分页列表
-    @objc class func pageing(attrString:NSAttributedString, rect:CGRect, isFirstChapter:Bool = false) ->[DZMReadPageModel] {
+    @objc class func pageing(attrString:NSAttributedString, rect:CGRect, isFirstChapter:Bool = false) ->[ReadPageModel] {
         
-        var pageModels:[DZMReadPageModel] = []
+        var pageModels:[ReadPageModel] = []
         
         if isFirstChapter { // 第一页为书籍页面
             
-            let pageModel = DZMReadPageModel()
+            let pageModel = ReadPageModel()
             
             pageModel.range = NSMakeRange(TypeSetting.readBookHomePage, 1)
             
@@ -36,7 +36,7 @@ class DZMReadParser: NSObject {
             pageModels.append(pageModel)
         }
         
-        let ranges = DZMCoreText.pagingRanges(attrString: attrString, rect: rect)
+        let ranges = CoreText.pagingRanges(attrString: attrString, rect: rect)
         
         if !ranges.isEmpty {
             
@@ -46,7 +46,7 @@ class DZMReadParser: NSObject {
                 
                 let range = ranges[i]
                 
-                let pageModel = DZMReadPageModel()
+                let pageModel = ReadPageModel()
                 
                 let content = attrString.attributedSubstring(from: range)
                 
@@ -63,7 +63,7 @@ class DZMReadParser: NSObject {
                 // 内容Size (滚动模式 || 长按菜单)
                 let maxW = READ_VIEW_RECT.width
                 
-                pageModel.contentSize = CGSize(width: maxW, height: DZMCoreText.GetAttrStringHeight(attrString: content, maxW: maxW))
+                pageModel.contentSize = CGSize(width: maxW, height: CoreText.GetAttrStringHeight(attrString: content, maxW: maxW))
                 
                 
                 // 当前页面开头是什么数据开头 (滚动模式)
@@ -79,9 +79,9 @@ class DZMReadParser: NSObject {
                 case .chapterName:
                     pageModel.headTypeHeight = 0
                 case .paragraph:
-                    pageModel.headTypeHeight = DZMReadConfigure.shared.paragraphSpacing
+                    pageModel.headTypeHeight = ReadConfigure.shared.paragraphSpacing
                 default:
-                    pageModel.headTypeHeight = DZMReadConfigure.shared.lineSpacing
+                    pageModel.headTypeHeight = ReadConfigure.shared.lineSpacing
                 }
                
                 

@@ -1,5 +1,5 @@
 //
-//  DZMRMFuncView.swift
+//  RMFuncView.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMRMFuncView: DZMRMBaseView {
+class RMFuncView: RMBaseView {
 
     /// 目录
     private var catalogue:UIButton!

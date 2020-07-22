@@ -1,5 +1,5 @@
 //
-//  DZMReadConfigure.swift
+//  ReadConfigure.swift
 
 //
 //  
@@ -34,9 +34,9 @@ let READ_FONT_SIZE_SPACE:Int = 2
 let READ_FONT_SIZE_SPACE_TITLE:Int = 8
 
 /// 单利对象
-private var configure:DZMReadConfigure?
+private var configure:ReadConfigure?
 
-class DZMReadConfigure: NSObject {
+class ReadConfigure: NSObject {
     
     // MARK: 阅读页面配置
     
@@ -66,17 +66,17 @@ class DZMReadConfigure: NSObject {
     
     /// 使用分页进度 || 总文章进度(网络文章也可以使用)
     /// 总文章进度注意: 总文章进度需要有整本书的章节总数,以及当前章节带有从0开始排序的索引。
-    /// 如果还需要在拖拽底部功能条上进度条过程中展示章节名,则需要带上章节列表数据,并去 DZMRMProgressView 文件中找到 ASValueTrackingSliderDataSource 修改返回数据源为章节名。
-    var progressType:DZMProgressType! { return DZMProgressType(rawValue: progressIndex.intValue) }
+    /// 如果还需要在拖拽底部功能条上进度条过程中展示章节名,则需要带上章节列表数据,并去 RMProgressView 文件中找到 ASValueTrackingSliderDataSource 修改返回数据源为章节名。
+    var progressType:ProgressType! { return ProgressType(rawValue: progressIndex.intValue) }
     
     /// 翻页类型
-    var effectType:DZMEffectType! { return DZMEffectType(rawValue: effectIndex.intValue) }
+    var effectType:EffectType! { return EffectType(rawValue: effectIndex.intValue) }
     
     /// 字体类型
-    var fontType:DZMFontType! { return DZMFontType(rawValue: fontIndex.intValue) }
+    var fontType:FontType! { return FontType(rawValue: fontIndex.intValue) }
     
     /// 间距类型
-    var spacingType:DZMSpacingType! { return DZMSpacingType(rawValue: spacingIndex.intValue) }
+    var spacingType:SpacingType! { return SpacingType(rawValue: spacingIndex.intValue) }
     
     /// 背景颜色
     let bgColor = UIColor(patternImage: UIImage(named: "read_bg_0")!)
@@ -197,7 +197,7 @@ class DZMReadConfigure: NSObject {
     
     // MARK: 辅助
     
-    /// 保存(使用 DZMUserDefaults 存储是方便配置修改)
+    /// 保存(使用 UserDefaults 存储是方便配置修改)
     func save() {
         
         let dict = ["fontIndex": fontIndex,
@@ -206,16 +206,16 @@ class DZMReadConfigure: NSObject {
                     "progressIndex": progressIndex,
                     "fontSize": fontSize]
     
-        DZMUserDefaults.setObject(dict, READ_KEY_CONFIGURE)
+        Persisting.setObject(dict, READ_KEY_CONFIGURE)
     }
     
     
     // MARK: 构造
     
     /// 获取对象
-    static var shared: DZMReadConfigure {
+    static var shared: ReadConfigure {
         
-        if configure == nil { configure = DZMReadConfigure(DZMUserDefaults.object(READ_KEY_CONFIGURE)) }
+        if configure == nil { configure = ReadConfigure(Persisting.object(READ_KEY_CONFIGURE)) }
         
         return configure!
     }
@@ -231,21 +231,21 @@ class DZMReadConfigure: NSObject {
 
         
         // 字体类型
-        if (fontIndex == nil) || (DZMFontType(rawValue: fontIndex.intValue) == nil) {
+        if (fontIndex == nil) || (FontType(rawValue: fontIndex.intValue) == nil) {
             
-            fontIndex = NSNumber(value: DZMFontType.two.rawValue)
+            fontIndex = NSNumber(value: FontType.two.rawValue)
         }
         
         // 间距类型
-        if (spacingIndex == nil) || (DZMSpacingType(rawValue: spacingIndex.intValue) == nil) {
+        if (spacingIndex == nil) || (SpacingType(rawValue: spacingIndex.intValue) == nil) {
             
-            spacingIndex = NSNumber(value: DZMSpacingType.small.rawValue)
+            spacingIndex = NSNumber(value: SpacingType.small.rawValue)
         }
         
         // 翻页类型
-        if (effectIndex == nil) || (DZMEffectType(rawValue: effectIndex.intValue) == nil) {
+        if (effectIndex == nil) || (EffectType(rawValue: effectIndex.intValue) == nil) {
             
-            effectIndex = NSNumber(value: DZMEffectType.simulation.rawValue)
+            effectIndex = NSNumber(value: EffectType.simulation.rawValue)
         }
         
         // 字体大小
@@ -255,14 +255,14 @@ class DZMReadConfigure: NSObject {
         }
         
         // 显示进度类型
-        if (progressIndex == nil) || (DZMProgressType(rawValue: progressIndex.intValue) == nil) {
+        if (progressIndex == nil) || (ProgressType(rawValue: progressIndex.intValue) == nil) {
             
-            progressIndex = NSNumber(value: DZMProgressType.page.rawValue)
+            progressIndex = NSNumber(value: ProgressType.page.rawValue)
         }
     }
     
-    class func model(_ dict:Any?) ->DZMReadConfigure {
-        return DZMReadConfigure(dict)
+    class func model(_ dict:Any?) ->ReadConfigure {
+        return ReadConfigure(dict)
     }
     
     

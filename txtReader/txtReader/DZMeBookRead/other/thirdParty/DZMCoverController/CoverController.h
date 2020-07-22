@@ -1,6 +1,6 @@
 //
-//  DZMCoverController.h
-//  DZMCoverDemo
+//  CoverController.h
+//  CoverDemo
 //
 //  
 //
@@ -15,9 +15,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class DZMCoverController;
+@class CoverController;
 
-@protocol DZMCoverControllerDelegate <NSObject>
+@protocol CoverControllerDelegate <NSObject>
 
 
 
@@ -28,7 +28,7 @@
  *  @param currentController 当前正在显示的控制器
  *  @param isFinish          切换是否成功
  */
-- (void)coverController:(DZMCoverController * _Nonnull)coverController currentController:(UIViewController * _Nullable)currentController finish:(BOOL)isFinish;
+- (void)coverController:(CoverController * _Nonnull)coverController currentController:(UIViewController * _Nullable)currentController finish:(BOOL)isFinish;
 
 /**
  *  将要显示的控制器
@@ -36,7 +36,7 @@
  *  @param coverController   coverController
  *  @param pendingController 将要显示的控制器
  */
-- (void)coverController:(DZMCoverController * _Nonnull)coverController willTransitionToPendingController:(UIViewController * _Nullable)pendingController;
+- (void)coverController:(CoverController * _Nonnull)coverController willTransitionToPendingController:(UIViewController * _Nullable)pendingController;
 
 /**
  *  获取上一个控制器
@@ -46,7 +46,7 @@
  *
  *  @return 返回当前显示控制器的上一个控制器
  */
-- (UIViewController * _Nullable)coverController:(DZMCoverController * _Nonnull)coverController getAboveControllerWithCurrentController:(UIViewController * _Nullable)currentController;
+- (UIViewController * _Nullable)coverController:(CoverController * _Nonnull)coverController getAboveControllerWithCurrentController:(UIViewController * _Nullable)currentController;
 
 /**
  *  获取下一个控制器
@@ -56,16 +56,16 @@
  *
  *  @return 返回当前显示控制器的下一个控制器
  */
-- (UIViewController * _Nullable)coverController:(DZMCoverController * _Nonnull)coverController getBelowControllerWithCurrentController:(UIViewController * _Nullable)currentController;
+- (UIViewController * _Nullable)coverController:(CoverController * _Nonnull)coverController getBelowControllerWithCurrentController:(UIViewController * _Nullable)currentController;
 
 @end
 
-@interface DZMCoverController : UIViewController
+@interface CoverController : UIViewController
 
 /**
  *  代理
  */
-@property (nonatomic,weak,nullable) id<DZMCoverControllerDelegate> delegate;
+@property (nonatomic,weak,nullable) id<CoverControllerDelegate> delegate;
 
 /**
  *  手势启用状态 default:YES

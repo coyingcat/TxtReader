@@ -1,5 +1,5 @@
 //
-//  DZMEnumList.swift
+//  EnumList.swift
 
 //
 //  
@@ -10,7 +10,7 @@ import UIKit
 
 
 /// 阅读翻页类型
-enum DZMEffectType:NSInteger {
+enum EffectType:NSInteger {
     /// 仿真
     case simulation
     /// 平移
@@ -22,7 +22,7 @@ enum DZMEffectType:NSInteger {
 }
 
 /// 阅读字体类型
-enum DZMFontType:NSInteger {
+enum FontType:NSInteger {
     /// 系统
     case system
     /// 黑体
@@ -34,7 +34,7 @@ enum DZMFontType:NSInteger {
 }
 
 /// 阅读内容间距类型
-enum DZMSpacingType:NSInteger {
+enum SpacingType:NSInteger {
     /// 大间距
     case big
     /// 适中间距
@@ -44,7 +44,7 @@ enum DZMSpacingType:NSInteger {
 }
 
 /// 阅读进度类型
-enum DZMProgressType:NSInteger {
+enum ProgressType:NSInteger {
     /// 总进度
     case total
     /// 分页进度
@@ -52,7 +52,7 @@ enum DZMProgressType:NSInteger {
 }
 
 /// 分页内容是以什么开头
-enum DZMPageHeadType: Int {
+enum PageHeadType: Int {
     /// 章节名
     case chapterName
     /// 段落

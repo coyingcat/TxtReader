@@ -1,5 +1,5 @@
 //
-//  DZMMainController.swift
+//  MainController.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMMainController: DZMViewController {
+class MainController: ViewController {
 
     override func viewDidLoad() {
         
@@ -52,11 +52,11 @@ class DZMMainController: DZMViewController {
         
         print("全本解析开始时间:",TimerString("YYYY-MM-dd-HH-mm-ss"), Date().timeIntervalSince1970)
         
-        DZMReadTextParser.resolve(url: url) { [weak self] (readModel) in
+        ReadTextParser.resolve(url: url) { [weak self] (readModel) in
             
             print("全本解析结束时间:",TimerString("YYYY-MM-dd-HH-mm-ss"), Date().timeIntervalSince1970)
             
-            let vc = DZMReadController()
+            let vc = ReadController()
             vc.readModel = readModel
             
             self?.navigationController?.pushViewController(vc, animated: true)
@@ -74,16 +74,10 @@ class DZMMainController: DZMViewController {
         
         print("快速解析开始时间:",TimerString("YYYY-MM-dd-HH-mm-ss"), Date().timeIntervalSince1970)
         
-        DZMReadTextFastParser.parser(url: url) { [weak self] (readModel) in
+        ReadTextFastParser.parser(url: url) { [weak self] (readModel) in
             
             print("快速解析结束时间:",TimerString("YYYY-MM-dd-HH-mm-ss"), Date().timeIntervalSince1970)
-            
-           
-            if readModel == nil {
-                return
-            }
-            
-            let vc = DZMReadController()
+            let vc = ReadController()
             vc.readModel = readModel
             
             self?.navigationController?.pushViewController(vc, animated: true)

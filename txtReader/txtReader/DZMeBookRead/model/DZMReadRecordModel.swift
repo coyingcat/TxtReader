@@ -1,5 +1,5 @@
 //
-//  DZMReadRecordModel.swift
+//  ReadRecordModel.swift
 
 //
 //  
@@ -9,13 +9,13 @@ import UIKit
 
 
 
-class DZMReadRecordModel: NSObject,NSCoding {
+class ReadRecordModel: NSObject,NSCoding {
 
     /// 小说ID
     var bookID:String!
     
     /// 当前记录的阅读章节
-    var chapterModel:DZMReadChapterModel!
+    var chapterModel:ReadChapterModel!
     
     /// 阅读到的页码(上传阅读记录到服务器时传当前页面的 location 上去,从服务器拿回来 location 在转成页码。精准回到上次阅读位置)
     var page = NSNumber(value: 0)
@@ -24,7 +24,7 @@ class DZMReadRecordModel: NSObject,NSCoding {
     // MARK: 快捷获取
     
     /// 当前记录分页模型
-    var pageModel:DZMReadPageModel{
+    var pageModel:ReadPageModel{
         chapterModel.pageModels[page.intValue]
     }
     
@@ -92,7 +92,7 @@ class DZMReadRecordModel: NSObject,NSCoding {
     // MARK: 辅助
     
     /// 修改阅读记录为指定章节位置
-    func modify(chapterModel:DZMReadChapterModel?, page: Int) {
+    func modify(chapterModel:ReadChapterModel?, page: Int) {
         
         self.chapterModel = chapterModel
         
@@ -104,9 +104,9 @@ class DZMReadRecordModel: NSObject,NSCoding {
     /// 修改阅读记录为指定章节位置
     func modifyLoc(chapterID:NSNumber!, location: Int, isSave:Bool = true) {
         
-        if DZMReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
+        if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
             
-            chapterModel = DZMReadChapterModel.model(bookID: bookID, chapterID: chapterID)
+            chapterModel = ReadChapterModel.model(bookID: bookID, chapterID: chapterID)
             
             page = chapterModel.page(location: location)
             
@@ -117,9 +117,9 @@ class DZMReadRecordModel: NSObject,NSCoding {
     /// 修改阅读记录为指定章节页码 (toPage == READ_LAST_PAGE 为当前章节最后一页)
     func modify(chapterID:NSNumber!, toPage: Int, isSave:Bool = true) {
         
-        if DZMReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
+        if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
             
-            chapterModel = DZMReadChapterModel.model(bookID: bookID, chapterID: chapterID)
+            chapterModel = ReadChapterModel.model(bookID: bookID, chapterID: chapterID)
             
             if (toPage == READ_LAST_PAGE) { lastPage()
                 
@@ -143,9 +143,9 @@ class DZMReadRecordModel: NSObject,NSCoding {
     }
     
     /// 拷贝阅读记录
-    var copyModel: DZMReadRecordModel{
+    var copyModel: ReadRecordModel{
         
-        let recordModel = DZMReadRecordModel()
+        let recordModel = ReadRecordModel()
         
         recordModel.bookID = bookID
         
@@ -159,32 +159,32 @@ class DZMReadRecordModel: NSObject,NSCoding {
     /// 保存记录
     func save() {
         
-        DZMKeyedArchiver.archiver(folderName: bookID, fileName: READ_KEY_RECORD, object: self)
+        KeyedArchiver.archiver(folderName: bookID, fileName: READ_KEY_RECORD, object: self)
     }
     
     /// 是否存在阅读记录
     class func isExist(_ bookID: String) ->Bool {
         
-        return DZMKeyedArchiver.isExist(folderName: bookID, fileName: READ_KEY_RECORD)
+        return KeyedArchiver.isExist(folderName: bookID, fileName: READ_KEY_RECORD)
     }
     
     
     // MARK: 构造
     
     /// 获取阅读记录对象,如果则创建对象返回
-    class func model(notes bookID: String) ->DZMReadRecordModel {
+    class func model(notes bookID: String) ->ReadRecordModel {
         
-        var recordModel:DZMReadRecordModel!
+        var recordModel:ReadRecordModel!
         
-        if DZMReadRecordModel.isExist(bookID) {
+        if ReadRecordModel.isExist(bookID) {
             
-            recordModel = DZMKeyedArchiver.unarchiver(folderName: bookID, fileName: READ_KEY_RECORD) as? DZMReadRecordModel
+            recordModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: READ_KEY_RECORD) as? ReadRecordModel
             
             recordModel.chapterModel.updateFont()
             
         }else{
             
-            recordModel = DZMReadRecordModel()
+            recordModel = ReadRecordModel()
             
             recordModel.bookID = bookID
         }
@@ -198,7 +198,7 @@ class DZMReadRecordModel: NSObject,NSCoding {
         
         bookID = aDecoder.decodeObject(forKey: "bookID") as? String
         
-        chapterModel = aDecoder.decodeObject(forKey: "chapterModel") as? DZMReadChapterModel
+        chapterModel = aDecoder.decodeObject(forKey: "chapterModel") as? ReadChapterModel
         
         page = aDecoder.decodeObject(forKey: "page") as! NSNumber
     }

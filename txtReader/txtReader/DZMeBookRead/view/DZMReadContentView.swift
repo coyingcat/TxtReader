@@ -1,5 +1,5 @@
 //
-//  DZMReadContentView.swift
+//  ReadContentView.swift
 
 //
 //  
@@ -10,16 +10,16 @@ import UIKit
 
 
 
-@objc protocol DZMReadContentViewDelegate:NSObjectProtocol {
+@objc protocol ReadContentViewDelegate:NSObjectProtocol {
     
     /// 点击遮罩
-    @objc optional func contentViewClickCover(contentView:DZMReadContentView)
+    @objc optional func contentViewClickCover(contentView:ReadContentView)
 }
 
-class DZMReadContentView: UIView {
+class ReadContentView: UIView {
 
     /// 代理
-    weak var delegate:DZMReadContentViewDelegate!
+    weak var delegate:ReadContentViewDelegate!
     
     /// 遮盖
     private var cover = UIControl()

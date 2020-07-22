@@ -1,5 +1,5 @@
 //
-//  DZMRMEffectTypeView.swift
+//  RMEffectTypeView.swift
 
 //
 //  
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DZMRMEffectTypeView: DZMRMBaseView {
+class RMEffectTypeView: RMBaseView {
 
     private var effectNames:[String] = ["仿真","平移","滚动","无效果"]
     
@@ -42,7 +42,7 @@ class DZMRMEffectTypeView: DZMRMBaseView {
             addSubview(item)
             items.append(item)
             
-            if i == DZMReadConfigure.shared.effectIndex.intValue { selectItem(item) }
+            if i == ReadConfigure.shared.effectIndex.intValue { selectItem(item) }
         }
     }
     
@@ -65,9 +65,9 @@ class DZMRMEffectTypeView: DZMRMBaseView {
         
         selectItem(item)
         
-        DZMReadConfigure.shared.effectIndex = NSNumber(value: item.tag)
+        ReadConfigure.shared.effectIndex = NSNumber(value: item.tag)
         
-        DZMReadConfigure.shared.save()
+        ReadConfigure.shared.save()
         
         readMenu?.delegate?.readMenuClickEffect(readMenu: readMenu)
     }

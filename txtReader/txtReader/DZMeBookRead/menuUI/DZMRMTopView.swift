@@ -1,5 +1,5 @@
 //
-//  DZMRMTopView.swift
+//  RMTopView.swift
 
 //
 //  
@@ -10,7 +10,7 @@ import UIKit
 /// topView 高度
 let READ_MENU_TOP_VIEW_HEIGHT:CGFloat = NavgationBarHeight
 
-class DZMRMTopView: DZMRMBaseView {
+class RMTopView: RMBaseView {
     
     /// 返回
     private var back:UIButton!

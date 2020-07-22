@@ -1,6 +1,6 @@
 //
-//  DZMCoverController.m
-//  DZMCoverDemo
+//  CoverController.m
+//  CoverDemo
 //
 //  
 //
@@ -14,9 +14,9 @@
 // 动画时间
 #define AnimateDuration 0.20
 
-#import "DZMCoverController.h"
+#import "CoverController.h"
 
-@interface DZMCoverController ()<UIGestureRecognizerDelegate>
+@interface CoverController ()<UIGestureRecognizerDelegate>
 
 /**
  *  左拉右拉手势
@@ -65,7 +65,7 @@
 
 @end
 
-@implementation DZMCoverController
+@implementation CoverController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -281,7 +281,7 @@
             
             if (animated) {
                 
-                __weak DZMCoverController *weakSelf = self;
+                __weak CoverController *weakSelf = self;
                 
                 [UIView animateWithDuration:AnimateDuration animations:^{
                     
@@ -317,7 +317,7 @@
             
             if (animated) {
                 
-                __weak DZMCoverController *weakSelf = self;
+                __weak CoverController *weakSelf = self;
                 
                 [UIView animateWithDuration:AnimateDuration animations:^{
                     
