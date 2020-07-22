@@ -33,27 +33,19 @@ class ReadTextParser: NSObject {
         // 链接不为空且是本地文件路径
         if url == nil || url.absoluteString.isEmpty || !url.isFileURL { return nil }
         
-        // 获取文件后缀名作为 bookName
-        guard let bookName = url.absoluteString.removingPercentEncoding?.lastPathComponent.deletingPathExtension else { return nil }
-        
-        // bookName 作为 bookID
-        let bookID = bookName
+        // 获取文件后缀名作为 bookName = bookID
+        guard let bookID = url.absoluteString.removingPercentEncoding?.lastPathComponent.deletingPathExtension else { return nil }
         
         // bookID 为空
         if bookID.isEmpty { return nil }
         
         
         guard bookID.exists == false else{
-            // 存在
-            
-            // 返回
+            // 存在， 则返回
             return ReadModel.model(bookID: bookID)
         }
      
-            
-        // 不存在
-        
-        // 解析数据
+        // 不存在， 则解析数据
         let content = ReadParser.encode(url: url)
         
         // 解析失败
