@@ -2,8 +2,7 @@
 //  ASValuePopUpView.h
 //  ValueTrackingSlider
 //
-//  Created by Alan Skipp on 27/03/2014.
-//  Copyright (c) 2014 Alan Skipp. All rights reserved.
+//  
 //
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

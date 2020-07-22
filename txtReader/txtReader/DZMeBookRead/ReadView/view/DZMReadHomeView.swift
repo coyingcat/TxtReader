@@ -1,9 +1,8 @@
 //
 //  DZMReadHomeView.swift
-//  DZMeBookRead
+
 //
-//  Created by dengzemiao on 2019/5/7.
-//  Copyright © 2019 DZM. All rights reserved.
+//  
 //
 
 import UIKit

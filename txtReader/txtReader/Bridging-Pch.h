@@ -1,9 +1,8 @@
 //
 //  DZMeBookRead-Bridging-Pch.h
-//  DZMeBookRead
+
 //
-//  Created by dengzemiao on 2019/4/17.
-//  Copyright © 2019年 DZM. All rights reserved.
+//  
 //
 
 #ifndef DZMeBookRead_Bridging_Pch_h

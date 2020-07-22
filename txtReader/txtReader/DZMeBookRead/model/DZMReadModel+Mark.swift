@@ -1,9 +1,8 @@
 //
 //  DZMReadModel+Mark.swift
-//  DZMeBookRead
+
 //
-//  Created by dengzemiao on 2019/4/19.
-//  Copyright © 2019年 DZM. All rights reserved.
+//  
 //
 
 import UIKit

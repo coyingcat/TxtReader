@@ -2,8 +2,7 @@
 //  NotificationMore.swift
 //  txtReader
 //
-//  Created by Jz D on 2020/7/22.
-//  Copyright © 2020 Jz D. All rights reserved.
+//  
 //
 
 import Foundation
