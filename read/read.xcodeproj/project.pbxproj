@@ -1,0 +1,821 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		265D33F124C7DE4700A33686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D33F024C7DE4700A33686 /* AppDelegate.swift */; };
+		265D33F324C7DE4700A33686 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D33F224C7DE4700A33686 /* SceneDelegate.swift */; };
+		265D33F524C7DE4700A33686 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D33F424C7DE4700A33686 /* ViewController.swift */; };
+		265D33F824C7DE4700A33686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 265D33F624C7DE4700A33686 /* Main.storyboard */; };
+		265D33FA24C7DE4C00A33686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 265D33F924C7DE4C00A33686 /* Assets.xcassets */; };
+		265D33FD24C7DE4C00A33686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 265D33FB24C7DE4C00A33686 /* LaunchScreen.storyboard */; };
+		265D346A24C7DEA600A33686 /* IndexPathMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D340524C7DEA500A33686 /* IndexPathMore.swift */; };
+		265D346B24C7DEA600A33686 /* ArrayMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D340624C7DEA500A33686 /* ArrayMore.swift */; };
+		265D346C24C7DEA600A33686 /* NSRangeMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D340724C7DEA500A33686 /* NSRangeMore.swift */; };
+		265D346D24C7DEA600A33686 /* FloatMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D340824C7DEA500A33686 /* FloatMore.swift */; };
+		265D346E24C7DEA600A33686 /* NSNumberMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D340924C7DEA500A33686 /* NSNumberMore.swift */; };
+		265D346F24C7DEA600A33686 /* DZMReadController+Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D340B24C7DEA500A33686 /* DZMReadController+Operation.swift */; };
+		265D347024C7DEA600A33686 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D340F24C7DEA500A33686 /* String+Extension.swift */; };
+		265D347124C7DEA600A33686 /* UIPageViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D341024C7DEA500A33686 /* UIPageViewController+Extension.swift */; };
+		265D347224C7DEA600A33686 /* DZMPublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D341224C7DEA500A33686 /* DZMPublic.swift */; };
+		265D347324C7DEA600A33686 /* DZMSpaceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D341324C7DEA500A33686 /* DZMSpaceList.swift */; };
+		265D347424C7DEA600A33686 /* DZMColorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D341424C7DEA500A33686 /* DZMColorList.swift */; };
+		265D347524C7DEA600A33686 /* DZMEnumList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D341524C7DEA500A33686 /* DZMEnumList.swift */; };
+		265D347624C7DEA600A33686 /* DZMFontList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D341624C7DEA500A33686 /* DZMFontList.swift */; };
+		265D347724C7DEA600A33686 /* DZMKeyedArchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D341824C7DEA500A33686 /* DZMKeyedArchiver.swift */; };
+		265D347824C7DEA600A33686 /* DZMCoreText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D341924C7DEA500A33686 /* DZMCoreText.swift */; };
+		265D347924C7DEA600A33686 /* DZMUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D341A24C7DEA500A33686 /* DZMUserDefaults.swift */; };
+		265D347A24C7DEA600A33686 /* DZMTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D341C24C7DEA500A33686 /* DZMTableView.swift */; };
+		265D347B24C7DEA600A33686 /* DZMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D341D24C7DEA500A33686 /* DZMViewController.swift */; };
+		265D347C24C7DEA600A33686 /* DZMReadViewScrollController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D341F24C7DEA500A33686 /* DZMReadViewScrollController.swift */; };
+		265D347D24C7DEA600A33686 /* DZMReadLongPressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D342024C7DEA500A33686 /* DZMReadLongPressViewController.swift */; };
+		265D347E24C7DEA600A33686 /* DZMReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D342124C7DEA500A33686 /* DZMReadViewController.swift */; };
+		265D347F24C7DEA600A33686 /* DZMReadViewBGController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D342224C7DEA500A33686 /* DZMReadViewBGController.swift */; };
+		265D348024C7DEA600A33686 /* DZMReadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D342424C7DEA500A33686 /* DZMReadViewCell.swift */; };
+		265D348124C7DEA600A33686 /* DZMReadHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D342524C7DEA500A33686 /* DZMReadHomeView.swift */; };
+		265D348224C7DEA600A33686 /* DZMReadViewStatusBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D342624C7DEA500A33686 /* DZMReadViewStatusBottomView.swift */; };
+		265D348324C7DEA600A33686 /* DZMReadLongPressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D342724C7DEA500A33686 /* DZMReadLongPressView.swift */; };
+		265D348424C7DEA600A33686 /* DZMReadViewStatusTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D342824C7DEA500A33686 /* DZMReadViewStatusTopView.swift */; };
+		265D348524C7DEA600A33686 /* DZMReadLongPressCursorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D342924C7DEA500A33686 /* DZMReadLongPressCursorView.swift */; };
+		265D348624C7DEA600A33686 /* DZMReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D342A24C7DEA500A33686 /* DZMReadView.swift */; };
+		265D348724C7DEA600A33686 /* DZMReadHomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D342B24C7DEA500A33686 /* DZMReadHomeViewCell.swift */; };
+		265D348824C7DEA600A33686 /* DZMReadTextParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D342D24C7DEA500A33686 /* DZMReadTextParser.swift */; };
+		265D348924C7DEA600A33686 /* DZMReadTextFastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D342E24C7DEA500A33686 /* DZMReadTextFastParser.swift */; };
+		265D348A24C7DEA600A33686 /* DZMReadParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D342F24C7DEA500A33686 /* DZMReadParser.swift */; };
+		265D348B24C7DEA600A33686 /* DZMReadConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D343024C7DEA500A33686 /* DZMReadConfigure.swift */; };
+		265D348C24C7DEA600A33686 /* DZMRMFontSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D343324C7DEA500A33686 /* DZMRMFontSizeView.swift */; };
+		265D348D24C7DEA600A33686 /* DZMRMFontTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D343424C7DEA500A33686 /* DZMRMFontTypeView.swift */; };
+		265D348E24C7DEA600A33686 /* DZMRMSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D343524C7DEA500A33686 /* DZMRMSettingView.swift */; };
+		265D348F24C7DEA600A33686 /* DZMRMEffectTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D343624C7DEA500A33686 /* DZMRMEffectTypeView.swift */; };
+		265D349024C7DEA600A33686 /* DZMRMSpacingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D343724C7DEA500A33686 /* DZMRMSpacingView.swift */; };
+		265D349124C7DEA600A33686 /* DZMReadMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D343824C7DEA500A33686 /* DZMReadMenu.swift */; };
+		265D349224C7DEA600A33686 /* DZMRMTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D343924C7DEA500A33686 /* DZMRMTopView.swift */; };
+		265D349324C7DEA600A33686 /* DZMRMBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D343A24C7DEA500A33686 /* DZMRMBaseView.swift */; };
+		265D349424C7DEA600A33686 /* DZMRMProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D343C24C7DEA500A33686 /* DZMRMProgressView.swift */; };
+		265D349524C7DEA600A33686 /* DZMRMBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D343D24C7DEA500A33686 /* DZMRMBottomView.swift */; };
+		265D349624C7DEA600A33686 /* DZMRMFuncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D343E24C7DEA500A33686 /* DZMRMFuncView.swift */; };
+		265D349724C7DEA600A33686 /* DZMReadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D343F24C7DEA500A33686 /* DZMReadController.swift */; };
+		265D349824C7DEA600A33686 /* DZMReadRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D344124C7DEA500A33686 /* DZMReadRecordModel.swift */; };
+		265D349924C7DEA600A33686 /* DZMReadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D344224C7DEA500A33686 /* DZMReadModel.swift */; };
+		265D349A24C7DEA600A33686 /* DZMReadModel+Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D344324C7DEA500A33686 /* DZMReadModel+Mark.swift */; };
+		265D349B24C7DEA600A33686 /* DZMReadChapterListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D344424C7DEA500A33686 /* DZMReadChapterListModel.swift */; };
+		265D349C24C7DEA600A33686 /* DZMReadMarkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D344524C7DEA500A33686 /* DZMReadMarkModel.swift */; };
+		265D349D24C7DEA600A33686 /* DZMReadChapterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D344624C7DEA500A33686 /* DZMReadChapterModel.swift */; };
+		265D349E24C7DEA600A33686 /* DZMReadPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D344724C7DEA500A33686 /* DZMReadPageModel.swift */; };
+		265D349F24C7DEA600A33686 /* DZMReadCatalogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D344A24C7DEA500A33686 /* DZMReadCatalogCell.swift */; };
+		265D34A024C7DEA600A33686 /* DZMReadCatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D344B24C7DEA500A33686 /* DZMReadCatalogView.swift */; };
+		265D34A124C7DEA600A33686 /* DZMReadMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D344C24C7DEA500A33686 /* DZMReadMarkCell.swift */; };
+		265D34A224C7DEA600A33686 /* DZMReadMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D344D24C7DEA500A33686 /* DZMReadMarkView.swift */; };
+		265D34A324C7DEA600A33686 /* DZMReadLeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D344E24C7DEA500A33686 /* DZMReadLeftView.swift */; };
+		265D34A424C7DEA600A33686 /* DZMReadContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D344F24C7DEA500A33686 /* DZMReadContentView.swift */; };
+		265D34A524C7DEA600A33686 /* DZMReadController+EffectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D345024C7DEA500A33686 /* DZMReadController+EffectType.swift */; };
+		265D34A624C7DEA600A33686 /* DZMCoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265D345424C7DEA500A33686 /* DZMCoverController.m */; };
+		265D34AA24C7DEA600A33686 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 265D345C24C7DEA600A33686 /* UINavigationController+FDFullscreenPopGesture.m */; };
+		265D34AB24C7DEA600A33686 /* DZMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 265D345E24C7DEA600A33686 /* DZMSegmentedControl.m */; };
+		265D34AC24C7DEA600A33686 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 265D346324C7DEA600A33686 /* ASValuePopUpView.m */; };
+		265D34AD24C7DEA600A33686 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 265D346424C7DEA600A33686 /* ASValueTrackingSlider.m */; };
+		265D34AE24C7DEA600A33686 /* magnifier_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 265D346724C7DEA600A33686 /* magnifier_1.png */; };
+		265D34AF24C7DEA600A33686 /* magnifier_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 265D346824C7DEA600A33686 /* magnifier_0.png */; };
+		265D34B024C7DEA600A33686 /* DZMMagnifierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 265D346924C7DEA600A33686 /* DZMMagnifierView.m */; };
+		265D34B424C7DF0D00A33686 /* 三国演义.txt in Resources */ = {isa = PBXBuildFile; fileRef = 265D34B224C7DF0D00A33686 /* 三国演义.txt */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		265D33ED24C7DE4700A33686 /* read.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = read.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		265D33F024C7DE4700A33686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		265D33F224C7DE4700A33686 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		265D33F424C7DE4700A33686 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		265D33F724C7DE4700A33686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		265D33F924C7DE4C00A33686 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		265D33FC24C7DE4C00A33686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		265D33FE24C7DE4C00A33686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		265D340524C7DEA500A33686 /* IndexPathMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexPathMore.swift; sourceTree = "<group>"; };
+		265D340624C7DEA500A33686 /* ArrayMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayMore.swift; sourceTree = "<group>"; };
+		265D340724C7DEA500A33686 /* NSRangeMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSRangeMore.swift; sourceTree = "<group>"; };
+		265D340824C7DEA500A33686 /* FloatMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatMore.swift; sourceTree = "<group>"; };
+		265D340924C7DEA500A33686 /* NSNumberMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberMore.swift; sourceTree = "<group>"; };
+		265D340B24C7DEA500A33686 /* DZMReadController+Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DZMReadController+Operation.swift"; sourceTree = "<group>"; };
+		265D340D24C7DEA500A33686 /* DZMeBookRead-Bridging-Pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DZMeBookRead-Bridging-Pch.h"; sourceTree = "<group>"; };
+		265D340F24C7DEA500A33686 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		265D341024C7DEA500A33686 /* UIPageViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+Extension.swift"; sourceTree = "<group>"; };
+		265D341224C7DEA500A33686 /* DZMPublic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMPublic.swift; sourceTree = "<group>"; };
+		265D341324C7DEA500A33686 /* DZMSpaceList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMSpaceList.swift; sourceTree = "<group>"; };
+		265D341424C7DEA500A33686 /* DZMColorList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMColorList.swift; sourceTree = "<group>"; };
+		265D341524C7DEA500A33686 /* DZMEnumList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMEnumList.swift; sourceTree = "<group>"; };
+		265D341624C7DEA500A33686 /* DZMFontList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMFontList.swift; sourceTree = "<group>"; };
+		265D341824C7DEA500A33686 /* DZMKeyedArchiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMKeyedArchiver.swift; sourceTree = "<group>"; };
+		265D341924C7DEA500A33686 /* DZMCoreText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMCoreText.swift; sourceTree = "<group>"; };
+		265D341A24C7DEA500A33686 /* DZMUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMUserDefaults.swift; sourceTree = "<group>"; };
+		265D341C24C7DEA500A33686 /* DZMTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMTableView.swift; sourceTree = "<group>"; };
+		265D341D24C7DEA500A33686 /* DZMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMViewController.swift; sourceTree = "<group>"; };
+		265D341F24C7DEA500A33686 /* DZMReadViewScrollController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadViewScrollController.swift; sourceTree = "<group>"; };
+		265D342024C7DEA500A33686 /* DZMReadLongPressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadLongPressViewController.swift; sourceTree = "<group>"; };
+		265D342124C7DEA500A33686 /* DZMReadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadViewController.swift; sourceTree = "<group>"; };
+		265D342224C7DEA500A33686 /* DZMReadViewBGController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadViewBGController.swift; sourceTree = "<group>"; };
+		265D342424C7DEA500A33686 /* DZMReadViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadViewCell.swift; sourceTree = "<group>"; };
+		265D342524C7DEA500A33686 /* DZMReadHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadHomeView.swift; sourceTree = "<group>"; };
+		265D342624C7DEA500A33686 /* DZMReadViewStatusBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadViewStatusBottomView.swift; sourceTree = "<group>"; };
+		265D342724C7DEA500A33686 /* DZMReadLongPressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadLongPressView.swift; sourceTree = "<group>"; };
+		265D342824C7DEA500A33686 /* DZMReadViewStatusTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadViewStatusTopView.swift; sourceTree = "<group>"; };
+		265D342924C7DEA500A33686 /* DZMReadLongPressCursorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadLongPressCursorView.swift; sourceTree = "<group>"; };
+		265D342A24C7DEA500A33686 /* DZMReadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadView.swift; sourceTree = "<group>"; };
+		265D342B24C7DEA500A33686 /* DZMReadHomeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadHomeViewCell.swift; sourceTree = "<group>"; };
+		265D342D24C7DEA500A33686 /* DZMReadTextParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadTextParser.swift; sourceTree = "<group>"; };
+		265D342E24C7DEA500A33686 /* DZMReadTextFastParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadTextFastParser.swift; sourceTree = "<group>"; };
+		265D342F24C7DEA500A33686 /* DZMReadParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadParser.swift; sourceTree = "<group>"; };
+		265D343024C7DEA500A33686 /* DZMReadConfigure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadConfigure.swift; sourceTree = "<group>"; };
+		265D343324C7DEA500A33686 /* DZMRMFontSizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMRMFontSizeView.swift; sourceTree = "<group>"; };
+		265D343424C7DEA500A33686 /* DZMRMFontTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMRMFontTypeView.swift; sourceTree = "<group>"; };
+		265D343524C7DEA500A33686 /* DZMRMSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMRMSettingView.swift; sourceTree = "<group>"; };
+		265D343624C7DEA500A33686 /* DZMRMEffectTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMRMEffectTypeView.swift; sourceTree = "<group>"; };
+		265D343724C7DEA500A33686 /* DZMRMSpacingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMRMSpacingView.swift; sourceTree = "<group>"; };
+		265D343824C7DEA500A33686 /* DZMReadMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadMenu.swift; sourceTree = "<group>"; };
+		265D343924C7DEA500A33686 /* DZMRMTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMRMTopView.swift; sourceTree = "<group>"; };
+		265D343A24C7DEA500A33686 /* DZMRMBaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMRMBaseView.swift; sourceTree = "<group>"; };
+		265D343C24C7DEA500A33686 /* DZMRMProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMRMProgressView.swift; sourceTree = "<group>"; };
+		265D343D24C7DEA500A33686 /* DZMRMBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMRMBottomView.swift; sourceTree = "<group>"; };
+		265D343E24C7DEA500A33686 /* DZMRMFuncView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMRMFuncView.swift; sourceTree = "<group>"; };
+		265D343F24C7DEA500A33686 /* DZMReadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadController.swift; sourceTree = "<group>"; };
+		265D344124C7DEA500A33686 /* DZMReadRecordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadRecordModel.swift; sourceTree = "<group>"; };
+		265D344224C7DEA500A33686 /* DZMReadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadModel.swift; sourceTree = "<group>"; };
+		265D344324C7DEA500A33686 /* DZMReadModel+Mark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DZMReadModel+Mark.swift"; sourceTree = "<group>"; };
+		265D344424C7DEA500A33686 /* DZMReadChapterListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadChapterListModel.swift; sourceTree = "<group>"; };
+		265D344524C7DEA500A33686 /* DZMReadMarkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadMarkModel.swift; sourceTree = "<group>"; };
+		265D344624C7DEA500A33686 /* DZMReadChapterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadChapterModel.swift; sourceTree = "<group>"; };
+		265D344724C7DEA500A33686 /* DZMReadPageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadPageModel.swift; sourceTree = "<group>"; };
+		265D344A24C7DEA500A33686 /* DZMReadCatalogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadCatalogCell.swift; sourceTree = "<group>"; };
+		265D344B24C7DEA500A33686 /* DZMReadCatalogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadCatalogView.swift; sourceTree = "<group>"; };
+		265D344C24C7DEA500A33686 /* DZMReadMarkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadMarkCell.swift; sourceTree = "<group>"; };
+		265D344D24C7DEA500A33686 /* DZMReadMarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadMarkView.swift; sourceTree = "<group>"; };
+		265D344E24C7DEA500A33686 /* DZMReadLeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadLeftView.swift; sourceTree = "<group>"; };
+		265D344F24C7DEA500A33686 /* DZMReadContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadContentView.swift; sourceTree = "<group>"; };
+		265D345024C7DEA500A33686 /* DZMReadController+EffectType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DZMReadController+EffectType.swift"; sourceTree = "<group>"; };
+		265D345324C7DEA500A33686 /* DZMCoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZMCoverController.h; sourceTree = "<group>"; };
+		265D345424C7DEA500A33686 /* DZMCoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZMCoverController.m; sourceTree = "<group>"; };
+		265D345B24C7DEA600A33686 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		265D345C24C7DEA600A33686 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		265D345E24C7DEA600A33686 /* DZMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZMSegmentedControl.m; sourceTree = "<group>"; };
+		265D345F24C7DEA600A33686 /* DZMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZMSegmentedControl.h; sourceTree = "<group>"; };
+		265D346124C7DEA600A33686 /* ASValuePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValuePopUpView.h; sourceTree = "<group>"; };
+		265D346224C7DEA600A33686 /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValueTrackingSlider.h; sourceTree = "<group>"; };
+		265D346324C7DEA600A33686 /* ASValuePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValuePopUpView.m; sourceTree = "<group>"; };
+		265D346424C7DEA600A33686 /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASValueTrackingSlider.m; sourceTree = "<group>"; };
+		265D346624C7DEA600A33686 /* DZMMagnifierView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZMMagnifierView.h; sourceTree = "<group>"; };
+		265D346724C7DEA600A33686 /* magnifier_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnifier_1.png; sourceTree = "<group>"; };
+		265D346824C7DEA600A33686 /* magnifier_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magnifier_0.png; sourceTree = "<group>"; };
+		265D346924C7DEA600A33686 /* DZMMagnifierView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZMMagnifierView.m; sourceTree = "<group>"; };
+		265D34B224C7DF0D00A33686 /* 三国演义.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "三国演义.txt"; sourceTree = "<group>"; };
+		265D34B324C7DF0D00A33686 /* Bridging-Pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Pch.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		265D33EA24C7DE4700A33686 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		265D33E424C7DE4700A33686 = {
+			isa = PBXGroup;
+			children = (
+				265D33EF24C7DE4700A33686 /* read */,
+				265D33EE24C7DE4700A33686 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		265D33EE24C7DE4700A33686 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				265D33ED24C7DE4700A33686 /* read.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		265D33EF24C7DE4700A33686 /* read */ = {
+			isa = PBXGroup;
+			children = (
+				265D33F024C7DE4700A33686 /* AppDelegate.swift */,
+				265D33F924C7DE4C00A33686 /* Assets.xcassets */,
+				265D34B324C7DF0D00A33686 /* Bridging-Pch.h */,
+				265D340A24C7DEA500A33686 /* DZMeBookRead */,
+				265D33FE24C7DE4C00A33686 /* Info.plist */,
+				265D33FB24C7DE4C00A33686 /* LaunchScreen.storyboard */,
+				265D33F624C7DE4700A33686 /* Main.storyboard */,
+				265D33F224C7DE4700A33686 /* SceneDelegate.swift */,
+				265D34B124C7DF0D00A33686 /* src */,
+				265D345124C7DEA500A33686 /* thirdParty */,
+				265D340424C7DEA500A33686 /* Util */,
+				265D33F424C7DE4700A33686 /* ViewController.swift */,
+			);
+			path = read;
+			sourceTree = "<group>";
+		};
+		265D340424C7DEA500A33686 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				265D340524C7DEA500A33686 /* IndexPathMore.swift */,
+				265D340624C7DEA500A33686 /* ArrayMore.swift */,
+				265D340724C7DEA500A33686 /* NSRangeMore.swift */,
+				265D340824C7DEA500A33686 /* FloatMore.swift */,
+				265D340924C7DEA500A33686 /* NSNumberMore.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		265D340A24C7DEA500A33686 /* DZMeBookRead */ = {
+			isa = PBXGroup;
+			children = (
+				265D340B24C7DEA500A33686 /* DZMReadController+Operation.swift */,
+				265D340C24C7DEA500A33686 /* other */,
+				265D341E24C7DEA500A33686 /* ReadView */,
+				265D342C24C7DEA500A33686 /* ReadParser */,
+				265D343024C7DEA500A33686 /* DZMReadConfigure.swift */,
+				265D343124C7DEA500A33686 /* menuUI */,
+				265D343F24C7DEA500A33686 /* DZMReadController.swift */,
+				265D344024C7DEA500A33686 /* model */,
+				265D344824C7DEA500A33686 /* view */,
+				265D345024C7DEA500A33686 /* DZMReadController+EffectType.swift */,
+			);
+			path = DZMeBookRead;
+			sourceTree = "<group>";
+		};
+		265D340C24C7DEA500A33686 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				265D340D24C7DEA500A33686 /* DZMeBookRead-Bridging-Pch.h */,
+				265D340E24C7DEA500A33686 /* extension */,
+				265D341124C7DEA500A33686 /* public */,
+				265D341724C7DEA500A33686 /* custom */,
+				265D341B24C7DEA500A33686 /* base */,
+			);
+			path = other;
+			sourceTree = "<group>";
+		};
+		265D340E24C7DEA500A33686 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				265D340F24C7DEA500A33686 /* String+Extension.swift */,
+				265D341024C7DEA500A33686 /* UIPageViewController+Extension.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		265D341124C7DEA500A33686 /* public */ = {
+			isa = PBXGroup;
+			children = (
+				265D341224C7DEA500A33686 /* DZMPublic.swift */,
+				265D341324C7DEA500A33686 /* DZMSpaceList.swift */,
+				265D341424C7DEA500A33686 /* DZMColorList.swift */,
+				265D341524C7DEA500A33686 /* DZMEnumList.swift */,
+				265D341624C7DEA500A33686 /* DZMFontList.swift */,
+			);
+			path = public;
+			sourceTree = "<group>";
+		};
+		265D341724C7DEA500A33686 /* custom */ = {
+			isa = PBXGroup;
+			children = (
+				265D341824C7DEA500A33686 /* DZMKeyedArchiver.swift */,
+				265D341924C7DEA500A33686 /* DZMCoreText.swift */,
+				265D341A24C7DEA500A33686 /* DZMUserDefaults.swift */,
+			);
+			path = custom;
+			sourceTree = "<group>";
+		};
+		265D341B24C7DEA500A33686 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				265D341C24C7DEA500A33686 /* DZMTableView.swift */,
+				265D341D24C7DEA500A33686 /* DZMViewController.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		265D341E24C7DEA500A33686 /* ReadView */ = {
+			isa = PBXGroup;
+			children = (
+				265D341F24C7DEA500A33686 /* DZMReadViewScrollController.swift */,
+				265D342024C7DEA500A33686 /* DZMReadLongPressViewController.swift */,
+				265D342124C7DEA500A33686 /* DZMReadViewController.swift */,
+				265D342224C7DEA500A33686 /* DZMReadViewBGController.swift */,
+				265D342324C7DEA500A33686 /* view */,
+			);
+			path = ReadView;
+			sourceTree = "<group>";
+		};
+		265D342324C7DEA500A33686 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				265D342424C7DEA500A33686 /* DZMReadViewCell.swift */,
+				265D342524C7DEA500A33686 /* DZMReadHomeView.swift */,
+				265D342624C7DEA500A33686 /* DZMReadViewStatusBottomView.swift */,
+				265D342724C7DEA500A33686 /* DZMReadLongPressView.swift */,
+				265D342824C7DEA500A33686 /* DZMReadViewStatusTopView.swift */,
+				265D342924C7DEA500A33686 /* DZMReadLongPressCursorView.swift */,
+				265D342A24C7DEA500A33686 /* DZMReadView.swift */,
+				265D342B24C7DEA500A33686 /* DZMReadHomeViewCell.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		265D342C24C7DEA500A33686 /* ReadParser */ = {
+			isa = PBXGroup;
+			children = (
+				265D342D24C7DEA500A33686 /* DZMReadTextParser.swift */,
+				265D342E24C7DEA500A33686 /* DZMReadTextFastParser.swift */,
+				265D342F24C7DEA500A33686 /* DZMReadParser.swift */,
+			);
+			path = ReadParser;
+			sourceTree = "<group>";
+		};
+		265D343124C7DEA500A33686 /* menuUI */ = {
+			isa = PBXGroup;
+			children = (
+				265D343224C7DEA500A33686 /* DZMRMSettingView */,
+				265D343824C7DEA500A33686 /* DZMReadMenu.swift */,
+				265D343924C7DEA500A33686 /* DZMRMTopView.swift */,
+				265D343A24C7DEA500A33686 /* DZMRMBaseView.swift */,
+				265D343B24C7DEA500A33686 /* DZMRMBottomView */,
+			);
+			path = menuUI;
+			sourceTree = "<group>";
+		};
+		265D343224C7DEA500A33686 /* DZMRMSettingView */ = {
+			isa = PBXGroup;
+			children = (
+				265D343324C7DEA500A33686 /* DZMRMFontSizeView.swift */,
+				265D343424C7DEA500A33686 /* DZMRMFontTypeView.swift */,
+				265D343524C7DEA500A33686 /* DZMRMSettingView.swift */,
+				265D343624C7DEA500A33686 /* DZMRMEffectTypeView.swift */,
+				265D343724C7DEA500A33686 /* DZMRMSpacingView.swift */,
+			);
+			path = DZMRMSettingView;
+			sourceTree = "<group>";
+		};
+		265D343B24C7DEA500A33686 /* DZMRMBottomView */ = {
+			isa = PBXGroup;
+			children = (
+				265D343C24C7DEA500A33686 /* DZMRMProgressView.swift */,
+				265D343D24C7DEA500A33686 /* DZMRMBottomView.swift */,
+				265D343E24C7DEA500A33686 /* DZMRMFuncView.swift */,
+			);
+			path = DZMRMBottomView;
+			sourceTree = "<group>";
+		};
+		265D344024C7DEA500A33686 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				265D344124C7DEA500A33686 /* DZMReadRecordModel.swift */,
+				265D344224C7DEA500A33686 /* DZMReadModel.swift */,
+				265D344324C7DEA500A33686 /* DZMReadModel+Mark.swift */,
+				265D344424C7DEA500A33686 /* DZMReadChapterListModel.swift */,
+				265D344524C7DEA500A33686 /* DZMReadMarkModel.swift */,
+				265D344624C7DEA500A33686 /* DZMReadChapterModel.swift */,
+				265D344724C7DEA500A33686 /* DZMReadPageModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		265D344824C7DEA500A33686 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				265D344924C7DEA500A33686 /* DZMReadLeftView */,
+				265D344F24C7DEA500A33686 /* DZMReadContentView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		265D344924C7DEA500A33686 /* DZMReadLeftView */ = {
+			isa = PBXGroup;
+			children = (
+				265D344A24C7DEA500A33686 /* DZMReadCatalogCell.swift */,
+				265D344B24C7DEA500A33686 /* DZMReadCatalogView.swift */,
+				265D344C24C7DEA500A33686 /* DZMReadMarkCell.swift */,
+				265D344D24C7DEA500A33686 /* DZMReadMarkView.swift */,
+				265D344E24C7DEA500A33686 /* DZMReadLeftView.swift */,
+			);
+			path = DZMReadLeftView;
+			sourceTree = "<group>";
+		};
+		265D345124C7DEA500A33686 /* thirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				265D345224C7DEA500A33686 /* DZMCoverController */,
+				265D345A24C7DEA600A33686 /* FDFullscreenPopGesture */,
+				265D345D24C7DEA600A33686 /* DZMSegmentedControl */,
+				265D346024C7DEA600A33686 /* ASValueTrackingSlider */,
+				265D346524C7DEA600A33686 /* DZMMagnifierView */,
+			);
+			path = thirdParty;
+			sourceTree = "<group>";
+		};
+		265D345224C7DEA500A33686 /* DZMCoverController */ = {
+			isa = PBXGroup;
+			children = (
+				265D345324C7DEA500A33686 /* DZMCoverController.h */,
+				265D345424C7DEA500A33686 /* DZMCoverController.m */,
+			);
+			path = DZMCoverController;
+			sourceTree = "<group>";
+		};
+		265D345A24C7DEA600A33686 /* FDFullscreenPopGesture */ = {
+			isa = PBXGroup;
+			children = (
+				265D345B24C7DEA600A33686 /* UINavigationController+FDFullscreenPopGesture.h */,
+				265D345C24C7DEA600A33686 /* UINavigationController+FDFullscreenPopGesture.m */,
+			);
+			path = FDFullscreenPopGesture;
+			sourceTree = "<group>";
+		};
+		265D345D24C7DEA600A33686 /* DZMSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				265D345E24C7DEA600A33686 /* DZMSegmentedControl.m */,
+				265D345F24C7DEA600A33686 /* DZMSegmentedControl.h */,
+			);
+			path = DZMSegmentedControl;
+			sourceTree = "<group>";
+		};
+		265D346024C7DEA600A33686 /* ASValueTrackingSlider */ = {
+			isa = PBXGroup;
+			children = (
+				265D346124C7DEA600A33686 /* ASValuePopUpView.h */,
+				265D346224C7DEA600A33686 /* ASValueTrackingSlider.h */,
+				265D346324C7DEA600A33686 /* ASValuePopUpView.m */,
+				265D346424C7DEA600A33686 /* ASValueTrackingSlider.m */,
+			);
+			path = ASValueTrackingSlider;
+			sourceTree = "<group>";
+		};
+		265D346524C7DEA600A33686 /* DZMMagnifierView */ = {
+			isa = PBXGroup;
+			children = (
+				265D346624C7DEA600A33686 /* DZMMagnifierView.h */,
+				265D346724C7DEA600A33686 /* magnifier_1.png */,
+				265D346824C7DEA600A33686 /* magnifier_0.png */,
+				265D346924C7DEA600A33686 /* DZMMagnifierView.m */,
+			);
+			path = DZMMagnifierView;
+			sourceTree = "<group>";
+		};
+		265D34B124C7DF0D00A33686 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				265D34B224C7DF0D00A33686 /* 三国演义.txt */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		265D33EC24C7DE4700A33686 /* read */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 265D340124C7DE4C00A33686 /* Build configuration list for PBXNativeTarget "read" */;
+			buildPhases = (
+				265D33E924C7DE4700A33686 /* Sources */,
+				265D33EA24C7DE4700A33686 /* Frameworks */,
+				265D33EB24C7DE4700A33686 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = read;
+			productName = read;
+			productReference = 265D33ED24C7DE4700A33686 /* read.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		265D33E524C7DE4700A33686 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Jz D";
+				TargetAttributes = {
+					265D33EC24C7DE4700A33686 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = 265D33E824C7DE4700A33686 /* Build configuration list for PBXProject "read" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 265D33E424C7DE4700A33686;
+			productRefGroup = 265D33EE24C7DE4700A33686 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				265D33EC24C7DE4700A33686 /* read */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		265D33EB24C7DE4700A33686 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				265D34AE24C7DEA600A33686 /* magnifier_1.png in Resources */,
+				265D34B424C7DF0D00A33686 /* 三国演义.txt in Resources */,
+				265D33FD24C7DE4C00A33686 /* LaunchScreen.storyboard in Resources */,
+				265D33FA24C7DE4C00A33686 /* Assets.xcassets in Resources */,
+				265D33F824C7DE4700A33686 /* Main.storyboard in Resources */,
+				265D34AF24C7DEA600A33686 /* magnifier_0.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		265D33E924C7DE4700A33686 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				265D34A024C7DEA600A33686 /* DZMReadCatalogView.swift in Sources */,
+				265D347924C7DEA600A33686 /* DZMUserDefaults.swift in Sources */,
+				265D349324C7DEA600A33686 /* DZMRMBaseView.swift in Sources */,
+				265D348124C7DEA600A33686 /* DZMReadHomeView.swift in Sources */,
+				265D347224C7DEA600A33686 /* DZMPublic.swift in Sources */,
+				265D347324C7DEA600A33686 /* DZMSpaceList.swift in Sources */,
+				265D348D24C7DEA600A33686 /* DZMRMFontTypeView.swift in Sources */,
+				265D349924C7DEA600A33686 /* DZMReadModel.swift in Sources */,
+				265D346B24C7DEA600A33686 /* ArrayMore.swift in Sources */,
+				265D347724C7DEA600A33686 /* DZMKeyedArchiver.swift in Sources */,
+				265D349024C7DEA600A33686 /* DZMRMSpacingView.swift in Sources */,
+				265D348324C7DEA600A33686 /* DZMReadLongPressView.swift in Sources */,
+				265D348824C7DEA600A33686 /* DZMReadTextParser.swift in Sources */,
+				265D349C24C7DEA600A33686 /* DZMReadMarkModel.swift in Sources */,
+				265D349A24C7DEA600A33686 /* DZMReadModel+Mark.swift in Sources */,
+				265D33F524C7DE4700A33686 /* ViewController.swift in Sources */,
+				265D347824C7DEA600A33686 /* DZMCoreText.swift in Sources */,
+				265D348924C7DEA600A33686 /* DZMReadTextFastParser.swift in Sources */,
+				265D348E24C7DEA600A33686 /* DZMRMSettingView.swift in Sources */,
+				265D347C24C7DEA600A33686 /* DZMReadViewScrollController.swift in Sources */,
+				265D346E24C7DEA600A33686 /* NSNumberMore.swift in Sources */,
+				265D34A224C7DEA600A33686 /* DZMReadMarkView.swift in Sources */,
+				265D33F124C7DE4700A33686 /* AppDelegate.swift in Sources */,
+				265D349B24C7DEA600A33686 /* DZMReadChapterListModel.swift in Sources */,
+				265D34AB24C7DEA600A33686 /* DZMSegmentedControl.m in Sources */,
+				265D349D24C7DEA600A33686 /* DZMReadChapterModel.swift in Sources */,
+				265D34B024C7DEA600A33686 /* DZMMagnifierView.m in Sources */,
+				265D346F24C7DEA600A33686 /* DZMReadController+Operation.swift in Sources */,
+				265D347124C7DEA600A33686 /* UIPageViewController+Extension.swift in Sources */,
+				265D349524C7DEA600A33686 /* DZMRMBottomView.swift in Sources */,
+				265D348F24C7DEA600A33686 /* DZMRMEffectTypeView.swift in Sources */,
+				265D348624C7DEA600A33686 /* DZMReadView.swift in Sources */,
+				265D34A424C7DEA600A33686 /* DZMReadContentView.swift in Sources */,
+				265D348C24C7DEA600A33686 /* DZMRMFontSizeView.swift in Sources */,
+				265D346A24C7DEA600A33686 /* IndexPathMore.swift in Sources */,
+				265D346D24C7DEA600A33686 /* FloatMore.swift in Sources */,
+				265D347D24C7DEA600A33686 /* DZMReadLongPressViewController.swift in Sources */,
+				265D34AA24C7DEA600A33686 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				265D349224C7DEA600A33686 /* DZMRMTopView.swift in Sources */,
+				265D349F24C7DEA600A33686 /* DZMReadCatalogCell.swift in Sources */,
+				265D348524C7DEA600A33686 /* DZMReadLongPressCursorView.swift in Sources */,
+				265D347624C7DEA600A33686 /* DZMFontList.swift in Sources */,
+				265D349724C7DEA600A33686 /* DZMReadController.swift in Sources */,
+				265D349124C7DEA600A33686 /* DZMReadMenu.swift in Sources */,
+				265D349824C7DEA600A33686 /* DZMReadRecordModel.swift in Sources */,
+				265D348724C7DEA600A33686 /* DZMReadHomeViewCell.swift in Sources */,
+				265D347F24C7DEA600A33686 /* DZMReadViewBGController.swift in Sources */,
+				265D347524C7DEA600A33686 /* DZMEnumList.swift in Sources */,
+				265D348B24C7DEA600A33686 /* DZMReadConfigure.swift in Sources */,
+				265D34AC24C7DEA600A33686 /* ASValuePopUpView.m in Sources */,
+				265D34A524C7DEA600A33686 /* DZMReadController+EffectType.swift in Sources */,
+				265D347A24C7DEA600A33686 /* DZMTableView.swift in Sources */,
+				265D348A24C7DEA600A33686 /* DZMReadParser.swift in Sources */,
+				265D33F324C7DE4700A33686 /* SceneDelegate.swift in Sources */,
+				265D348024C7DEA600A33686 /* DZMReadViewCell.swift in Sources */,
+				265D348424C7DEA600A33686 /* DZMReadViewStatusTopView.swift in Sources */,
+				265D34AD24C7DEA600A33686 /* ASValueTrackingSlider.m in Sources */,
+				265D348224C7DEA600A33686 /* DZMReadViewStatusBottomView.swift in Sources */,
+				265D347024C7DEA600A33686 /* String+Extension.swift in Sources */,
+				265D347E24C7DEA600A33686 /* DZMReadViewController.swift in Sources */,
+				265D34A324C7DEA600A33686 /* DZMReadLeftView.swift in Sources */,
+				265D346C24C7DEA600A33686 /* NSRangeMore.swift in Sources */,
+				265D347B24C7DEA600A33686 /* DZMViewController.swift in Sources */,
+				265D349424C7DEA600A33686 /* DZMRMProgressView.swift in Sources */,
+				265D347424C7DEA600A33686 /* DZMColorList.swift in Sources */,
+				265D34A124C7DEA600A33686 /* DZMReadMarkCell.swift in Sources */,
+				265D34A624C7DEA600A33686 /* DZMCoverController.m in Sources */,
+				265D349E24C7DEA600A33686 /* DZMReadPageModel.swift in Sources */,
+				265D349624C7DEA600A33686 /* DZMRMFuncView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		265D33F624C7DE4700A33686 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				265D33F724C7DE4700A33686 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		265D33FB24C7DE4C00A33686 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				265D33FC24C7DE4C00A33686 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		265D33FF24C7DE4C00A33686 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		265D340024C7DE4C00A33686 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		265D340224C7DE4C00A33686 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D878P8TW6L;
+				INFOPLIST_FILE = read/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.photod.mnc.read;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/read/Bridging-Pch.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		265D340324C7DE4C00A33686 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D878P8TW6L;
+				INFOPLIST_FILE = read/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.photod.mnc.read;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/read/Bridging-Pch.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		265D33E824C7DE4700A33686 /* Build configuration list for PBXProject "read" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				265D33FF24C7DE4C00A33686 /* Debug */,
+				265D340024C7DE4C00A33686 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		265D340124C7DE4C00A33686 /* Build configuration list for PBXNativeTarget "read" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				265D340224C7DE4C00A33686 /* Debug */,
+				265D340324C7DE4C00A33686 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 265D33E524C7DE4700A33686 /* Project object */;
+}
