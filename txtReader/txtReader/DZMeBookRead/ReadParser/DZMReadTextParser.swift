@@ -51,36 +51,36 @@ class ReadTextParser: NSObject {
         }
      
             
-            // 不存在
-            
-            // 解析数据
-            let content = ReadParser.encode(url: url)
-            
-            // 解析失败
-            guard content.isEmpty == false else { return nil }
-            
-            // 解析内容并获得章节列表
-            let chapterListModels = parser(segments: bookID, content: content)
-            
-            // 解析内容失败
-            guard chapterListModels.isEmpty == false else { return nil }
-            // 阅读模型
-            let readModel = ReadModel.model(bookID: bookID)
-            
-            // 小说名称
-            readModel.bookName = bookName
-            
-            // 记录章节列表
-            readModel.chapterListModels = chapterListModels
-            
-            // 设置第一个章节为阅读记录
-            readModel.recordModel?.modify(chapterID:  readModel.chapterListModels.first!.id, toPage: 0)
-            
-            // 保存
-            readModel.keep()
-            
-            // 返回
-            return readModel
+        // 不存在
+        
+        // 解析数据
+        let content = ReadParser.encode(url: url)
+        
+        // 解析失败
+        guard content.isEmpty == false else { return nil }
+        
+        // 解析内容并获得章节列表
+        let chapterListModels = parser(segments: bookID, content: content)
+        
+        // 解析内容失败
+        guard chapterListModels.isEmpty == false else { return nil }
+        // 阅读模型
+        let readModel = ReadModel.model(bookID: bookID)
+        
+        // 小说名称
+        readModel.bookName = bookName
+        
+        // 记录章节列表
+        readModel.chapterListModels = chapterListModels
+        
+        // 设置第一个章节为阅读记录
+        readModel.recordModel?.modify(chapterID:  readModel.chapterListModels.first!.id, toPage: 0)
+        
+        // 保存
+        readModel.keep()
+        
+        // 返回
+        return readModel
         
     }
     
