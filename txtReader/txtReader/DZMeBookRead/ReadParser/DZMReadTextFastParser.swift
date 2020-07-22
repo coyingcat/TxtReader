@@ -18,11 +18,10 @@ class DZMReadTextFastParser: NSObject {
         
         DispatchQueue.global().async {
             
-            let readModel = parser(url: url)
-            
-            DispatchQueue.main.async {
-                
-                completion?(readModel)
+            if let readModel = parser(url: url){
+                DispatchQueue.main.async {       
+                    completion?(readModel)
+                }
             }
         }
     }

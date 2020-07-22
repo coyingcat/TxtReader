@@ -8,7 +8,7 @@
 import UIKit
 
 /// 解析完成
-typealias DZMParserCompletion = (_ readModel:DZMReadModel?) ->Void
+typealias DZMParserCompletion = (_  readModel: DZMReadModel) ->Void
 
 class DZMReadParser: NSObject {
     

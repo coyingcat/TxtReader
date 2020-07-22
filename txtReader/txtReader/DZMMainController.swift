@@ -48,19 +48,13 @@ class DZMMainController: DZMViewController {
         
         print("缓存文件地址:", Sand.readDocumentDirectoryPath)
         
-       
-      
-        let url = Bundle.main.url(forResource: "三国演义", withExtension: "txt")
+        guard let url = Bundle.main.url(forResource: "三国演义", withExtension: "txt") else { return }
         
         print("全本解析开始时间:",TimerString("YYYY-MM-dd-HH-mm-ss"), Date().timeIntervalSince1970)
         
         DZMReadTextParser.resolve(url: url) { [weak self] (readModel) in
             
             print("全本解析结束时间:",TimerString("YYYY-MM-dd-HH-mm-ss"), Date().timeIntervalSince1970)
-            
-            if readModel == nil {
-                return
-            }
             
             let vc = DZMReadController()
             vc.readModel = readModel

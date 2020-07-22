@@ -14,15 +14,12 @@ class DZMReadTextParser: NSObject {
     /// - Parameters:
     ///   - url: 本地文件地址
     ///   - completion: 解析完成
-    @objc class func resolve(url:URL!, completion:DZMParserCompletion!) {
-        
-        DispatchQueue.global().async {
-            
-            let readModel = parser(book: url)
-            
-            DispatchQueue.main.async {
-                
-                completion?(readModel)
+    @objc class func resolve(url: URL, completion: @escaping DZMParserCompletion) {
+        DispatchQueue.global().async{
+            if let readModel = parser(book: url){
+                DispatchQueue.main.async{
+                    completion(readModel)
+                }
             }
         }
     }
