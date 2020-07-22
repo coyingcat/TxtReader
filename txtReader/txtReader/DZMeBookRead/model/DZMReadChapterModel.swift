@@ -174,23 +174,18 @@ class ReadChapterModel: NSObject,NSCoding {
     // MARK: 构造
     
     /// 获取章节对象,如果则创建对象返回
-    class func model(bookID:String!, chapterID:NSNumber!, isUpdateFont:Bool = true) ->ReadChapterModel {
-        
-        var chapterModel:ReadChapterModel!
-        
-        if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
-            
-            chapterModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: chapterID.stringValue) as? ReadChapterModel
-            
-            if isUpdateFont { chapterModel?.updateFont() }
-            
+    
+    var real: ReadChapterModel{
+        if ReadChapterModel.isExist(bookID: bookID, chapterID: id) {
+            let chapterModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: id.stringValue) as! ReadChapterModel
+            return chapterModel
         }
         else{
-            chapterModel = ReadChapterModel(id: chapterID, in: bookID)
+            return self
         }
-        
-        return chapterModel
     }
+    
+    
     
     init(id chapter: NSNumber, in key: String){
         bookID = key

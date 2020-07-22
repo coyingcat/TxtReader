@@ -94,11 +94,10 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         let chapterID = chapterIDs[section]
         
         // 获取章节内容模型
-        let chapterModel = GetChapterModel(chapterID: chapterID)
+        let chapterModel = getChapterModel(chapterID: chapterID)
         
         // 有数据则返回页数
-        let cnt = chapterModel?.pageCount
-        return cnt.intVal
+        return chapterModel.pageCount.intValue
     
     }
     
@@ -106,9 +105,9 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         
         let chapterID = chapterIDs[indexPath.section]
         
-        let chapterModel = GetChapterModel(chapterID: chapterID)
+        let chapterModel = getChapterModel(chapterID: chapterID)
         
-        let pageModel = chapterModel!.pageModels[indexPath.row]
+        let pageModel = chapterModel.pageModels[indexPath.row]
         
         // 是否为书籍首页
         if pageModel.isHomePage {
@@ -133,9 +132,9 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         
         let chapterID = chapterIDs[indexPath.section]
         
-        let chapterModel = GetChapterModel(chapterID: chapterID)
+        let chapterModel = getChapterModel(chapterID: chapterID)
         
-        return chapterModel!.pageModels[indexPath.row].cellHeight
+        return chapterModel.pageModels[indexPath.row].cellHeight
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -161,9 +160,9 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         
         let chapterID = chapterIDs[indexPath.section]
         
-        let chapterModel = GetChapterModel(chapterID: chapterID)
+        let chapterModel = getChapterModel(chapterID: chapterID)
         
-        let pageModel = chapterModel!.pageModels[indexPath.row]
+        let pageModel = chapterModel.pageModels[indexPath.row]
         
         if pageModel.isHomePage {
             
@@ -179,9 +178,9 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         
         let chapterID = chapterIDs[indexPath.section]
         
-        let chapterModel = GetChapterModel(chapterID: chapterID)
+        let chapterModel = getChapterModel(chapterID: chapterID)
         
-        let pageModel = chapterModel!.pageModels[indexPath.row]
+        let pageModel = chapterModel.pageModels[indexPath.row]
         
         if pageModel.isHomePage {
             
@@ -261,7 +260,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
                     
                     let chapterID = self?.chapterIDs[indexPath.section]
                     
-                    let chapterModel = self?.GetChapterModel(chapterID: chapterID!)
+                    let chapterModel = self?.getChapterModel(chapterID: chapterID!)
                     
                     record.modify(chapterModel: chapterModel, page: indexPath.row)
                     
@@ -303,28 +302,17 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
     // MARK: 获得阅读数据
     
     /// 获取章节内容模型
-    private func GetChapterModel(chapterID:NSNumber) ->ReadChapterModel? {
+    func getChapterModel(chapterID:NSNumber) -> ReadChapterModel{
         
-        var chapterModel:ReadChapterModel? = nil
-        
-        if chapterModels.keys.contains(chapterID.stringValue) { // 内存中存在章节内容
-            
-            chapterModel = chapterModels[chapterID.stringValue]
-            
+        if let model = chapterModels[chapterID.stringValue]{
+            // 内存中存在章节内容
+            return model
         }else{ // 内存中不存在章节列表
             
-            // 检查是否存在章节内容
-
-            // 存在
-            if ReadChapterModel.isExist(bookID: vc.readModel.bookID, chapterID: chapterID){
-                
-                chapterModel = ReadChapterModel.model(bookID: vc.readModel.bookID, chapterID: chapterID)
-                
-                chapterModels[chapterID.stringValue] = chapterModel
-            }
+            let model = ReadChapterModel(id: chapterID, in: vc.readModel.bookID).real
+            chapterModels[chapterID.stringValue] = model
+            return model
         }
-        
-        return chapterModel
     }
     
     
@@ -364,7 +352,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
                     
                 }else{
 
-                    tempChapterModel = ReadChapterModel.model(bookID: bookID, chapterID: chapterID!)
+                    tempChapterModel = ReadChapterModel(id: chapterID!, in: bookID).real
                 }
             
                 // 加入阅读内容列表
@@ -432,7 +420,8 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
                 
                 }else{
 
-                    tempChapterModel = ReadChapterModel.model(bookID: bookID, chapterID: chapterID!)
+                    tempChapterModel = ReadChapterModel(id: chapterID!, in: bookID).real
+                       
                 }
                 
                 // 加入阅读内容列表

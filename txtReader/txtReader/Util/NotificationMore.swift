@@ -78,7 +78,7 @@ extension Notification: NamespaceWrap{}
 extension TypeWrapper where WrappedType == Notification {
 
     var isOpen: Bool?{
-        if let dict = wrapped.userInfo, dict.keys.contains(ReadLongPress.k), let isOpen = dict[ReadLongPress.k] as? NSNumber{
+        if let dict = wrapped.userInfo, let isOpen = dict[ReadLongPress.k] as? NSNumber{
             return isOpen.boolValue
         }
         else{

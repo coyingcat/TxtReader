@@ -106,7 +106,7 @@ class ReadRecordModel: NSObject,NSCoding {
         
         if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
             
-            chapterModel = ReadChapterModel.model(bookID: bookID, chapterID: chapterID)
+            chapterModel = ReadChapterModel(id: chapterID, in: bookID).real
             
             page = chapterModel.page(location: location)
             
@@ -119,7 +119,7 @@ class ReadRecordModel: NSObject,NSCoding {
         
         if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
             
-            chapterModel = ReadChapterModel.model(bookID: bookID, chapterID: chapterID)
+            chapterModel = ReadChapterModel(id: chapterID, in: bookID).real
             
             if (toPage == READ_LAST_PAGE) { lastPage()
                 
