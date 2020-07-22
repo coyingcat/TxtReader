@@ -407,18 +407,12 @@ class DZMReadLongPressView: DZMReadView {
                 let copy = UIMenuItem(title: "复制", action: #selector(clickCopy))
                 
                 menuController.menuItems = [copy]
-                
-                menuController.setTargetRect(rect, in: self)
-                
                 DelayHandle {
-                    
-                    menuController.setMenuVisible(true, animated: true)
+                    menuController.showMenu(from: self, rect: rect)
                 }
             }
-            
         }else{ // 隐藏
-            
-            UIMenuController.shared.setMenuVisible(false, animated: true)
+            UIMenuController.shared.hideMenu()
         }
     }
     
