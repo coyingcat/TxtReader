@@ -60,10 +60,6 @@ class ReadTextFastParser: NSObject {
             
             // 阅读模型
             let readModel = ReadModel.model(bookID: bookID)
-
-            // 小说名称
-            readModel.bookName = bookName
-            
             // 解析内容并获得章节列表
             parser(readModel: readModel, content: content)
             

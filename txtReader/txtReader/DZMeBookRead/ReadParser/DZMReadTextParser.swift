@@ -67,9 +67,6 @@ class ReadTextParser: NSObject {
         // 阅读模型
         let readModel = ReadModel.model(bookID: bookID)
         
-        // 小说名称
-        readModel.bookName = bookName
-        
         // 记录章节列表
         readModel.chapterListModels = chapterListModels
         

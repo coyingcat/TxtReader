@@ -24,7 +24,7 @@ extension ReadModel {
             
             markModel.name = "(无章节名)"
             
-            markModel.content = bookName
+            markModel.content = bookID
             
         }else{
             

@@ -17,7 +17,7 @@ class ReadHomeView: UIView {
         
         didSet{
             
-            name.text = readModel.bookName
+            name.text = readModel.bookID
         }
     }
 

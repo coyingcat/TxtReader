@@ -51,7 +51,7 @@ class ReadViewController: ViewController {
         
         // 顶部状态栏
         topView = ReadViewStatusTopView()
-        topView.bookName.text = readModel.bookName
+        topView.bookName.text = readModel.bookID
         topView.chapterName.text = recordModel.chapterModel.name
         view.addSubview(topView)
         topView.frame = CGRect(x: readRect.minX, y: readRect.minY, width: readRect.width, height: READ_STATUS_TOP_VIEW_HEIGHT)

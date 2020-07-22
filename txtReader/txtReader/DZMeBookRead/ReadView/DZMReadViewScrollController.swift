@@ -60,7 +60,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         let readRect = READ_RECT
         
         // 顶部状态栏
-        topView.bookName.text = vc.readModel.bookName
+        topView.bookName.text = vc.readModel.bookID
         if let record = vc.readModel.recordModel{
             topView.chapterName.text = record.chapterModel.name
         }

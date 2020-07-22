@@ -11,11 +11,6 @@ class ReadModel: NSObject,NSCoding {
 
     /// 小说ID
     let bookID:String
-    
-    /// 小说名称
-    var bookName:String!
-    
-   
     /// 当前阅读记录
     var recordModel:ReadRecordModel?
     
@@ -84,8 +79,6 @@ class ReadModel: NSObject,NSCoding {
         
         bookID = aDecoder.decodeObject(forKey: "bookID") as! String
         super.init()
-        bookName = aDecoder.decodeObject(forKey: "bookName") as? String
-        
         
         chapterListModels = aDecoder.decodeObject(forKey: "chapterListModels") as! [ReadChapterListModel]
         
@@ -99,10 +92,6 @@ class ReadModel: NSObject,NSCoding {
     func encode(with aCoder: NSCoder) {
         
         aCoder.encode(bookID, forKey: "bookID")
-        
-        aCoder.encode(bookName, forKey: "bookName")
-        
-        
         aCoder.encode(chapterListModels, forKey: "chapterListModels")
         
         aCoder.encode(markModels, forKey: "markModels")
