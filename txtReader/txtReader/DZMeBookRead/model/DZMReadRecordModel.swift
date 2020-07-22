@@ -162,12 +162,8 @@ class ReadRecordModel: NSObject,NSCoding {
         KeyedArchiver.archiver(folderName: bookID, fileName: READ_KEY_RECORD, object: self)
     }
     
-    /// 是否存在阅读记录
-    class func isExist(_ bookID: String) ->Bool {
-        
-        return KeyedArchiver.isExist(folderName: bookID, fileName: READ_KEY_RECORD)
-    }
     
+
     
     // MARK: 构造
     
@@ -176,7 +172,7 @@ class ReadRecordModel: NSObject,NSCoding {
         
         var recordModel:ReadRecordModel!
         
-        if ReadRecordModel.isExist(bookID) {
+        if bookID.exists{
             
             recordModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: READ_KEY_RECORD) as? ReadRecordModel
             

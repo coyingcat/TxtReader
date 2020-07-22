@@ -43,9 +43,15 @@ class ReadTextFastParser: NSObject {
         
         // bookID 为空
         if bookID.isEmpty { return nil }
-        
-        if !ReadModel.isExist(bookID: bookID) { // 不存在
+        guard bookID.exists == false else{
             
+            // 存在
+            // 返回
+            return ReadModel.model(bookID: bookID)
+            
+        }
+        
+            // 不存在
             // 解析数据
             let content = ReadParser.encode(url: url)
             
@@ -78,12 +84,7 @@ class ReadTextFastParser: NSObject {
             
             // 返回
             return readModel
-            
-        }else{ // 存在
-            
-            // 返回
-            return ReadModel.model(bookID: bookID)
-        }
+        
     }
     
     /// 解析整本小说

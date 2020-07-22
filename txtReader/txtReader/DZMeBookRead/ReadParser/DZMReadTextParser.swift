@@ -43,7 +43,7 @@ class ReadTextParser: NSObject {
         if bookID.isEmpty { return nil }
         
         
-        guard ReadModel.isExist(bookID: bookID) == false else{
+        guard bookID.exists == false else{
             // 存在
             
             // 返回

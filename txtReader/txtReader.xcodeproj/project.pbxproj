@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		265D34B624C7E37200A33686 /* NotificationMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D34B524C7E37200A33686 /* NotificationMore.swift */; };
+		265D8CAF24C839B30085D1E8 /* StringMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265D8CAE24C839B30085D1E8 /* StringMore.swift */; };
 		26CDB17324C54E50007C05A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB17224C54E50007C05A9 /* AppDelegate.swift */; };
 		26CDB17524C54E50007C05A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB17424C54E50007C05A9 /* SceneDelegate.swift */; };
 		26CDB17A24C54E50007C05A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26CDB17824C54E50007C05A9 /* Main.storyboard */; };
@@ -84,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		265D34B524C7E37200A33686 /* NotificationMore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationMore.swift; sourceTree = "<group>"; };
+		265D8CAE24C839B30085D1E8 /* StringMore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringMore.swift; sourceTree = "<group>"; };
 		26CDB16F24C54E50007C05A9 /* txtReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = txtReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26CDB17224C54E50007C05A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26CDB17424C54E50007C05A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 				26CDB23524C5678F007C05A9 /* FloatMore.swift */,
 				26CDB23624C5678F007C05A9 /* NSNumberMore.swift */,
 				265D34B524C7E37200A33686 /* NotificationMore.swift */,
+				265D8CAE24C839B30085D1E8 /* StringMore.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				26CDB1EE24C54ECF007C05A9 /* UIPageViewController+Extension.swift in Sources */,
 				26CDB21224C54ECF007C05A9 /* DZMRMFontTypeView.swift in Sources */,
 				26CDB1F824C54ECF007C05A9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				265D8CAF24C839B30085D1E8 /* StringMore.swift in Sources */,
 				26CDB20924C54ECF007C05A9 /* DZMReadViewStatusTopView.swift in Sources */,
 				26CDB23A24C5678F007C05A9 /* FloatMore.swift in Sources */,
 				26CDB20324C54ECF007C05A9 /* DZMReadViewController.swift in Sources */,

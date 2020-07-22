@@ -45,21 +45,17 @@ class ReadModel: NSObject,NSCoding {
         KeyedArchiver.archiver(folderName: bookID, fileName: READ_KEY_OBJECT, object: self)
     }
     
-    /// 是否存在阅读对象
-    class func isExist(bookID:String!) ->Bool {
-        
-        return KeyedArchiver.isExist(folderName: bookID, fileName: READ_KEY_OBJECT)
-    }
+  
     
     
     // MARK: 构造
     
     /// 获取阅读对象,如果则创建对象返回
-    class func model(bookID:String!) ->ReadModel {
+    class func model(bookID: String) ->ReadModel {
         
            var readModel:ReadModel!
            
-           if ReadModel.isExist(bookID: bookID) {
+           if bookID.exists{
                
                readModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: READ_KEY_OBJECT) as? ReadModel
                
