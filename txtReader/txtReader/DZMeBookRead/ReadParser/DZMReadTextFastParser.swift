@@ -88,13 +88,13 @@ class ReadTextFastParser: NSObject {
     /// - Parameters:
     ///   - readModel: readModel
     ///   - content: 小说内容
-    private class func parser(readModel:ReadModel, content:String!) {
+    private class func parser(readModel:ReadModel, content:String) {
         
         // 章节列表
-        var chapterListModels:[ReadChapterListModel] = []
+        var chapterListModels = [ReadChapterListModel]()
         
         // 章节范围列表 [章节ID:[章节优先级:章节内容Range]]
-        var ranges:[String:[String:NSRange]] = [:]
+        var ranges = [String:[String:NSRange]]()
         
         // 正则
         let parten = "第[0-9一二三四五六七八九十百千]*[章回].*"
