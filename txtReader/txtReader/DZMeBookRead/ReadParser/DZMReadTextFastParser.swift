@@ -51,36 +51,36 @@ class ReadTextFastParser: NSObject {
             
         }
         
-            // 不存在
-            // 解析数据
-            let content = ReadParser.encode(url: url)
-            
-            // 解析失败
-            if content.isEmpty { return nil }
-            
-            // 阅读模型
-            let readModel = ReadModel.model(bookID: bookID)
-            // 解析内容并获得章节列表
-            parser(readModel: readModel, content: content)
-            
-            // 解析内容失败
-            if readModel.chapterListModels.isEmpty { return nil }
-            
-            // 首章
-            let chapterListModel = readModel.chapterListModels.first!
-            
-            // 加载首章
-            _ = parser(readModel: readModel, chapterID: chapterListModel.id)
-            
-            // 设置第一个章节为阅读记录
-            readModel.recordModel?.modify(chapterID:  chapterListModel.id, toPage: 0)
-            
-            // 保存
-            readModel.keep()
-            
-            // 返回
-            return readModel
+        // 不存在
+        // 解析数据
+        let content = ReadParser.encode(url: url)
         
+        // 解析失败
+        if content.isEmpty { return nil }
+        
+        // 阅读模型
+        let readModel = ReadModel.model(bookID: bookID)
+        // 解析内容并获得章节列表
+        parser(readModel: readModel, content: content)
+        
+        // 解析内容失败
+        if readModel.chapterListModels.isEmpty { return nil }
+        
+        // 首章
+        let chapterListModel = readModel.chapterListModels.first!
+        
+        // 加载首章
+        parser(readModel: readModel, chapterID: chapterListModel.id)
+        
+        // 设置第一个章节为阅读记录
+        readModel.recordModel?.modify(chapterID:  chapterListModel.id,toPage: 0)
+        
+        // 保存
+        readModel.keep()
+        
+        // 返回
+        return readModel
+    
     }
     
     /// 解析整本小说
