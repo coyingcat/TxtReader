@@ -28,10 +28,10 @@ class ReadTextParser: NSObject {
     ///
     /// - Parameter url: 本地文件地址
     /// - Returns: 阅读对象
-    private class func parser(book url:URL!) ->ReadModel? {
+    private class func parser(book url:URL) ->ReadModel? {
         
-        // 链接不为空且是本地文件路径
-        if url == nil || url.absoluteString.isEmpty || !url.isFileURL { return nil }
+        // 链接不为空, 且是本地文件路径
+        if url.absoluteString.isEmpty || !url.isFileURL { return nil }
         
         // 获取文件后缀名作为 bookName = bookID
         guard let bookID = url.absoluteString.removingPercentEncoding?.lastPathComponent.deletingPathExtension else { return nil }
@@ -40,10 +40,10 @@ class ReadTextParser: NSObject {
         if bookID.isEmpty { return nil }
         
         
-        guard bookID.exists == false else{
+      //  guard bookID.exists == false else{
             // 存在， 则返回
-            return ReadModel.model(bookID: bookID)
-        }
+     //       return ReadModel.model(bookID: bookID)
+    //    }
      
         // 不存在， 则解析数据
         let content = ReadParser.encode(url: url)
@@ -212,10 +212,11 @@ class ReadTextParser: NSObject {
             
             // 设置下一个章节ID
             if i == (count - 1) { // 最后一个章节了
-                
                 chapterModel.nextChapterID = READ_NO_MORE_CHAPTER
-
-            }else{ lastChapterModel?.nextChapterID = chapterModel.id }
+            }
+            else{
+                lastChapterModel?.nextChapterID = chapterModel.id
+            }
             
             // 保存
             chapterModel.persist()

@@ -8,7 +8,7 @@
 import UIKit
 
 
-typealias BookRange = [String:[String:NSRange]]
+
 
 class ReadModel: NSObject,NSCoding {
 

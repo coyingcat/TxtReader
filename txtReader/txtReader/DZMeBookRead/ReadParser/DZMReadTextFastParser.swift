@@ -7,7 +7,14 @@
 
 import UIKit
 
+
+
+typealias BookRange = [String:[String:NSRange]]
+
+
 typealias ChapterInfo = (chapters: [ReadChapterListModel], table : BookRange)
+
+
 
 class ReadTextFastParser: NSObject {
     
@@ -65,9 +72,9 @@ class ReadTextFastParser: NSObject {
         
         
         // 解析内容并获得章节列表
-        let chapterInfo = parseFull(id: readModel.bookID, content: content)
-         // 解析内容失败
-        guard let info = chapterInfo else {
+        guard let chapterInfo = parseFull(id: readModel.bookID, content: content) else {
+            
+             // 解析内容失败
             return nil
         }
         
@@ -75,10 +82,10 @@ class ReadTextFastParser: NSObject {
         readModel.fullText = content
         
         // 章节列表
-        readModel.chapterListModels = info.chapters
+        readModel.chapterListModels = chapterInfo.chapters
         
         // 章节内容范围
-        readModel.ranges = info.table
+        readModel.ranges = chapterInfo.table
         
         // 首章
         let chapterListModel = readModel.chapterListModels.first!
@@ -108,7 +115,7 @@ class ReadTextFastParser: NSObject {
         var chapterListModels = [ReadChapterListModel]()
         
         // 章节范围列表 [章节ID:[章节优先级:章节内容Range]]
-        var ranges = [String:[String:NSRange]]()
+        var ranges = BookRange()
         
         // 正则
         let parten = "第[0-9一二三四五六七八九十百千]*[章回].*"
@@ -141,7 +148,7 @@ class ReadTextFastParser: NSObject {
             var lastRange:NSRange!
             
             // 有前言
-            var isHavePreface:Bool = true
+            var isHavePreface = true
             
             // 便利
             for i in 0...count {
@@ -180,7 +187,7 @@ class ReadTextFastParser: NSObject {
                     chapterListModel.name = "开始"
                     
                     // 内容Range
-                    ranges[chapterListModel.id.stringValue] = [priority.stringValue:NSMakeRange(0, location)]
+                    ranges[chapterListModel.id.stringValue] = [priority.stringValue: NSMakeRange(0, location)]
                     
                     // 内容
                     let content = content.substring(NSMakeRange(0, location))
@@ -207,7 +214,7 @@ class ReadTextFastParser: NSObject {
                 }else { // 中间章节
                     
                     // 章节名
-                    chapterListModel.name =  content.substring(lastRange)
+                    chapterListModel.name = content.substring(lastRange)
                     
                     // 内容Range
                     ranges[chapterListModel.id.stringValue] = [priority.stringValue:NSMakeRange(lastRange.rhs, location - lastRange.rhs)]
