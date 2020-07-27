@@ -42,7 +42,7 @@ class CoreText: NSObject {
         
         var range = CFRangeMake(0, 0)
         
-        var rangeOffset:NSInteger = 0
+        var rangeOffset = 0
         
         repeat{
             

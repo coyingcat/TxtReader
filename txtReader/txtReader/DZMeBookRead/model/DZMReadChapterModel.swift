@@ -126,7 +126,7 @@ class ReadChapterModel: NSObject,NSCoding {
     
     /// 获取指定页开始坐标
     func locationFirst(page:NSInteger) ->NSNumber {
-        
+        print("DDD \(pageModels[page].range.location)")
         return NSNumber(value: pageModels[page].range.location)
     }
     

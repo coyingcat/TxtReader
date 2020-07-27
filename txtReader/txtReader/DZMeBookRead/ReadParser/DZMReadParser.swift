@@ -23,7 +23,7 @@ class ReadParser: NSObject {
     /// - Returns: 内容分页列表
     @objc class func pageing(attrString:NSAttributedString, rect:CGRect, isFirstChapter:Bool = false) ->[ReadPageModel] {
         
-        var pageModels:[ReadPageModel] = []
+        var pageModels = [ReadPageModel]()
         
         if isFirstChapter { // 第一页为书籍页面
             

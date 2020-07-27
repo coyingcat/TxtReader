@@ -25,7 +25,8 @@ class ReadRecordModel: NSObject,NSCoding {
     
     /// 当前记录分页模型
     var pageModel:ReadPageModel{
-        chapterModel.pageModels[page.intValue]
+        print("邓， \(page.intValue)")
+        return chapterModel.pageModels[page.intValue]
     }
     
     /// 当前记录起始坐标
