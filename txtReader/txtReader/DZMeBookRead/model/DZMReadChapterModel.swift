@@ -170,8 +170,8 @@ class ReadChapterModel: NSObject,NSCoding {
     
     /// 是否存在章节内容
     class func isExist(bookID:String!, chapterID:NSNumber!) ->Bool {
-        
-        return KeyedArchiver.isExist(folderName: bookID, fileName: chapterID.stringValue)
+        return false
+     //   return KeyedArchiver.isExist(folderName: bookID, fileName: chapterID.stringValue)
     }
     
     // MARK: 构造
@@ -179,13 +179,14 @@ class ReadChapterModel: NSObject,NSCoding {
     /// 获取章节对象,如果则创建对象返回
     
     var real: ReadChapterModel{
-        if ReadChapterModel.isExist(bookID: bookID, chapterID: id) {
-            let chapterModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: id.stringValue) as! ReadChapterModel
-            return chapterModel
-        }
-        else{
-            return self
-        }
+        return self
+//        if ReadChapterModel.isExist(bookID: bookID, chapterID: id) {
+//            let chapterModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: id.stringValue) as! ReadChapterModel
+//            return chapterModel
+//        }
+//        else{
+//            return self
+//        }
     }
     
     

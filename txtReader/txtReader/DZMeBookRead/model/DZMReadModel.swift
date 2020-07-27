@@ -53,14 +53,14 @@ class ReadModel: NSObject,NSCoding {
         
            var readModel:ReadModel!
            
-           if bookID.exists{
+         //  if bookID.exists{
                
-               readModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: READ_KEY_OBJECT) as? ReadModel
+          //     readModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: READ_KEY_OBJECT) as? ReadModel
                
-           }else{
+      //     }else{
                
                readModel = ReadModel(key: bookID)
-           }
+       //    }
            
            // 获取阅读记录
            readModel.recordModel = ReadRecordModel.model(notes: bookID)

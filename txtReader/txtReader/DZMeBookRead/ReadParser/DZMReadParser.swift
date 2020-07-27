@@ -146,12 +146,11 @@ class ReadParser: NSObject {
     ///   - encoding: 进制编码
     /// - Returns: 内容
     @objc class func encode(path url:URL, encoding:UInt) ->String {
-        
         do{
             return try NSString(contentsOf: url, encoding: encoding) as String
-            
-        }catch{}
-        
-        return ""
+        }
+        catch{
+            return ""
+        }
     }
 }
