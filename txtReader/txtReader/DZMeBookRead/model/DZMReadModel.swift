@@ -7,6 +7,9 @@
 
 import UIKit
 
+
+typealias BookRange = [String:[String:NSRange]]
+
 class ReadModel: NSObject,NSCoding {
 
     /// 小说ID
@@ -27,7 +30,7 @@ class ReadModel: NSObject,NSCoding {
     var fullText:String!
     
     /// 章节内容范围数组 [章节ID:[章节优先级:章节内容Range]]
-    var ranges:[String:[String:NSRange]]!
+    var ranges: BookRange!
     
     
     // MARK: 辅助

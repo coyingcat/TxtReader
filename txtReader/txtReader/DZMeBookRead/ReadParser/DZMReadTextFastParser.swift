@@ -7,6 +7,8 @@
 
 import UIKit
 
+typealias ChapterInfo = (chapters: [ReadChapterListModel], table : BookRange)
+
 class ReadTextFastParser: NSObject {
     
     /// 异步解析本地链接
@@ -60,17 +62,29 @@ class ReadTextFastParser: NSObject {
         
         // 阅读模型
         let readModel = ReadModel.model(bookID: bookID)
-        // 解析内容并获得章节列表
-        parser(readModel: readModel, content: content)
         
-        // 解析内容失败
-        if readModel.chapterListModels.isEmpty { return nil }
+        
+        // 解析内容并获得章节列表
+        let chapterInfo = parseFull(id: readModel.bookID, content: content)
+         // 解析内容失败
+        guard let info = chapterInfo else {
+            return nil
+        }
+        
+        // 小说全文
+        readModel.fullText = content
+        
+        // 章节列表
+        readModel.chapterListModels = info.chapters
+        
+        // 章节内容范围
+        readModel.ranges = info.table
         
         // 首章
         let chapterListModel = readModel.chapterListModels.first!
         
         // 加载首章
-        parser(readModel: readModel, chapterID: chapterListModel.id)
+        parsePart(readModel: readModel, chapterID: chapterListModel.id)
         
         // 设置第一个章节为阅读记录
         readModel.recordModel?.modify(chapterID:  chapterListModel.id,toPage: 0)
@@ -88,7 +102,7 @@ class ReadTextFastParser: NSObject {
     /// - Parameters:
     ///   - readModel: readModel
     ///   - content: 小说内容
-    private class func parser(readModel:ReadModel, content:String) {
+    private class func parseFull(id key: String, content:String) -> ChapterInfo? {
         
         // 章节列表
         var chapterListModels = [ReadChapterListModel]()
@@ -111,7 +125,11 @@ class ReadTextFastParser: NSObject {
             
             results = regularExpression.matches(in: content, options: .reportCompletion, range: NSRange(location: 0, length: content.count))
             
-        }catch{ return  }
+        }
+        catch{
+            return nil
+            
+        }
         
         // 解析匹配结果
         if !results.isEmpty {
@@ -148,7 +166,7 @@ class ReadTextFastParser: NSObject {
                 let chapterListModel = ReadChapterListModel()
                 
                 // 书ID
-                chapterListModel.bookID = readModel.bookID
+                chapterListModel.bookID = key
                 
                 // 章节ID
                 chapterListModel.id = NSNumber(value: (i + NSNumber(value: isHavePreface).intValue))
@@ -211,7 +229,7 @@ class ReadTextFastParser: NSObject {
             chapterListModel.name = "开始"
             
             // 书ID
-            chapterListModel.bookID = readModel.bookID
+            chapterListModel.bookID = key
             
             // 章节ID
             chapterListModel.id = NSNumber(value: 1)
@@ -224,22 +242,15 @@ class ReadTextFastParser: NSObject {
             
             // 添加章节列表模型
             chapterListModels.append(chapterListModel)
+            
+            
         }
-        
-        
-        // 小说全文
-        readModel.fullText = content
-        
-        // 章节列表
-        readModel.chapterListModels = chapterListModels
-        
-        // 章节内容范围
-        readModel.ranges = ranges
+        return (chapterListModels, ranges)
     }
     
     /// 获取单个指定章节
     @discardableResult
-    class func parser(readModel:ReadModel!, chapterID:NSNumber!, isUpdateFont:Bool = true) ->ReadChapterModel? {
+    class func parsePart(readModel:ReadModel!, chapterID:NSNumber!, isUpdateFont:Bool = true) ->ReadChapterModel? {
         
         // 获得[章节优先级:章节内容Range]
         if let rangeSpan = readModel.ranges[chapterID.stringValue]{

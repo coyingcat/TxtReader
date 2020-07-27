@@ -348,7 +348,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
                 // 获取章节数据
                 if !isExist {
                 
-                    tempChapterModel = ReadTextFastParser.parser(readModel: self?.vc.readModel, chapterID: chapterID)
+                    tempChapterModel = ReadTextFastParser.parsePart(readModel: self?.vc.readModel, chapterID: chapterID)
                     
                 }else{
 
@@ -416,7 +416,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
                 // 获取章节数据
                 if !isExist {
                 
-                    tempChapterModel = ReadTextFastParser.parser(readModel: self?.vc.readModel, chapterID: chapterID)
+                    tempChapterModel = ReadTextFastParser.parsePart(readModel: self?.vc.readModel, chapterID: chapterID)
                 
                 }else{
 
