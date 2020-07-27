@@ -7,6 +7,16 @@
 
 import UIKit
 
+
+
+// 判断对象，是否存在
+
+// 是通过归解档，多级检查
+
+// 不是通过一个简单的对象
+
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
