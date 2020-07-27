@@ -12,7 +12,7 @@ import UIKit
 typealias BookRange = [String:[String:NSRange]]
 
 
-typealias ChapterInfo = (chapters: [ReadChapterListModel], table : BookRange)
+typealias ChapterInfo = (chapters: [ReadChapterListModel], table : BookRange, stdTxt: String)
 
 
 
@@ -79,7 +79,7 @@ class ReadTextFastParser: NSObject {
         }
         
         // 小说全文
-        readModel.fullText = content
+        readModel.fullText = chapterInfo.stdTxt
         
         // 章节列表
         readModel.chapterListModels = chapterInfo.chapters
@@ -109,7 +109,7 @@ class ReadTextFastParser: NSObject {
     /// - Parameters:
     ///   - readModel: readModel
     ///   - content: 小说内容
-    private class func parseFull(id key: String, content:String) -> ChapterInfo? {
+    private class func parseFull(id key: String, content plainTxt:String) -> ChapterInfo? {
         
         // 章节列表
         var chapterListModels = [ReadChapterListModel]()
@@ -121,16 +121,16 @@ class ReadTextFastParser: NSObject {
         let parten = "第[0-9一二三四五六七八九十百千]*[章回].*"
         
         // 排版
-        let content = ReadParser.contentTypesetting(content: content)
+        let contentFormatted = ReadParser.contentTypesetting(content: plainTxt)
         
         // 正则匹配结果
-        var results:[NSTextCheckingResult] = []
+        var results = [NSTextCheckingResult]()
         
         // 开始匹配
         do{
             let regularExpression:NSRegularExpression = try NSRegularExpression(pattern: parten, options: .caseInsensitive)
             
-            results = regularExpression.matches(in: content, options: .reportCompletion, range: NSRange(location: 0, length: content.count))
+            results = regularExpression.matches(in: contentFormatted, options: .reportCompletion, range: NSRange(location: 0, length: contentFormatted.count))
             
         }
         catch{
@@ -190,7 +190,7 @@ class ReadTextFastParser: NSObject {
                     ranges[chapterListModel.id.stringValue] = [priority.stringValue: NSMakeRange(0, location)]
                     
                     // 内容
-                    let content = content.substring(NSMakeRange(0, location))
+                    let content = contentFormatted.substring(NSMakeRange(0, location))
                     
                     // 记录
                     lastRange = range
@@ -206,15 +206,15 @@ class ReadTextFastParser: NSObject {
                 }else if i == count { // 结尾
                     
                     // 章节名
-                    chapterListModel.name = content.substring(lastRange)
+                    chapterListModel.name = contentFormatted.substring(lastRange)
                     
                     // 内容Range
-                    ranges[chapterListModel.id.stringValue] =  [priority.stringValue:NSMakeRange(lastRange.rhs, content.count - lastRange.rhs)]
+                    ranges[chapterListModel.id.stringValue] =  [priority.stringValue:NSMakeRange(lastRange.rhs, contentFormatted.count - lastRange.rhs)]
                     
                 }else { // 中间章节
                     
                     // 章节名
-                    chapterListModel.name = content.substring(lastRange)
+                    chapterListModel.name = contentFormatted.substring(lastRange)
                     
                     // 内容Range
                     ranges[chapterListModel.id.stringValue] = [priority.stringValue:NSMakeRange(lastRange.rhs, location - lastRange.rhs)]
@@ -245,14 +245,14 @@ class ReadTextFastParser: NSObject {
             let priority = NSNumber(value: 0)
             
             // 内容Range
-            ranges[chapterListModel.id.stringValue] = [priority.stringValue:NSMakeRange(0, content.count)]
+            ranges[chapterListModel.id.stringValue] = [priority.stringValue:NSMakeRange(0, contentFormatted.count)]
             
             // 添加章节列表模型
             chapterListModels.append(chapterListModel)
             
             
         }
-        return (chapterListModels, ranges)
+        return (chapterListModels, ranges, contentFormatted)
     }
     
     /// 获取单个指定章节
