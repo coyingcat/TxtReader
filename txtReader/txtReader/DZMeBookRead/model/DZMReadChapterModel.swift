@@ -126,12 +126,7 @@ class ReadChapterModel: NSObject,NSCoding {
     
     /// 获取指定页开始坐标
     func locationFirst(page:NSInteger) ->NSNumber {
-        
-        guard pageModels[page] != nil else {
-            fatalError()
-        }
-        print("DDD \(pageModels[page].range.location)")
-        return NSNumber(value: pageModels[page].range.location)
+        NSNumber(value: pageModels[page].range.location)
     }
     
     /// 获取指定页码末尾坐标
@@ -171,7 +166,7 @@ class ReadChapterModel: NSObject,NSCoding {
     
     /// 是否存在章节内容
     class func isExist(bookID:String!, chapterID:NSNumber!) ->Bool {
-        return KeyedArchiver.isExist(folderName: bookID, fileName: chapterID.stringValue)
+        KeyedArchiver.isExist(folderName: bookID, fileName: chapterID.stringValue)
     }
     
     // MARK: 构造

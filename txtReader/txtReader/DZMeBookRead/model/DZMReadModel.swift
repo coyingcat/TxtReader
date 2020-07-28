@@ -50,21 +50,15 @@ class ReadModel: NSObject,NSCoding {
     
     /// 获取阅读对象,如果则创建对象返回
     class func model(bookID: String) ->ReadModel {
-        
            var readModel:ReadModel!
-           
-         //  if bookID.exists{
+           if bookID.exists{
+               readModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: READ_KEY_OBJECT) as? ReadModel
                
-          //     readModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: READ_KEY_OBJECT) as? ReadModel
-               
-      //     }else{
-               
+           }else{
                readModel = ReadModel(key: bookID)
-       //    }
-           
+           }
            // 获取阅读记录
            readModel.recordModel = ReadRecordModel.model(notes: bookID)
-           
            return readModel
     }
     
@@ -77,9 +71,6 @@ class ReadModel: NSObject,NSCoding {
     
     
     required init?(coder aDecoder: NSCoder) {
-        
-        
-        
         bookID = aDecoder.decodeObject(forKey: "bookID") as! String
         super.init()
         
@@ -122,7 +113,7 @@ extension ReadModel{
         // 临时检查
         if recordModel == nil { return progress }
         
-        if recordModel.isLastChapter , recordModel.isLastPage { // 最后一章最后一页
+        if recordModel.isLastChapter, recordModel.isLastPage { // 最后一章最后一页
             
             // 获得当前阅读进度
             progress = 1.0
@@ -133,16 +124,16 @@ extension ReadModel{
             let chapterIndex:Float = recordModel.chapterModel.priority.floatValue
             
             // 章节总数量
-            let chapterCount:Float = Float(chapterListModels.count)
+            let chapterCount = Float(chapterListModels.count)
             
             // 阅读记录首位置
             let locationFirst:Float = recordModel.locationFirst.floatValue
             
             // 阅读记录内容长度
-            let fullContentLength:Float = Float(recordModel.chapterModel.fullContent.length)
+            let fullContentLength = Float(recordModel.chapterModel.fullContent.length)
             
             // 获得当前阅读进度
-            progress = (chapterIndex / chapterCount + locationFirst / fullContentLength / chapterCount)
+            progress = chapterIndex/chapterCount + (locationFirst / fullContentLength)/chapterCount
         }
         
         // 返回

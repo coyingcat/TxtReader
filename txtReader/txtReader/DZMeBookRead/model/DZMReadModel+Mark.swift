@@ -89,9 +89,7 @@ extension ReadModel {
         for markModel in markModels {
             
             if markModel.chapterID == recordModel.chapterModel.id, markModel.location >= locationFirst, markModel.location < locationLast{
-                    
                 return markModel
-                
             }
         }
         
