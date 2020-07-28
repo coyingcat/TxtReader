@@ -8,26 +8,20 @@
 import UIKit
 
 class RMFontSizeView: RMBaseView {
-
-    private var title:UILabel!
     
-    private var leftButton:UIButton!
+    private var leftButton = UIButton(type: .custom)
     
-    private var rightButton:UIButton!
+    private var rightButton = UIButton(type: .custom)
     
-    private var fontSize:UILabel!
+    private var fontSize = UILabel()
     
-    private var displayProgress:UIButton!
+    private var displayProgress = UIButton(type: .custom)
     
-    override init(frame: CGRect) { super.init(frame: frame) }
-    
-    override func addSubviews() {
-        
-        super.addSubviews()
+    override init(frame: CGRect){
+        super.init(frame: frame)
         
         backgroundColor = UIColor.clear
         
-        leftButton = UIButton(type: .custom)
         leftButton.titleLabel?.font = FONT_SA_12
         leftButton.setTitle("A-", for: .normal)
         leftButton.setTitleColor(READ_COLOR_MENU_COLOR, for: .normal)
@@ -37,7 +31,6 @@ class RMFontSizeView: RMBaseView {
         leftButton.addTarget(self, action: #selector(clickLeftButton), for: .touchUpInside)
         addSubview(leftButton)
         
-        rightButton = UIButton(type: .custom)
         rightButton.titleLabel?.font = FONT_SA_14
         rightButton.setTitle("A+", for: .normal)
         rightButton.setTitleColor(READ_COLOR_MENU_COLOR, for: .normal)
@@ -47,14 +40,12 @@ class RMFontSizeView: RMBaseView {
         rightButton.addTarget(self, action: #selector(clickRightButton), for: .touchUpInside)
         addSubview(rightButton)
         
-        fontSize = UILabel()
         fontSize.text = ReadConfigure.shared.fontSize.stringValue
         fontSize.font = FONT_SA_16
         fontSize.textColor = READ_COLOR_MENU_COLOR
         fontSize.textAlignment = .center
         addSubview(fontSize)
         
-        displayProgress = UIButton(type: .custom)
         displayProgress.setBackgroundImage(UIImage(named: "page")!.withRenderingMode(.alwaysTemplate), for: .normal)
         displayProgress.addTarget(self, action: #selector(clickDisplayProgress(button:)), for: .touchUpInside)
         displayProgress.isSelected = ReadConfigure.shared.progressIndex.boolValue
