@@ -10,47 +10,75 @@ import UIKit
 extension String {
     
  
-    var bool:Bool { return (self as NSString).boolValue }
+    var bool:Bool {
+        (self as NSString).boolValue
+    }
     
-    var integer:NSInteger { return (self as NSString).integerValue }
+    var integer:NSInteger {
+        (self as NSString).integerValue
+    }
     
-    var float:Float { return (self as NSString).floatValue }
+    var float:Float {
+        (self as NSString).floatValue
+    }
     
-    var cgFloat:CGFloat { return CGFloat(self.float) }
+    var cgFloat:CGFloat {
+        CGFloat(self.float)
+    }
     
-    var double:Double { return (self as NSString).doubleValue }
+    var double:Double {
+        (self as NSString).doubleValue
+    }
     
     /// 文件后缀(不带'.')
-    var pathExtension:String { return (self as NSString).pathExtension }
+    var pathExtension:String {
+        (self as NSString).pathExtension
+    }
     
     /// 文件名(带后缀)
-    var lastPathComponent:String { return (self as NSString).lastPathComponent }
+    var lastPathComponent:String {
+        (self as NSString).lastPathComponent
+    }
     
     /// 文件名(不带后缀)
-    var deletingPathExtension:String { return (self as NSString).deletingPathExtension }
+    var deletingPathExtension:String {
+        (self as NSString).deletingPathExtension
+    }
     
     /// 去除首尾空格
-    var removeSpaceHeadAndTail:String { return trimmingCharacters(in: NSCharacterSet.whitespaces) }
+    var removeSpaceHeadAndTail:String {
+        trimmingCharacters(in: NSCharacterSet.whitespaces)
+    }
     
     /// 去除首尾换行
-    var removeEnterHeadAndTail:String { return trimmingCharacters(in: NSCharacterSet.whitespaces) }
+    var removeEnterHeadAndTail:String {
+        trimmingCharacters(in: NSCharacterSet.whitespaces)
+    }
     
     /// 去除首尾空格和换行
-    var removeSEHeadAndTail:String { return trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines) }
+    var removeSEHeadAndTail:String {
+        trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+    }
     
     /// 去掉所有空格
-    var removeSapceAll:String { return replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "　", with: "") }
+    var removeSapceAll:String {
+        replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "　", with: "")
+    }
     
     /// 去除所有换行
-    var removeEnterAll:String { return replacingOccurrences(of: "\r", with: "").replacingOccurrences(of: "\n", with: "") }
+    var removeEnterAll:String {
+        replacingOccurrences(of: "\r", with: "").replacingOccurrences(of: "\n", with: "")
+    }
     
     /// 去除所有空格换行
-    var removeSapceEnterAll:String { return removeSapceAll.replacingOccurrences(of: "\n", with: "") }
+    var removeSapceEnterAll:String {
+        removeSapceAll.replacingOccurrences(of: "\n", with: "")
+    }
     
     /// 是否为整数
     var isInt:Bool {
         
-        let scan: Scanner = Scanner(string: self)
+        let scan = Scanner(string: self)
         
         var val:Int = 0
         
@@ -148,7 +176,7 @@ extension String {
     /// 计算大小
     func size(_ font:UIFont, _ size:CGSize = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)) ->CGSize {
         
-        let string:NSString = self as NSString
+        let string = self as NSString
         
         return string.boundingRect(with: size, options: [.usesLineFragmentOrigin,.usesFontLeading], attributes: [.font:font], context: nil).size
     }
