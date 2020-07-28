@@ -10,22 +10,19 @@ import UIKit
 class RMFuncView: RMBaseView {
 
     /// 目录
-    private var catalogue:UIButton!
+    private var catalogue = UIButton(type:.custom)
     
     /// 设置
-    private var setting:UIButton!
+    private var setting = UIButton(type: .custom)
 
     
-    override init(frame: CGRect) { super.init(frame: frame) }
-    
-    override func addSubviews() {
-        
-        super.addSubviews()
-        
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         backgroundColor = UIColor.clear
+
         
         // 目录
-        catalogue = UIButton(type:.custom)
+        
         catalogue.setImage(UIImage(named:"bar_0")?.withRenderingMode(.alwaysTemplate), for: .normal)
         catalogue.addTarget(self, action: #selector(clickCatalogue), for: .touchUpInside)
         catalogue.tintColor = READ_COLOR_MENU_COLOR
@@ -34,7 +31,7 @@ class RMFuncView: RMBaseView {
  
         
         // 设置
-        setting = UIButton(type: .custom)
+        
         setting.setImage(UIImage(named:"bar_1")!.withRenderingMode(.alwaysTemplate), for: .normal)
         setting.addTarget(self, action: #selector(clickSetting), for: .touchUpInside)
         setting.tintColor = READ_COLOR_MENU_COLOR
