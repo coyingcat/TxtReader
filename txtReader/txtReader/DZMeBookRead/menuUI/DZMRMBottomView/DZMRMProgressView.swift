@@ -10,13 +10,13 @@ import UIKit
 class RMProgressView: RMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSliderDataSource {
     
     /// 上一章
-    private var previousChapter:UIButton!
+    private var previousChapter = UIButton(type:.custom)
     
     /// 进度
-    private var slider:ASValueTrackingSlider!
+    private var slider = ASValueTrackingSlider()
     
     /// 下一章
-    private var nextChapter:UIButton!
+    private var nextChapter = UIButton(type:.custom)
     
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -24,7 +24,7 @@ class RMProgressView: RMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSl
         backgroundColor = UIColor.clear
         
         // 上一章
-        previousChapter = UIButton(type:.custom)
+        
         previousChapter.titleLabel?.font = FONT_SA_14
         previousChapter.setTitle("上一章", for: .normal)
         previousChapter.setTitleColor(READ_COLOR_MENU_COLOR, for: .normal)
@@ -32,7 +32,6 @@ class RMProgressView: RMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSl
         addSubview(previousChapter)
         
         // 下一章
-        nextChapter = UIButton(type:.custom)
         nextChapter.titleLabel?.font = FONT_SA_14
         nextChapter.setTitle("下一章", for: .normal)
         nextChapter.setTitleColor(READ_COLOR_MENU_COLOR, for: .normal)
@@ -40,7 +39,6 @@ class RMProgressView: RMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSl
         addSubview(nextChapter)
         
         // 进度条
-        slider = ASValueTrackingSlider()
         slider.delegate = self
         slider.dataSource = self
         slider.setThumbImage(UIImage(named:"slider")!.withRenderingMode(.alwaysTemplate), for: .normal)
