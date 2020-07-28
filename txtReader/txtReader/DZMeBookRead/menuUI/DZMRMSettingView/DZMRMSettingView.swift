@@ -31,28 +31,29 @@ class RMSettingView: RMBaseView {
     /// 间距
     private var spacingView:RMSpacingView!
 
-    override init(frame: CGRect){
-        super.init(frame: frame)
+    
+    override init(read menu: ReadMenu) {
+        super.init(read: menu)
     
         let x = SPACE_SA_15
         let w = ScreenWidth - SPACE_SA_30
         let h = READ_MENU_SETTING_SUB_VIEW_HEIGHT
         
  
-        fontSizeView = RMFontSizeView(readMenu: readMenu)
+        fontSizeView = RMFontSizeView(read: readMenu)
         addSubview(fontSizeView)
         fontSizeView.frame = CGRect(x: x, y: 0, width: w, height: h)
         
-        effectTypeView = RMEffectTypeView(readMenu: readMenu)
+        effectTypeView = RMEffectTypeView(read: readMenu)
         addSubview(effectTypeView)
         effectTypeView.frame = CGRect(x: x, y: fontSizeView.frame.maxY, width: w, height: h)
         
-        fontTypeView = RMFontTypeView(readMenu: readMenu)
+        fontTypeView = RMFontTypeView(read: readMenu)
         addSubview(fontTypeView)
         fontTypeView.frame = CGRect(x: x, y: effectTypeView.frame.maxY, width: w, height: h)
         
  
-        spacingView = RMSpacingView(readMenu: readMenu)
+        spacingView = RMSpacingView(read: readMenu)
         addSubview(spacingView)
         spacingView.frame = CGRect(x: x, y: fontTypeView.frame.maxY, width: w, height: h)
     }

@@ -10,21 +10,15 @@ import UIKit
 class RMBaseView: UIView {
 
     /// 菜单对象
-    weak var readMenu:ReadMenu!
+    weak var readMenu: ReadMenu!
     
-    /// 系统初始化
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = READ_COLOR_MENU_BG_COLOR
-    }
-    
+ 
     /// 初始化
-    convenience init(readMenu:ReadMenu!) {
+    init(read menu: ReadMenu) {
+        readMenu = menu
+        super.init(frame: CGRect.zero)
         
-        self.init(frame: CGRect.zero)
-        
-        self.readMenu = readMenu
-
+        backgroundColor = READ_COLOR_MENU_BG_COLOR
     }
   
     

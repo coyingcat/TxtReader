@@ -154,7 +154,7 @@ class ReadMenu: NSObject,UIGestureRecognizerDelegate {
     /// 初始化TopView
     private func initTopView() {
         
-        topView = RMTopView(readMenu: self)
+        topView = RMTopView(read: self)
         
         topView.isHidden = !isMenuShow
         
@@ -170,7 +170,7 @@ class ReadMenu: NSObject,UIGestureRecognizerDelegate {
     /// 初始化BottomView
     private func initBottomView() {
         
-        bottomView = RMBottomView(readMenu: self)
+        bottomView = RMBottomView(read: self)
     
         bottomView.isHidden = !isMenuShow
         
@@ -216,7 +216,7 @@ class ReadMenu: NSObject,UIGestureRecognizerDelegate {
     /// 初始化SettingView
     private func initSettingView() {
         
-        settingView = RMSettingView(readMenu: self)
+        settingView = RMSettingView(read: self)
         
         settingView.isHidden = true
         

@@ -15,8 +15,9 @@ class RMSpacingView: RMBaseView {
     
     private var selectItem:RMSpacingItem!
     
-    override init(frame: CGRect){
-        super.init(frame: frame)
+    
+    override init(read menu: ReadMenu) {
+        super.init(read: menu)
         
         backgroundColor = UIColor.clear
         

@@ -20,14 +20,14 @@ class RMBottomView: RMBaseView {
     
     /// 进度
     private(set)
-    lazy var progressView = RMProgressView(readMenu: readMenu)
+    lazy var progressView = RMProgressView(read: readMenu)
     
     /// 功能
     private
-    lazy var funcView = RMFuncView(readMenu: readMenu)
+    lazy var funcView = RMFuncView(read: readMenu)
 
-    override init(frame: CGRect){
-        super.init(frame: frame)
+    override init(read menu: ReadMenu) {
+        super.init(read: menu)
         addSubview(progressView)
         
         addSubview(funcView)

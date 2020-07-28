@@ -18,9 +18,8 @@ class RMTopView: RMBaseView {
     /// 书签
     private var mark = UIButton(type:.custom)
 
-    override init(frame: CGRect){
-        super.init(frame: frame)
-        
+    override init(read menu: ReadMenu) {
+        super.init(read: menu)
         // 返回
         back.setImage(UIImage(named:"back")!.withRenderingMode(.alwaysTemplate), for: .normal)
         back.addTarget(self, action: #selector(clickBack), for: .touchUpInside)

@@ -18,8 +18,9 @@ class RMProgressView: RMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSl
     /// 下一章
     private var nextChapter = UIButton(type:.custom)
     
-    override init(frame: CGRect){
-        super.init(frame: frame)
+    
+    override init(read menu: ReadMenu) {
+        super.init(read: menu)
         
         backgroundColor = UIColor.clear
         

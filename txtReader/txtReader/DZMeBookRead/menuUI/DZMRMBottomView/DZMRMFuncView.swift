@@ -16,11 +16,9 @@ class RMFuncView: RMBaseView {
     private var setting = UIButton(type: .custom)
 
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(read menu: ReadMenu) {
+        super.init(read: menu)
         backgroundColor = UIColor.clear
-
-        
         // 目录
         
         catalogue.setImage(UIImage(named:"bar_0")?.withRenderingMode(.alwaysTemplate), for: .normal)

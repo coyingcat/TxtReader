@@ -17,8 +17,9 @@ class RMFontSizeView: RMBaseView {
     
     private var displayProgress = UIButton(type: .custom)
     
-    override init(frame: CGRect){
-        super.init(frame: frame)
+    
+    override init(read menu: ReadMenu) {
+        super.init(read: menu)
         
         backgroundColor = UIColor.clear
         

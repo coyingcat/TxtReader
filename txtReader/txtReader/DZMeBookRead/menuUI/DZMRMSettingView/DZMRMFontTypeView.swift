@@ -15,10 +15,8 @@ class RMFontTypeView: RMBaseView {
     
     private var selectItem: UIButton?
     
-    override init(frame: CGRect){
-        super.init(frame: frame)
-
-        
+    override init(read menu: ReadMenu) {
+        super.init(read: menu)
         backgroundColor = UIColor.clear
         
         let count = fontNames.count
