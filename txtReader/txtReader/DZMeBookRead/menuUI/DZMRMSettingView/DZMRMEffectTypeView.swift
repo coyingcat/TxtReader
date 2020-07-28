@@ -9,9 +9,9 @@ import UIKit
 
 class RMEffectTypeView: RMBaseView {
 
-    private var effectNames:[String] = ["仿真","平移","滚动","无效果"]
+    private var effectNames = ["仿真","平移","滚动","无效果"]
     
-    private var items:[UIButton] = []
+    private var items = [UIButton]()
     
     private var selectItem:UIButton!
     

@@ -19,18 +19,21 @@ let READ_MENU_SETTING_VIEW_TOTAL_HEIGHT:CGFloat = SA(isX: READ_MENU_SETTING_VIEW
 class RMSettingView: RMBaseView {
     
     /// 字体大小
-    private var fontSizeView:RMFontSizeView!
+    private
+    lazy var fontSizeView = RMFontSizeView(read: readMenu)
     
 
     /// 翻页效果
-    private var effectTypeView:RMEffectTypeView!
+    private
+    lazy var effectTypeView = RMEffectTypeView(read: readMenu)
     
     /// 字体
-    private var fontTypeView:RMFontTypeView!
+    private
+    lazy var fontTypeView = RMFontTypeView(read: readMenu)
     
     /// 间距
-    private var spacingView:RMSpacingView!
-
+    private
+    lazy var spacingView = RMSpacingView(read: readMenu)
     
     override init(read menu: ReadMenu) {
         super.init(read: menu)
@@ -39,21 +42,15 @@ class RMSettingView: RMBaseView {
         let w = ScreenWidth - SPACE_SA_30
         let h = READ_MENU_SETTING_SUB_VIEW_HEIGHT
         
- 
-        fontSizeView = RMFontSizeView(read: readMenu)
         addSubview(fontSizeView)
         fontSizeView.frame = CGRect(x: x, y: 0, width: w, height: h)
         
-        effectTypeView = RMEffectTypeView(read: readMenu)
         addSubview(effectTypeView)
         effectTypeView.frame = CGRect(x: x, y: fontSizeView.frame.maxY, width: w, height: h)
         
-        fontTypeView = RMFontTypeView(read: readMenu)
         addSubview(fontTypeView)
         fontTypeView.frame = CGRect(x: x, y: effectTypeView.frame.maxY, width: w, height: h)
         
- 
-        spacingView = RMSpacingView(read: readMenu)
         addSubview(spacingView)
         spacingView.frame = CGRect(x: x, y: fontTypeView.frame.maxY, width: w, height: h)
     }

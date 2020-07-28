@@ -51,6 +51,13 @@ import UIKit
     @objc func readMenuClickEffect(readMenu:ReadMenu)
 }
 
+
+
+
+
+
+
+
 class ReadMenu: NSObject,UIGestureRecognizerDelegate {
 
     /// 控制器

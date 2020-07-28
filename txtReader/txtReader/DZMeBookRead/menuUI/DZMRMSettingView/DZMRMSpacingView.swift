@@ -9,11 +9,11 @@ import UIKit
 
 class RMSpacingView: RMBaseView {
 
-    private var spacingIcons:[String] = ["spacing_0","spacing_1","spacing_2"]
+    private var spacingIcons = ["spacing_0","spacing_1","spacing_2"]
     
-    private var items:[RMSpacingItem] = []
+    private var items = [RMSpacingItem]()
     
-    private var selectItem:RMSpacingItem!
+    private var selectItem: RMSpacingItem!
     
     
     override init(read menu: ReadMenu) {
