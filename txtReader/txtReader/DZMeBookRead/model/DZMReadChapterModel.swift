@@ -126,6 +126,7 @@ class ReadChapterModel: NSObject,NSCoding {
     
     /// 获取指定页开始坐标
     func locationFirst(page:NSInteger) ->NSNumber {
+        
         guard pageModels[page] != nil else {
             fatalError()
         }
@@ -170,8 +171,7 @@ class ReadChapterModel: NSObject,NSCoding {
     
     /// 是否存在章节内容
     class func isExist(bookID:String!, chapterID:NSNumber!) ->Bool {
-        return false
-     //   return KeyedArchiver.isExist(folderName: bookID, fileName: chapterID.stringValue)
+        return KeyedArchiver.isExist(folderName: bookID, fileName: chapterID.stringValue)
     }
     
     // MARK: 构造
@@ -179,14 +179,14 @@ class ReadChapterModel: NSObject,NSCoding {
     /// 获取章节对象,如果则创建对象返回
     
     var real: ReadChapterModel{
-        return self
-//        if ReadChapterModel.isExist(bookID: bookID, chapterID: id) {
-//            let chapterModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: id.stringValue) as! ReadChapterModel
-//            return chapterModel
-//        }
-//        else{
-//            return self
-//        }
+        if ReadChapterModel.isExist(bookID: bookID, chapterID: id) {
+            let chapterModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: id.stringValue) as! ReadChapterModel
+            chapterModel.updateFont()
+            return chapterModel
+        }
+        else{
+            return self
+        }
     }
     
     

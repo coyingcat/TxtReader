@@ -17,8 +17,6 @@ extension String{
     
     /// 是否存在阅读对象
     var exists: Bool{
-        
         KeyedArchiver.isExist(folderName: self, fileName: READ_KEY_OBJECT)
-        
     }
 }

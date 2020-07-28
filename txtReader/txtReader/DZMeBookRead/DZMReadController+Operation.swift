@@ -167,10 +167,8 @@ extension ReadController {
         if recordModel.isFirstPage {
             
             // 检查是否存在章节内容
-            let isExist = ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
-            
-            // 存在 
-            if isExist {
+            if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
+                // 存在 
                 // 修改阅读记录
                 recordModel.modify(chapterID: chapterID, toPage: READ_LAST_PAGE, isSave: false)
                 
