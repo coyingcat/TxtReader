@@ -13,26 +13,21 @@ let READ_MENU_TOP_VIEW_HEIGHT:CGFloat = NavgationBarHeight
 class RMTopView: RMBaseView {
     
     /// 返回
-    private var back:UIButton!
+    private var back = UIButton(type:.custom)
     
     /// 书签
-    private var mark:UIButton!
+    private var mark = UIButton(type:.custom)
 
-    override init(frame: CGRect) { super.init(frame: frame) }
-    
-    override func addSubviews() {
-        
-        super.addSubviews()
+    override init(frame: CGRect){
+        super.init(frame: frame)
         
         // 返回
-        back = UIButton(type:.custom)
         back.setImage(UIImage(named:"back")!.withRenderingMode(.alwaysTemplate), for: .normal)
         back.addTarget(self, action: #selector(clickBack), for: .touchUpInside)
         back.tintColor = READ_COLOR_MENU_COLOR
         addSubview(back)
         
         // 书签
-        mark = UIButton(type:.custom)
         mark.contentMode = .center
         mark.setImage(UIImage(named:"mark")!.withRenderingMode(.alwaysTemplate), for: .normal)
         mark.addTarget(self, action: #selector(clickMark(_:)), for: .touchUpInside)

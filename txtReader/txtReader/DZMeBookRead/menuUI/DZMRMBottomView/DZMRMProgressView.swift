@@ -18,11 +18,8 @@ class RMProgressView: RMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSl
     /// 下一章
     private var nextChapter:UIButton!
     
-    override init(frame: CGRect) { super.init(frame: frame) }
-    
-    override func addSubviews() {
-        
-        super.addSubviews()
+    override init(frame: CGRect){
+        super.init(frame: frame)
         
         backgroundColor = UIColor.clear
         

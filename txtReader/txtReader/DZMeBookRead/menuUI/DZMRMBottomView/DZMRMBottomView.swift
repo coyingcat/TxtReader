@@ -19,21 +19,17 @@ let READ_MENU_BOTTOM_VIEW_HEIGHT:CGFloat = TabBarHeight + READ_MENU_PROGRESS_VIE
 class RMBottomView: RMBaseView {
     
     /// 进度
-    private(set) var progressView:RMProgressView!
+    private(set)
+    lazy var progressView = RMProgressView(readMenu: readMenu)
     
     /// 功能
-    private var funcView:RMFuncView!
+    private
+    lazy var funcView = RMFuncView(readMenu: readMenu)
 
-    override init(frame: CGRect) { super.init(frame: frame) }
-    
-    override func addSubviews() {
-        
-        super.addSubviews()
-        
-        progressView = RMProgressView(readMenu: readMenu)
+    override init(frame: CGRect){
+        super.init(frame: frame)
         addSubview(progressView)
         
-        funcView = RMFuncView(readMenu: readMenu)
         addSubview(funcView)
     }
     

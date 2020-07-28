@@ -31,12 +31,9 @@ class RMSettingView: RMBaseView {
     /// 间距
     private var spacingView:RMSpacingView!
 
-    override init(frame: CGRect) { super.init(frame: frame) }
+    override init(frame: CGRect){
+        super.init(frame: frame)
     
-    override func addSubviews() {
-        
-        super.addSubviews()
-        
         let x = SPACE_SA_15
         let w = ScreenWidth - SPACE_SA_30
         let h = READ_MENU_SETTING_SUB_VIEW_HEIGHT

@@ -17,11 +17,7 @@ class RMFontTypeView: RMBaseView {
     
     override init(frame: CGRect){
         super.init(frame: frame)
-    }
-    
-    override func addSubviews() {
-        
-        super.addSubviews()
+
         
         backgroundColor = UIColor.clear
         

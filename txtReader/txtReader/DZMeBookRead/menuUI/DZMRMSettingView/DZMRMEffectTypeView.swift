@@ -15,11 +15,8 @@ class RMEffectTypeView: RMBaseView {
     
     private var selectItem:UIButton!
     
-    override init(frame: CGRect) { super.init(frame: frame) }
-    
-    override func addSubviews() {
-        
-        super.addSubviews()
+    override init(frame: CGRect){
+        super.init(frame: frame)
         
         backgroundColor = UIColor.clear
         

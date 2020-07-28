@@ -15,11 +15,8 @@ class RMSpacingView: RMBaseView {
     
     private var selectItem:RMSpacingItem!
     
-    override init(frame: CGRect) { super.init(frame: frame) }
-    
-    override func addSubviews() {
-        
-        super.addSubviews()
+    override init(frame: CGRect){
+        super.init(frame: frame)
         
         backgroundColor = UIColor.clear
         
