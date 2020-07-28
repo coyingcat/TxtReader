@@ -168,20 +168,17 @@ class ReadRecordModel: NSObject,NSCoding {
     // MARK: 构造
     
     /// 获取阅读记录对象,如果则创建对象返回
-    class func model(notes bookID: String) ->ReadRecordModel {
+    class func model(notes bookID: String) -> ReadRecordModel {
         
-        var recordModel:ReadRecordModel!
+        let recordModel: ReadRecordModel
         
         if bookID.exists{
-            
-            recordModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: READ_KEY_RECORD) as? ReadRecordModel
+            recordModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: READ_KEY_RECORD) as! ReadRecordModel
             
             recordModel.chapterModel.updateFont()
             
         }else{
-            
             recordModel = ReadRecordModel()
-            
             recordModel.bookID = bookID
         }
         

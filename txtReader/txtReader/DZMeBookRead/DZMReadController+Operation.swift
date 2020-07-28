@@ -105,13 +105,15 @@ extension ReadController {
     }
     
     /// 跳转指定章节 number:页码或者坐标 isLocation:是页码(false)还是坐标(true)
-    private func goToChapter(chapterID:NSNumber!, number: Int, isLocation: Bool) {
+    private func goToChapter(chapterID: NSNumber, number: Int, isLocation: Bool) {
         
         // 复制阅读记录
         let recordModel = readModel.recordModel?.copyModel
         
         // 书籍ID
-        let bookID = recordModel?.bookID
+        guard let bookID = recordModel?.bookID else{
+            return
+        }
        
         // 检查是否存在章节内容
         let isExist = ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
@@ -150,10 +152,10 @@ extension ReadController {
         let recordModel = recordModel.copyModel
         
         // 书籍ID
-        let bookID = recordModel.bookID
-        
         // 章节ID
-        let chapterID = recordModel.chapterModel.previousChapterID
+        guard let bookID = recordModel.bookID, let chapterID = recordModel.chapterModel.previousChapterID else{
+            return nil
+        }
         
         // 第一章 第一页
         if recordModel.isFirstChapter , recordModel.isFirstPage {
@@ -195,10 +197,10 @@ extension ReadController {
         let recordModel = recordModel.copyModel
         
         // 书籍ID
-        let bookID = recordModel.bookID
-        
         // 章节ID
-        let chapterID = recordModel.chapterModel.nextChapterID
+        guard let bookID = recordModel.bookID, let chapterID = recordModel.chapterModel.nextChapterID else{
+            return nil
+        }
         
         // 最后一章 最后一页
         if recordModel.isLastChapter, recordModel.isLastPage {

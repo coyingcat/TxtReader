@@ -165,7 +165,7 @@ class ReadChapterModel: NSObject,NSCoding {
     }
     
     /// 是否存在章节内容
-    class func isExist(bookID:String!, chapterID:NSNumber!) ->Bool {
+    class func isExist(bookID:String, chapterID: NSNumber) ->Bool {
         KeyedArchiver.isExist(folderName: bookID, fileName: chapterID.stringValue)
     }
     

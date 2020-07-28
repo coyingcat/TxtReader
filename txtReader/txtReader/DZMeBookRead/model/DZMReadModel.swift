@@ -50,9 +50,9 @@ class ReadModel: NSObject,NSCoding {
     
     /// 获取阅读对象,如果则创建对象返回
     class func model(bookID: String) ->ReadModel {
-           var readModel:ReadModel!
+           let readModel: ReadModel
            if bookID.exists{
-               readModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: READ_KEY_OBJECT) as? ReadModel
+               readModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: READ_KEY_OBJECT) as! ReadModel
                
            }else{
                readModel = ReadModel(key: bookID)
