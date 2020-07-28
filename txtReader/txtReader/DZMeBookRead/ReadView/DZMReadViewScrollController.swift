@@ -144,13 +144,13 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         
-        let chapterModel = chapterModels[chapterIDs[section].stringValue]
-        
-        // 预加载上一章
-        preloadingPrevious(chapterModel)
-        
-        // 预加载下一章
-        preloadingNext(chapterModel)
+        if let chapterModel = chapterModels[chapterIDs[section].stringValue]{
+            // 预加载上一章
+            preLoading(previous: chapterModel)
+            
+            // 预加载下一章
+            preLoading(next: chapterModel)
+        }
     }
     
     /// 书籍首页将要出现
@@ -319,7 +319,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
     // MARK: 预加载数据
     
     /// 预加载上一个章节
-    private func preloadingPrevious(_ chapterModel:ReadChapterModel!) {
+    private func preLoading(previous chapterModel:ReadChapterModel){
    
         // 章节ID
         guard let chapterID = chapterModel.previousChapterID else{
@@ -327,7 +327,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         }
         
         // 是否有章节 || 是否为第一章 || 是否正在加载 || 是否已经存在阅读列表
-        if (chapterModel == nil) || chapterModel.isFirstChapter || loadChapterIDs.contains(chapterID) || chapterIDs.contains(chapterID) { return }
+        if chapterModel.isFirstChapter || loadChapterIDs.contains(chapterID) || chapterIDs.contains(chapterID) { return }
         
         // 加入加载列表
         loadChapterIDs.append(chapterID)
@@ -377,7 +377,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
     }
     
     /// 预加载下一个章节
-    private func preloadingNext(_ chapterModel:ReadChapterModel!) {
+    private func preLoading(next chapterModel:ReadChapterModel) {
         
         // 章节ID
         guard let chapterID = chapterModel.nextChapterID else{
@@ -385,7 +385,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         }
         
         // 是否有章节 || 是否为最后一章 || 是否正在加载 || 是否已经存在阅读列表
-        if (chapterModel == nil) || chapterModel.isLastChapter || loadChapterIDs.contains(chapterID) || chapterIDs.contains(chapterID) { return }
+        if chapterModel.isLastChapter || loadChapterIDs.contains(chapterID) || chapterIDs.contains(chapterID) { return }
         
         // 加入加载列表
         loadChapterIDs.append(chapterID)
