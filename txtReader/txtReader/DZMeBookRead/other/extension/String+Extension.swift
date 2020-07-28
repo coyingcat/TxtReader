@@ -9,30 +9,8 @@ import UIKit
 
 extension String {
     
- 
-    var bool:Bool {
-        (self as NSString).boolValue
-    }
-    
     var integer:NSInteger {
         (self as NSString).integerValue
-    }
-    
-    var float:Float {
-        (self as NSString).floatValue
-    }
-    
-    var cgFloat:CGFloat {
-        CGFloat(self.float)
-    }
-    
-    var double:Double {
-        (self as NSString).doubleValue
-    }
-    
-    /// 文件后缀(不带'.')
-    var pathExtension:String {
-        (self as NSString).pathExtension
     }
     
     /// 文件名(带后缀)
@@ -44,17 +22,7 @@ extension String {
     var deletingPathExtension:String {
         (self as NSString).deletingPathExtension
     }
-    
-    /// 去除首尾空格
-    var removeSpaceHeadAndTail:String {
-        trimmingCharacters(in: NSCharacterSet.whitespaces)
-    }
-    
-    /// 去除首尾换行
-    var removeEnterHeadAndTail:String {
-        trimmingCharacters(in: NSCharacterSet.whitespaces)
-    }
-    
+
     /// 去除首尾空格和换行
     var removeSEHeadAndTail:String {
         trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
