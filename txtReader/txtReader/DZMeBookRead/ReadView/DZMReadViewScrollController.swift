@@ -337,24 +337,12 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         DispatchQueue.global().async { [weak self] () in
             
             // 检查是否存在章节内容
-            let isExist = ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
-            
             // 存在
-            if isExist{
+            if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID){
                 
                 // 章节内容
-                var tempChapterModel:ReadChapterModel!
-                
                 // 获取章节数据
-                if !isExist {
-                
-                    tempChapterModel = ReadTextFastParser.parsePart(readModel: self?.vc.readModel, chapterID: chapterID)
-                    
-                }else{
-
-                    tempChapterModel = ReadChapterModel(id: chapterID!, in: bookID).real
-                }
-            
+                let tempChapterModel = ReadChapterModel(id: chapterID!, in: bookID).real
                 // 加入阅读内容列表
                 self?.chapterModels[chapterID!.stringValue] = tempChapterModel
                 
@@ -405,24 +393,11 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         DispatchQueue.global().async { [weak self] () in
             
             // 检查是否存在章节内容
-            let isExist = ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
-            
             // 存在
-            if isExist{
-                
+            if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID){
                 // 章节内容
-                var tempChapterModel:ReadChapterModel!
-                
                 // 获取章节数据
-                if !isExist {
-                
-                    tempChapterModel = ReadTextFastParser.parsePart(readModel: self?.vc.readModel, chapterID: chapterID)
-                
-                }else{
-
-                    tempChapterModel = ReadChapterModel(id: chapterID!, in: bookID).real
-                       
-                }
+                let tempChapterModel = ReadChapterModel(id: chapterID!, in: bookID).real
                 
                 // 加入阅读内容列表
                 self?.chapterModels[chapterID!.stringValue] = tempChapterModel
