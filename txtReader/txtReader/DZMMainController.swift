@@ -55,11 +55,8 @@ class MainController: ViewController {
         ReadTextParser.resolve(url: url) { [weak self] (readModel) in
             
             print("全本解析结束时间:",TimerString("YYYY-MM-dd-HH-mm-ss"), Date().timeIntervalSince1970)
-            
-            let vc = ReadController()
-            vc.readModel = readModel
-            
-            self?.navigationController?.pushViewController(vc, animated: true)
+
+            self?.navigationController?.pushViewController(ReadController(reading: readModel), animated: true)
         }
     }
     
@@ -77,10 +74,8 @@ class MainController: ViewController {
         ReadTextFastParser.parser(url: url) { [weak self] (readModel) in
             
             print("快速解析结束时间:",TimerString("YYYY-MM-dd-HH-mm-ss"), Date().timeIntervalSince1970)
-            let vc = ReadController()
-            vc.readModel = readModel
             
-            self?.navigationController?.pushViewController(vc, animated: true)
+            self?.navigationController?.pushViewController(ReadController(reading: readModel), animated: true)
         }
     }
     

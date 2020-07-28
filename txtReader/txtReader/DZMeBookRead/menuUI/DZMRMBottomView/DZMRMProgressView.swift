@@ -74,15 +74,15 @@ class RMProgressView: RMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSl
         let readModel = readMenu.vc.readModel
         
         // 有阅读记录以及章节数据
-        if let read = readModel , (readModel?.recordModel?.chapterModel != nil) {
+        if readModel.recordModel?.chapterModel != nil{
             
             if ReadConfigure.shared.progressType == .total { // 总进度
                 
                 slider.minimumValue = 0
                 slider.maximumValue = 1
-                slider.value = read.progress(readTotal: read.recordModel)
+                slider.value = readModel.progress(readTotal: readModel.recordModel)
                 
-            }else if let record = readModel!.recordModel{ // 分页进度
+            }else if let record = readModel.recordModel{ // 分页进度
                 
                 slider.minimumValue = 1
                 slider.maximumValue = record.chapterModel.pageCount.floatValue
@@ -139,16 +139,16 @@ class RMProgressView: RMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSl
             let readModel = readMenu.vc.readModel
             
             // 有阅读记录以及章节数据
-            if let read = readModel, read.recordModel?.chapterModel != nil{
+            if readModel.recordModel?.chapterModel != nil{
                 
                 // 总章节个数
-                let count = (read.chapterListModels.count - 1)
+                let count = (readModel.chapterListModels.count - 1)
                 
                 // 获得当前进度的章节索引
                 let index = NSInteger(Float(count) * slider.value)
                 
                 // 获得章节列表模型
-                let chapterListModel = read.chapterListModels[index]
+                let chapterListModel = readModel.chapterListModels[index]
                 
                 // 页码
                 let toPage = (index == count) ? READ_LAST_PAGE : 0

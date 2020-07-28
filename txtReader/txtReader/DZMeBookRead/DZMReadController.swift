@@ -12,7 +12,7 @@ class ReadController: ViewController{
     // MARK: 数据相关
     
     /// 阅读对象
-    var readModel:ReadModel!
+    let readModel:ReadModel
     
     
     // MARK: UI相关
@@ -42,6 +42,27 @@ class ReadController: ViewController{
     /// 用于区分正反面的值(勿动)
     
     var tempNumber = 1
+    
+    
+    
+    init(reading model: ReadModel) {
+        readModel = model
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    
+    
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+    
+    
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         
@@ -281,7 +302,7 @@ extension ReadController: ReadMenuDelegate{
     func readMenuDraggingProgress(readMenu: ReadMenu!, toChapterID: NSNumber, toPage: Int) {
         
         // 不是当前阅读记录章节
-        if toChapterID != readModel!.recordModel?.chapterModel.id {
+        if toChapterID != readModel.recordModel?.chapterModel.id {
             
             goToChapter(chapterID: toChapterID, toPage: toPage)
             
