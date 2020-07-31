@@ -62,7 +62,7 @@ class ReadTextFastParser: NSObject {
         
         // 不存在
         // 解析数据
-        let content = ReadParser.encode(url: url)
+        let content = ReadParserIMP.encode(url: url)
         
         // 解析失败
         if content.isEmpty { return nil }
@@ -121,7 +121,7 @@ class ReadTextFastParser: NSObject {
         let parten = "第[0-9一二三四五六七八九十百千]*[章回].*"
         
         // 排版
-        let contentFormatted = ReadParser.contentTypesetting(content: plainTxt)
+        let contentFormatted = ReadParserIMP.contentTypesetting(content: plainTxt)
         
         // 正则匹配结果
         var results = [NSTextCheckingResult]()

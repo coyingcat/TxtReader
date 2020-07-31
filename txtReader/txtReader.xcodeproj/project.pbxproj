@@ -45,9 +45,9 @@
 		26CDB20A24C54ECF007C05A9 /* DZMReadLongPressCursorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1BF24C54ECF007C05A9 /* DZMReadLongPressCursorView.swift */; };
 		26CDB20B24C54ECF007C05A9 /* DZMReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1C024C54ECF007C05A9 /* DZMReadView.swift */; };
 		26CDB20C24C54ECF007C05A9 /* DZMReadHomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1C124C54ECF007C05A9 /* DZMReadHomeViewCell.swift */; };
-		26CDB20D24C54ECF007C05A9 /* DZMReadTextParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1C324C54ECF007C05A9 /* DZMReadTextParser.swift */; };
-		26CDB20E24C54ECF007C05A9 /* DZMReadTextFastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1C424C54ECF007C05A9 /* DZMReadTextFastParser.swift */; };
-		26CDB20F24C54ECF007C05A9 /* DZMReadParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1C524C54ECF007C05A9 /* DZMReadParser.swift */; };
+		26CDB20D24C54ECF007C05A9 /* ReadTextParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1C324C54ECF007C05A9 /* ReadTextParser.swift */; };
+		26CDB20E24C54ECF007C05A9 /* ReadTextFastParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1C424C54ECF007C05A9 /* ReadTextFastParser.swift */; };
+		26CDB20F24C54ECF007C05A9 /* ReadParserIMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1C524C54ECF007C05A9 /* ReadParserIMP.swift */; };
 		26CDB21024C54ECF007C05A9 /* DZMReadConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1C624C54ECF007C05A9 /* DZMReadConfigure.swift */; };
 		26CDB21124C54ECF007C05A9 /* DZMRMFontSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1C924C54ECF007C05A9 /* DZMRMFontSizeView.swift */; };
 		26CDB21224C54ECF007C05A9 /* DZMRMFontTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1CA24C54ECF007C05A9 /* DZMRMFontTypeView.swift */; };
@@ -75,7 +75,7 @@
 		26CDB22824C54ECF007C05A9 /* DZMReadLeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1E424C54ECF007C05A9 /* DZMReadLeftView.swift */; };
 		26CDB22924C54ECF007C05A9 /* DZMReadContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1E524C54ECF007C05A9 /* DZMReadContentView.swift */; };
 		26CDB22A24C54ECF007C05A9 /* DZMReadController+EffectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1E624C54ECF007C05A9 /* DZMReadController+EffectType.swift */; };
-		26CDB22C24C54F13007C05A9 /* DZMMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB22B24C54F13007C05A9 /* DZMMainController.swift */; };
+		26CDB22C24C54F13007C05A9 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB22B24C54F13007C05A9 /* MainController.swift */; };
 		26CDB23024C550CE007C05A9 /* 三国演义.txt in Resources */ = {isa = PBXBuildFile; fileRef = 26CDB22F24C550CE007C05A9 /* 三国演义.txt */; };
 		26CDB23724C5678F007C05A9 /* IndexPathMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB23224C5678F007C05A9 /* IndexPathMore.swift */; };
 		26CDB23824C5678F007C05A9 /* ArrayMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB23324C5678F007C05A9 /* ArrayMore.swift */; };
@@ -130,9 +130,9 @@
 		26CDB1BF24C54ECF007C05A9 /* DZMReadLongPressCursorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadLongPressCursorView.swift; sourceTree = "<group>"; };
 		26CDB1C024C54ECF007C05A9 /* DZMReadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadView.swift; sourceTree = "<group>"; };
 		26CDB1C124C54ECF007C05A9 /* DZMReadHomeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadHomeViewCell.swift; sourceTree = "<group>"; };
-		26CDB1C324C54ECF007C05A9 /* DZMReadTextParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadTextParser.swift; sourceTree = "<group>"; };
-		26CDB1C424C54ECF007C05A9 /* DZMReadTextFastParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadTextFastParser.swift; sourceTree = "<group>"; };
-		26CDB1C524C54ECF007C05A9 /* DZMReadParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadParser.swift; sourceTree = "<group>"; };
+		26CDB1C324C54ECF007C05A9 /* ReadTextParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadTextParser.swift; sourceTree = "<group>"; };
+		26CDB1C424C54ECF007C05A9 /* ReadTextFastParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadTextFastParser.swift; sourceTree = "<group>"; };
+		26CDB1C524C54ECF007C05A9 /* ReadParserIMP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadParserIMP.swift; sourceTree = "<group>"; };
 		26CDB1C624C54ECF007C05A9 /* DZMReadConfigure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadConfigure.swift; sourceTree = "<group>"; };
 		26CDB1C924C54ECF007C05A9 /* DZMRMFontSizeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMRMFontSizeView.swift; sourceTree = "<group>"; };
 		26CDB1CA24C54ECF007C05A9 /* DZMRMFontTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMRMFontTypeView.swift; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 		26CDB1E424C54ECF007C05A9 /* DZMReadLeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadLeftView.swift; sourceTree = "<group>"; };
 		26CDB1E524C54ECF007C05A9 /* DZMReadContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadContentView.swift; sourceTree = "<group>"; };
 		26CDB1E624C54ECF007C05A9 /* DZMReadController+EffectType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DZMReadController+EffectType.swift"; sourceTree = "<group>"; };
-		26CDB22B24C54F13007C05A9 /* DZMMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMMainController.swift; sourceTree = "<group>"; };
+		26CDB22B24C54F13007C05A9 /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		26CDB22D24C54F55007C05A9 /* Bridging-Pch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Pch.h"; sourceTree = "<group>"; };
 		26CDB22F24C550CE007C05A9 /* 三国演义.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "三国演义.txt"; sourceTree = "<group>"; };
 		26CDB23224C5678F007C05A9 /* IndexPathMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexPathMore.swift; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 				26CDB17B24C54E55007C05A9 /* Assets.xcassets */,
 				26CDB22D24C54F55007C05A9 /* Bridging-Pch.h */,
 				26CDB18624C54ECE007C05A9 /* DZMeBookRead */,
-				26CDB22B24C54F13007C05A9 /* DZMMainController.swift */,
+				26CDB22B24C54F13007C05A9 /* MainController.swift */,
 				26CDB18024C54E55007C05A9 /* Info.plist */,
 				26CDB17D24C54E55007C05A9 /* LaunchScreen.storyboard */,
 				26CDB17824C54E50007C05A9 /* Main.storyboard */,
@@ -363,9 +363,9 @@
 		26CDB1C224C54ECF007C05A9 /* ReadParser */ = {
 			isa = PBXGroup;
 			children = (
-				26CDB1C324C54ECF007C05A9 /* DZMReadTextParser.swift */,
-				26CDB1C424C54ECF007C05A9 /* DZMReadTextFastParser.swift */,
-				26CDB1C524C54ECF007C05A9 /* DZMReadParser.swift */,
+				26CDB1C324C54ECF007C05A9 /* ReadTextParser.swift */,
+				26CDB1C424C54ECF007C05A9 /* ReadTextFastParser.swift */,
+				26CDB1C524C54ECF007C05A9 /* ReadParserIMP.swift */,
 			);
 			path = ReadParser;
 			sourceTree = "<group>";
@@ -537,7 +537,7 @@
 				26CDB20B24C54ECF007C05A9 /* DZMReadView.swift in Sources */,
 				26CDB20424C54ECF007C05A9 /* DZMReadViewBGController.swift in Sources */,
 				26CDB1F624C54ECF007C05A9 /* DZMUserDefaults.swift in Sources */,
-				26CDB20D24C54ECF007C05A9 /* DZMReadTextParser.swift in Sources */,
+				26CDB20D24C54ECF007C05A9 /* ReadTextParser.swift in Sources */,
 				26CDB21924C54ECF007C05A9 /* DZMRMProgressView.swift in Sources */,
 				26CDB1EF24C54ECF007C05A9 /* DZMPublic.swift in Sources */,
 				26CDB1F024C54ECF007C05A9 /* DZMSpaceList.swift in Sources */,
@@ -554,7 +554,7 @@
 				265D8CB124C83FF70085D1E8 /* BoolMore.swift in Sources */,
 				26CDB1F524C54ECF007C05A9 /* DZMCoreText.swift in Sources */,
 				26CDB20824C54ECF007C05A9 /* DZMReadLongPressView.swift in Sources */,
-				26CDB20F24C54ECF007C05A9 /* DZMReadParser.swift in Sources */,
+				26CDB20F24C54ECF007C05A9 /* ReadParserIMP.swift in Sources */,
 				26CDB22A24C54ECF007C05A9 /* DZMReadController+EffectType.swift in Sources */,
 				26CDB23724C5678F007C05A9 /* IndexPathMore.swift in Sources */,
 				26CDB21C24C54ECF007C05A9 /* DZMReadController.swift in Sources */,
@@ -572,7 +572,7 @@
 				26CDB20324C54ECF007C05A9 /* DZMReadViewController.swift in Sources */,
 				26CDB1E724C54ECF007C05A9 /* DZMReadController+Operation.swift in Sources */,
 				26CDB22024C54ECF007C05A9 /* DZMReadChapterListModel.swift in Sources */,
-				26CDB22C24C54F13007C05A9 /* DZMMainController.swift in Sources */,
+				26CDB22C24C54F13007C05A9 /* MainController.swift in Sources */,
 				26CDB17324C54E50007C05A9 /* AppDelegate.swift in Sources */,
 				26CDB23924C5678F007C05A9 /* NSRangeMore.swift in Sources */,
 				26CDB20524C54ECF007C05A9 /* DZMReadViewCell.swift in Sources */,
@@ -597,7 +597,7 @@
 				26CDB21124C54ECF007C05A9 /* DZMRMFontSizeView.swift in Sources */,
 				26CDB21024C54ECF007C05A9 /* DZMReadConfigure.swift in Sources */,
 				26CDB22624C54ECF007C05A9 /* DZMReadMarkCell.swift in Sources */,
-				26CDB20E24C54ECF007C05A9 /* DZMReadTextFastParser.swift in Sources */,
+				26CDB20E24C54ECF007C05A9 /* ReadTextFastParser.swift in Sources */,
 				26CDB21D24C54ECF007C05A9 /* DZMReadRecordModel.swift in Sources */,
 				26CDB21524C54ECF007C05A9 /* DZMRMSpacingView.swift in Sources */,
 				26CDB1F924C54ECF007C05A9 /* SegmentedControl.m in Sources */,

@@ -1,5 +1,5 @@
 //
-//  ReadParser.swift
+//  ReadParserIMP.swift
 
 //
 //  
@@ -10,7 +10,7 @@ import UIKit
 /// 解析完成
 typealias ParserCompletion = (_  readModel: ReadModel) ->Void
 
-class ReadParser: NSObject {
+class ReadParserIMP: NSObject {
     
     // MARK: -- 内容分页
     
