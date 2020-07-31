@@ -122,9 +122,6 @@ class RMProgressView: RMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSl
     }
     
     // MARK: -- ASValueTrackingSliderDelegate
-    
-    /// 进度显示将要显示
-    func sliderWillDisplayPopUpView(_ slider: ASValueTrackingSlider!) { }
 
     /// 进度显示将要隐藏
     func sliderWillHidePopUpView(_ slider: ASValueTrackingSlider!) {

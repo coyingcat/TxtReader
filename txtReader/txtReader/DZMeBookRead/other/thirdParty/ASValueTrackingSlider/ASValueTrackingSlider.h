@@ -74,30 +74,8 @@
 // you need to ensure that the cell it resides in is brought to the front of the view hierarchy
 // to prevent the popUpView from being obscured
 @protocol ASValueTrackingSliderDelegate <NSObject>
-- (void)sliderWillDisplayPopUpView:(ASValueTrackingSlider *)slider;
 
 @optional
 - (void)sliderWillHidePopUpView:(ASValueTrackingSlider *)slider;
 - (void)sliderDidHidePopUpView:(ASValueTrackingSlider *)slider;
 @end
-
-/*
-// the recommended technique for use with a tableView is to create a UITableViewCell subclass ↓
- 
- @interface SliderCell : UITableViewCell <ASValueTrackingSliderDelegate>
- @property (weak, nonatomic) IBOutlet ASValueTrackingSlider *slider;
- @end
- 
- @implementation SliderCell
- - (void)awakeFromNib
- {
-    [super awakeFromNib];
-    self.slider.delegate = self;
- }
- 
- - (void)sliderWillDisplayPopUpView:(ASValueTrackingSlider *)slider;
- {
-    [self.superview bringSubviewToFront:self];
- }
- @end
- */

@@ -301,9 +301,7 @@
                               value:self.value];
 }
 
-- (void)_showPopUpViewAnimated:(BOOL)animated
-{
-    if (self.delegate) [self.delegate sliderWillDisplayPopUpView:self];
+- (void)_showPopUpViewAnimated:(BOOL)animated{
     [self.popUpView showAnimated:animated];
 }
 
