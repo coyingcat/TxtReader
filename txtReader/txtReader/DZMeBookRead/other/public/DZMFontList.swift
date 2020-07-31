@@ -60,8 +60,7 @@ let FONT_SA_15 = FONT(FONT_SIZE_SA_15)
 let FONT_SA_16 = FONT(FONT_SIZE_SA_16)
 let FONT_SA_18 = FONT(FONT_SIZE_SA_18)
 func FONT(_ size:CGFloat) ->UIFont { return UIFont.systemFont(ofSize: size) }
-func FONT_SA(_ size:CGFloat) ->UIFont { return UIFont.systemFont(ofSize: SA_SIZE(size)) }
 
-let FONT_BOLD_SA_16 = FONT_BOLD(FONT_SIZE_SA_16)
-func FONT_BOLD(_ size:CGFloat) ->UIFont { return UIFont.boldSystemFont(ofSize: size) }
+
+
 func FONT_BOLD_SA(_ size:CGFloat) ->UIFont { return UIFont.boldSystemFont(ofSize: SA_SIZE(size)) }

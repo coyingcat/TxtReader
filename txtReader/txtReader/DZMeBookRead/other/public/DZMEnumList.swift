@@ -10,7 +10,7 @@ import UIKit
 
 
 /// 阅读翻页类型
-enum EffectType:NSInteger {
+enum EffectType: Int {
     /// 仿真
     case simulation
     /// 平移
@@ -22,7 +22,7 @@ enum EffectType:NSInteger {
 }
 
 /// 阅读字体类型
-enum FontType:NSInteger {
+enum FontType: Int {
     /// 系统
     case system
     /// 黑体
@@ -34,7 +34,7 @@ enum FontType:NSInteger {
 }
 
 /// 阅读内容间距类型
-enum SpacingType:NSInteger {
+enum SpacingType: Int {
     /// 大间距
     case big
     /// 适中间距
@@ -44,7 +44,7 @@ enum SpacingType:NSInteger {
 }
 
 /// 阅读进度类型
-enum ProgressType:NSInteger {
+enum ProgressType: Int {
     /// 总进度
     case total
     /// 分页进度

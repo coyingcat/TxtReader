@@ -65,16 +65,24 @@ class ReadConfigure: NSObject {
     /// 使用分页进度 || 总文章进度(网络文章也可以使用)
     /// 总文章进度注意: 总文章进度需要有整本书的章节总数,以及当前章节带有从0开始排序的索引。
     /// 如果还需要在拖拽底部功能条上进度条过程中展示章节名,则需要带上章节列表数据,并去 RMProgressView 文件中找到 ASValueTrackingSliderDataSource 修改返回数据源为章节名。
-    var progressType:ProgressType! { return ProgressType(rawValue: progressIndex.intValue) }
+    var progressType: ProgressType{
+        ProgressType(rawValue: progressIndex.intValue) ?? .total
+    }
     
     /// 翻页类型
-    var effectType:EffectType! { return EffectType(rawValue: effectIndex.intValue) }
+    var effectType:EffectType{
+        EffectType(rawValue: effectIndex.intValue) ?? .simulation
+    }
     
     /// 字体类型
-    var fontType:FontType! { return FontType(rawValue: fontIndex.intValue) }
+    var fontType:FontType{
+        FontType(rawValue: fontIndex.intValue) ?? .system
+    }
     
     /// 间距类型
-    var spacingType:SpacingType! { return SpacingType(rawValue: spacingIndex.intValue) }
+    var spacingType:SpacingType{
+        SpacingType(rawValue: spacingIndex.intValue) ?? .big
+    }
     
     /// 背景颜色
     let bgColor = UIColor(patternImage: UIImage(named: "read_bg_0")!)
@@ -132,19 +140,20 @@ class ReadConfigure: NSObject {
         let size = SA_SIZE(CGFloat(fontSize.intValue + (isTitle ? READ_FONT_SIZE_SPACE_TITLE : 0)))
         
         let fontType = self.fontType
+        let last = UIFont.systemFont(ofSize: size)
         switch fontType {
         case .one:
             // 黑体
-            return UIFont(name: "EuphemiaUCAS-Italic", size: size)!
+            return UIFont(name: "EuphemiaUCAS-Italic", size: size) ?? last
         case .two:
             // 楷体
-            return UIFont(name: "AmericanTypewriter-Light", size: size)!
+            return UIFont(name: "AmericanTypewriter-Light", size: size) ?? last
         case .three:
             // 宋体
-            return UIFont(name: "Papyrus", size: size)!
+            return UIFont(name: "Papyrus", size: size) ?? last
         default:
             // 系统
-            return UIFont.systemFont(ofSize: size)
+            return last
         }
       
     }
