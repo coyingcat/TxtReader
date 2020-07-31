@@ -240,7 +240,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
             
             isScrollUp = false
             
-        }else{ }
+        }
         
         // 记录坐标
         scrollPoint = point
@@ -253,24 +253,17 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         
         // 异步更新(推荐使用异步)
         DispatchQueue.global().async { [weak self] () in
-            
-            if let ips = self?.tableView.indexPathsForVisibleRows, !ips.isEmpty, let record = self?.vc.readModel.recordModel {
-                    
+            guard let `self` = self else { return }
+            if let ips = self.tableView.indexPathsForVisibleRows, !ips.isEmpty, let record = self.vc.readModel.recordModel {
                     let indexPath:IndexPath = isRollingUp ? ips.last! : ips.first!
-                    
-                    let chapterID = self?.chapterIDs[indexPath.section]
-                    
-                    let chapterModel = self?.getChapterModel(chapterID: chapterID!)
-                    
+                    let chapterID = self.chapterIDs[indexPath.section]
+                    let chapterModel = self.getChapterModel(chapterID: chapterID)
                     record.modify(chapterModel: chapterModel, page: indexPath.row)
-                    
                     Sand.readRecordCurrentChapterLocation = record.locationFirst.intValue
-                        
                     DispatchQueue.main.async { [weak self] () in
-                        
-                        self?.topView.chapterName.text = chapterModel?.name
-                        
-                        self?.reloadProgress()
+                        guard let `self` = self else { return }
+                        self.topView.chapterName.text = chapterModel.name
+                        self.reloadProgress()
                     }
             }
         }
@@ -350,26 +343,26 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
                 
                 DispatchQueue.main.async { [weak self] () in
                     
-                    if self != nil {
+                    guard let `self` = self else { return }
                         
-                        // 当前章节索引
-                        let previousIndex = max(0, (self!.chapterIDs.firstIndex(of: chapterModel.id)! - 1))
-                        
-                        // 加载列表索引
-                        let loadIndex = self!.loadChapterIDs.firstIndex(of: chapterID)!
-                        
-                        // 阅读章节ID列表加入
-                        self?.chapterIDs.insert(chapterID, at: previousIndex)
-                        
-                        // 移除加载列表
-                        self?.loadChapterIDs.remove(at: loadIndex)
-                        
-                        // 刷新
-                        self?.tableView.reloadData()
-                        
-                        // 定位
-                        self?.tableView.contentOffset = CGPoint(x: 0, y: self!.tableView.contentOffset.y + tempChapterModel.pageTotalHeight)
-                    }
+                    // 当前章节索引
+                    let previousIndex = max(0, (self.chapterIDs.firstIndex(of: chapterModel.id)! - 1))
+                    
+                    // 加载列表索引
+                    let loadIndex = self.loadChapterIDs.firstIndex(of: chapterID)!
+                    
+                    // 阅读章节ID列表加入
+                    self.chapterIDs.insert(chapterID, at: previousIndex)
+                    
+                    // 移除加载列表
+                    self.loadChapterIDs.remove(at: loadIndex)
+                    
+                    // 刷新
+                    self.tableView.reloadData()
+                    
+                    // 定位
+                    self.tableView.contentOffset = CGPoint(x: 0, y: self.tableView.contentOffset.y + tempChapterModel.pageTotalHeight)
+                    
                 }
                 
             }
