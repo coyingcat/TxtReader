@@ -19,4 +19,11 @@ extension String{
     var exists: Bool{
         KeyedArchiver.isExist(folderName: self, fileName: READ_KEY_OBJECT)
     }
+    
+    
+    /// 需要处理的章节标题
+    var readChapterName: String{
+        "\n\(self)\n\n"
+    }
+    
 }

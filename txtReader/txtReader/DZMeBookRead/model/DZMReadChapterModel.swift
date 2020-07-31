@@ -44,17 +44,17 @@ class ReadChapterModel: NSObject,NSCoding {
     
     /// 当前章节是否为第一个章节
     var isFirstChapter:Bool {
-        previousChapterID == READ_NO_MORE_CHAPTER
+        previousChapterID == nil
     }
     
     /// 当前章节是否为最后一个章节
     var isLastChapter:Bool {
-        nextChapterID == READ_NO_MORE_CHAPTER
+        nextChapterID == nil
     }
     
     /// 完整章节名称
     var fullName:String {
-        READ_CHAPTER_NAME(name)
+        name.readChapterName
     }
     
     /// 完整富文本内容

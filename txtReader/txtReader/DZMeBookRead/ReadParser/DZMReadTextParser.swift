@@ -208,11 +208,11 @@ class ReadTextParser: NSObject {
             chapterModel.content = TypeSetting.readSpace + chapterModel.content.removeSEHeadAndTail
             
             // 设置上一个章节ID
-            chapterModel.previousChapterID = lastChapterModel?.id ?? READ_NO_MORE_CHAPTER
+            chapterModel.previousChapterID = lastChapterModel?.id ?? nil
             
             // 设置下一个章节ID
             if i == (count - 1) { // 最后一个章节了
-                chapterModel.nextChapterID = READ_NO_MORE_CHAPTER
+                chapterModel.nextChapterID = nil
             }
             else{
                 lastChapterModel?.nextChapterID = chapterModel.id

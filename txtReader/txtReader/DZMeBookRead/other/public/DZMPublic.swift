@@ -248,12 +248,9 @@ typealias AnimationCompletion = ()->Void
 
 // MARK: 其他属性
 
-/// 没有章节了(可以指定为任意标识,默认是空则为没有更多章节)
-let READ_NO_MORE_CHAPTER:NSNumber! = nil
-
 
 /// 用于指定章节最后一页
-let READ_LAST_PAGE:NSInteger = -1
+let READ_LAST_PAGE: Int = -1
 
 /// 动画时间
 let READ_AD_TIME:TimeInterval = 0.2
@@ -297,8 +294,7 @@ struct TypeSetting {
 }
 
 
-/// 需要处理的章节标题
-func READ_CHAPTER_NAME(_ name:String) ->String { return "\n\(name)\n\n" }
+
 
 
 // MARK: 范围
