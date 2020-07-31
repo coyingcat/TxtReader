@@ -111,33 +111,7 @@ extension ReadController {
         
     }
     
-    /// 手动设置翻页(注意: 非滚动模式调用)
-    func setViewController(displayController:ReadViewController!, isAbove:Bool, animated:Bool) {
-        
-        if displayController != nil {
-            
-            // 仿真
-            if pageViewController != nil {
-                
-                let direction:UIPageViewController.NavigationDirection = isAbove ? .reverse : .forward
-                
-                pageViewController.setViewControllers([displayController, getBackgroundController(recordModel: displayController?.recordModel, targetView: displayController?.view)], direction: direction, animated: animated, completion: nil)
-                
-                return
-            }
-            
-            if coverController == nil {
-                // 记录
-                currentDisplayController = displayController
-            }
-            else{
-                // 覆盖 无效果
-                coverController?.setController(displayController!, animated: animated, isAbove: isAbove)
-            }
-            
-            
-        }
-    }
+
 }
 
 
