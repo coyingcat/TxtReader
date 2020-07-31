@@ -104,13 +104,10 @@ class ReadParser: NSObject {
     @objc class func contentTypesetting(content:String) ->String {
         
         // 替换单换行
-        var content = content.replacingOccurrences(of: "\r", with: "")
+        let content = content.replacingOccurrences(of: "\r", with: "")
         
         // 替换换行 以及 多个换行 为 换行加空格
-        content = content.replacingCharacters("\\s*\\n+\\s*", "\n" + TypeSetting.readSpace)
-        
-        // 返回
-        return content
+        return content.replacingCharacters("\\s*\\n+\\s*", "\n" + TypeSetting.readSpace)
     }
     
     
