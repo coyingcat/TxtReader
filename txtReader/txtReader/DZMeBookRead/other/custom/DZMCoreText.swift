@@ -16,14 +16,9 @@ class CoreText: NSObject {
     ///   - rect: 显示范围
     /// - Returns: CTFrame
     @objc class func GetFrameRef(attrString:NSAttributedString, rect:CGRect) ->CTFrame {
-        
         let framesetter = CTFramesetterCreateWithAttributedString(attrString)
-        
         let path = CGPath(rect: rect, transform: nil)
-        
-        let frameRef = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, nil)
-        
-        return frameRef
+        return CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, nil)
     }
     
     /// 获得内容分页列表
@@ -33,29 +28,17 @@ class CoreText: NSObject {
     ///   - rect: 显示范围
     /// - Returns: 内容分页列表
     @objc class func pagingRanges(attrString:NSAttributedString, rect:CGRect) ->[NSRange] {
-        
         var rangeArray = [NSRange]()
-        
         let framesetter = CTFramesetterCreateWithAttributedString(attrString as CFAttributedString)
-        
         let path = CGPath(rect: rect, transform: nil)
-        
         var range = CFRangeMake(0, 0)
-        
         var rangeOffset = 0
-        
         repeat{
-            
             let frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(rangeOffset, 0), path, nil)
-            
             range = CTFrameGetVisibleStringRange(frame)
-            
             rangeArray.append(NSMakeRange(rangeOffset, range.length))
-            
             rangeOffset += range.length
-            
         }while(range.location + range.length < attrString.length)
-        
         return rangeArray
     }
 

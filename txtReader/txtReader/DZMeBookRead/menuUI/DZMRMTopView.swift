@@ -58,9 +58,13 @@ class RMTopView: RMBaseView {
     /// 刷新书签按钮显示状态
     func updateMarkButton() {
         
-        if mark.isSelected { mark.tintColor = READ_COLOR_MAIN
+        if mark.isSelected {
+            mark.tintColor = READ_COLOR_MAIN
             
-        }else{ mark.tintColor = READ_COLOR_MENU_COLOR }
+        }else{
+            mark.tintColor = READ_COLOR_MENU_COLOR
+            
+        }
     }
     
     override func layoutSubviews() {

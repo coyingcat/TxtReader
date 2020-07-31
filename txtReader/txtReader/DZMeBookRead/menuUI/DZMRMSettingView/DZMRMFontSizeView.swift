@@ -79,7 +79,7 @@ class RMFontSizeView: RMBaseView {
         
         let size = NSNumber(value: ReadConfigure.shared.fontSize.intValue - READ_FONT_SIZE_SPACE)
         
-        if !(size.intValue < READ_FONT_SIZE_MIN) {
+        if size.intValue >= READ_FONT_SIZE_MIN{
             
             fontSize.text = size.stringValue
             

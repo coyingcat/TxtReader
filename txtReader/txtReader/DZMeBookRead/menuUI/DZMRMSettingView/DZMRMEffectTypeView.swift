@@ -13,7 +13,7 @@ class RMEffectTypeView: RMBaseView {
     
     private var items = [UIButton]()
     
-    private var selectItem:UIButton!
+    private var selectItem: UIButton?
     
     
     override init(read menu: ReadMenu) {
@@ -40,7 +40,9 @@ class RMEffectTypeView: RMBaseView {
             addSubview(item)
             items.append(item)
             
-            if i == ReadConfigure.shared.effectIndex.intValue { selectItem(item) }
+            if i == ReadConfigure.shared.effectIndex.intValue {
+                selectItem(item)
+            }
         }
     }
     

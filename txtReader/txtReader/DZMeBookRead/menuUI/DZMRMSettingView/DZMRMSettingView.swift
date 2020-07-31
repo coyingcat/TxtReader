@@ -22,7 +22,6 @@ class RMSettingView: RMBaseView {
     private
     lazy var fontSizeView = RMFontSizeView(read: readMenu)
     
-
     /// 翻页效果
     private
     lazy var effectTypeView = RMEffectTypeView(read: readMenu)

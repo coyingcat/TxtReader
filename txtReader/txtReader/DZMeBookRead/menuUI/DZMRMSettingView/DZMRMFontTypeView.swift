@@ -40,7 +40,6 @@ class RMFontTypeView: RMBaseView {
             
             if i == ReadConfigure.shared.fontIndex.intValue {
                 selectItem(item)
-                
             }
         }
     }
