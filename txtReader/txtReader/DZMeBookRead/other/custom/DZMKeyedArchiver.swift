@@ -10,22 +10,22 @@ import UIKit
 class KeyedArchiver: NSObject {
     
     /// 归档文件
-    class func archiver(folderName:String!, fileName:String!, object:AnyObject!) {
+    class func archiver(folderName:String, fileName:String, object:AnyObject) {
         
-        var path = Sand.readDocumentDirectoryPath + "/\(READ_FOLDER_NAME)/\(folderName!)"
+        var path = Sand.readDocumentDirectoryPath + "/\(READ_FOLDER_NAME)/\(folderName)"
         
         if creat_file(path: path) { // 创建文件夹成功或者文件夹存在
             
-            path += "/\(fileName!)"
+            path += "/\(fileName)"
             
             NSKeyedArchiver.archiveRootObject(object, toFile: path)
         }
     }
     
     /// 解档文件
-    class func unarchiver(folderName:String!, fileName:String!) ->AnyObject? {
+    class func unarchiver(folderName:String, fileName:String) ->AnyObject? {
         
-        let path = Sand.readDocumentDirectoryPath + "/\(READ_FOLDER_NAME)/\(folderName!)/\(fileName!)"
+        let path = Sand.readDocumentDirectoryPath + "/\(READ_FOLDER_NAME)/\(folderName)/\(fileName)"
         
         return NSKeyedUnarchiver.unarchiveObject(withFile: path) as AnyObject?
     }
@@ -61,9 +61,11 @@ class KeyedArchiver: NSObject {
     }
     
     /// 是否存在归档文件
-    class func isExist(folderName:String!, fileName:String? = nil) ->Bool {
-        var path = Sand.readDocumentDirectoryPath + "/\(READ_FOLDER_NAME)/\(folderName!)"
-        if fileName != nil , !fileName!.isEmpty { path += "/\(fileName!)" }
+    class func isExist(folderName:String, fileName:String? = nil) ->Bool {
+        var path = Sand.readDocumentDirectoryPath + "/\(READ_FOLDER_NAME)/\(folderName)"
+        if let name = fileName, !name.isEmpty {
+            path += "/\(name)"
+        }
         return FileManager.default.fileExists(atPath: path)
     }
     
