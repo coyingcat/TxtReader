@@ -126,16 +126,16 @@ extension ReadController {
                 return
             }
             
-            // 覆盖 无效果
-            if coverController != nil {
-                
+            if coverController == nil {
+                // 记录
+                currentDisplayController = displayController
+            }
+            else{
+                // 覆盖 无效果
                 coverController?.setController(displayController!, animated: animated, isAbove: isAbove)
-                
-                return
             }
             
-            // 记录
-            currentDisplayController = displayController
+            
         }
     }
 }
