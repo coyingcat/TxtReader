@@ -50,7 +50,9 @@ class ReadContentView: UIView {
     /// 遮盖展示
     func showCover(isShow:Bool) {
         
-        if isShowCover == isShow { return }
+        guard isShowCover != isShow else{
+            return
+        }
         
         if isShow {
             

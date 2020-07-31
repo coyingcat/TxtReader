@@ -18,10 +18,10 @@ class ReadController: ViewController{
     // MARK: UI相关
     
     /// 阅读主视图
-    var contentView = ReadContentView()
+    var contentView = ReadContentView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight))
     
     /// 章节列表
-    var leftView = ReadLeftView()
+    var leftView = ReadLeftView(frame: CGRect(x: -READ_LEFT_VIEW_WIDTH, y: 0, width: READ_LEFT_VIEW_WIDTH, height: ScreenHeight))
     
     /// 阅读菜单
     // 初始化菜单
@@ -100,13 +100,11 @@ class ReadController: ViewController{
         leftView.markView.delegate = self
         
         view.addSubview(leftView)
-        leftView.frame = CGRect(x: -READ_LEFT_VIEW_WIDTH, y: 0, width: READ_LEFT_VIEW_WIDTH, height: ScreenHeight)
         
         // 阅读视图
         
         contentView.delegate = self
         view.addSubview(contentView)
-        contentView.frame = CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight)
     }
     
     // MARK: 监控阅读长按视图通知
@@ -227,9 +225,14 @@ extension ReadController: ReadMenuDelegate{
         
         markButton.isSelected = !markButton.isSelected
         
-        if markButton.isSelected { readModel.insetMark()
+        if markButton.isSelected {
+            readModel.insetMark()
             
-        }else{ readModel.removeMark() }
+        }
+        else{
+            readModel.removeMark()
+            
+        }
         
         topView.updateMarkButton()
     }
@@ -249,11 +252,7 @@ extension ReadController: ReadMenuDelegate{
     /// 点击上一章
     func readMenuClickPreviousChapter(readMenu: ReadMenu) {
         let first = readModel.recordModel?.isFirstChapter
-        if first.ok{
-            
-            Log("已经是第一章了")
-            
-        }else if let record = readModel.recordModel{
+        if first.ok == false, let record = readModel.recordModel{
             
             goToChapter(chapterID: record.chapterModel.previousChapterID)
             
@@ -268,11 +267,7 @@ extension ReadController: ReadMenuDelegate{
     /// 点击下一章
     func readMenuClickNextChapter(readMenu: ReadMenu) {
         let last = readModel.recordModel?.isLastChapter
-        if last.ok{
-            
-            Log("已经是最后一章了")
-            
-        }else if let chapter = readModel.recordModel?.chapterModel.nextChapterID{
+        if last.ok == false, let chapter = readModel.recordModel?.chapterModel.nextChapterID{
             goToChapter(chapterID: chapter)
             // 检查当前内容是否包含书签
             readMenu.topView.checkForMark()
@@ -373,7 +368,8 @@ extension ReadController: ReadMenuDelegate{
                 
                 self?.contentView.frame.origin = CGPoint(x: READ_LEFT_VIEW_WIDTH, y: 0)
                 
-            }else{
+            }
+            else{
                 
                 self?.leftView.frame.origin = CGPoint(x: -READ_LEFT_VIEW_WIDTH, y: 0)
                 
@@ -382,7 +378,10 @@ extension ReadController: ReadMenuDelegate{
             
         }) { [weak self] (isOK) in
             
-            if !isShow { self?.leftView.isHidden = true }
+            if !isShow {
+                self?.leftView.isHidden = true
+                
+            }
             
             completion?()
         }
