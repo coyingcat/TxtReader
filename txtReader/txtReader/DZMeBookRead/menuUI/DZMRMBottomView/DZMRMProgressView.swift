@@ -138,7 +138,7 @@ class RMProgressView: RMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSl
                 let count = (readModel.chapterListModels.count - 1)
                 
                 // 获得当前进度的章节索引
-                let index = NSInteger(Float(count) * slider.value)
+                let index = Int(Float(count) * slider.value)
                 
                 // 获得章节列表模型
                 let chapterListModel = readModel.chapterListModels[index]
@@ -152,7 +152,7 @@ class RMProgressView: RMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSl
             
         }else{ // 分页进度
             
-            readMenu?.delegate?.readMenuDraggingProgress(readMenu: readMenu, toPage: NSInteger(slider.value - 1))
+            readMenu?.delegate?.readMenuDraggingProgress(readMenu: readMenu, toPage: Int(slider.value - 1))
         }
     }
     

@@ -51,7 +51,7 @@ extension ReadModel {
     
     /// 移除当前书签
     @discardableResult
-    func removeMark(index:NSInteger) ->Bool {
+    func removeMark(index: Int) ->Bool {
         
         markModels.remove(at: index)
         
