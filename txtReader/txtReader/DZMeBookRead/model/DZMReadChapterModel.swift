@@ -113,24 +113,24 @@ class ReadChapterModel: NSObject,NSCoding {
     // MARK: 辅助功能
     
     /// 获取指定页码字符串
-    func contentString(page:NSInteger) ->String {
+    func contentString(page: Int) ->String {
         
         return pageModels[page].content.string
     }
 
     /// 获取指定页码富文本
-    func contentAttributedString(page:NSInteger) ->NSAttributedString {
+    func contentAttributedString(page: Int) ->NSAttributedString {
         
         return pageModels[page].showContent
     }
     
     /// 获取指定页开始坐标
-    func locationFirst(page:NSInteger) ->NSNumber {
+    func locationFirst(page: Int) ->NSNumber {
         NSNumber(value: pageModels[page].range.location)
     }
     
     /// 获取指定页码末尾坐标
-    func locationLast(page:NSInteger) ->NSNumber {
+    func locationLast(page: Int) ->NSNumber {
         
         let range = pageModels[page].range!
         
