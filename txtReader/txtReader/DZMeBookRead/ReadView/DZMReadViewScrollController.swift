@@ -47,11 +47,11 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         
         // 刷新阅读进度
         reloadProgress()
-        
+        addSubviews()
         // 定位上次阅读位置
         tableView.scrollToRow(at: record.page.ip, at: .top, animated: false)
         
-        addSubviews()
+        
     }
     
     func addSubviews() {
