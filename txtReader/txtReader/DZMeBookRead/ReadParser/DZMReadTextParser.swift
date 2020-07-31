@@ -124,7 +124,7 @@ class ReadTextParser: NSObject {
             chapterModel.persist()
             
             // 添加章节列表模型
-            chapterListModels.append(GetChapterList(model: chapterModel))
+            chapterListModels.append(getChapterList(model: chapterModel))
             return chapterListModels
         }
         
@@ -227,7 +227,7 @@ class ReadTextParser: NSObject {
             lastChapterModel = chapterModel
             
             // 通过章节内容生成章节列表
-            chapterListModels.append(GetChapterList(model: chapterModel))
+            chapterListModels.append(getChapterList(model: chapterModel))
         }
         
         // 返回
@@ -238,7 +238,8 @@ class ReadTextParser: NSObject {
     ///
     /// - Parameter chapterModel: 章节内容对象
     /// - Returns: 章节列表对象
-    private class func GetChapterList(model chapterModel:ReadChapterModel) ->ReadChapterListModel {
+    private
+    class func getChapterList(model chapterModel:ReadChapterModel) ->ReadChapterListModel {
         
         let chapterListModel = ReadChapterListModel()
         
