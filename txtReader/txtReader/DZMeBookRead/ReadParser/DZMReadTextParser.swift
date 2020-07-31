@@ -31,13 +31,13 @@ class ReadTextParser: NSObject {
     private class func parser(book url:URL) ->ReadModel? {
         
         // 链接不为空, 且是本地文件路径
-        if url.absoluteString.isEmpty || !url.isFileURL { return nil }
+        let urlCheck = url.absoluteString.isEmpty || !url.isFileURL
         
         // 获取文件后缀名作为 bookName = bookID
-        guard let bookID = url.absoluteString.removingPercentEncoding?.lastPathComponent.deletingPathExtension else { return nil }
-        
         // bookID 为空
-        if bookID.isEmpty { return nil }
+        guard urlCheck, let bookID = url.absoluteString.removingPercentEncoding?.lastPathComponent.deletingPathExtension , bookID.isEmpty == false else {
+            return nil
+        }
         
         
         guard bookID.exists == false else{
