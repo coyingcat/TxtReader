@@ -67,7 +67,7 @@ class MainController: ViewController {
         
        
         
-        let url = Bundle.main.url(forResource: "三国演义", withExtension: "txt")
+        guard let url = Bundle.main.url(forResource: "三国演义", withExtension: "txt") else { return }
         
         print("快速解析开始时间:",TimerString("YYYY-MM-dd-HH-mm-ss"), Date().timeIntervalSince1970)
         

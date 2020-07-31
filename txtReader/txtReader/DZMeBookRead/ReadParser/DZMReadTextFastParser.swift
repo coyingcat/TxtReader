@@ -23,13 +23,13 @@ class ReadTextFastParser: NSObject {
     /// - Parameters:
     ///   - url: 本地文件地址
     ///   - completion: 解析完成
-    @objc class func parser(url:URL!, completion:ParserCompletion!) {
+    @objc class func parser(url: URL, completion: @escaping ParserCompletion) {
         
-        DispatchQueue.global().async {
+        DispatchQueue.global().async{
             
             if let readModel = parser(url: url){
-                DispatchQueue.main.async {       
-                    completion?(readModel)
+                DispatchQueue.main.async{
+                    completion(readModel)
                 }
             }
         }
@@ -39,10 +39,10 @@ class ReadTextFastParser: NSObject {
     ///
     /// - Parameter url: 本地文件地址
     /// - Returns: 阅读对象
-    private class func parser(url:URL!) ->ReadModel? {
+    private class func parser(url: URL) ->ReadModel? {
         
         // 链接不为空且是本地文件路径
-        if url == nil || url.absoluteString.isEmpty || !url.isFileURL { return nil }
+        if url.absoluteString.isEmpty || !url.isFileURL { return nil }
         
         // 获取文件后缀名作为 bookName
         let bookName = url.absoluteString.removingPercentEncoding?.lastPathComponent.deletingPathExtension ?? ""

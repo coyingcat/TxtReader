@@ -31,7 +31,7 @@ class ReadTextParser: NSObject {
     private class func parser(book url:URL) ->ReadModel? {
         
         // 链接不为空, 且是本地文件路径
-        let urlCheck = url.absoluteString.isEmpty || !url.isFileURL
+        let urlCheck = (url.absoluteString.isEmpty || !url.isFileURL) == false
         
         // 获取文件后缀名作为 bookName = bookID
         // bookID 为空
