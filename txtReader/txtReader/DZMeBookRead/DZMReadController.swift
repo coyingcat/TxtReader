@@ -203,7 +203,7 @@ extension ReadController: ReadMenuDelegate{
     // MARK: ReadMenuDelegate
     
     /// 菜单将要显示
-    func readMenuWillDisplay(readMenu: ReadMenu!) {
+    func readMenuWillDisplay(readMenu: ReadMenu) {
         
         // 检查当前内容是否包含书签
         readMenu.topView.checkForMark()
@@ -213,7 +213,7 @@ extension ReadController: ReadMenuDelegate{
     }
     
     /// 点击返回
-    func readMenuClickBack(readMenu: ReadMenu!) {
+    func readMenuClickBack(readMenu: ReadMenu) {
         
         // 清空坐标
         Sand.readRecordCurrentChapterLocation = nil
@@ -223,7 +223,7 @@ extension ReadController: ReadMenuDelegate{
     }
     
     /// 点击书签
-    func readMenuClickMark(readMenu: ReadMenu!, topView: RMTopView!, markButton: UIButton!) {
+    func readMenuClickMark(readMenu: ReadMenu, topView: RMTopView, markButton: UIButton) {
         
         markButton.isSelected = !markButton.isSelected
         
@@ -235,7 +235,7 @@ extension ReadController: ReadMenuDelegate{
     }
     
     /// 点击目录
-    func readMenuClickCatalogue(readMenu:ReadMenu!) {
+    func readMenuClickCatalogue(readMenu:ReadMenu) {
         
         showLeftView(isShow: true)
         
@@ -247,7 +247,7 @@ extension ReadController: ReadMenuDelegate{
 
     
     /// 点击上一章
-    func readMenuClickPreviousChapter(readMenu: ReadMenu!) {
+    func readMenuClickPreviousChapter(readMenu: ReadMenu) {
         let first = readModel.recordModel?.isFirstChapter
         if first.ok{
             
@@ -266,7 +266,7 @@ extension ReadController: ReadMenuDelegate{
     }
     
     /// 点击下一章
-    func readMenuClickNextChapter(readMenu: ReadMenu!) {
+    func readMenuClickNextChapter(readMenu: ReadMenu) {
         let last = readModel.recordModel?.isLastChapter
         if last.ok{
             
@@ -285,7 +285,7 @@ extension ReadController: ReadMenuDelegate{
     }
     
     /// 拖拽阅读记录
-    func readMenuDraggingProgress(readMenu: ReadMenu!, toPage: Int) {
+    func readMenuDraggingProgress(readMenu: ReadMenu, toPage: Int) {
         
         if readModel.recordModel?.page != toPage{
             
@@ -299,7 +299,7 @@ extension ReadController: ReadMenuDelegate{
     }
     
     /// 拖拽章节进度(总文章进度,网络文章也可以使用)
-    func readMenuDraggingProgress(readMenu: ReadMenu!, toChapterID: NSNumber, toPage: Int) {
+    func readMenuDraggingProgress(readMenu: ReadMenu, toChapterID: NSNumber, toPage: Int) {
         
         // 不是当前阅读记录章节
         if toChapterID != readModel.recordModel?.chapterModel.id {

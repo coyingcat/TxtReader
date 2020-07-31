@@ -64,7 +64,7 @@ extension ReadController {
             
             coverController = CoverController()
             
-            coverController!.delegate = self
+            coverController.delegate = self
             
             contentView.insertSubview(coverController.view, at: 0)
             

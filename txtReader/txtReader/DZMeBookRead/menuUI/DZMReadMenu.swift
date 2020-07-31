@@ -10,29 +10,29 @@ import UIKit
 @objc protocol ReadMenuDelegate:NSObjectProtocol {
     
     /// 菜单将要显示
-    @objc func readMenuWillDisplay(readMenu:ReadMenu!)
+    @objc func readMenuWillDisplay(readMenu:ReadMenu)
     
     /// 点击返回
-    @objc func readMenuClickBack(readMenu:ReadMenu!)
+    @objc func readMenuClickBack(readMenu:ReadMenu)
     
     /// 点击书签
-    @objc func readMenuClickMark(readMenu:ReadMenu!, topView:RMTopView!, markButton:UIButton!)
+    @objc func readMenuClickMark(readMenu:ReadMenu, topView:RMTopView, markButton:UIButton)
     
     /// 点击目录
-    @objc func readMenuClickCatalogue(readMenu:ReadMenu!)
+    @objc func readMenuClickCatalogue(readMenu:ReadMenu)
     
 
     /// 点击上一章
-    @objc func readMenuClickPreviousChapter(readMenu:ReadMenu!)
+    @objc func readMenuClickPreviousChapter(readMenu:ReadMenu)
     
     /// 点击下一章
-    @objc func readMenuClickNextChapter(readMenu:ReadMenu!)
+    @objc func readMenuClickNextChapter(readMenu:ReadMenu)
     
     /// 拖拽章节进度(分页进度)
-    @objc func readMenuDraggingProgress(readMenu:ReadMenu!, toPage: Int)
+    @objc func readMenuDraggingProgress(readMenu:ReadMenu, toPage: Int)
     
     /// 拖拽章节进度(总文章进度,网络文章也可以使用)
-    @objc func readMenuDraggingProgress(readMenu:ReadMenu!, toChapterID:NSNumber, toPage: Int)
+    @objc func readMenuDraggingProgress(readMenu:ReadMenu, toChapterID:NSNumber, toPage: Int)
     
 
     /// 点击切换字体
