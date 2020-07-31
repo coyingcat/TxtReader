@@ -53,8 +53,6 @@ class ReadLongPressView: ReadView {
     /// 是否触摸到左右光标
     private var isTouchCursor = false
     
-    /// 动画时间
-    private var duration:TimeInterval = READ_AD_TIME
     
     override init(frame: CGRect) {
         

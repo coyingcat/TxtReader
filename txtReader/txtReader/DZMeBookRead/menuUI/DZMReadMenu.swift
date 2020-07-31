@@ -264,7 +264,7 @@ class ReadMenu: NSObject,UIGestureRecognizerDelegate {
         
         if isShow { topView.isHidden = false }
         
-        UIView.animate(withDuration: READ_AD_TIME, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
+        UIView.animate(withDuration: UnifySetting.animaTime, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
             
             let y = isShow ? 0 : -READ_MENU_TOP_VIEW_HEIGHT
             
@@ -283,7 +283,7 @@ class ReadMenu: NSObject,UIGestureRecognizerDelegate {
   
         if isShow { bottomView.isHidden = false }
 
-        UIView.animate(withDuration: READ_AD_TIME, animations: { [weak self] () in
+        UIView.animate(withDuration: UnifySetting.animaTime, animations: { [weak self] () in
             
             let y = isShow ? (ScreenHeight - READ_MENU_BOTTOM_VIEW_HEIGHT) : ScreenHeight
             
@@ -302,7 +302,7 @@ class ReadMenu: NSObject,UIGestureRecognizerDelegate {
       
         if isShow { settingView.isHidden = false }
         
-        UIView.animate(withDuration: READ_AD_TIME, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
+        UIView.animate(withDuration: UnifySetting.animaTime, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
             
             let y = isShow ? (ScreenHeight - READ_MENU_SETTING_VIEW_TOTAL_HEIGHT) : ScreenHeight
             

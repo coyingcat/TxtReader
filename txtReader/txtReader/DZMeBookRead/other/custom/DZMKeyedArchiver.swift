@@ -51,48 +51,31 @@ class KeyedArchiver: NSObject {
     
     /// 清空归档文件
     class func clear() ->Bool {
-        
         let path = Sand.readDocumentDirectoryPath + "/\(READ_FOLDER_NAME)"
-        
         do{
-            
             try FileManager.default.removeItem(atPath: path)
-            
             return true
-            
         }catch{
             return false
         }
-        
-        
     }
     
     /// 是否存在归档文件
     class func isExist(folderName:String!, fileName:String? = nil) ->Bool {
-        
         var path = Sand.readDocumentDirectoryPath + "/\(READ_FOLDER_NAME)/\(folderName!)"
-        
         if fileName != nil , !fileName!.isEmpty { path += "/\(fileName!)" }
-        
         return FileManager.default.fileExists(atPath: path)
     }
     
     /// 创建文件夹,如果存在则不创建
     private class func creat_file(path:String) ->Bool {
-        
         let fileManager = FileManager.default
-        
         if fileManager.fileExists(atPath: path) { return true }
-        
         do{
             try fileManager.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
-            
             return true
-            
         }catch{
             return false
         }
-        
-        
     }
 }

@@ -252,11 +252,6 @@ typealias AnimationCompletion = ()->Void
 /// 用于指定章节最后一页
 let READ_LAST_PAGE: Int = -1
 
-/// 动画时间
-let READ_AD_TIME:TimeInterval = 0.2
-
-
-
 /// 主文件夹名称
 let READ_FOLDER_NAME:String = "eBookRead"
 
@@ -294,7 +289,10 @@ struct TypeSetting {
 }
 
 
-
+struct UnifySetting {
+    /// 动画时间
+    static let animaTime:TimeInterval = 0.2
+}
 
 
 // MARK: 范围

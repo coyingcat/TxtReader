@@ -367,7 +367,7 @@ extension ReadController: ReadMenuDelegate{
             leftView.isHidden = false
         }
         
-        UIView.animate(withDuration: READ_AD_TIME, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
+        UIView.animate(withDuration: UnifySetting.animaTime, delay: 0, options: .curveEaseOut, animations: { [weak self] () in
             
             if isShow {
                 

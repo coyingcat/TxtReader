@@ -61,7 +61,7 @@ class ReadContentView: UIView {
         
         isShowCover = isShow
         
-        UIView.animate(withDuration: READ_AD_TIME) { [weak self] () in
+        UIView.animate(withDuration: UnifySetting.animaTime) { [weak self] () in
             
             self?.cover.alpha = CGFloat(NSNumber(value: isShow).floatValue)
         }

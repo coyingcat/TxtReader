@@ -99,7 +99,7 @@ extension ReadLeftView: SegmentedControlDelegate{
     // MARK: SegmentedControlDelegate
     func segmentedControl(_ segmentedControl: SegmentedControl, click index: Int) {
          
-         UIView.animate(withDuration: READ_AD_TIME) { [weak self] () in
+         UIView.animate(withDuration: UnifySetting.animaTime) { [weak self] () in
              
              if index == 0 { // 显示目录
                  
