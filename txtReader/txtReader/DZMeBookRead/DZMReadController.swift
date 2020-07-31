@@ -272,10 +272,8 @@ extension ReadController: ReadMenuDelegate{
             
             Log("已经是最后一章了")
             
-        }else{
-            
-            goToChapter(chapterID: readModel.recordModel?.chapterModel.nextChapterID)
-    
+        }else if let chapter = readModel.recordModel?.chapterModel.nextChapterID{
+            goToChapter(chapterID: chapter)
             // 检查当前内容是否包含书签
             readMenu.topView.checkForMark()
             

@@ -93,13 +93,13 @@ extension ReadController {
     }
     
     /// 跳转指定章节(指定页面)
-    func goToChapter(chapterID:NSNumber!, toPage: Int = 0) {
+    func goToChapter(chapterID:NSNumber, toPage: Int = 0) {
         
         goToChapter(chapterID: chapterID, number: toPage, isLocation: false)
     }
     
     /// 跳转指定章节(指定坐标)
-    func goToChapter(chapterID:NSNumber!, location: Int) {
+    func goToChapter(chapterID:NSNumber, location: Int) {
         
         goToChapter(chapterID: chapterID, number: location, isLocation: true)
     }
@@ -116,10 +116,8 @@ extension ReadController {
         }
        
         // 检查是否存在章节内容
-        let isExist = ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID)
-        
         // 存在
-        if isExist {
+        if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID){
             if isLocation {
                 
                 // 坐标定位
