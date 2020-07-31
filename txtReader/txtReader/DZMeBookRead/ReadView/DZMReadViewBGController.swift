@@ -16,14 +16,13 @@ class ReadViewBGController: ViewController {
     var targetView:UIView!
     
     /// imageView
-    private var imageView:UIImageView!
+    private var imageView = UIImageView()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         // imageView
-        imageView = UIImageView()
         imageView.backgroundColor = ReadConfigure.shared.bgColor
         view.addSubview(imageView)
         imageView.frame = view.bounds
@@ -61,8 +60,4 @@ class ReadViewBGController: ViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        
-        super.didReceiveMemoryWarning()
-    }
 }
