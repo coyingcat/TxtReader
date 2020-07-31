@@ -144,7 +144,7 @@ class RMProgressView: RMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSl
                 let chapterListModel = readModel.chapterListModels[index]
                 
                 // 页码
-                let toPage = (index == count) ? READ_LAST_PAGE : 0
+                let toPage = (index == count) ? ReadingConst.lastPage : 0
                 
                 // 传递
                 readMenu?.delegate?.readMenuDraggingProgress(readMenu: readMenu, toChapterID: chapterListModel.id, toPage: toPage)

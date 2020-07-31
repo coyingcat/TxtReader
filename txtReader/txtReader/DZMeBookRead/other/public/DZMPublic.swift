@@ -189,21 +189,7 @@ func SpaceLine(_ view:UIView, _ color:UIColor) ->UIView {
     return spaceLine
 }
 
-/// 对指定视图截屏
-func ScreenCapture(_ view:UIView!, _ isSave:Bool = false) ->UIImage {
-    
-    UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0.0)
-    
-    view.layer.render(in: UIGraphicsGetCurrentContext()!)
-    
-    let image = UIGraphicsGetImageFromCurrentImageContext()
-    
-    UIGraphicsEndImageContext()
-    
-    if isSave { UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil) }
-    
-    return image!
-}
+
 
 /// 设置行间距
 func TextLineSpacing(_ string:String, _ lineSpacing:CGFloat, _ attrs: [NSAttributedString.Key:Any]? = nil) ->NSMutableAttributedString {
@@ -248,10 +234,6 @@ typealias AnimationCompletion = ()->Void
 
 // MARK: 其他属性
 
-
-/// 用于指定章节最后一页
-let READ_LAST_PAGE: Int = -1
-
 /// 主文件夹名称
 let READ_FOLDER_NAME:String = "eBookRead"
 
@@ -293,6 +275,17 @@ struct UnifySetting {
     /// 动画时间
     static let animaTime:TimeInterval = 0.2
 }
+
+
+struct ReadingConst {
+    
+    /// 用于指定章节最后一页
+    static let lastPage: Int = -1
+}
+
+
+
+
 
 
 // MARK: 范围

@@ -114,14 +114,14 @@ class ReadRecordModel: NSObject,NSCoding {
         }
     }
     
-    /// 修改阅读记录为指定章节页码 (toPage == READ_LAST_PAGE 为当前章节最后一页)
+    /// 修改阅读记录为指定章节页码 (toPage == ReadingConst.lastPage 为当前章节最后一页)
     func modify(chapterID:NSNumber!, toPage: Int, isSave:Bool = true) {
         
         if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
             
             chapterModel = ReadChapterModel(id: chapterID, in: bookID).real
             
-            if (toPage == READ_LAST_PAGE) { lastPage()
+            if (toPage == ReadingConst.lastPage) { lastPage()
                 
             }else{ page = NSNumber(value: toPage) }
             

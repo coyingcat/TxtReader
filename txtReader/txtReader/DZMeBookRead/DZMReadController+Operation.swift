@@ -172,7 +172,7 @@ extension ReadController {
             if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
                 // 存在 
                 // 修改阅读记录
-                recordModel.modify(chapterID: chapterID, toPage: READ_LAST_PAGE, isSave: false)
+                recordModel.modify(chapterID: chapterID, toPage: ReadingConst.lastPage, isSave: false)
                 
             }else{ 
                 return nil
