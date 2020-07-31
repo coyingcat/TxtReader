@@ -159,7 +159,7 @@ class ReadRecordModel: NSObject,NSCoding {
     /// 保存记录
     func save() {
         
-        KeyedArchiver.archiver(folderName: bookID, fileName: READ_KEY_RECORD, object: self)
+        KeyedArchiver.archiver(folderName: bookID, fileName: PersistKey.readRecord, object: self)
     }
     
     
@@ -173,7 +173,7 @@ class ReadRecordModel: NSObject,NSCoding {
         let recordModel: ReadRecordModel
         
         if bookID.exists{
-            recordModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: READ_KEY_RECORD) as! ReadRecordModel
+            recordModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: PersistKey.readRecord) as! ReadRecordModel
             
             recordModel.chapterModel.updateFont()
             

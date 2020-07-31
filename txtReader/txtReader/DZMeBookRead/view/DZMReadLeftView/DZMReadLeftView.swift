@@ -65,7 +65,7 @@ class ReadLeftView: UIView {
     func updateUI() {
         
         // 日夜间切换修改
-        if Persisting.bool(READ_KEY_MODE_DAY_NIGHT) {
+        if Persisting.bool(PersistKey.modeDayNight) {
             
             spaceLine.backgroundColor = COLOR_230_230_230.withAlphaComponent(0.2)
             

@@ -20,13 +20,13 @@ func Log<T>(_ message:T) {
 // MARK: -- 屏幕属性
 
 /// 屏幕Size
-let ScreenSize:CGSize = UIScreen.main.bounds.size
+let ScreenSize = UIScreen.main.bounds.size
 
 /// 屏幕宽度
-let ScreenWidth:CGFloat = UIScreen.main.bounds.size.width
+let ScreenWidth = UIScreen.main.bounds.size.width
 
 /// 屏幕高度
-let ScreenHeight:CGFloat = UIScreen.main.bounds.size.height
+let ScreenHeight = UIScreen.main.bounds.size.height
 
 /// TabBar高度
 let TabBarHeight:CGFloat = (IsX ? 83 : 49)
@@ -142,7 +142,7 @@ func Timer1970(_ isMsec:Bool = false) ->TimeInterval {
 
 
 /// 计算显示时间
-func TimerString(_ time:NSInteger) ->String {
+func TimerString(_ time: Int) ->String {
     
     let currentTime = NSInteger(Timer1970())
     
@@ -179,13 +179,9 @@ func TimerString(_ time:NSInteger) ->String {
 
 /// 设置分割线
 func SpaceLine(_ view:UIView, _ color:UIColor) ->UIView {
-    
     let spaceLine = UIView()
-    
     spaceLine.backgroundColor = color
-    
     view.addSubview(spaceLine)
-    
     return spaceLine
 }
 
@@ -231,24 +227,6 @@ func DelayHandle(_ delay:TimeInterval, _ execute:@escaping ()->Void) {
 /// 动画完成
 typealias AnimationCompletion = ()->Void
 
-
-// MARK: 其他属性
-
-/// 主文件夹名称
-let READ_FOLDER_NAME:String = "eBookRead"
-
-/// Key - 配置
-let READ_KEY_CONFIGURE:String = "READ_CONFIGURE"
-
-/// Key - 阅读记录
-let READ_KEY_RECORD:String = "READ_RECORD"
-
-/// Key - 阅读对象
-let READ_KEY_OBJECT:String = "READ_OBJECT"
-
-/// Key - 日夜间模式 NO:日间 YES:夜间
-let READ_KEY_MODE_DAY_NIGHT:String = "READ_MODE_DAY_NIGHT"
-
 /// 沙河路径
 
 struct Sand {
@@ -284,7 +262,24 @@ struct ReadingConst {
 }
 
 
-
+struct PersistKey {
+    /// 主文件夹名称
+    static let readFolder = "eBookRead"
+    
+    /// Key - 配置
+    static let readConfigure = "READ_CONFIGURE"
+    
+    
+    /// Key - 阅读记录
+    static let readRecord = "READ_RECORD"
+    
+    /// Key - 阅读对象
+    static let readObject = "READ_OBJECT"
+    
+    
+    /// Key - 日夜间模式 NO:日间 YES:夜间
+    static let modeDayNight = "READ_MODE_DAY_NIGHT"
+}
 
 
 

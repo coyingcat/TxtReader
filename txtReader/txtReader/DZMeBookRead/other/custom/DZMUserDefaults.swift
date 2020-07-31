@@ -37,7 +37,6 @@ class Persisting: NSObject {
     class func setObject(_ value:Any?, _ key:String) {
         let defaults = UserDefaults.standard
         defaults.set(value, forKey: key)
-        
     }
     
     /// 存储String

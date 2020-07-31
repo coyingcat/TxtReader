@@ -40,7 +40,7 @@ class ReadModel: NSObject,NSCoding {
         
         recordModel?.save()
         
-        KeyedArchiver.archiver(folderName: bookID, fileName: READ_KEY_OBJECT, object: self)
+        KeyedArchiver.archiver(folderName: bookID, fileName: PersistKey.readObject, object: self)
     }
     
   
@@ -52,7 +52,7 @@ class ReadModel: NSObject,NSCoding {
     class func model(bookID: String) ->ReadModel {
            let readModel: ReadModel
            if bookID.exists{
-               readModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: READ_KEY_OBJECT) as! ReadModel
+               readModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: PersistKey.readObject) as! ReadModel
                
            }else{
                readModel = ReadModel(key: bookID)

@@ -12,7 +12,7 @@ class KeyedArchiver: NSObject {
     /// 归档文件
     class func archiver(folderName:String, fileName:String, object:AnyObject) {
         
-        var path = Sand.readDocumentDirectoryPath + "/\(READ_FOLDER_NAME)/\(folderName)"
+        var path = Sand.readDocumentDirectoryPath + "/\(PersistKey.readFolder)/\(folderName)"
         
         if creat_file(path: path) { // 创建文件夹成功或者文件夹存在
             
@@ -25,7 +25,7 @@ class KeyedArchiver: NSObject {
     /// 解档文件
     class func unarchiver(folderName:String, fileName:String) ->AnyObject? {
         
-        let path = Sand.readDocumentDirectoryPath + "/\(READ_FOLDER_NAME)/\(folderName)/\(fileName)"
+        let path = Sand.readDocumentDirectoryPath + "/\(PersistKey.readFolder)/\(folderName)/\(fileName)"
         
         return NSKeyedUnarchiver.unarchiveObject(withFile: path) as AnyObject?
     }
@@ -33,7 +33,7 @@ class KeyedArchiver: NSObject {
     /// 删除归档文件
     class func remove(folderName:String!, fileName:String? = nil) ->Bool {
         
-        var path = Sand.readDocumentDirectoryPath + "/\(READ_FOLDER_NAME)/\(folderName!)"
+        var path = Sand.readDocumentDirectoryPath + "/\(PersistKey.readFolder)/\(folderName!)"
         
         if fileName != nil , !fileName!.isEmpty { path += "/\(fileName!)" }
         
@@ -51,7 +51,7 @@ class KeyedArchiver: NSObject {
     
     /// 清空归档文件
     class func clear() ->Bool {
-        let path = Sand.readDocumentDirectoryPath + "/\(READ_FOLDER_NAME)"
+        let path = Sand.readDocumentDirectoryPath + "/\(PersistKey.readFolder)"
         do{
             try FileManager.default.removeItem(atPath: path)
             return true
@@ -62,7 +62,7 @@ class KeyedArchiver: NSObject {
     
     /// 是否存在归档文件
     class func isExist(folderName:String, fileName:String? = nil) ->Bool {
-        var path = Sand.readDocumentDirectoryPath + "/\(READ_FOLDER_NAME)/\(folderName)"
+        var path = Sand.readDocumentDirectoryPath + "/\(PersistKey.readFolder)/\(folderName)"
         if let name = fileName, !name.isEmpty {
             path += "/\(name)"
         }

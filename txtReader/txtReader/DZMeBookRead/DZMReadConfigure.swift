@@ -33,7 +33,7 @@ let READ_FONT_SIZE_SPACE:Int = 2
 /// 章节标题 - 在当前字体大小上叠加指数
 let READ_FONT_SIZE_SPACE_TITLE:Int = 8
 
-/// 单利对象
+/// 单例对象
 private var configure:ReadConfigure?
 
 class ReadConfigure: NSObject {
@@ -206,7 +206,7 @@ class ReadConfigure: NSObject {
                     "progressIndex": progressIndex,
                     "fontSize": fontSize]
     
-        Persisting.setObject(dict, READ_KEY_CONFIGURE)
+        Persisting.setObject(dict, PersistKey.readConfigure)
     }
     
     
@@ -215,8 +215,9 @@ class ReadConfigure: NSObject {
     /// 获取对象
     static var shared: ReadConfigure {
         
-        if configure == nil { configure = ReadConfigure(Persisting.object(READ_KEY_CONFIGURE)) }
-        
+        if configure == nil {
+            configure = ReadConfigure(Persisting.object(PersistKey.readConfigure))
+        }
         return configure!
     }
     

@@ -72,7 +72,7 @@ extension ReadMarkView: UITableViewDelegate,UITableViewDataSource{
         }
         
         // 日夜间
-        if Persisting.bool(READ_KEY_MODE_DAY_NIGHT) {
+        if Persisting.bool(PersistKey.modeDayNight) {
             cell.spaceLine.backgroundColor = COLOR_230_230_230.withAlphaComponent(0.1)
         }
         else{
