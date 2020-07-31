@@ -15,8 +15,9 @@ extension UIPageViewController {
     /// 手势启用
     var gestureRecognizerEnabled:Bool {
         
-        get{ return (objc_getAssociatedObject(self, &IsGestureRecognizerEnabled) as? Bool) ?? true }
-        
+        get{
+            (objc_getAssociatedObject(self, &IsGestureRecognizerEnabled) as? Bool) ?? true
+        }
         set{
             
             for ges in gestureRecognizers { ges.isEnabled = newValue }
@@ -28,8 +29,9 @@ extension UIPageViewController {
     /// tap手势启用
     var tapGestureRecognizerEnabled:Bool {
         
-        get{ return (objc_getAssociatedObject(self, &TapIsGestureRecognizerEnabled) as? Bool) ?? true }
-        
+        get{
+            (objc_getAssociatedObject(self, &TapIsGestureRecognizerEnabled) as? Bool) ?? true   
+        }
         set{
             
             for ges in gestureRecognizers {
