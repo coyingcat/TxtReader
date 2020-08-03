@@ -109,7 +109,7 @@ class ReadTextParser: NSObject {
         
         guard results.isEmpty == false else {
             // 章节内容
-            let chapterModel = ReadChapterModel(id:  NSNumber(value: 1), in: bookID)
+            let chapterModel = ReadChapterModel(id: 1, in: bookID)
             
             // 章节名
             chapterModel.name = "开始"
@@ -161,7 +161,7 @@ class ReadTextParser: NSObject {
             }
             
             // 章节内容
-            let chapterModel = ReadChapterModel(id: NSNumber(value: i + isHavePreface.val), in: bookID)
+            let chapterModel = ReadChapterModel(id: i + isHavePreface.val, in: bookID)
             
             // 优先级
             chapterModel.priority = NSNumber(value: i - isHavePreface.negVal)
@@ -208,14 +208,14 @@ class ReadTextParser: NSObject {
             chapterModel.content = TypeSetting.readSpace + chapterModel.content.removeSEHeadAndTail
             
             // 设置上一个章节ID
-            chapterModel.previousChapterID = lastChapterModel?.id.intValue ?? nil
+            chapterModel.previousChapterID = lastChapterModel?.id ?? nil
             
             // 设置下一个章节ID
             if i == (count - 1) { // 最后一个章节了
                 chapterModel.nextChapterID = nil
             }
             else{
-                lastChapterModel?.nextChapterID = chapterModel.id.intValue
+                lastChapterModel?.nextChapterID = chapterModel.id
             }
             
             // 保存

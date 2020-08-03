@@ -22,10 +22,10 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
     private var bottomView = ReadViewStatusBottomView()
     
     /// 当前阅读章节ID列表(只会存放本次阅读的列表)
-    private var chapterIDs = [NSNumber]()
+    private var chapterIDs = [Int]()
     
     /// 当前正在加载的章节
-    private var loadChapterIDs = [NSNumber]()
+    private var loadChapterIDs = [Int]()
     
     /// 当前阅读的章节列表,通过已有的章节ID列表,来获取章节模型。
     private var chapterModels = [String:ReadChapterModel]()
@@ -144,7 +144,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         
-        if let chapterModel = chapterModels[chapterIDs[section].stringValue]{
+        if let chapterModel = chapterModels[String(chapterIDs[section])]{
             // 预加载上一章
             preLoading(previous: chapterModel)
             
@@ -295,15 +295,15 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
     // MARK: 获得阅读数据
     
     /// 获取章节内容模型
-    func getChapterModel(chapterID:NSNumber) -> ReadChapterModel{
+    func getChapterModel(chapterID: Int) -> ReadChapterModel{
         
-        if let model = chapterModels[chapterID.stringValue]{
+        if let model = chapterModels[String(chapterID)]{
             // 内存中存在章节内容
             return model
         }else{ // 内存中不存在章节列表
             
             let model = ReadChapterModel(id: chapterID, in: vc.readModel.bookID).real
-            chapterModels[chapterID.stringValue] = model
+            chapterModels[String(chapterID)] = model
             return model
         }
     }
@@ -320,10 +320,10 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         }
         
         // 是否有章节 || 是否为第一章 || 是否正在加载 || 是否已经存在阅读列表
-        if chapterModel.isFirstChapter || loadChapterIDs.contains(NSNumber(value: chapterID)) || chapterIDs.contains(NSNumber(value: chapterID)) { return }
+        if chapterModel.isFirstChapter || loadChapterIDs.contains(chapterID) || chapterIDs.contains(chapterID) { return }
         
         // 加入加载列表
-        loadChapterIDs.append(NSNumber(value: chapterID))
+        loadChapterIDs.append(chapterID)
         
         // 书籍ID
         let bookID = chapterModel.bookID
@@ -337,7 +337,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
                 
                 // 章节内容
                 // 获取章节数据
-                let tempChapterModel = ReadChapterModel(id: NSNumber(value:  chapterID), in: bookID).real
+                let tempChapterModel = ReadChapterModel(id: chapterID, in: bookID).real
                 // 加入阅读内容列表
                 self?.chapterModels[String(chapterID)] = tempChapterModel
                 
@@ -349,10 +349,10 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
                     let previousIndex = max(0, (self.chapterIDs.firstIndex(of: chapterModel.id)! - 1))
                     
                     // 加载列表索引
-                    let loadIndex = self.loadChapterIDs.firstIndex(of: NSNumber(value: chapterID))!
+                    let loadIndex = self.loadChapterIDs.firstIndex(of: chapterID)!
                     
                     // 阅读章节ID列表加入
-                    self.chapterIDs.insert(NSNumber(value: chapterID), at: previousIndex)
+                    self.chapterIDs.insert(chapterID, at: previousIndex)
                     
                     // 移除加载列表
                     self.loadChapterIDs.remove(at: loadIndex)
@@ -378,10 +378,10 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         }
         
         // 是否有章节 || 是否为最后一章 || 是否正在加载 || 是否已经存在阅读列表
-        if chapterModel.isLastChapter || loadChapterIDs.contains(NSNumber(value:  chapterID)) || chapterIDs.contains(NSNumber(value:  chapterID)) { return }
+        if chapterModel.isLastChapter || loadChapterIDs.contains(chapterID) || chapterIDs.contains( chapterID) { return }
         
         // 加入加载列表
-        loadChapterIDs.append(NSNumber(value: chapterID))
+        loadChapterIDs.append(chapterID)
         
         // 书籍ID
         let bookID = chapterModel.bookID
@@ -394,7 +394,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
             if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID){
                 // 章节内容
                 // 获取章节数据
-                let tempChapterModel = ReadChapterModel(id: NSNumber(value:  chapterID), in: bookID).real
+                let tempChapterModel = ReadChapterModel(id:chapterID, in: bookID).real
                 
                 // 加入阅读内容列表
                 self?.chapterModels[String(chapterID)] = tempChapterModel
@@ -407,10 +407,10 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
                         let nextIndex = self!.chapterIDs.firstIndex(of: chapterModel.id)! + 1
                         
                         // 加载列表索引
-                        let loadIndex = self!.loadChapterIDs.firstIndex(of: NSNumber(value: chapterID))!
+                        let loadIndex = self!.loadChapterIDs.firstIndex(of: chapterID)!
                         
                         // 阅读章节ID列表加入
-                        self?.chapterIDs.insert(NSNumber(value: chapterID), at: nextIndex)
+                        self?.chapterIDs.insert(chapterID, at: nextIndex)
                         
                         // 移除加载列表
                         self?.loadChapterIDs.remove(at: loadIndex)

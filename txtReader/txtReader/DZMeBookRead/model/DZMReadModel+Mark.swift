@@ -18,7 +18,7 @@ extension ReadModel {
         
         markModel.bookID = recordModel.bookID
         
-        markModel.chapterID = recordModel.chapterModel.id
+        markModel.chapterID = NSNumber(value: recordModel.chapterModel.id)
         
         if recordModel.pageModel.isHomePage {
             

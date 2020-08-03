@@ -13,7 +13,7 @@ class ReadChapterModel: NSObject,NSCoding {
     let bookID: String
     
     /// 章节ID
-    let id: NSNumber
+    let id: Int
     
     /// 上一章ID
     var previousChapterID: Int?
@@ -64,7 +64,7 @@ class ReadChapterModel: NSObject,NSCoding {
     var chapterList: ChapterBriefModel{
         let chapterListModel = ChapterBriefModel()
         chapterListModel.bookID = bookID
-        chapterListModel.id = id.intValue
+        chapterListModel.id = id
         chapterListModel.name = name
         return chapterListModel
     }
@@ -168,7 +168,7 @@ class ReadChapterModel: NSObject,NSCoding {
     
     /// 保存
     func persist(){
-        KeyedArchiver.archiver(folderName: bookID, fileName: id.stringValue, object: self)
+        KeyedArchiver.archiver(folderName: bookID, fileName: String(id), object: self)
     }
     
     /// 是否存在章节内容
@@ -181,8 +181,8 @@ class ReadChapterModel: NSObject,NSCoding {
     /// 获取章节对象,如果则创建对象返回
     
     var real: ReadChapterModel{
-        if ReadChapterModel.isExist(bookID: bookID, chapterID: id.intValue) {
-            let chapterModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: id.stringValue) as! ReadChapterModel
+        if ReadChapterModel.isExist(bookID: bookID, chapterID: id) {
+            let chapterModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: String(id)) as! ReadChapterModel
             chapterModel.updateFont()
             return chapterModel
         }
@@ -193,7 +193,7 @@ class ReadChapterModel: NSObject,NSCoding {
     
     
     
-    init(id chapter: NSNumber, in key: String){
+    init(id chapter: Int, in key: String){
         bookID = key
         id = chapter
         
@@ -204,7 +204,7 @@ class ReadChapterModel: NSObject,NSCoding {
     required init?(coder aDecoder: NSCoder) {
         bookID = aDecoder.decodeObject(forKey: "bookID") as! String
         
-        id = aDecoder.decodeObject(forKey: "id") as! NSNumber
+        id = aDecoder.decodeInteger(forKey: "id")
         
         super.init()
         

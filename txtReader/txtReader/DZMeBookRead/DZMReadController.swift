@@ -295,7 +295,7 @@ extension ReadController: ReadMenuDelegate{
     func readMenuDraggingProgress(readMenu: ReadMenu, toChapterID: Int, toPage: Int) {
 
         // 不是当前阅读记录章节
-        if toChapterID != readModel.recordModel?.chapterModel.id.intValue{
+        if toChapterID != readModel.recordModel?.chapterModel.id{
             
             goToChapter(chapterID: toChapterID, toPage: toPage)
             
