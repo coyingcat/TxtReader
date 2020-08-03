@@ -64,7 +64,7 @@
 		26CDB21D24C54ECF007C05A9 /* DZMReadRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1D724C54ECF007C05A9 /* DZMReadRecordModel.swift */; };
 		26CDB21E24C54ECF007C05A9 /* DZMReadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1D824C54ECF007C05A9 /* DZMReadModel.swift */; };
 		26CDB21F24C54ECF007C05A9 /* DZMReadModel+Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1D924C54ECF007C05A9 /* DZMReadModel+Mark.swift */; };
-		26CDB22024C54ECF007C05A9 /* DZMReadChapterListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1DA24C54ECF007C05A9 /* DZMReadChapterListModel.swift */; };
+		26CDB22024C54ECF007C05A9 /* ChapterBriefModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1DA24C54ECF007C05A9 /* ChapterBriefModel.swift */; };
 		26CDB22124C54ECF007C05A9 /* DZMReadMarkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1DB24C54ECF007C05A9 /* DZMReadMarkModel.swift */; };
 		26CDB22224C54ECF007C05A9 /* DZMReadChapterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1DC24C54ECF007C05A9 /* DZMReadChapterModel.swift */; };
 		26CDB22324C54ECF007C05A9 /* DZMReadPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1DD24C54ECF007C05A9 /* DZMReadPageModel.swift */; };
@@ -149,7 +149,7 @@
 		26CDB1D724C54ECF007C05A9 /* DZMReadRecordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadRecordModel.swift; sourceTree = "<group>"; };
 		26CDB1D824C54ECF007C05A9 /* DZMReadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadModel.swift; sourceTree = "<group>"; };
 		26CDB1D924C54ECF007C05A9 /* DZMReadModel+Mark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DZMReadModel+Mark.swift"; sourceTree = "<group>"; };
-		26CDB1DA24C54ECF007C05A9 /* DZMReadChapterListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadChapterListModel.swift; sourceTree = "<group>"; };
+		26CDB1DA24C54ECF007C05A9 /* ChapterBriefModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterBriefModel.swift; sourceTree = "<group>"; };
 		26CDB1DB24C54ECF007C05A9 /* DZMReadMarkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadMarkModel.swift; sourceTree = "<group>"; };
 		26CDB1DC24C54ECF007C05A9 /* DZMReadChapterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadChapterModel.swift; sourceTree = "<group>"; };
 		26CDB1DD24C54ECF007C05A9 /* DZMReadPageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadPageModel.swift; sourceTree = "<group>"; };
@@ -410,7 +410,7 @@
 				26CDB1D724C54ECF007C05A9 /* DZMReadRecordModel.swift */,
 				26CDB1D824C54ECF007C05A9 /* DZMReadModel.swift */,
 				26CDB1D924C54ECF007C05A9 /* DZMReadModel+Mark.swift */,
-				26CDB1DA24C54ECF007C05A9 /* DZMReadChapterListModel.swift */,
+				26CDB1DA24C54ECF007C05A9 /* ChapterBriefModel.swift */,
 				26CDB1DB24C54ECF007C05A9 /* DZMReadMarkModel.swift */,
 				26CDB1DC24C54ECF007C05A9 /* DZMReadChapterModel.swift */,
 				26CDB1DD24C54ECF007C05A9 /* DZMReadPageModel.swift */,
@@ -571,7 +571,7 @@
 				26CDB23A24C5678F007C05A9 /* FloatMore.swift in Sources */,
 				26CDB20324C54ECF007C05A9 /* DZMReadViewController.swift in Sources */,
 				26CDB1E724C54ECF007C05A9 /* DZMReadController+Operation.swift in Sources */,
-				26CDB22024C54ECF007C05A9 /* DZMReadChapterListModel.swift in Sources */,
+				26CDB22024C54ECF007C05A9 /* ChapterBriefModel.swift in Sources */,
 				26CDB22C24C54F13007C05A9 /* MainController.swift in Sources */,
 				26CDB17324C54E50007C05A9 /* AppDelegate.swift in Sources */,
 				26CDB23924C5678F007C05A9 /* NSRangeMore.swift in Sources */,

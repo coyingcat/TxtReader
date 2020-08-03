@@ -320,10 +320,10 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         }
         
         // 是否有章节 || 是否为第一章 || 是否正在加载 || 是否已经存在阅读列表
-        if chapterModel.isFirstChapter || loadChapterIDs.contains(chapterID) || chapterIDs.contains(chapterID) { return }
+        if chapterModel.isFirstChapter || loadChapterIDs.contains(NSNumber(value: chapterID)) || chapterIDs.contains(NSNumber(value: chapterID)) { return }
         
         // 加入加载列表
-        loadChapterIDs.append(chapterID)
+        loadChapterIDs.append(NSNumber(value: chapterID))
         
         // 书籍ID
         let bookID = chapterModel.bookID
@@ -337,9 +337,9 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
                 
                 // 章节内容
                 // 获取章节数据
-                let tempChapterModel = ReadChapterModel(id: chapterID, in: bookID).real
+                let tempChapterModel = ReadChapterModel(id: NSNumber(value:  chapterID), in: bookID).real
                 // 加入阅读内容列表
-                self?.chapterModels[chapterID.stringValue] = tempChapterModel
+                self?.chapterModels[String(chapterID)] = tempChapterModel
                 
                 DispatchQueue.main.async { [weak self] () in
                     
@@ -349,10 +349,10 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
                     let previousIndex = max(0, (self.chapterIDs.firstIndex(of: chapterModel.id)! - 1))
                     
                     // 加载列表索引
-                    let loadIndex = self.loadChapterIDs.firstIndex(of: chapterID)!
+                    let loadIndex = self.loadChapterIDs.firstIndex(of: NSNumber(value: chapterID))!
                     
                     // 阅读章节ID列表加入
-                    self.chapterIDs.insert(chapterID, at: previousIndex)
+                    self.chapterIDs.insert(NSNumber(value: chapterID), at: previousIndex)
                     
                     // 移除加载列表
                     self.loadChapterIDs.remove(at: loadIndex)
@@ -378,10 +378,10 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         }
         
         // 是否有章节 || 是否为最后一章 || 是否正在加载 || 是否已经存在阅读列表
-        if chapterModel.isLastChapter || loadChapterIDs.contains(chapterID) || chapterIDs.contains(chapterID) { return }
+        if chapterModel.isLastChapter || loadChapterIDs.contains(NSNumber(value:  chapterID)) || chapterIDs.contains(NSNumber(value:  chapterID)) { return }
         
         // 加入加载列表
-        loadChapterIDs.append(chapterID)
+        loadChapterIDs.append(NSNumber(value: chapterID))
         
         // 书籍ID
         let bookID = chapterModel.bookID
@@ -394,10 +394,10 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
             if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID){
                 // 章节内容
                 // 获取章节数据
-                let tempChapterModel = ReadChapterModel(id: chapterID, in: bookID).real
+                let tempChapterModel = ReadChapterModel(id: NSNumber(value:  chapterID), in: bookID).real
                 
                 // 加入阅读内容列表
-                self?.chapterModels[chapterID.stringValue] = tempChapterModel
+                self?.chapterModels[String(chapterID)] = tempChapterModel
                 
                 DispatchQueue.main.async { [weak self] () in
                     
@@ -407,10 +407,10 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
                         let nextIndex = self!.chapterIDs.firstIndex(of: chapterModel.id)! + 1
                         
                         // 加载列表索引
-                        let loadIndex = self!.loadChapterIDs.firstIndex(of: chapterID)!
+                        let loadIndex = self!.loadChapterIDs.firstIndex(of: NSNumber(value: chapterID))!
                         
                         // 阅读章节ID列表加入
-                        self?.chapterIDs.insert(chapterID, at: nextIndex)
+                        self?.chapterIDs.insert(NSNumber(value: chapterID), at: nextIndex)
                         
                         // 移除加载列表
                         self?.loadChapterIDs.remove(at: loadIndex)

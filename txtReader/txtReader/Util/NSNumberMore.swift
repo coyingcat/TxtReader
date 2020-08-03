@@ -31,6 +31,18 @@ func != ( lhs: NSNumber?, rhs: Int) -> Bool {
 }
 
 
+func == ( lhs: NSNumber, rhs: Int) -> Bool {
+    lhs.intValue == rhs
+}
+
+
+
+
+func == ( lhs: NSNumber?, rhs: Int) -> Bool {
+    lhs?.intValue == rhs
+}
+
+
 
 
 extension Optional where Wrapped == NSNumber {

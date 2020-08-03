@@ -21,7 +21,7 @@ class ReadModel: NSObject,NSCoding {
     var markModels = [ReadMarkModel]()
     
     /// 章节列表
-    var chapterListModels = [ReadChapterListModel]()
+    var chapterListModels = [ChapterBriefModel]()
     
     
     // MARK: 快速进入
@@ -74,7 +74,7 @@ class ReadModel: NSObject,NSCoding {
         bookID = aDecoder.decodeObject(forKey: "bookID") as! String
         super.init()
         
-        chapterListModels = aDecoder.decodeObject(forKey: "chapterListModels") as! [ReadChapterListModel]
+        chapterListModels = aDecoder.decodeObject(forKey: "chapterListModels") as! [ChapterBriefModel]
         
         markModels = aDecoder.decodeObject(forKey: "markModels") as! [ReadMarkModel]
         

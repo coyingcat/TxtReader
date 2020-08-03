@@ -13,13 +13,13 @@ class ReadChapterModel: NSObject,NSCoding {
     let bookID: String
     
     /// 章节ID
-    let id: NSNumber
+    var id: NSNumber
     
     /// 上一章ID
-    var previousChapterID:NSNumber!
+    var previousChapterID: Int?
     
     /// 下一章ID
-    var nextChapterID:NSNumber!
+    var nextChapterID: Int?
     
     /// 章节名称
     var name:String!
@@ -59,6 +59,15 @@ class ReadChapterModel: NSObject,NSCoding {
     
     /// 完整富文本内容
     var fullContent:NSAttributedString!
+    
+    
+    var chapterList: ChapterBriefModel{
+        let chapterListModel = ChapterBriefModel()
+        chapterListModel.bookID = bookID
+        chapterListModel.id = id.intValue
+        chapterListModel.name = name
+        return chapterListModel
+    }
     
     /// 分页总高 (上下滚动模式使用)
     var pageTotalHeight:CGFloat {
@@ -165,8 +174,8 @@ class ReadChapterModel: NSObject,NSCoding {
     }
     
     /// 是否存在章节内容
-    class func isExist(bookID:String, chapterID: NSNumber) ->Bool {
-        KeyedArchiver.isExist(folderName: bookID, fileName: chapterID.stringValue)
+    class func isExist(bookID:String, chapterID: Int) ->Bool {
+        KeyedArchiver.isExist(folderName: bookID, fileName: String(chapterID))
     }
     
     // MARK: 构造
@@ -174,7 +183,7 @@ class ReadChapterModel: NSObject,NSCoding {
     /// 获取章节对象,如果则创建对象返回
     
     var real: ReadChapterModel{
-        if ReadChapterModel.isExist(bookID: bookID, chapterID: id) {
+        if ReadChapterModel.isExist(bookID: bookID, chapterID: id.intValue) {
             let chapterModel = KeyedArchiver.unarchiver(folderName: bookID, fileName: id.stringValue) as! ReadChapterModel
             chapterModel.updateFont()
             return chapterModel
@@ -203,9 +212,10 @@ class ReadChapterModel: NSObject,NSCoding {
         
         
         
-        previousChapterID = aDecoder.decodeObject(forKey: "previousChapterID") as? NSNumber
+        previousChapterID = aDecoder.decodeInteger(forKey: "previousChapterID")
         
-        nextChapterID = aDecoder.decodeObject(forKey: "nextChapterID") as? NSNumber
+        
+        nextChapterID = aDecoder.decodeInteger(forKey: "nextChapterID")
         
         name = aDecoder.decodeObject(forKey: "name") as? String
         

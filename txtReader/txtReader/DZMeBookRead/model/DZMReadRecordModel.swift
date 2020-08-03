@@ -102,11 +102,11 @@ class ReadRecordModel: NSObject,NSCoding {
     }
     
     /// 修改阅读记录为指定章节位置
-    func modifyLoc(chapterID:NSNumber!, location: Int, isSave:Bool = true) {
+    func modifyLoc(chapterID: Int, location: Int, isSave:Bool = true) {
         
         if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
             
-            chapterModel = ReadChapterModel(id: chapterID, in: bookID).real
+            chapterModel = ReadChapterModel(id: NSNumber(value: chapterID), in: bookID).real
             
             page = chapterModel.page(location: location)
             
@@ -115,11 +115,11 @@ class ReadRecordModel: NSObject,NSCoding {
     }
     
     /// 修改阅读记录为指定章节页码 (toPage == ReadingConst.lastPage 为当前章节最后一页)
-    func modify(chapterID:NSNumber!, toPage: Int, isSave:Bool = true) {
+    func modify(chapterID: Int, toPage: Int, isSave:Bool = true) {
         
         if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
             
-            chapterModel = ReadChapterModel(id: chapterID, in: bookID).real
+            chapterModel = ReadChapterModel(id: NSNumber(value: chapterID), in: bookID).real
             
             if (toPage == ReadingConst.lastPage) {
                 lastPage()

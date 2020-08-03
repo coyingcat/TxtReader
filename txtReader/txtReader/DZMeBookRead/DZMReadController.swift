@@ -12,7 +12,7 @@ class ReadController: ViewController{
     // MARK: 数据相关
     
     /// 阅读对象
-    let readModel:ReadModel
+    var readModel:ReadModel
     
     
     // MARK: UI相关
@@ -154,7 +154,7 @@ extension ReadController: ReadCatalogViewDelegate{
     // MARK: ReadCatalogViewDelegate
     
     /// 章节目录选中章节
-    func catalogViewClickChapter(catalogView: ReadCatalogView, chapterListModel: ReadChapterListModel) {
+    func catalogViewClickChapter(catalogView: ReadCatalogView, chapterListModel: ChapterBriefModel) {
         
         showLeftView(isShow: false)
         
@@ -178,7 +178,7 @@ extension ReadController: ReadMarkViewDelegate{
         
         contentView.showCover(isShow: false)
         
-        goToChapter(chapterID: markModel.chapterID, location: markModel.location.intValue)
+        goToChapter(chapterID: markModel.chapterID.intValue, location: markModel.location.intValue)
     }
 }
     
@@ -252,9 +252,9 @@ extension ReadController: ReadMenuDelegate{
     /// 点击上一章
     func readMenuClickPreviousChapter(readMenu: ReadMenu) {
         let first = readModel.recordModel?.isFirstChapter
-        if first.ok == false, let record = readModel.recordModel{
+        if first.ok == false, let record = readModel.recordModel, let previous = record.chapterModel.previousChapterID{
             
-            goToChapter(chapterID: record.chapterModel.previousChapterID)
+            goToChapter(chapterID: previous)
             
             // 检查当前内容是否包含书签
             readMenu.topView.checkForMark()
@@ -292,10 +292,10 @@ extension ReadController: ReadMenuDelegate{
     }
     
     /// 拖拽章节进度(总文章进度,网络文章也可以使用)
-    func readMenuDraggingProgress(readMenu: ReadMenu, toChapterID: NSNumber, toPage: Int) {
-        
+    func readMenuDraggingProgress(readMenu: ReadMenu, toChapterID: Int, toPage: Int) {
+
         // 不是当前阅读记录章节
-        if toChapterID != readModel.recordModel?.chapterModel.id {
+        if toChapterID != readModel.recordModel?.chapterModel.id.intValue{
             
             goToChapter(chapterID: toChapterID, toPage: toPage)
             

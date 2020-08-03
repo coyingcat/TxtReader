@@ -32,7 +32,7 @@ import UIKit
     @objc func readMenuDraggingProgress(readMenu:ReadMenu, toPage: Int)
     
     /// 拖拽章节进度(总文章进度,网络文章也可以使用)
-    @objc func readMenuDraggingProgress(readMenu:ReadMenu, toChapterID:NSNumber, toPage: Int)
+    @objc func readMenuDraggingProgress(readMenu:ReadMenu, toChapterID: Int, toPage: Int)
     
 
     /// 点击切换字体

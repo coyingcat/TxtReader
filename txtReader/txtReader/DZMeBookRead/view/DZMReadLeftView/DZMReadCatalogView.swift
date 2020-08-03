@@ -10,7 +10,7 @@ import UIKit
 @objc protocol ReadCatalogViewDelegate:NSObjectProtocol {
     
     /// 点击章节
-    @objc func catalogViewClickChapter(catalogView:ReadCatalogView, chapterListModel:ReadChapterListModel)
+    @objc func catalogViewClickChapter(catalogView:ReadCatalogView, chapterListModel:ChapterBriefModel)
 }
 
 class ReadCatalogView: UIView,UITableViewDelegate,UITableViewDataSource {
@@ -49,7 +49,7 @@ class ReadCatalogView: UIView,UITableViewDelegate,UITableViewDataSource {
        
             
 
-            if let chapterListModel = (read.chapterListModels as NSArray).filtered(using: NSPredicate(format: "id == %@", record.chapterModel.id)).first as? ReadChapterListModel{
+            if let chapterListModel = (read.chapterListModels as NSArray).filtered(using: NSPredicate(format: "id == %@", record.chapterModel.id)).first as? ChapterBriefModel{
 
                 tableView.scrollToRow(at: read.chapterListModels.firstIndex(of: chapterListModel)!.ip, at: .middle, animated: false)
             }

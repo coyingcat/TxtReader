@@ -79,10 +79,10 @@ class ReadTextParser: NSObject {
     ///   - bookID: 小说ID
     ///   - content: 小说内容
     /// - Returns: 章节列表
-    private class func parser(segments bookID:String, content:String) ->[ReadChapterListModel] {
+    private class func parser(segments bookID:String, content:String) ->[ChapterBriefModel] {
         
         // 章节列表
-        var chapterListModels = [ReadChapterListModel]()
+        var chapterListModels = [ChapterBriefModel]()
         
         // 正则
         let parten = "第[0-9一二三四五六七八九十百千]*[章回].*"
@@ -124,7 +124,7 @@ class ReadTextParser: NSObject {
             chapterModel.persist()
             
             // 添加章节列表模型
-            chapterListModels.append(getChapterList(model: chapterModel))
+            chapterListModels.append(chapterModel.chapterList)
             return chapterListModels
         }
         
@@ -208,14 +208,14 @@ class ReadTextParser: NSObject {
             chapterModel.content = TypeSetting.readSpace + chapterModel.content.removeSEHeadAndTail
             
             // 设置上一个章节ID
-            chapterModel.previousChapterID = lastChapterModel?.id ?? nil
+            chapterModel.previousChapterID = lastChapterModel?.id.intValue ?? nil
             
             // 设置下一个章节ID
             if i == (count - 1) { // 最后一个章节了
                 chapterModel.nextChapterID = nil
             }
             else{
-                lastChapterModel?.nextChapterID = chapterModel.id
+                lastChapterModel?.nextChapterID = chapterModel.id.intValue
             }
             
             // 保存
@@ -227,28 +227,11 @@ class ReadTextParser: NSObject {
             lastChapterModel = chapterModel
             
             // 通过章节内容生成章节列表
-            chapterListModels.append(getChapterList(model: chapterModel))
+            chapterListModels.append(chapterModel.chapterList)
         }
         
         // 返回
         return chapterListModels
     }
     
-    /// 获取章节列表对象
-    ///
-    /// - Parameter chapterModel: 章节内容对象
-    /// - Returns: 章节列表对象
-    private
-    class func getChapterList(model chapterModel:ReadChapterModel) ->ReadChapterListModel {
-        
-        let chapterListModel = ReadChapterListModel()
-        
-        chapterListModel.bookID = chapterModel.bookID
-        
-        chapterListModel.id = chapterModel.id
-        
-        chapterListModel.name = chapterModel.name
-        
-        return chapterListModel
-    }
 }

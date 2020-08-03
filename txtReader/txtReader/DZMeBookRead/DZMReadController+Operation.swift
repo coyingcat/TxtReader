@@ -93,19 +93,19 @@ extension ReadController {
     }
     
     /// 跳转指定章节(指定页面)
-    func goToChapter(chapterID:NSNumber, toPage: Int = 0) {
+    func goToChapter(chapterID: Int, toPage: Int = 0) {
         
         goToChapter(chapterID: chapterID, number: toPage, isLocation: false)
     }
     
     /// 跳转指定章节(指定坐标)
-    func goToChapter(chapterID:NSNumber, location: Int) {
+    func goToChapter(chapterID: Int, location: Int) {
         
         goToChapter(chapterID: chapterID, number: location, isLocation: true)
     }
     
     /// 跳转指定章节 number:页码或者坐标 isLocation:是页码(false)还是坐标(true)
-    private func goToChapter(chapterID: NSNumber, number: Int, isLocation: Bool) {
+    private func goToChapter(chapterID: Int, number: Int, isLocation: Bool) {
         
         // 复制阅读记录
         let recordModel = readModel.recordModel?.copyModel

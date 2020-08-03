@@ -1,5 +1,5 @@
 //
-//  ReadChapterListModel.swift
+//  ChapterBriefModel.swift
 
 //
 //  
@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ReadChapterListModel: NSObject,NSCoding {
+class ChapterBriefModel: NSObject,NSCoding {
     
-    /// 章节ID
-    @objc var id:NSNumber!
+    /// 章节ID    
+    var id: Int!
 
     /// 小说ID
     var bookID:String!
@@ -23,10 +23,8 @@ class ReadChapterListModel: NSObject,NSCoding {
     required init?(coder aDecoder: NSCoder) {
         
         super.init()
-        
+        id = aDecoder.decodeInteger(forKey: "id")
         bookID = aDecoder.decodeObject(forKey: "bookID") as? String
-        
-        id = aDecoder.decodeObject(forKey: "id") as? NSNumber
         
         name = aDecoder.decodeObject(forKey: "name") as? String
     }
@@ -44,8 +42,12 @@ class ReadChapterListModel: NSObject,NSCoding {
         
         super.init()
         
-        if dict != nil { setValuesForKeys(dict as! [String : Any]) }
+        if dict != nil {
+            setValuesForKeys(dict as! [String : Any])
+            
+        }
     }
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) { }
+    
 }

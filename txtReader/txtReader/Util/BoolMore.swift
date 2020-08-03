@@ -22,3 +22,6 @@ extension Bool{
         1 - val
     }
 }
+
+
+

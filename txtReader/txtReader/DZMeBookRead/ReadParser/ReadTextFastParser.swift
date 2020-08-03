@@ -12,7 +12,7 @@ import UIKit
 typealias BookRange = [String:[String:NSRange]]
 
 
-typealias ChapterInfo = (chapters: [ReadChapterListModel], table : BookRange, stdTxt: String)
+typealias ChapterInfo = (chapters: [ChapterBriefModel], table : BookRange, stdTxt: String)
 
 
 
@@ -112,7 +112,7 @@ class ReadTextFastParser: NSObject {
     private class func parseFull(id key: String, content plainTxt:String) -> ChapterInfo? {
         
         // 章节列表
-        var chapterListModels = [ReadChapterListModel]()
+        var chapterListModels = [ChapterBriefModel]()
         
         // 章节范围列表 [章节ID:[章节优先级:章节内容Range]]
         var ranges = BookRange()
@@ -170,13 +170,13 @@ class ReadTextFastParser: NSObject {
                 }
                 
                 // 章节列表
-                let chapterListModel = ReadChapterListModel()
+                let chapterListModel = ChapterBriefModel()
                 
                 // 书ID
                 chapterListModel.bookID = key
                 
                 // 章节ID
-                chapterListModel.id = NSNumber(value: (i + NSNumber(value: isHavePreface).intValue))
+                chapterListModel.id = i + NSNumber(value: isHavePreface).intValue
                 
                 // 优先级
                 let priority = NSNumber(value: (i - NSNumber(value: !isHavePreface).intValue))
@@ -187,7 +187,7 @@ class ReadTextFastParser: NSObject {
                     chapterListModel.name = "开始"
                     
                     // 内容Range
-                    ranges[chapterListModel.id.stringValue] = [priority.stringValue: NSMakeRange(0, location)]
+                    ranges[String(chapterListModel.id)] = [priority.stringValue: NSMakeRange(0, location)]
                     
                     // 内容
                     let content = contentFormatted.substring(NSMakeRange(0, location))
@@ -209,7 +209,7 @@ class ReadTextFastParser: NSObject {
                     chapterListModel.name = contentFormatted.substring(lastRange)
                     
                     // 内容Range
-                    ranges[chapterListModel.id.stringValue] =  [priority.stringValue:NSMakeRange(lastRange.rhs, contentFormatted.count - lastRange.rhs)]
+                    ranges[String(chapterListModel.id)] =  [priority.stringValue:NSMakeRange(lastRange.rhs, contentFormatted.count - lastRange.rhs)]
                     
                 }else { // 中间章节
                     
@@ -217,7 +217,7 @@ class ReadTextFastParser: NSObject {
                     chapterListModel.name = contentFormatted.substring(lastRange)
                     
                     // 内容Range
-                    ranges[chapterListModel.id.stringValue] = [priority.stringValue : NSMakeRange(lastRange.rhs, location - lastRange.rhs)]
+                    ranges[String(chapterListModel.id)] = [priority.stringValue : NSMakeRange(lastRange.rhs, location - lastRange.rhs)]
                 }
                 
                 // 记录
@@ -227,10 +227,11 @@ class ReadTextFastParser: NSObject {
                 chapterListModels.append(chapterListModel)
             }
             
-        }else{
+        }
+        else{
             
             // 章节列表
-            let chapterListModel = ReadChapterListModel()
+            let chapterListModel = ChapterBriefModel()
             
             // 章节名
             chapterListModel.name = "开始"
@@ -239,13 +240,13 @@ class ReadTextFastParser: NSObject {
             chapterListModel.bookID = key
             
             // 章节ID
-            chapterListModel.id = NSNumber(value: 1)
+            chapterListModel.id = 1
             
             // 优先级
             let priority = NSNumber(value: 0)
             
             // 内容Range
-            ranges[chapterListModel.id.stringValue] = [priority.stringValue:NSMakeRange(0, contentFormatted.count)]
+            ranges[String(chapterListModel.id)] = [priority.stringValue:NSMakeRange(0, contentFormatted.count)]
             
             // 添加章节列表模型
             chapterListModels.append(chapterListModel)
@@ -257,10 +258,10 @@ class ReadTextFastParser: NSObject {
     
     /// 获取单个指定章节
     @discardableResult
-    class func parsePart(readModel:ReadModel!, chapterID:NSNumber!, isUpdateFont:Bool = true) ->ReadChapterModel? {
+    class func parsePart(readModel:ReadModel!, chapterID: Int, isUpdateFont:Bool = true) ->ReadChapterModel? {
         
         // 获得[章节优先级:章节内容Range]
-        if let rangeSpan = readModel.ranges[chapterID.stringValue]{
+        if let rangeSpan = readModel.ranges[String(chapterID)]{
             
             // 当前优先级
             let priority = rangeSpan.keys.first!.integer
@@ -277,13 +278,13 @@ class ReadTextFastParser: NSObject {
             let isLastChapter:Bool = (priority == (readModel.chapterListModels.count - 1))
             
             // 上一个章节ID
-            let previousChapterID:NSNumber! = isFirstChapter ? nil : readModel.chapterListModels[priority - 1].id
+            let previousChapterID: Int? = isFirstChapter ? nil : readModel.chapterListModels[priority - 1].id
             
             // 下一个章节ID
-            let nextChapterID:NSNumber! = isLastChapter ? nil : readModel.chapterListModels[priority + 1].id
+            let nextChapterID: Int? = isLastChapter ? nil : readModel.chapterListModels[priority + 1].id
             
             // 章节内容
-            let chapterModel = ReadChapterModel(id: chapterListModel.id, in: chapterListModel.bookID)
+            let chapterModel = ReadChapterModel(id: NSNumber(value: chapterListModel.id), in: chapterListModel.bookID)
             
             // 章节名
             chapterModel.name = chapterListModel.name
