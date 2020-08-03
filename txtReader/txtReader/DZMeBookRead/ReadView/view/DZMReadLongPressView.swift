@@ -18,10 +18,6 @@ enum PanGestureStatus: Int {
 
 
 
-
-/// 光标拖拽触发范围
-let READ_LONG_PRESS_CURSOR_VIEW_OFFSET:CGFloat = -SPACE_20
-
 import UIKit
 
 class ReadLongPressView: ReadView {
@@ -36,10 +32,12 @@ class ReadLongPressView: ReadView {
     private var rects = [CGRect]()
     
     /// 长按
-    private var longGes:UILongPressGestureRecognizer?
+    private
+    lazy var longGes = UILongPressGestureRecognizer(target: self, action: #selector(longAction(long:)))
     
     /// 单击
-    private var tapGes:UITapGestureRecognizer?
+    private
+    lazy var tapGes = UITapGestureRecognizer(target: self, action: #selector(tapAction(tap:)))
     
     /// 左光标
     private var LCursorView:ReadLongPressCursorView!
@@ -57,13 +55,10 @@ class ReadLongPressView: ReadView {
     override init(frame: CGRect) {
         
         super.init(frame: frame)
+        addGestureRecognizer(longGes)
         
-        longGes = UILongPressGestureRecognizer(target: self, action: #selector(longAction(long:)))
-        addGestureRecognizer(longGes!)
-        
-        tapGes = UITapGestureRecognizer(target: self, action: #selector(tapAction(tap:)))
-        tapGes!.isEnabled = false
-        addGestureRecognizer(tapGes!)
+        tapGes.isEnabled = false
+        addGestureRecognizer(tapGes)
     }
     
     
@@ -114,8 +109,8 @@ class ReadLongPressView: ReadView {
             if !rects.isEmpty {
 
                 // 手势状态
-                longGes?.isEnabled = false
-                tapGes?.isEnabled = true
+                longGes.isEnabled = false
+                tapGes.isEnabled = true
                 isOpenDrag = true
 
                 // 发送通知
@@ -168,6 +163,11 @@ class ReadLongPressView: ReadView {
     /// 拖拽事件解析
     func drag(status:PanGestureStatus, point:CGPoint, windowPoint:CGPoint) {
    
+        
+        /// 光标拖拽触发范围
+        let READ_LONG_PRESS_CURSOR_VIEW_OFFSET:CGFloat = -20
+        
+        
         // 检查是否超出范围
         let point = CGPoint(x: min(max(point.x, 0), pageModel.contentSize.width), y: min(max(point.y, 0), pageModel.contentSize.height))
 
@@ -367,9 +367,9 @@ class ReadLongPressView: ReadView {
         // 发送通知
         NotificationCenter.default.post(name: .readLongPress, object: nil, userInfo: true.readLongPress.info)
         // 手势状态
-        tapGes?.isEnabled = false
+        tapGes.isEnabled = false
         isOpenDrag = false
-        longGes?.isEnabled = true
+        longGes.isEnabled = true
         
         // 移除菜单
         showMenu(isShow: false)
@@ -476,12 +476,8 @@ class ReadLongPressView: ReadView {
     
     /// 释放
     deinit {
-        
-        tapGes?.removeTarget(self, action: #selector(tapAction(tap:)))
-        tapGes = nil
-        
-        longGes?.removeTarget(self, action: #selector(longAction(long:)))
-        longGes = nil
+        tapGes.removeTarget(self, action: #selector(tapAction(tap:)))
+        longGes.removeTarget(self, action: #selector(longAction(long:)))
     }
     
     required init?(coder aDecoder: NSCoder) {
