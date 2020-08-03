@@ -54,7 +54,7 @@ class ReadParserIMP: NSObject {
                 
                 pageModel.content = content
                 
-                pageModel.page = NSNumber(value: i)
+                pageModel.page = i
                 
                 // --- (滚动模式 || 长按菜单) 使用 ---
                 

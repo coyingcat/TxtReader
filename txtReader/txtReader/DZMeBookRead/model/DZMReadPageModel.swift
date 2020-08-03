@@ -18,7 +18,7 @@ class ReadPageModel: NSObject,NSCoding {
     var range:NSRange!
     
     /// 当前页序号
-    var page:NSNumber!
+    var page: Int = 0
     
     
     // MARK: 滚动模式使用
@@ -78,7 +78,7 @@ class ReadPageModel: NSObject,NSCoding {
         
         range = aDecoder.decodeObject(forKey: "range") as? NSRange
         
-        page = aDecoder.decodeObject(forKey: "page") as? NSNumber
+        page = aDecoder.decodeInteger(forKey: "page")
         
         headTypeHeight = aDecoder.decodeObject(forKey: "headTypeHeight") as! CGFloat
         if let sizeVal = aDecoder.decodeObject(forKey: "contentSize") as? NSValue{
