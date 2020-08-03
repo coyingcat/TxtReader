@@ -121,10 +121,12 @@ class ReadRecordModel: NSObject,NSCoding {
             
             chapterModel = ReadChapterModel(id: chapterID, in: bookID).real
             
-            if (toPage == ReadingConst.lastPage) { lastPage()
-                
-            }else{ page = NSNumber(value: toPage) }
-            
+            if (toPage == ReadingConst.lastPage) {
+                lastPage()
+            }
+            else{
+                page = NSNumber(value:toPage)
+            }
             if isSave { save() }
         }
     }

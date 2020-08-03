@@ -99,19 +99,19 @@ extension ReadLeftView: SegmentedControlDelegate{
     // MARK: SegmentedControlDelegate
     func segmentedControl(_ segmentedControl: SegmentedControl, click index: Int) {
          
-         UIView.animate(withDuration: UnifySetting.animaTime) { [weak self] () in
+         UIView.animate(withDuration: UnifySetting.animaTime) { () in
              
              if index == 0 { // 显示目录
                  
-                 self?.bringSubviewToFront(self!.catalogView)
-                 self?.catalogView.alpha = 1
-                 self?.markView.alpha = 0
+                 self.bringSubviewToFront(self.catalogView)
+                 self.catalogView.alpha = 1
+                 self.markView.alpha = 0
                  
              }else{ // 显示书签
                  
-                 self?.bringSubviewToFront(self!.markView)
-                 self?.catalogView.alpha = 0
-                 self?.markView.alpha = 1
+                 self.bringSubviewToFront(self.markView)
+                 self.catalogView.alpha = 0
+                 self.markView.alpha = 1
              }
          }
      }

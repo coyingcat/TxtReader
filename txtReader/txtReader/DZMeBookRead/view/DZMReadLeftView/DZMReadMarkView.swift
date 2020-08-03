@@ -91,7 +91,6 @@ extension ReadMarkView: UITableViewDelegate,UITableViewDataSource{
         if let mark = readModel{
             delegate?.markViewClickMark(markView: self, markModel: mark.markModels[indexPath.row])
         }
-        
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {

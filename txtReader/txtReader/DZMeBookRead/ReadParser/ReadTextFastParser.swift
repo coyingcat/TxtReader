@@ -52,13 +52,13 @@ class ReadTextFastParser: NSObject {
         
         // bookID 为空
         if bookID.isEmpty { return nil }
-        guard bookID.exists == false else{
+       // guard bookID.exists == false else{
             
             // 存在
             // 返回
-            return ReadModel.model(bookID: bookID)
+      //      return ReadModel.model(bookID: bookID)
             
-        }
+  //      }
         
         // 不存在
         // 解析数据
@@ -150,7 +150,7 @@ class ReadTextFastParser: NSObject {
             // 有前言
             var isHavePreface = true
             
-            // 便利
+            // 遍历
             for i in 0...count {
                 
                 // 章节数量分析:
@@ -217,7 +217,7 @@ class ReadTextFastParser: NSObject {
                     chapterListModel.name = contentFormatted.substring(lastRange)
                     
                     // 内容Range
-                    ranges[chapterListModel.id.stringValue] = [priority.stringValue:NSMakeRange(lastRange.rhs, location - lastRange.rhs)]
+                    ranges[chapterListModel.id.stringValue] = [priority.stringValue : NSMakeRange(lastRange.rhs, location - lastRange.rhs)]
                 }
                 
                 // 记录
