@@ -34,7 +34,7 @@ class ReadChapterModel: NSObject,NSCoding {
     var priority:NSNumber!
     
     /// 本章有多少页
-    var pageCount = NSNumber(value: 0)
+    var pageCount: Int = 0
     
     /// 分页数据
     var pageModels = [ReadPageModel]()
@@ -101,7 +101,7 @@ class ReadChapterModel: NSObject,NSCoding {
             
             pageModels = ReadParserIMP.pageing(attrString: fullContent, rect: CGRect(origin: CGPoint.zero, size: READ_VIEW_RECT.size), isFirstChapter: isFirstChapter)
             
-            pageCount = NSNumber(value: pageModels.count)
+            pageCount = pageModels.count
             
             persist()
         }
@@ -206,8 +206,6 @@ class ReadChapterModel: NSObject,NSCoding {
         
         super.init()
         
-        
-        
         previousChapterID = aDecoder.decodeObject(forKey: "previousChapterID") as? Int
         nextChapterID = aDecoder.decodeObject(forKey: "nextChapterID") as? Int
         
@@ -219,7 +217,7 @@ class ReadChapterModel: NSObject,NSCoding {
         
         fullContent = aDecoder.decodeObject(forKey: "fullContent") as? NSAttributedString
         
-        pageCount = aDecoder.decodeObject(forKey: "pageCount") as! NSNumber
+        pageCount = aDecoder.decodeInteger(forKey: "pageCount")
         
         pageModels = aDecoder.decodeObject(forKey: "pageModels") as! [ReadPageModel]
         

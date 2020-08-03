@@ -97,7 +97,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         let chapterModel = getChapterModel(chapterID: chapterID)
         
         // 有数据则返回页数
-        return chapterModel.pageCount.intValue
+        return chapterModel.pageCount
     
     }
     

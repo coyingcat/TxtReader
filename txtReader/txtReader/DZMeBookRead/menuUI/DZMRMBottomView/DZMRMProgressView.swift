@@ -81,7 +81,7 @@ class RMProgressView: RMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSl
             }else if let record = readModel.recordModel{ // 分页进度
                 
                 slider.minimumValue = 1
-                slider.maximumValue = record.chapterModel.pageCount.floatValue
+                slider.maximumValue = Float(record.chapterModel.pageCount)
                 slider.value = Float(record.page) + 1
             }
             

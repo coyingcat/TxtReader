@@ -55,7 +55,7 @@ class ReadRecordModel: NSObject,NSCoding {
     
     /// 当前记录是否为最后一页
     var isLastPage:Bool{
-        page == (chapterModel.pageCount.intValue - 1)
+        page == chapterModel.pageCount - 1
     }
     
     /// 当前记录页码字符串
@@ -75,7 +75,7 @@ class ReadRecordModel: NSObject,NSCoding {
     
     /// 当前记录切到下一页
     func nextPage() {
-        page = min(page + 1, chapterModel.pageCount.intValue - 1)
+        page = min(page + 1, chapterModel.pageCount - 1)
     }
     
     /// 当前记录切到第一页
@@ -85,7 +85,7 @@ class ReadRecordModel: NSObject,NSCoding {
     
     /// 当前记录切到最后一页
     func lastPage() {
-        page = chapterModel.pageCount.intValue - 1
+        page = chapterModel.pageCount - 1
     }
     
     
