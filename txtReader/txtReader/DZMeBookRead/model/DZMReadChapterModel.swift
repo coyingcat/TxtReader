@@ -145,11 +145,11 @@ class ReadChapterModel: NSObject,NSCoding {
 
     
     /// 获取存在指定坐标的页码
-    func page(location: Int?) ->NSNumber {
+    func page(location: Int?) -> Int {
         
         let count = pageModels.count
         guard let loc = location else {
-            return NSNumber(value: 0)
+            return 0
         }
         for i in 0..<count {
             
@@ -157,11 +157,11 @@ class ReadChapterModel: NSObject,NSCoding {
             
             if loc < range.rhs {
                 
-                return NSNumber(value: i)
+                return i
             }
         }
         
-        return NSNumber(value: 0)
+        return 0
     }
     
     /// 保存

@@ -283,7 +283,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
         default:
             // 分页进度
             if let record = vc.readModel.recordModel{
-                bottomView.progress.text = "\(record.page.intValue + 1)/\(record.chapterModel!.pageCount.intValue)"
+                bottomView.progress.text = "\(record.page + 1)/\(record.chapterModel!.pageCount)"
             }
             // 显示进度
             

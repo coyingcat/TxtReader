@@ -282,7 +282,7 @@ extension ReadController: ReadMenuDelegate{
         
         if readModel.recordModel?.page != toPage{
             
-            readModel.recordModel?.page = NSNumber(value: toPage)
+            readModel.recordModel?.page = toPage
             
             creatPageController(displayController: getCurrentReadViewController())
             

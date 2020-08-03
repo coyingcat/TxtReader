@@ -103,7 +103,7 @@ class ReadViewController: ViewController {
             // 分页进度
             
             // 显示进度
-            bottomView.progress.text = "\(recordModel.page.intValue + 1)/\(recordModel.chapterModel!.pageCount.intValue)"
+            bottomView.progress.text = "\(recordModel.page + 1)/\(recordModel.chapterModel!.pageCount)"
         }
     }
     

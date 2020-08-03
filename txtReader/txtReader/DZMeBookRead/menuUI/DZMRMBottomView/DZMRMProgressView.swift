@@ -82,7 +82,7 @@ class RMProgressView: RMBaseView,ASValueTrackingSliderDelegate,ASValueTrackingSl
                 
                 slider.minimumValue = 1
                 slider.maximumValue = record.chapterModel.pageCount.floatValue
-                slider.value = record.page.floatValue + 1
+                slider.value = Float(record.page) + 1
             }
             
         }else{ // 没有则清空
