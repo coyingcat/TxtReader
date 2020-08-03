@@ -47,18 +47,13 @@ class ReadView: UIView {
     
     /// 绘制
     override func draw(_ rect: CGRect) {
-        
-        if (frameRef == nil) {return}
-        
-        let ctx = UIGraphicsGetCurrentContext()
-        
-        ctx?.textMatrix = CGAffineTransform.identity
-        
-        ctx?.translateBy(x: 0, y: bounds.size.height);
-        
-        ctx?.scaleBy(x: 1.0, y: -1.0);
-        
-        CTFrameDraw(frameRef!, ctx!);
+        guard let frame = frameRef, let ctx = UIGraphicsGetCurrentContext() else {
+            return
+        }
+        ctx.textMatrix = CGAffineTransform.identity
+        ctx.translateBy(x: 0, y: bounds.size.height)
+        ctx.scaleBy(x: 1.0, y: -1.0)
+        CTFrameDraw(frame, ctx)
     }
     
     required init?(coder aDecoder: NSCoder) {
