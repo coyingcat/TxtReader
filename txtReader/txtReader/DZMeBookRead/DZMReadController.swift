@@ -178,7 +178,7 @@ extension ReadController: ReadMarkViewDelegate{
         
         contentView.showCover(isShow: false)
         
-        goToChapter(chapterID: markModel.chapterID.intValue, location: markModel.location.intValue)
+        goToChapter(chapterID: markModel.chapterID, location: markModel.location)
     }
 }
     

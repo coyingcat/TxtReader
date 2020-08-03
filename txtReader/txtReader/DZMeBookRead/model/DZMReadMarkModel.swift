@@ -13,7 +13,7 @@ class ReadMarkModel: NSObject,NSCoding {
     var bookID:String!
     
     /// 章节ID
-    var chapterID:NSNumber!
+    var chapterID: Int!
     
     /// 章节名称
     var name:String!
@@ -25,7 +25,7 @@ class ReadMarkModel: NSObject,NSCoding {
     var time = NSNumber(value: 0)
     
     /// 位置
-    var location = NSNumber(value: 0)
+    var location: Int = 0
     
     // MARK: -- 构造
     
@@ -40,7 +40,7 @@ class ReadMarkModel: NSObject,NSCoding {
         
         bookID = aDecoder.decodeObject(forKey: "bookID") as? String
         
-        chapterID = aDecoder.decodeObject(forKey: "chapterID") as? NSNumber
+        chapterID = aDecoder.decodeInteger(forKey: "chapterID")
         
         name = aDecoder.decodeObject(forKey: "name") as? String
         
@@ -48,7 +48,7 @@ class ReadMarkModel: NSObject,NSCoding {
         
         time = aDecoder.decodeObject(forKey: "time") as! NSNumber
         
-        location = aDecoder.decodeObject(forKey: "location") as! NSNumber
+        location = aDecoder.decodeInteger(forKey: "location")
     }
     
     func encode(with aCoder: NSCoder) {

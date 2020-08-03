@@ -127,7 +127,7 @@ extension ReadModel{
             let chapterCount = Float(chapterListModels.count)
             
             // 阅读记录首位置
-            let locationFirst:Float = recordModel.locationFirst.floatValue
+            let locationFirst = Float(recordModel.locationFirst)
             
             // 阅读记录内容长度
             let fullContentLength = Float(recordModel.chapterModel.fullContent.length)

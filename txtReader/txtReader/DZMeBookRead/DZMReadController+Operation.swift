@@ -237,7 +237,7 @@ extension ReadController {
         
         readModel.recordModel?.save()
         
-        Sand.readRecordCurrentChapterLocation = model.locationFirst.intValue
+        Sand.readRecordCurrentChapterLocation = model.locationFirst
         
     }
 }

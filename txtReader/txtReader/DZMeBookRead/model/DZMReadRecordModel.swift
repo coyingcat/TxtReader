@@ -29,12 +29,12 @@ class ReadRecordModel: NSObject,NSCoding {
     }
     
     /// 当前记录起始坐标
-    var locationFirst:NSNumber{
+    var locationFirst: Int{
         chapterModel.locationFirst(page: page.intValue)
     }
     
     /// 当前记录末尾坐标
-    var locationLast:NSNumber{
+    var locationLast: Int{
         chapterModel.locationLast(page: page.intValue)
     }
     

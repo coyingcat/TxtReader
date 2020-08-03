@@ -259,7 +259,7 @@ class ReadViewScrollController: ViewController,UITableViewDelegate,UITableViewDa
                     let chapterID = self.chapterIDs[indexPath.section]
                     let chapterModel = self.getChapterModel(chapterID: chapterID)
                     record.modify(chapterModel: chapterModel, page: indexPath.row)
-                    Sand.readRecordCurrentChapterLocation = record.locationFirst.intValue
+                    Sand.readRecordCurrentChapterLocation = record.locationFirst
                     DispatchQueue.main.async { [weak self] () in
                         guard let `self` = self else { return }
                         self.topView.chapterName.text = chapterModel.name
