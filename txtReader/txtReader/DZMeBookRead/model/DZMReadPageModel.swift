@@ -30,17 +30,17 @@ class ReadPageModel: NSObject,NSCoding {
     var contentSize = CGSize.zero
     
     /// 当前内容头部类型 (目前主要是滚动模式使用)
-    var headTypeIndex: NSNumber!
+    var headTypeIndex: Int = 0
     
     /// 当前内容头部类型 (目前主要是滚动模式使用)
     var headType: PageHeadType? {
         set{
             if let n = newValue{
-                headTypeIndex = NSNumber(value: n.rawValue)
+                headTypeIndex = n.rawValue
             }
         }
         get{
-            PageHeadType(rawValue: headTypeIndex.intValue)
+            PageHeadType(rawValue: headTypeIndex)
         }
     }
     
@@ -85,8 +85,7 @@ class ReadPageModel: NSObject,NSCoding {
             contentSize = sizeVal.cgSizeValue
         }
         
-        
-        headTypeIndex = aDecoder.decodeObject(forKey: "headTypeIndex") as? NSNumber
+        headTypeIndex = aDecoder.decodeInteger(forKey: "headTypeIndex")
     }
     
     func encode(with aCoder: NSCoder) {

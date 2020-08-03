@@ -54,7 +54,7 @@ enum ProgressType: Int {
 /// 分页内容是以什么开头
 enum PageHeadType: Int {
     /// 章节名
-    case chapterName
+    case chapterName = 0
     /// 段落
     case paragraph
     /// 行内容
