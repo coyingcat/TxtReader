@@ -12,7 +12,7 @@ class ReadController: ViewController{
     // MARK: 数据相关
     
     /// 阅读对象
-    var readModel:ReadModel
+    let readModel:ReadModel
     
     
     // MARK: UI相关

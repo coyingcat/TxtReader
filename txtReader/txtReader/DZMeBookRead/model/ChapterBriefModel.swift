@@ -23,7 +23,7 @@ class ChapterBriefModel: NSObject,NSCoding {
     required init?(coder aDecoder: NSCoder) {
         
         super.init()
-        id = aDecoder.decodeInteger(forKey: "id")
+        id = aDecoder.decodeObject(forKey: "id") as? Int
         bookID = aDecoder.decodeObject(forKey: "bookID") as? String
         
         name = aDecoder.decodeObject(forKey: "name") as? String
@@ -32,7 +32,6 @@ class ChapterBriefModel: NSObject,NSCoding {
     func encode(with aCoder: NSCoder) {
         
         aCoder.encode(bookID, forKey: "bookID")
-        
         aCoder.encode(id, forKey: "id")
         
         aCoder.encode(name, forKey: "name")
@@ -50,4 +49,10 @@ class ChapterBriefModel: NSObject,NSCoding {
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) { }
     
+    
+    
+    override func value(forUndefinedKey key: String) -> Any? {
+        
+        return nil
+    }
 }

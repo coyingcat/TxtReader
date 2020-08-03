@@ -49,7 +49,7 @@ class ReadCatalogView: UIView,UITableViewDelegate,UITableViewDataSource {
        
             
 
-            if let chapterListModel = (read.chapterListModels as NSArray).filtered(using: NSPredicate(format: "id == %@", record.chapterModel.id)).first as? ChapterBriefModel{
+            if let chapterListModel = (read.chapterListModels as NSArray).filtered(using: NSPredicate(format: "id == %ld", record.chapterModel.id)).first as? ChapterBriefModel{
 
                 tableView.scrollToRow(at: read.chapterListModels.firstIndex(of: chapterListModel)!.ip, at: .middle, animated: false)
             }

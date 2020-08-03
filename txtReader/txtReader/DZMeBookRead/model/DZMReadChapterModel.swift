@@ -13,7 +13,7 @@ class ReadChapterModel: NSObject,NSCoding {
     let bookID: String
     
     /// 章节ID
-    var id: NSNumber
+    let id: NSNumber
     
     /// 上一章ID
     var previousChapterID: Int?
@@ -123,14 +123,12 @@ class ReadChapterModel: NSObject,NSCoding {
     
     /// 获取指定页码字符串
     func contentString(page: Int) ->String {
-        
-        return pageModels[page].content.string
+        pageModels[page].content.string
     }
 
     /// 获取指定页码富文本
     func contentAttributedString(page: Int) ->NSAttributedString {
-        
-        return pageModels[page].showContent
+        pageModels[page].showContent
     }
     
     /// 获取指定页开始坐标
@@ -212,10 +210,8 @@ class ReadChapterModel: NSObject,NSCoding {
         
         
         
-        previousChapterID = aDecoder.decodeInteger(forKey: "previousChapterID")
-        
-        
-        nextChapterID = aDecoder.decodeInteger(forKey: "nextChapterID")
+        previousChapterID = aDecoder.decodeObject(forKey: "previousChapterID") as? Int
+        nextChapterID = aDecoder.decodeObject(forKey: "nextChapterID") as? Int
         
         name = aDecoder.decodeObject(forKey: "name") as? String
         
