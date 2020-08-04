@@ -45,10 +45,8 @@ class ReadTextFastParser: NSObject {
         if url.absoluteString.isEmpty || !url.isFileURL { return nil }
         
         // 获取文件后缀名作为 bookName
-        let bookName = url.absoluteString.removingPercentEncoding?.lastPathComponent.deletingPathExtension ?? ""
-        
         // bookName 作为 bookID
-        let bookID = bookName
+        let bookID = url.absoluteString.removingPercentEncoding?.lastPathComponent.deletingPathExtension ?? ""
         
         // bookID 为空
         if bookID.isEmpty { return nil }
