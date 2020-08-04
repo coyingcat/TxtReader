@@ -43,7 +43,11 @@ class ReadChapterModel: NSObject,NSCoding {
     var fullContent:NSAttributedString!
     
     
-    /// 内容属性变化记录(我这里就只判断内容了字体属性变化了，标题也就跟着变化或者保存变化都无所谓了。如果有需求可以在加上比较标题属性变化)
+    /// 内容属性变化记录
+    ///
+    /// (这里就只判断内容了
+    /// 内容字体属性变化了，标题也就跟着变化
+    /// 或者保存变化都无所谓了。如果有需求可以在加上比较标题属性变化)
     private var attributes = [NSAttributedString.Key: Any]()
     
     
@@ -108,7 +112,7 @@ class ReadChapterModel: NSObject,NSCoding {
             
             attributes = tempAttributes
             
-            fullContent = fullContentAttrString()
+            fullContent = fullContentAttrString
             
             pageModels = ReadParserIMP.pageing(attrString: fullContent, rect: CGRect(origin: CGPoint.zero, size: READ_VIEW_RECT.size), isFirstChapter: isFirstChapter)
             
@@ -119,7 +123,8 @@ class ReadChapterModel: NSObject,NSCoding {
     }
     
     /// 完整内容排版
-    private func fullContentAttrString() ->NSMutableAttributedString {
+    private
+    var fullContentAttrString: NSMutableAttributedString {
         
         let titleString = NSMutableAttributedString(string: fullName, attributes: ReadConfigure.shared.attributes(isTitle: true))
         
