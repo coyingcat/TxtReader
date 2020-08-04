@@ -80,7 +80,7 @@ class ReadModel: NSObject,NSCoding {
         
         fullText = aDecoder.decodeObject(forKey: "fullText") as? String
         
-        bookRanges = aDecoder.decodeObject(forKey: "ranges") as? [String:[String:NSRange]]
+        bookRanges = aDecoder.decodeObject(forKey: "ranges") as? BookRange
     }
     
     func encode(with aCoder: NSCoder) {
