@@ -29,7 +29,10 @@ class ReadModel: NSObject,NSCoding {
     /// 本地小说全文
     var fullText:String!
     
-    /// 章节内容范围数组 [章节ID:[章节优先级:章节内容Range]]
+    
+    
+    //  仅用于 ReadTextFastParser
+    /// 章节内容范围数组      [    章节ID/章节优先级          :       章节内容 Range     ]
     var bookRanges: BookRange!
     
     

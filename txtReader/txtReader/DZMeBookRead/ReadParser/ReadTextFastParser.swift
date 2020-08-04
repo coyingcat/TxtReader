@@ -249,6 +249,9 @@ class ReadTextFastParser: NSObject {
         return (chapterListModels, ranges, contentFormatted)
     }
     
+    
+    
+    // 缺了一个反复加载
     /// 获取单个指定章节
     @discardableResult
     class func parsePart(readModel: ReadModel, chapterID: Int, isUpdateFont:Bool = true) ->ReadChapterModel? {
