@@ -71,7 +71,7 @@ class MainController: ViewController {
         
         print("快速解析开始时间:",TimerString("YYYY-MM-dd-HH-mm-ss"), Date().timeIntervalSince1970)
         
-        ReadTextFastParser.parser(url: url) { [weak self] (readModel) in
+        ReadTextFastParser.parser(least: url) { [weak self] (readModel) in
             
             print("快速解析结束时间:",TimerString("YYYY-MM-dd-HH-mm-ss"), Date().timeIntervalSince1970)
             

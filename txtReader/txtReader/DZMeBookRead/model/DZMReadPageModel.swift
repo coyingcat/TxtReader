@@ -30,6 +30,7 @@ class ReadPageModel: NSObject,NSCoding {
     var contentSize = CGSize.zero
     
     /// 当前内容头部类型 (目前主要是滚动模式使用)
+    private
     var headTypeIndex: Int = 0
     
     /// 当前内容头部类型 (目前主要是滚动模式使用)

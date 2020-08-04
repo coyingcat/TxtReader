@@ -23,7 +23,7 @@ class ReadTextFastParser: NSObject {
     /// - Parameters:
     ///   - url: 本地文件地址
     ///   - completion: 解析完成
-    @objc class func parser(url: URL, completion: @escaping ParserCompletion) {
+    @objc class func parser(least url: URL, completion: @escaping ParserCompletion) {
         
         DispatchQueue.global().async{
             
