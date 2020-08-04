@@ -30,16 +30,29 @@ class ReadChapterModel: NSObject,NSCoding {
     /// 排版内容搜索 contentTypesetting 方法
     var content:String!
     
-    /// 优先级 (一般章节段落都带有排序的优先级 从0开始)
-    var priority: Int{
-        id - 1
-    }
+    
     
     /// 本章有多少页
     var pageCount: Int = 0
     
     /// 分页数据
     var pageModels = [ReadPageModel]()
+    
+    
+    /// 完整富文本内容
+    var fullContent:NSAttributedString!
+    
+    
+    /// 内容属性变化记录(我这里就只判断内容了字体属性变化了，标题也就跟着变化或者保存变化都无所谓了。如果有需求可以在加上比较标题属性变化)
+    private var attributes = [NSAttributedString.Key: Any]()
+    
+    
+    
+    /// 优先级 (一般章节段落都带有排序的优先级 从0开始)
+    var priority: Int{
+        id - 1
+    }
+    
     
     
     // MARK: 快捷获取
@@ -59,8 +72,7 @@ class ReadChapterModel: NSObject,NSCoding {
         name.readChapterName
     }
     
-    /// 完整富文本内容
-    var fullContent:NSAttributedString!
+    
     
     
     var chapterList: ChapterBriefModel{
@@ -86,9 +98,6 @@ class ReadChapterModel: NSObject,NSCoding {
     
     
     // MARK: -- 更新字体
-    
-    /// 内容属性变化记录(我这里就只判断内容了字体属性变化了，标题也就跟着变化或者保存变化都无所谓了。如果有需求可以在加上比较标题属性变化)
-    private var attributes = [NSAttributedString.Key: Any]()
     
     /// 更新字体
     func updateFont() {

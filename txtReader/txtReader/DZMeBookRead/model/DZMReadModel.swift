@@ -14,24 +14,25 @@ class ReadModel: NSObject,NSCoding {
 
     /// 小说ID
     let bookID:String
+    
+    /// 章节列表
+    var chapterListModels = [ChapterBriefModel]()
+    
+    
     /// 当前阅读记录
     var recordModel:ReadRecordModel?
     
     /// 书签列表
     var markModels = [ReadMarkModel]()
     
-    /// 章节列表
-    var chapterListModels = [ChapterBriefModel]()
     
     
-    // MARK: 快速进入
     
+    
+    //  仅用于 ReadTextFastParser,  快速进入
     /// 本地小说全文
     var fullText:String!
     
-    
-    
-    //  仅用于 ReadTextFastParser
     /// 章节内容范围数组      [    章节ID/章节优先级          :       章节内容 Range     ]
     var bookRanges: BookRange!
     
