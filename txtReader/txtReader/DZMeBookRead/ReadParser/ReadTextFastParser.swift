@@ -9,7 +9,7 @@ import UIKit
 
 
 
-typealias BookRange = [String: NSRange]
+typealias BookRange = [Int: NSRange]
 
 
 typealias ChapterInfo = (chapters: [ChapterBriefModel], table : BookRange, stdTxt: String)
@@ -183,7 +183,7 @@ class ReadTextFastParser: NSObject {
                     chapterListModel.name = "开始"
                     
                     // 内容Range
-                    ranges[String(chapterListModel.id)] = NSMakeRange(0, location)
+                    ranges[chapterListModel.id] = NSMakeRange(0, location)
                     
                     // 内容
                     let content = contentFormatted.substring(NSMakeRange(0, location))
@@ -205,7 +205,7 @@ class ReadTextFastParser: NSObject {
                     chapterListModel.name = contentFormatted.substring(lastRange)
                     
                     // 内容Range
-                    ranges[String(chapterListModel.id)] =  NSMakeRange(lastRange.rhs, contentFormatted.count - lastRange.rhs)
+                    ranges[chapterListModel.id] =  NSMakeRange(lastRange.rhs, contentFormatted.count - lastRange.rhs)
                     
                 }else { // 中间章节
                     
@@ -213,7 +213,7 @@ class ReadTextFastParser: NSObject {
                     chapterListModel.name = contentFormatted.substring(lastRange)
                     
                     // 内容Range
-                    ranges[String(chapterListModel.id)] =  NSMakeRange(lastRange.rhs, location - lastRange.rhs)
+                    ranges[chapterListModel.id] =  NSMakeRange(lastRange.rhs, location - lastRange.rhs)
                 }
                 
                 // 记录
@@ -239,7 +239,7 @@ class ReadTextFastParser: NSObject {
             // 优先级
             chapterListModel.id = 1
             // 内容Range
-            ranges[String(chapterListModel.id)] = NSMakeRange(0, contentFormatted.count)
+            ranges[chapterListModel.id] = NSMakeRange(0, contentFormatted.count)
             
             // 添加章节列表模型
             chapterListModels.append(chapterListModel)
@@ -256,7 +256,7 @@ class ReadTextFastParser: NSObject {
         // 获得章节优先级\ 章节内容Range
         
          // 章节内容范围\ 章节内容Range
-        if let rangeSpan = readModel.bookRanges[String(chapterID)]{
+        if let rangeSpan = readModel.bookRanges[chapterID]{
             
             // 当前优先级
             let priority = chapterID - 1
