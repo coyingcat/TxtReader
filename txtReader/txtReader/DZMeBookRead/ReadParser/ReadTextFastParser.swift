@@ -256,7 +256,7 @@ class ReadTextFastParser: NSObject {
     
     /// 获取单个指定章节
     @discardableResult
-    class func parsePart(readModel:ReadModel!, chapterID: Int, isUpdateFont:Bool = true) ->ReadChapterModel? {
+    class func parsePart(readModel: ReadModel, chapterID: Int, isUpdateFont:Bool = true) ->ReadChapterModel? {
         
         // 获得[章节优先级:章节内容Range]
         if let rangeSpan = readModel.ranges[String(chapterID)]{
