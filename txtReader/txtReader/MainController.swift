@@ -32,15 +32,15 @@ class MainController: ViewController {
         fullButton.backgroundColor = UIColor.green
         fullButton.addTarget(self, action: #selector(fullRead), for: .touchDown)
         view.addSubview(fullButton)
-       // fullButton.frame = CGRect(x: (ScreenWidth / 2 - SPACE_SA_100) / 2, y: ScreenHeight - SPACE_SA_150 * 2, width: SPACE_SA_100, height: SPACE_SA_100)
-        fullButton.frame = CGRect(x: (ScreenWidth - SPACE_SA_100) / 2, y: ScreenHeight - SPACE_SA_150 * 2, width: SPACE_SA_100, height: SPACE_SA_100)
+        fullButton.frame = CGRect(x: (ScreenWidth / 2 - SPACE_SA_100) / 2, y: ScreenHeight - SPACE_SA_150 * 2, width: SPACE_SA_100, height: SPACE_SA_100)
+    //    fullButton.frame = CGRect(x: (ScreenWidth - SPACE_SA_100) / 2, y: ScreenHeight - SPACE_SA_150 * 2, width: SPACE_SA_100, height: SPACE_SA_100)
         
         // 快速解析阅读
         let fastButton = UIButton(type: .custom)
         fastButton.setTitle("快速解析", for: .normal)
         fastButton.backgroundColor = UIColor.green
         fastButton.addTarget(self, action: #selector(fastRead), for: .touchDown)
-      //  view.addSubview(fastButton)
+        view.addSubview(fastButton)
         fastButton.frame = CGRect(x: ScreenWidth - SPACE_SA_100 - (ScreenWidth / 2 - SPACE_SA_100) / 2, y: ScreenHeight - SPACE_SA_150 * 2, width: SPACE_SA_100, height: SPACE_SA_100)
     }
     

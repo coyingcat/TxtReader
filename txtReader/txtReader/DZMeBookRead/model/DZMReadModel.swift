@@ -30,7 +30,7 @@ class ReadModel: NSObject,NSCoding {
     var fullText:String!
     
     /// 章节内容范围数组 [章节ID:[章节优先级:章节内容Range]]
-    var ranges: BookRange!
+    var bookRanges: BookRange!
     
     
     // MARK: 辅助
@@ -80,7 +80,7 @@ class ReadModel: NSObject,NSCoding {
         
         fullText = aDecoder.decodeObject(forKey: "fullText") as? String
         
-        ranges = aDecoder.decodeObject(forKey: "ranges") as? [String:[String:NSRange]]
+        bookRanges = aDecoder.decodeObject(forKey: "ranges") as? [String:[String:NSRange]]
     }
     
     func encode(with aCoder: NSCoder) {
@@ -92,7 +92,7 @@ class ReadModel: NSObject,NSCoding {
         
         aCoder.encode(fullText, forKey: "fullText")
         
-        aCoder.encode(ranges, forKey: "ranges")
+        aCoder.encode(bookRanges, forKey: "ranges")
     }
     
 }

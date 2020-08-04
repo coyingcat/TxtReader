@@ -83,7 +83,7 @@ class ReadTextFastParser: NSObject {
         readModel.chapterListModels = chapterInfo.chapters
         
         // 章节内容范围
-        readModel.ranges = chapterInfo.table
+        readModel.bookRanges = chapterInfo.table
         
         // 首章
         let chapterListModel = readModel.chapterListModels.first!
@@ -259,7 +259,7 @@ class ReadTextFastParser: NSObject {
     class func parsePart(readModel: ReadModel, chapterID: Int, isUpdateFont:Bool = true) ->ReadChapterModel? {
         
         // 获得[章节优先级:章节内容Range]
-        if let rangeSpan = readModel.ranges[String(chapterID)]{
+        if let rangeSpan = readModel.bookRanges[String(chapterID)]{
             
             // 当前优先级
             let priority = rangeSpan.keys.first!.integer

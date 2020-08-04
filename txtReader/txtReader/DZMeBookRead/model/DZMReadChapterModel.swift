@@ -236,8 +236,6 @@ class ReadChapterModel: NSObject,NSCoding {
         
         aCoder.encode(name, forKey: "name")
         
-        aCoder.encode(priority, forKey: "priority")
-        
         aCoder.encode(content, forKey: "content")
         
         aCoder.encode(fullContent, forKey: "fullContent")
