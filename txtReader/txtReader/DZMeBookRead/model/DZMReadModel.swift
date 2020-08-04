@@ -121,7 +121,7 @@ extension ReadModel{
         }else{
             
             // 当前章节在所有章节列表中的位置
-            let chapterIndex:Float = recordModel.chapterModel.priority.floatValue
+            let chapterIndex = Float(recordModel.chapterModel.priority)
             
             // 章节总数量
             let chapterCount = Float(chapterListModels.count)

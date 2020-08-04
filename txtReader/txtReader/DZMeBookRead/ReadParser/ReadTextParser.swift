@@ -113,10 +113,6 @@ class ReadTextParser: NSObject {
             
             // 章节名
             chapterModel.name = "开始"
-            
-            // 优先级
-            chapterModel.priority = NSNumber(value: 0)
-            
             // 内容
             chapterModel.content = TypeSetting.readSpace + content.removeSEHeadAndTail
             
@@ -162,9 +158,6 @@ class ReadTextParser: NSObject {
             
             // 章节内容
             let chapterModel = ReadChapterModel(id: i + isHavePreface.val, in: bookID)
-            
-            // 优先级
-            chapterModel.priority = NSNumber(value: i - isHavePreface.negVal)
             switch i {
             case 0:
                 // 前言

@@ -286,10 +286,7 @@ class ReadTextFastParser: NSObject {
             
             // 章节名
             chapterModel.name = chapterListModel.name
-            
-            // 优先级
-            chapterModel.priority = NSNumber(value: priority)
-            
+        
             // 上一个章节ID
             chapterModel.previousChapterID = previousChapterID
             

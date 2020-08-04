@@ -31,7 +31,9 @@ class ReadChapterModel: NSObject,NSCoding {
     var content:String!
     
     /// 优先级 (一般章节段落都带有排序的优先级 从0开始)
-    var priority:NSNumber!
+    var priority: Int{
+        id - 1
+    }
     
     /// 本章有多少页
     var pageCount: Int = 0
@@ -210,8 +212,6 @@ class ReadChapterModel: NSObject,NSCoding {
         nextChapterID = aDecoder.decodeObject(forKey: "nextChapterID") as? Int
         
         name = aDecoder.decodeObject(forKey: "name") as? String
-        
-        priority = aDecoder.decodeObject(forKey: "priority") as? NSNumber
         
         content = aDecoder.decodeObject(forKey: "content") as? String
         
