@@ -26,17 +26,6 @@ class ReadModel: NSObject,NSCoding {
     var markModels = [ReadMarkModel]()
     
     
-    
-    
-    
-    //  仅用于 ReadTextFastParser,  快速进入
-    /// 本地小说全文
-    var fullText:String!
-    
-    /// 章节内容范围数组      [    章节ID/章节优先级          :       章节内容 Range     ]
-    var bookRanges: BookRange!
-    
-    
     // MARK: 辅助
     
     /// 保存
@@ -82,9 +71,7 @@ class ReadModel: NSObject,NSCoding {
         
         markModels = aDecoder.decodeObject(forKey: "markModels") as! [ReadMarkModel]
         
-        fullText = aDecoder.decodeObject(forKey: "fullText") as? String
-        
-        bookRanges = aDecoder.decodeObject(forKey: "ranges") as? BookRange
+     
     }
     
     func encode(with aCoder: NSCoder) {
@@ -94,9 +81,6 @@ class ReadModel: NSObject,NSCoding {
         
         aCoder.encode(markModels, forKey: "markModels")
         
-        aCoder.encode(fullText, forKey: "fullText")
-        
-        aCoder.encode(bookRanges, forKey: "ranges")
     }
     
 }
