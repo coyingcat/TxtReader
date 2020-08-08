@@ -82,7 +82,7 @@ class ReadViewController: ViewController {
         }else{
             
             readView = ReadView()
-            readView.content = recordModel.contentAttributedString
+            readView.contentPage = recordModel.contentAttributedString
             view.addSubview(readView)
             readView.frame = READ_VIEW_RECT
         }

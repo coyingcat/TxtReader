@@ -92,7 +92,7 @@ class ReadLongPressView: ReadView {
             selectRange = CoreText.GetTouchLineRange(point: point, frameRef: frameRef)
 
             // 获得选中选中范围
-            rects = CoreText.GetRangeRects(range: selectRange!, frameRef: frameRef, content: pageModel.content?.string)
+            rects = CoreText.GetRangeRects(range: selectRange!, frameRef: frameRef, content: pagingModel.content?.string)
 
             // 显示光标
             cursor(isShow: true)
@@ -169,7 +169,7 @@ class ReadLongPressView: ReadView {
         
         
         // 检查是否超出范围
-        let point = CGPoint(x: min(max(point.x, 0), pageModel.contentSize.width), y: min(max(point.y, 0), pageModel.contentSize.height))
+        let point = CGPoint(x: min(max(point.x, 0), pagingModel.contentSize.width), y: min(max(point.y, 0), pagingModel.contentSize.height))
 
         switch status {
         case .begin:
@@ -214,7 +214,7 @@ class ReadLongPressView: ReadView {
                 updateSelectRange(location: location)
                 
                 // 获得选中选中范围
-                rects = CoreText.GetRangeRects(range: selectRange, frameRef: frameRef, content: pageModel.content?.string)
+                rects = CoreText.GetRangeRects(range: selectRange, frameRef: frameRef, content: pagingModel.content?.string)
                 
                 // 更新光标位置
                 updateCursorFrame()
@@ -431,7 +431,7 @@ class ReadLongPressView: ReadView {
     @objc private func clickCopy() {
         
         if let range = selectRange{
-            let tempContent = pageModel.content
+            let tempContent = pagingModel.content
             
             DispatchQueue.global().async {
                 

@@ -15,7 +15,7 @@ class ReadViewCell: UITableViewCell {
     var pageModel:ReadPageModel?{
         didSet{
             
-            readView.pageModel = pageModel
+            readView.pagingModel = pageModel
             
             setNeedsLayout()
         }

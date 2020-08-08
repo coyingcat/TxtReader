@@ -30,7 +30,7 @@ class ReadLongPressViewController: ReadViewController {
             
             // 阅读视图
             readView = ReadLongPressView()
-            readView.pageModel = pageModel
+            readView.pagingModel = pageModel
             view.addSubview(readView)
             readView.frame = CGRect(x: rect.minX, y: rect.minY, width: rect.width, height: pageModel.contentSize.height)
         }
