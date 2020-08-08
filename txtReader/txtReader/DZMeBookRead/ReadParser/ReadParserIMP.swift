@@ -21,7 +21,7 @@ class ReadParserIMP: NSObject {
     ///   - rect: 显示范围
     ///   - isFirstChapter: 是否为本文章第一个展示章节,如果是则加入书籍首页。(小技巧:如果不需要书籍首页,可不用传,默认就是不带书籍首页)
     /// - Returns: 内容分页列表
-    @objc class func pageing(attrString:NSAttributedString, rect:CGRect, isFirstChapter:Bool = false) ->[ReadPageModel] {
+    class func pageing(attrString:NSAttributedString, rect:CGRect, isFirstChapter:Bool = false) ->[ReadPageModel] {
         
         var pageModels = [ReadPageModel]()
         
@@ -101,7 +101,7 @@ class ReadParserIMP: NSObject {
     ///
     /// - Parameter content: 内容
     /// - Returns: 整理好的内容
-    @objc class func contentTypesetting(content:String) ->String {
+    class func contentTypesetting(content:String) ->String {
         
         // 替换单换行
         let content = content.replacingOccurrences(of: "\r", with: "")
@@ -117,7 +117,7 @@ class ReadParserIMP: NSObject {
     ///
     /// - Parameter url: 文件路径
     /// - Returns: 内容
-    @objc class func encode(url:URL) -> String {
+    class func encode(url:URL) -> String {
         
         var content = ""
         
@@ -142,7 +142,7 @@ class ReadParserIMP: NSObject {
     ///   - url: 文件路径
     ///   - encoding: 进制编码
     /// - Returns: 内容
-    @objc class func encode(path url:URL, encoding:UInt) ->String {
+    class func encode(path url:URL, encoding:UInt) ->String {
         do{
             return try NSString(contentsOf: url, encoding: encoding) as String
         }
