@@ -40,10 +40,10 @@ class ReadTextParser: NSObject {
         }
         
         
-   //     guard bookID.exists == false else{
-            // 存在， 则返回
-     //       return ReadModel.model(bookID: bookID)
-    //    }
+        guard bookID.exists == false else{
+          //   存在， 则返回
+            return ReadModel.model(bookID: bookID)
+        }
      
         // 不存在， 则解析数据
         let content = ReadParserIMP.encode(url: url)
