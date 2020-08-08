@@ -15,7 +15,7 @@ class ReadPageModel: NSObject,NSCoding {
     var content:NSAttributedString!
     
     /// 当前页范围
-    var range:NSRange!
+    var pageRange:NSRange!
     
     /// 当前页序号
     var page: Int = 0
@@ -57,7 +57,7 @@ class ReadPageModel: NSObject,NSCoding {
     
     /// 书籍首页
     var isHomePage:Bool {
-        range.location == TypeSetting.readBookHomePage
+        pageRange.location == TypeSetting.readBookHomePage
     }
     
     /// 获取显示内容(考虑可能会变换字体颜色的情况)
@@ -77,7 +77,7 @@ class ReadPageModel: NSObject,NSCoding {
         
         content = aDecoder.decodeObject(forKey: "content") as? NSAttributedString
         
-        range = aDecoder.decodeObject(forKey: "range") as? NSRange
+        pageRange = aDecoder.decodeObject(forKey: "range") as? NSRange
         
         page = aDecoder.decodeInteger(forKey: "page")
         
@@ -93,7 +93,7 @@ class ReadPageModel: NSObject,NSCoding {
         
         aCoder.encode(content, forKey: "content")
         
-        aCoder.encode(range, forKey: "range")
+        aCoder.encode(pageRange, forKey: "range")
         
         aCoder.encode(page, forKey: "page")
         

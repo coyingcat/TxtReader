@@ -149,12 +149,12 @@ class ReadChapterModel: NSObject,NSCoding {
     
     /// 获取指定页开始坐标
     func locationFirst(page: Int) -> Int {
-        pageModels[page].range.location
+        pageModels[page].pageRange.location
     }
     
     /// 获取指定页码末尾坐标
     func locationLast(page: Int) ->Int {
-        let range = pageModels[page].range!
+        let range = pageModels[page].pageRange!
         return range.rhs
     }
     
@@ -169,7 +169,7 @@ class ReadChapterModel: NSObject,NSCoding {
         }
         for i in 0..<count {
             
-            let range = pageModels[i].range!
+            let range = pageModels[i].pageRange!
             
             if loc < range.rhs {
                 

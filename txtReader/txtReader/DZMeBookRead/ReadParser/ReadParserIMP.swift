@@ -29,7 +29,7 @@ class ReadParserIMP: NSObject {
             
             let pageModel = ReadPageModel()
             
-            pageModel.range = NSMakeRange(TypeSetting.readBookHomePage, 1)
+            pageModel.pageRange = NSMakeRange(TypeSetting.readBookHomePage, 1)
             
             pageModel.contentSize = READ_VIEW_RECT.size
             
@@ -50,7 +50,7 @@ class ReadParserIMP: NSObject {
                 
                 let content = attrString.attributedSubstring(from: range)
                 
-                pageModel.range = range
+                pageModel.pageRange = range
                 
                 pageModel.content = content
                 
