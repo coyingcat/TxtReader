@@ -19,7 +19,7 @@ extension ReadController {
                 
                 let controller = ReadLongPressViewController()
                 
-                controller.recordModel = recordModel
+                controller.recordModelBasic = recordModel
                 
                 controller.readModel = readModel
                 
@@ -30,7 +30,7 @@ extension ReadController {
                 
                 let controller = ReadViewController()
                 
-                controller.recordModel = recordModel
+                controller.recordModelBasic = recordModel
                 
                 controller.readModel = readModel
                 
@@ -226,7 +226,7 @@ extension ReadController {
     
     /// 更新阅读记录(左右翻页模式)
     func updateReadRecord(controller: ReadViewController) {
-        if let record = controller.recordModel{
+        if let record = controller.recordModelBasic{
             update(read: record)
         }
     }

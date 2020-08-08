@@ -16,7 +16,7 @@ class ReadLongPressViewController: ReadViewController {
     override func initReadView() {
         
         // 是否为书籍首页
-        if recordModel.pageModel.isHomePage {
+        if recordModelBasic.pageModel.isHomePage {
             
             super.initReadView()
             
@@ -26,7 +26,7 @@ class ReadLongPressViewController: ReadViewController {
             let rect = READ_VIEW_RECT
             
             // 长按功能需要内容高度防止拖拽超出界限
-            let pageModel = recordModel.pageModel
+            let pageModel = recordModelBasic.pageModel
             
             // 阅读视图
             readView = ReadLongPressView()
@@ -66,7 +66,7 @@ class ReadLongPressViewController: ReadViewController {
     private func drag(touches: Set<UITouch>, status: PanGestureStatus) {
         
         // 是否为书籍首页
-        if recordModel.pageModel.isHomePage { return }
+        if recordModelBasic.pageModel.isHomePage { return }
         
         if readView?.isOpenDrag ?? false {
             

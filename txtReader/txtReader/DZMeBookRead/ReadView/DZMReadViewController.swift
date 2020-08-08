@@ -14,7 +14,7 @@ class ReadViewController: ViewController {
     // 需要两个对象， 当前页阅读记录 和 阅读对象
     
     /// 当前页阅读记录对象
-    var recordModel:ReadRecordModel!
+    var recordModelBasic:ReadRecordModel!
 
     /// 阅读对象  (  用于显示书名以及书籍首页显示书籍信息  )
     weak var readModel:ReadModel!
@@ -52,7 +52,7 @@ class ReadViewController: ViewController {
         // 顶部状态栏
         topView = ReadViewStatusTopView()
         topView.bookName.text = readModel.bookID
-        topView.chapterName.text = recordModel.chapterModel.name
+        topView.chapterName.text = recordModelBasic.chapterModel.name
         view.addSubview(topView)
         topView.frame = CGRect(x: readRect.minX, y: readRect.minY, width: readRect.width, height: READ_STATUS_TOP_VIEW_HEIGHT)
         
@@ -69,7 +69,7 @@ class ReadViewController: ViewController {
     func initReadView() {
         
         // 是否为书籍首页
-        if recordModel.pageModel.isHomePage {
+        if recordModelBasic.pageModel.isHomePage {
             
             topView.isHidden = true
             bottomView.isHidden = true
@@ -82,7 +82,7 @@ class ReadViewController: ViewController {
         }else{
             
             readView = ReadView()
-            readView.contentPage = recordModel.contentAttributedString
+            readView.contentPage = recordModelBasic.contentAttributedString
             view.addSubview(readView)
             readView.frame = READ_VIEW_RECT
         }
@@ -95,7 +95,7 @@ class ReadViewController: ViewController {
             // 总进度
              
              // 当前阅读进度
-             let progress:Float = readModel.progress(readTotal: recordModel)
+             let progress:Float = readModel.progress(readTotal: recordModelBasic)
             
              // 显示进度
              bottomView.progress.text = progress.readTotalProgress
@@ -103,7 +103,7 @@ class ReadViewController: ViewController {
             // 分页进度
             
             // 显示进度
-            bottomView.progress.text = "\(recordModel.page + 1)/\(recordModel.chapterModel!.pageCount)"
+            bottomView.progress.text = "\(recordModelBasic.page + 1)/\(recordModelBasic.chapterModel!.pageCount)"
         }
     }
     

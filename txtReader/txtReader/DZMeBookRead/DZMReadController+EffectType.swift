@@ -193,7 +193,7 @@ extension ReadController: UIPageViewControllerDataSource{
         tempNumber -= 1
         
         // 获取当前页阅读记录
-        var recordModel:ReadRecordModel? = (viewController as? ReadViewController)?.recordModel
+        var recordModel:ReadRecordModel? = (viewController as? ReadViewController)?.recordModelBasic
         
         // 如果没有则从背面页面获取
         if recordModel == nil{
@@ -217,7 +217,7 @@ extension ReadController: UIPageViewControllerDataSource{
         tempNumber += 1
         
         // 获取当前页阅读记录
-        var recordModel:ReadRecordModel? = (viewController as? ReadViewController)?.recordModel
+        var recordModel:ReadRecordModel? = (viewController as? ReadViewController)?.recordModelBasic
         
         // 如果没有则从背面页面获取
         if recordModel == nil {
