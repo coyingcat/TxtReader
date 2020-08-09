@@ -59,11 +59,12 @@ extension ReadController {
     /// 获取上一页控制器
     func getAboveReadViewController() ->UIViewController? {
         
-        let recordModel = getAboveReadRecordModel(recordModel: readModel.recordModel)
-        
-        if recordModel == nil { return nil }
-        
-        return getReadController(recordModel: recordModel)
+        if let recordModel = readModel.recordModel?.getAboveReadRecordModel{
+            return getReadController(recordModel: recordModel)
+        }
+        else{
+            return nil
+        }
     }
     
     /// 获取仿真模式背面(只用于仿真模式背面显示)
@@ -138,49 +139,6 @@ extension ReadController {
             
         }
 
-    }
-    
-    /// 获取当前记录上一页阅读记录
-    func getAboveReadRecordModel(recordModel:ReadRecordModel!) ->ReadRecordModel? {
-        
-        // 阅读记录为空
-        if recordModel.chapterModel == nil { return nil }
-        
-        // 复制
-        let recordModel = recordModel.copyModel
-        
-        // 书籍ID
-        // 章节ID
-        guard let bookID = recordModel.bookID, let chapterID = recordModel.chapterModel.previousChapterID else{
-            return nil
-        }
-        
-        // 第一章 第一页
-        if recordModel.isFirstChapter , recordModel.isFirstPage {
-            
-            Log("已经是第一页了")
-            
-            return nil
-        }
-        
-        // 第一页
-        if recordModel.isFirstPage {
-            
-            // 检查是否存在章节内容
-            if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
-                // 存在 
-                // 修改阅读记录
-                recordModel.modify(chapterID: chapterID, toPage: ReadingConst.lastPage, isSave: false)
-                
-            }else{ 
-                return nil
-            }
-            
-        }else{
-            recordModel.previousPage()
-            
-        }
-        return recordModel
     }
     
   

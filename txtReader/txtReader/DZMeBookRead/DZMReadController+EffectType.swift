@@ -200,7 +200,7 @@ extension ReadController: UIPageViewControllerDataSource{
             recordModel = (viewController as? ReadViewBGController)?.recordModel
         }
         if abs(tempNumber) % 2 == 0 { // 背面
-            recordModel = getAboveReadRecordModel(recordModel: recordModel)
+            recordModel = recordModel?.getAboveReadRecordModel
             return getBackgroundController(recordModel: recordModel)
         }
         else{

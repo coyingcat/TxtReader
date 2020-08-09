@@ -59,7 +59,7 @@
 		26CDB21924C54ECF007C05A9 /* DZMRMProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1D224C54ECF007C05A9 /* DZMRMProgressView.swift */; };
 		26CDB21A24C54ECF007C05A9 /* DZMRMBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1D324C54ECF007C05A9 /* DZMRMBottomView.swift */; };
 		26CDB21B24C54ECF007C05A9 /* DZMRMFuncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1D424C54ECF007C05A9 /* DZMRMFuncView.swift */; };
-		26CDB21C24C54ECF007C05A9 /* DZMReadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1D524C54ECF007C05A9 /* DZMReadController.swift */; };
+		26CDB21C24C54ECF007C05A9 /* ReadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1D524C54ECF007C05A9 /* ReadController.swift */; };
 		26CDB21D24C54ECF007C05A9 /* DZMReadRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1D724C54ECF007C05A9 /* DZMReadRecordModel.swift */; };
 		26CDB21E24C54ECF007C05A9 /* DZMReadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1D824C54ECF007C05A9 /* DZMReadModel.swift */; };
 		26CDB21F24C54ECF007C05A9 /* DZMReadModel+Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CDB1D924C54ECF007C05A9 /* DZMReadModel+Mark.swift */; };
@@ -143,7 +143,7 @@
 		26CDB1D224C54ECF007C05A9 /* DZMRMProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMRMProgressView.swift; sourceTree = "<group>"; };
 		26CDB1D324C54ECF007C05A9 /* DZMRMBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMRMBottomView.swift; sourceTree = "<group>"; };
 		26CDB1D424C54ECF007C05A9 /* DZMRMFuncView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMRMFuncView.swift; sourceTree = "<group>"; };
-		26CDB1D524C54ECF007C05A9 /* DZMReadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadController.swift; sourceTree = "<group>"; };
+		26CDB1D524C54ECF007C05A9 /* ReadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadController.swift; sourceTree = "<group>"; };
 		26CDB1D724C54ECF007C05A9 /* DZMReadRecordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadRecordModel.swift; sourceTree = "<group>"; };
 		26CDB1D824C54ECF007C05A9 /* DZMReadModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DZMReadModel.swift; sourceTree = "<group>"; };
 		26CDB1D924C54ECF007C05A9 /* DZMReadModel+Mark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DZMReadModel+Mark.swift"; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				26CDB1C624C54ECF007C05A9 /* DZMReadConfigure.swift */,
-				26CDB1D524C54ECF007C05A9 /* DZMReadController.swift */,
+				26CDB1D524C54ECF007C05A9 /* ReadController.swift */,
 				26CDB1E624C54ECF007C05A9 /* DZMReadController+EffectType.swift */,
 				26CDB18724C54ECE007C05A9 /* DZMReadController+Operation.swift */,
 				26CDB1C724C54ECF007C05A9 /* menuUI */,
@@ -554,7 +554,7 @@
 				26CDB20F24C54ECF007C05A9 /* ReadParserIMP.swift in Sources */,
 				26CDB22A24C54ECF007C05A9 /* DZMReadController+EffectType.swift in Sources */,
 				26CDB23724C5678F007C05A9 /* IndexPathMore.swift in Sources */,
-				26CDB21C24C54ECF007C05A9 /* DZMReadController.swift in Sources */,
+				26CDB21C24C54ECF007C05A9 /* ReadController.swift in Sources */,
 				26CDB21724C54ECF007C05A9 /* DZMRMTopView.swift in Sources */,
 				26CDB21A24C54ECF007C05A9 /* DZMRMBottomView.swift in Sources */,
 				26CDB21F24C54ECF007C05A9 /* DZMReadModel+Mark.swift in Sources */,

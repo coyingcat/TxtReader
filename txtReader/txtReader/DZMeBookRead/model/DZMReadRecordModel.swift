@@ -259,4 +259,51 @@ class ReadRecordModel: NSObject,NSCoding {
           
           return recordModel
       }
+    
+    
+    
+    /// 获取当前记录上一页阅读记录
+    var getAboveReadRecordModel: ReadRecordModel?{
+          
+          // 阅读记录为空
+          if chapterModel == nil { return nil }
+          
+          // 复制
+          let recordModel = copyModel
+          
+          // 书籍ID
+          // 章节ID
+          guard let bookID = recordModel.bookID, let chapterID = recordModel.chapterModel.previousChapterID else{
+              return nil
+          }
+          
+          // 第一章 第一页
+          if recordModel.isFirstChapter , recordModel.isFirstPage {
+              
+              Log("已经是第一页了")
+              
+              return nil
+          }
+          
+          // 第一页
+          if recordModel.isFirstPage {
+              
+              // 检查是否存在章节内容
+              if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID) {
+                  // 存在
+                  // 修改阅读记录
+                  recordModel.modify(chapterID: chapterID, toPage: ReadingConst.lastPage, isSave: false)
+                  
+              }else{
+                  return nil
+              }
+              
+          }else{
+              recordModel.previousPage()
+              
+          }
+          return recordModel
+      }
+      
+    
 }
