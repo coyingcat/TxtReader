@@ -17,7 +17,7 @@ class ReadController: ViewController{
     
     // MARK: UI相关
     
-    /// 阅读主视图
+    /// 阅读容器视图
     var contentView = ReadContentView(frame: CGRect(x: 0, y: 0, width: ScreenWidth, height: ScreenHeight))
     
     /// 章节列表
@@ -28,7 +28,7 @@ class ReadController: ViewController{
     lazy var readMenu = ReadMenu(vc: self, delegate: self)
     
     /// 翻页控制器 (仿真)
-    var pageViewController:UIPageViewController!
+    var pageViewController: UIPageViewController!
     
     /// 翻页控制器 (滚动)
     var scrollController:ReadViewScrollController!

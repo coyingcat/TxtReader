@@ -15,7 +15,7 @@ class CoreText: NSObject {
     ///   - attrString: 内容
     ///   - rect: 显示范围
     /// - Returns: CTFrame
-    @objc class func GetFrameRef(attrString:NSAttributedString, rect:CGRect) ->CTFrame {
+    class func GetFrameRef(attrString:NSAttributedString, rect:CGRect) ->CTFrame {
         let framesetter = CTFramesetterCreateWithAttributedString(attrString)
         let path = CGPath(rect: rect, transform: nil)
         return CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, nil)
@@ -27,7 +27,7 @@ class CoreText: NSObject {
     ///   - attrString: 内容
     ///   - rect: 显示范围
     /// - Returns: 内容分页列表
-    @objc class func pagingRanges(attrString:NSAttributedString, rect:CGRect) ->[NSRange] {
+    class func pagingRanges(attrString:NSAttributedString, rect:CGRect) ->[NSRange] {
         var rangeArray = [NSRange]()
         let framesetter = CTFramesetterCreateWithAttributedString(attrString as CFAttributedString)
         let path = CGPath(rect: rect, transform: nil)
@@ -49,7 +49,7 @@ class CoreText: NSObject {
     ///   - point: 触摸位置
     ///   - frameRef: CTFrame
     /// - Returns: 触摸位置的Index
-    @objc class func GetTouchLocation(point:CGPoint, frameRef:CTFrame?) ->CFIndex {
+    class func GetTouchLocation(point:CGPoint, frameRef:CTFrame?) ->CFIndex {
         
         var location:CFIndex = -1
         
@@ -70,7 +70,7 @@ class CoreText: NSObject {
     ///   - point: 触摸位置
     ///   - frameRef: CTFrame
     /// - Returns: CTLine
-    @objc class func GetTouchLineRange(point:CGPoint, frameRef:CTFrame?) ->NSRange {
+    class func GetTouchLineRange(point:CGPoint, frameRef:CTFrame?) ->NSRange {
         
         var range:NSRange = NSMakeRange(NSNotFound, 0)
         
@@ -92,7 +92,7 @@ class CoreText: NSObject {
     ///   - point: 触摸位置
     ///   - frameRef: CTFrame
     /// - Returns: CTLine
-    @objc class func GetTouchLine(point:CGPoint, frameRef:CTFrame?) ->CTLine? {
+    class func GetTouchLine(point:CGPoint, frameRef:CTFrame?) ->CTLine? {
         
         var line:CTLine? = nil
         
@@ -155,7 +155,7 @@ class CoreText: NSObject {
     /// - Parameter frameRef: CTFrame
     /// - Parameter content: 内容字符串(有值则可以去除选中每一行区域内的 开头空格 - 尾部换行符 - 所占用的区域,不传默认返回每一行实际占用区域)
     /// - Returns: 覆盖位置
-    @objc class func GetRangeRects(range:NSRange, frameRef:CTFrame?, content:String? = nil) -> [CGRect] {
+    class func GetRangeRects(range:NSRange, frameRef:CTFrame?, content:String? = nil) -> [CGRect] {
         
         var rects:[CGRect] = []
         
@@ -255,7 +255,7 @@ class CoreText: NSObject {
     /// - Parameter viewFrame: 目标ViewFrame
     /// - Parameter content: 内容字符串
     /// - Returns: MenuRect
-    @objc class func GetMenuRect(range:NSRange, frameRef:CTFrame?, viewFrame:CGRect, content:String? = nil) ->CGRect {
+    class func GetMenuRect(range:NSRange, frameRef:CTFrame?, viewFrame:CGRect, content:String? = nil) ->CGRect {
         
         let rects = GetRangeRects(range: range, frameRef: frameRef, content: content)
         
@@ -267,7 +267,7 @@ class CoreText: NSObject {
     /// - Parameter rects: [CGRect]
     /// - Parameter viewFrame: 目标ViewFrame
     /// - Returns: MenuRect
-    @objc class func GetMenuRect(rects:[CGRect], viewFrame:CGRect) ->CGRect {
+    class func GetMenuRect(rects:[CGRect], viewFrame:CGRect) ->CGRect {
         
         var menuRect:CGRect = CGRect.zero
         
@@ -360,7 +360,7 @@ class CoreText: NSObject {
     ///
     /// - Parameter line: CTLine
     /// - Returns: 行高
-    @objc class func GetLineHeight(frameRef:CTFrame?) ->CGFloat {
+    class func GetLineHeight(frameRef:CTFrame?) ->CGFloat {
         
         if frameRef == nil { return 0 }
         
@@ -377,7 +377,7 @@ class CoreText: NSObject {
     ///
     /// - Parameter line: CTLine
     /// - Returns: 行高
-    @objc class func GetLineHeight(line:CTLine?) ->CGFloat {
+    class func GetLineHeight(line:CTLine?) ->CGFloat {
         
         if line == nil { return 0 }
         
