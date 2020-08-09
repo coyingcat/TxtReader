@@ -178,7 +178,7 @@ extension ReadController: ReadMarkViewDelegate{
         
         contentView.showCover(isShow: false)
         
-        goToChapter(chapterID: markModel.chapterID, location: markModel.location)
+        goToChapter(chapterID: markModel.chapterID, coordinate: markModel.location)
     }
 }
     
@@ -297,7 +297,7 @@ extension ReadController: ReadMenuDelegate{
         // 不是当前阅读记录章节
         if toChapterID != readModel.recordModel?.chapterModel.id{
             
-            goToChapter(chapterID: toChapterID, toPage: toPage)
+            goToChapter(chapterID: toChapterID, to: toPage)
             
             // 检查当前内容是否包含书签
             readMenu.topView.checkForMark()

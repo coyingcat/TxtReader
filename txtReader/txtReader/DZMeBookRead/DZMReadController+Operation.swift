@@ -94,53 +94,60 @@ extension ReadController {
     }
     
     /// 跳转指定章节(指定页面)
-    func goToChapter(chapterID: Int, toPage: Int = 0) {
+    func goToChapter(chapterID: Int, to page: Int = 0) {
         
-        goToChapter(chapterID: chapterID, number: toPage, isLocation: false)
+        // 复制阅读记录
+         let recordModel = readModel.recordModel?.copyModel
+         
+         // 书籍ID
+         guard let bookID = recordModel?.bookID else{
+             return
+         }
+        
+         // 检查是否存在章节内容
+         // 存在
+         if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID){
+              // 分页定位
+             recordModel?.modify(chapterID: chapterID, toPage: page, isSave: false)
+             
+             
+             // 阅读阅读记录
+             if let record = recordModel{
+                 update(read: record)
+             }
+             // 展示阅读
+             creatPageController(displayController: getReadController(recordModel: recordModel))
+             
+         }
     }
     
     /// 跳转指定章节(指定坐标)
-    func goToChapter(chapterID: Int, location: Int) {
-        
-        goToChapter(chapterID: chapterID, number: location, isLocation: true)
-    }
-    
-    /// 跳转指定章节 number:页码或者坐标 isLocation:是页码(false)还是坐标(true)
-    private func goToChapter(chapterID: Int, number: Int, isLocation: Bool) {
-        
+    func goToChapter(chapterID: Int, coordinate location: Int) {
         // 复制阅读记录
-        let recordModel = readModel.recordModel?.copyModel
+         let recordModel = readModel.recordModel?.copyModel
+         
+         // 书籍ID
+         guard let bookID = recordModel?.bookID else{
+             return
+         }
         
-        // 书籍ID
-        guard let bookID = recordModel?.bookID else{
-            return
-        }
-       
-        // 检查是否存在章节内容
-        // 存在
-        if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID){
-            if isLocation {
-                
-                // 坐标定位
-                recordModel?.modifyLoc(chapterID: chapterID, location: number, isSave: false)
-                
-            }else{
-                
-                // 分页定位
-                recordModel?.modify(chapterID: chapterID, toPage: number, isSave: false)
-            }
-            
-            // 阅读阅读记录
-            if let record = recordModel{
-                update(read: record)
-            }
-            // 展示阅读
-            creatPageController(displayController: getReadController(recordModel: recordModel))
-            
-        }
-
+         // 检查是否存在章节内容
+         // 存在
+         if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID){
+             // 坐标定位
+             recordModel?.modifyLoc(chapterID: chapterID, location: location, isSave: false)
+         
+             // 阅读阅读记录
+             if let record = recordModel{
+                 update(read: record)
+             }
+             // 展示阅读
+             creatPageController(displayController: getReadController(recordModel: recordModel))
+             
+         }
     }
     
+   
   
     
     /// 更新阅读记录(左右翻页模式)
