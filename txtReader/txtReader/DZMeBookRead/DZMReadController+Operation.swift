@@ -84,7 +84,7 @@ extension ReadController {
     /// 获取下一页控制器
     func getBelowReadViewController() ->UIViewController? {
         
-        if let recordModel = getBelowReadRecordModel(recordModel: readModel.recordModel) {
+        if let recordModel = readModel.recordModel?.getBelowReadRecordModel {
             return getReadController(recordModel: recordModel)
         }
         else{
@@ -183,46 +183,7 @@ extension ReadController {
         return recordModel
     }
     
-    /// 获取当前记录下一页阅读记录
-    func getBelowReadRecordModel(recordModel: ReadRecordModel!) -> ReadRecordModel?{
-        
-        // 阅读记录为空
-        if recordModel.chapterModel == nil {
-            return nil
-        }
-        
-        // 复制
-        let recordModel = recordModel.copyModel
-        
-        // 书籍ID
-        // 章节ID
-        guard let bookID = recordModel.bookID, let chapterID = recordModel.chapterModel.nextChapterID else{
-            return nil
-        }
-        
-        // 最后一章 最后一页
-        if recordModel.isLastChapter, recordModel.isLastPage {
-            
-            Log("已经是最后一页了")
-            
-            return nil
-        }
-        
-        // 最后一页
-        if recordModel.isLastPage {
-            
-            // 检查是否存在章节内容
-            if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID){
-                // 修改阅读记录
-                recordModel.modify(chapterID: chapterID, toPage: 0, isSave: false)
-                
-            }
-        }else{
-            recordModel.nextPage()
-        }
-        
-        return recordModel
-    }
+  
     
     /// 更新阅读记录(左右翻页模式)
     func updateReadRecord(controller: ReadViewController) {

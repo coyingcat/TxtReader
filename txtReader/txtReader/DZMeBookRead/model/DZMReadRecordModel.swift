@@ -215,4 +215,48 @@ class ReadRecordModel: NSObject,NSCoding {
     }
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) { }
+    
+    
+    
+    
+    /// 获取当前记录下一页阅读记录
+    var getBelowReadRecordModel: ReadRecordModel?{
+          
+          // 阅读记录为空
+          if chapterModel == nil {
+              return nil
+          }
+          
+          // 复制
+          let recordModel = copyModel
+          
+          // 书籍ID
+          // 章节ID
+          guard let bookID = recordModel.bookID, let chapterID = recordModel.chapterModel.nextChapterID else{
+              return nil
+          }
+          
+          // 最后一章 最后一页
+          if recordModel.isLastChapter, recordModel.isLastPage {
+              
+              Log("已经是最后一页了")
+              
+              return nil
+          }
+          
+          // 最后一页
+          if recordModel.isLastPage {
+              
+              // 检查是否存在章节内容
+              if ReadChapterModel.isExist(bookID: bookID, chapterID: chapterID){
+                  // 修改阅读记录
+                  recordModel.modify(chapterID: chapterID, toPage: 0, isSave: false)
+                  
+              }
+          }else{
+              recordModel.nextPage()
+          }
+          
+          return recordModel
+      }
 }

@@ -230,7 +230,7 @@ extension ReadController: UIPageViewControllerDataSource{
         }
         else{
             // 内容
-            recordModel = getBelowReadRecordModel(recordModel: recordModel)
+            recordModel = recordModel?.getBelowReadRecordModel
             return getReadController(recordModel: recordModel)
         }
     }
