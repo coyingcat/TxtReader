@@ -31,7 +31,8 @@
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextTranslateCTM(context, self.frame.size.width*0.5,self.frame.size.height*0.5);
-    CGContextScaleCTM(context, 1.5, 1.5);
+    CGFloat scalar = 1.5;
+    CGContextScaleCTM(context, scalar, scalar);
     CGContextTranslateCTM(context, -1 * (_touchPoint.x), -1 * (_touchPoint.y));
     [self.readView.layer renderInContext:context];
 }

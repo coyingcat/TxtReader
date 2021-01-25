@@ -81,7 +81,7 @@
            
         }
     }
-    if (longPress.state == UIGestureRecognizerStateEnded) {
+    else if (longPress.state == UIGestureRecognizerStateEnded) {
         [self hiddenMagnifier];
         if (!CGRectEqualToRect(_menuRect, CGRectZero)) {
             [self showMenu];
@@ -106,7 +106,6 @@
             _selectState = YES;
         }
         if (_selectState) {
-//            NSArray *path = [LSYReadParser parserRectsWithPoint:point range:&_selectRange frameRef:_frameRef paths:_pathArray];
             NSArray *path = [LSYReadParser parserRectsWithPoint:point range:&_selectRange frameRef:_frameRef paths:_pathArray direction:_direction];
             _pathArray = path;
             [self setNeedsDisplay];

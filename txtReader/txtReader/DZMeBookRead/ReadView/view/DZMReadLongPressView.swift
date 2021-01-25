@@ -91,7 +91,7 @@ class ReadLongPressView: ReadView {
             // 获得选中区域
             selectRange = CoreText.GetTouchLineRange(point: point, frameRef: frameRef)
 
-            // 获得选中选中范围
+            // 获得选中范围
             rects = CoreText.GetRangeRects(range: selectRange!, frameRef: frameRef, content: pagingModel.content?.string)
 
             // 显示光标
@@ -213,7 +213,7 @@ class ReadLongPressView: ReadView {
                 // 刷新选中区域
                 updateSelectRange(location: location)
                 
-                // 获得选中选中范围
+                // 获得选中范围
                 rects = CoreText.GetRangeRects(range: selectRange, frameRef: frameRef, content: pagingModel.content?.string)
                 
                 // 更新光标位置
