@@ -22,13 +22,23 @@ class CustomLabel: UIView {
                 let index = range.location + range.length
                 //  public typealias CFIndex = Int
                 
-                
+                /*
                 let char = contentPage.string[range.location..<index]
                 print(char)
                 let ch = contentPage.string[index-1]
                 print(ch)
-                 
-                let idx = max(0, index - 2)
+                */
+                var lineAscent:CGFloat = 0
+                var lineDescent:CGFloat = 0
+                var leading:CGFloat = 0
+                let width = CTLineGetTypographicBounds(last, &lineAscent, &lineDescent, &leading)
+                let wid = CGFloat(width)
+                var idx = index
+                let offset = bounds.width - 10 - wid
+                
+                // 最多再 - 2 个字
+                let left = max(0, 2 - Int(offset/3))
+                idx = max(0, index - left)
                 let property = contentPage.attributes(at: 0, effectiveRange: nil)
                 
                 let newContent = String(contentPage.string[0..<idx]) + "..."
