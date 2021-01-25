@@ -151,19 +151,19 @@
     show?({
         _catalogView.hidden = !show;
         [UIView animateWithDuration:AnimationDelay animations:^{
-            _catalogView.frame = CGRectMake(0, 0,2*ViewSize(self.view).width, ViewSize(self.view).height);
+            self->_catalogView.frame = CGRectMake(0, 0,2*ViewSize(self.view).width, ViewSize(self.view).height);
             
         } completion:^(BOOL finished) {
-            [_catalogView insertSubview:[[UIImageView alloc] initWithImage:[self blurredSnapshot]] atIndex:0];
+            [self->_catalogView insertSubview:[[UIImageView alloc] initWithImage:[self blurredSnapshot]] atIndex:0];
         }];
     }):({
         if ([_catalogView.subviews.firstObject isKindOfClass:[UIImageView class]]) {
             [_catalogView.subviews.firstObject removeFromSuperview];
         }
         [UIView animateWithDuration:AnimationDelay animations:^{
-             _catalogView.frame = CGRectMake(-ViewSize(self.view).width, 0, 2*ViewSize(self.view).width, ViewSize(self.view).height);
+            self->_catalogView.frame = CGRectMake(-ViewSize(self.view).width, 0, 2*ViewSize(self.view).width, ViewSize(self.view).height);
         } completion:^(BOOL finished) {
-            _catalogView.hidden = !show;
+            self->_catalogView.hidden = !show;
             
         }];
     });

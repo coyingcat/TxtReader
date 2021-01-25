@@ -231,7 +231,7 @@
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         LSYNoteModel *model = [[LSYNoteModel alloc] init];
-        model.content = [_content substringWithRange:_selectRange];
+        model.content = [self->_content substringWithRange: self->_selectRange];
         model.note = alertController.textFields.firstObject.text;
         model.date = [NSDate date];
         [[NSNotificationCenter defaultCenter] postNotificationName:LSYNoteNotification object:model];
