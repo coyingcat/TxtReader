@@ -275,7 +275,39 @@
     if (!_frameRef) {
         return;
     }
-
+    // 框出每一行
+    
+  
+    CGPathRef pathRef = CTFrameGetPath(_frameRef);
+    CGRect bounds = CGPathGetBoundingBox(pathRef);
+    
+    NSArray *lines = (__bridge NSArray *)CTFrameGetLines(_frameRef);
+    if (lines) {
+        NSInteger lineCount = [lines count];
+        CGPoint *origins = malloc(lineCount * sizeof(CGPoint)); //给每行的起始点开辟内存
+        CTFrameGetLineOrigins(_frameRef, CFRangeMake(0, 0), origins);
+        for (int i = 0; i<lineCount; i++) {
+            CGPoint baselineOrigin = origins[i];
+            CTLineRef line = (__bridge CTLineRef)[lines objectAtIndex:i];
+            CGFloat ascent,descent,linegap; //声明字体的上行高度和下行高度和行距
+            CGFloat lineWidth = CTLineGetTypographicBounds(line, &ascent, &descent, &linegap);
+            // NSLog(@"宽度 %f", lineWidth);
+            if (lineWidth > 1){
+                CGRect lineFrame = CGRectMake(baselineOrigin.x, CGRectGetHeight(bounds)-baselineOrigin.y-ascent, lineWidth, ascent+descent+linegap);
+                //没有转换坐标系左下角为坐标原点 字体高度为上行高度加下行高度
+                UIBezierPath * path = [UIBezierPath bezierPathWithRect: lineFrame];
+                [UIColor.orangeColor setStroke];
+                [path stroke];
+            }
+            
+        }
+        free(origins);
+    }
+    
+    
+    // 框出每一行，结束
+    
+    
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextSetTextMatrix(ctx, CGAffineTransformIdentity);
     CGContextTranslateCTM(ctx, 0, self.bounds.size.height);
