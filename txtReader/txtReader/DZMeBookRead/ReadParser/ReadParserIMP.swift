@@ -35,6 +35,8 @@ class ReadParserIMP: NSObject {
             
             pageModels.append(pageModel)
         }
+        let ranges = CoreText.pagingRanges(attrString: attrString, rect: rect)
+        /*
         let rangesX = CoreText.pagingRanges(attrString: attrString, rect: rect)
         var ranges = [NSRange]()
         var i = 0
@@ -62,7 +64,7 @@ class ReadParserIMP: NSObject {
             return r
         })
         
-        
+        */
         if !ranges.isEmpty {
             
             let count = ranges.count
