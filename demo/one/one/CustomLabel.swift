@@ -12,7 +12,20 @@ class CustomLabel: UIView {
     var contentPage:NSAttributedString! {
         
         didSet{
-            frameRef = getFrameRef(attrString: contentPage, rect: bounds)
+            let frame = getFrameRef(attrString: contentPage, rect: bounds)
+            
+            let lines = CTFrameGetLines(frame) as! [CTLine]
+            if let last = lines.last{
+                let range = CTLineGetStringRange(last)
+                let index = range.location + range.length
+                //  public typealias CFIndex = Int
+                let char = contentPage.string[range.location..<index]
+                print(char)
+                let ch = contentPage.string[index-1]
+                print(ch)
+            }
+            
+            frameRef = frame
         }
     }
     
@@ -50,4 +63,36 @@ class CustomLabel: UIView {
     }
     
 
+}
+
+
+
+
+extension StringProtocol {
+    subscript(offset: Int) -> Character { self[index(startIndex, offsetBy: offset)] }
+    
+    
+    subscript(range: Range<Int>) -> SubSequence {
+        let startIndex = index(self.startIndex, offsetBy: range.lowerBound)
+        return self[startIndex..<index(startIndex, offsetBy: range.count)]
+    }
+    
+    
+    
+    subscript(range: ClosedRange<Int>) -> SubSequence {
+        let startIndex = index(self.startIndex, offsetBy: range.lowerBound)
+        return self[startIndex..<index(startIndex, offsetBy: range.count)]
+    }
+    
+    
+    
+    subscript(range: PartialRangeFrom<Int>) -> SubSequence { self[index(startIndex, offsetBy: range.lowerBound)...] }
+    
+    
+    subscript(range: PartialRangeThrough<Int>) -> SubSequence { self[...index(startIndex, offsetBy: range.upperBound)] }
+    
+    
+    
+    
+    subscript(range: PartialRangeUpTo<Int>) -> SubSequence { self[..<index(startIndex, offsetBy: range.upperBound)] }
 }
