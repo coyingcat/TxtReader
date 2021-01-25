@@ -523,7 +523,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -533,14 +533,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = P348GLNLW8;
+				DEVELOPMENT_TEAM = D878P8TW6L;
 				GCC_PREFIX_HEADER = "LSYReader/LSYReader-Prefix.pch";
 				HEADER_SEARCH_PATHS = " /usr/include/libxml2";
 				INFOPLIST_FILE = LSYReader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gX.ri;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
