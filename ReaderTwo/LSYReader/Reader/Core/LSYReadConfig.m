@@ -25,7 +25,7 @@
     if (self) {
         NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"ReadConfig"];
         if (data) {
-            NSKeyedUnarchiver *unarchive = [[NSKeyedUnarchiver alloc]initForReadingWithData:data];
+            NSKeyedUnarchiver *unarchive = [[NSKeyedUnarchiver alloc] initForReadingFromData: data error: nil];
             LSYReadConfig *config = [unarchive decodeObjectForKey:@"ReadConfig"];
             [config addObserver:config forKeyPath:@"fontSize" options:NSKeyValueObservingOptionNew context:NULL];
             [config addObserver:config forKeyPath:@"lineSpace" options:NSKeyValueObservingOptionNew context:NULL];
@@ -53,11 +53,9 @@
 }
 +(void)updateLocalConfig:(LSYReadConfig *)config
 {
-    NSMutableData *data=[[NSMutableData alloc]init];
-    NSKeyedArchiver *archiver=[[NSKeyedArchiver alloc]initForWritingWithMutableData:data];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initRequiringSecureCoding: false];
     [archiver encodeObject:config forKey:@"ReadConfig"];
-    [archiver finishEncoding];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"ReadConfig"];
+    [[NSUserDefaults standardUserDefaults] setObject: archiver.encodedData forKey:@"ReadConfig"];
 }
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {

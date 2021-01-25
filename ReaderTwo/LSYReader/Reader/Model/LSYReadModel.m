@@ -54,14 +54,18 @@
 }
 +(void)updateLocalModel:(LSYReadModel *)readModel url:(NSURL *)url
 {
+    if (readModel != nil){
+        NSString *key = [url.path lastPathComponent];
+        NSKeyedArchiver *archiver= [[NSKeyedArchiver alloc] initRequiringSecureCoding: false];
+        [archiver encodeObject: readModel forKey:key];
+        
+        [[NSUserDefaults standardUserDefaults] setObject: archiver.encodedData forKey:key];
+    }
     
-    NSString *key = [url.path lastPathComponent];
-    NSMutableData *data=[[NSMutableData alloc]init];
-    NSKeyedArchiver *archiver=[[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-    [archiver encodeObject:readModel forKey:key];
-    [archiver finishEncoding];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:key];
 }
+
+
+
 +(id)getLocalModelWithURL:(NSURL *)url
 {
     NSString *key = [url.path lastPathComponent];
@@ -78,7 +82,7 @@
         }
         
     }
-    NSKeyedUnarchiver *unarchive = [[NSKeyedUnarchiver alloc]initForReadingWithData:data];
+    NSKeyedUnarchiver *unarchive = [[NSKeyedUnarchiver alloc] initForReadingFromData: data error: nil];
     //主线程操作
     LSYReadModel *model = [unarchive decodeObjectForKey:key];
     return model;
