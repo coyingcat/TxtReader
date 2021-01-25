@@ -12,20 +12,32 @@ class CustomLabel: UIView {
     var contentPage:NSAttributedString! {
         
         didSet{
-            let frame = getFrameRef(attrString: contentPage, rect: bounds)
+            print(bounds)
+            let f = bounds.inset(by: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
+            let frame = getFrameRef(attrString: contentPage, rect: f)
             
             let lines = CTFrameGetLines(frame) as! [CTLine]
             if let last = lines.last{
                 let range = CTLineGetStringRange(last)
                 let index = range.location + range.length
                 //  public typealias CFIndex = Int
+                
+                
                 let char = contentPage.string[range.location..<index]
                 print(char)
                 let ch = contentPage.string[index-1]
                 print(ch)
+                 
+                let idx = max(0, index - 2)
+                let property = contentPage.attributes(at: 0, effectiveRange: nil)
+                
+                let newContent = String(contentPage.string[0..<idx]) + "..."
+                frameRef = getFrameRef(attrString: NSAttributedString(string: newContent, attributes: property), rect: f)
+            }
+            else{
+                frameRef = frame
             }
             
-            frameRef = frame
         }
     }
     
