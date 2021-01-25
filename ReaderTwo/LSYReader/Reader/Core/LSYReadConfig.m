@@ -53,7 +53,7 @@
 }
 +(void)updateLocalConfig:(LSYReadConfig *)config
 {
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initRequiringSecureCoding: true];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initRequiringSecureCoding: false];
     [archiver encodeObject:config forKey:@"ReadConfig"];
     [[NSUserDefaults standardUserDefaults] setObject: archiver.encodedData forKey:@"ReadConfig"];
 }
