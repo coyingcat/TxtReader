@@ -9,7 +9,7 @@
 #import "LSYChapterModel.h"
 #import "LSYReadConfig.h"
 #import "LSYReadParser.h"
-#import "NSString+HTML.h"
+
 //#include <vector>
 
 @interface LSYChapterModel ()
@@ -24,29 +24,6 @@
         _pageArray = [NSMutableArray array];
     }
     return self;
-}
-//-(NSString *)chapterpath {
-//    NSLog(@"----------------------%@",_chapterpath);
-//    return [kDocuments stringByAppendingPathComponent:_chapterpath];
-//}
-//-(NSString *)epubImagePath {
-//    return [kDocuments stringByAppendingPathComponent:_epubImagePath];
-//}
-+(id)chapterWithEpub:(NSString *)chapterpath title:(NSString *)title imagePath:(NSString *)path
-{
-    LSYChapterModel *model = [[LSYChapterModel alloc] init];
-
-    model.title = title;
-    model.epubImagePath = path;
-    model.type = ReaderEpub;
-    model.chapterpath = chapterpath;
-    NSString * fullPath= [kDocuments stringByAppendingPathComponent:chapterpath];
-    NSString* html = [[NSString alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL fileURLWithPath:fullPath]] encoding:NSUTF8StringEncoding];
-    model.html = html;
-    model.content = [html stringByConvertingHTMLToPlainText];
-    [model parserEpubToDictionary];
-    [model paginateEpubWithBounds:CGRectMake(0,0, [UIScreen mainScreen].bounds.size.width-LeftSpacing-RightSpacing, [UIScreen mainScreen].bounds.size.height-TopSpacing-BottomSpacing)];
-    return model;
 }
 
 -(void)parserEpubToDictionary

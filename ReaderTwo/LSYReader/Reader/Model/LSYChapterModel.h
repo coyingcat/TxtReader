@@ -43,7 +43,7 @@ typedef  NS_ENUM(NSInteger,ReaderType){
 @property (nonatomic,copy) NSString *epubImagePath;
 @property (nonatomic,copy) NSArray <LSYImageData *> *imageArray;
 @property (nonatomic,assign) ReaderType type;
-+(id)chapterWithEpub:(NSString *)chapterpath title:(NSString *)title imagePath:(NSString *)path;
+
 -(void)parserEpubToDictionary;
 -(void)paginateEpubWithBounds:(CGRect)bounds;
 @end
