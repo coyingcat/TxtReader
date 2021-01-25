@@ -38,7 +38,9 @@ class CoreText: NSObject {
             range = CTFrameGetVisibleStringRange(frame)
             rangeArray.append(NSMakeRange(rangeOffset, range.length))
             rangeOffset += range.length
-        }while(range.location + range.length < attrString.length)
+            
+            // rangeOffset = range.location + range.length
+        }while(rangeOffset < attrString.length)
         return rangeArray
     }
 
