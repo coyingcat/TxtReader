@@ -35,13 +35,9 @@
     if (!_readView) {
         _readView = [[LSYReadView alloc] initWithFrame:CGRectMake(LeftSpacing,TopSpacing, self.view.frame.size.width-LeftSpacing-RightSpacing, self.view.frame.size.height-TopSpacing-BottomSpacing)];
         LSYReadConfig *config = [LSYReadConfig shareInstance];
-        if (_type == ReaderEpub) {
-            _readView.frameRef = (__bridge CTFrameRef)_epubFrameRef;
-            _readView.imageArray = _imageArray;
-        }
-        else{
-             _readView.frameRef = [LSYReadParser parserContent:_content config:config bouds:CGRectMake(0,0, _readView.frame.size.width, _readView.frame.size.height)];
-        }
+        
+        _readView.frameRef = [LSYReadParser parserContent:_content config:config bouds:CGRectMake(0,0, _readView.frame.size.width, _readView.frame.size.height)];
+        
         _readView.content = _content;
         _readView.delegate = self;
     }

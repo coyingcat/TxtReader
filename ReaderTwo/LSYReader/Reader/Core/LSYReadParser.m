@@ -117,6 +117,10 @@ static CGFloat widthCallback(void* ref){
     dict[NSForegroundColorAttributeName] = config.fontColor;
     dict[NSFontAttributeName] = [UIFont systemFontOfSize:config.fontSize];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    
+    
+    paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
+    
     paragraphStyle.lineSpacing = config.lineSpace;
     paragraphStyle.alignment = NSTextAlignmentJustified;
     dict[NSParagraphStyleAttributeName] = paragraphStyle;
