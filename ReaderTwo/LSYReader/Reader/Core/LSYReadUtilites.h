@@ -9,7 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface LSYReadUtilites : NSObject
-+(void)separateChapter:(NSMutableArray **)chapters content:(NSString *)content;
+
+
++(NSMutableArray *)separateChapter:(NSString *)content;
+
+
+
+
 +(NSString *)encodeWithURL:(NSURL *)url;
 +(UIButton *)commonButtonSEL:(SEL)sel target:(id)target;
 +(UIViewController *)getCurrentVC;

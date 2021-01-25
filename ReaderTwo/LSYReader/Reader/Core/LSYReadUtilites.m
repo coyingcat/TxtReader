@@ -10,9 +10,12 @@
 #import "LSYChapterModel.h"
 
 @implementation LSYReadUtilites
-+(void)separateChapter:(NSMutableArray **)chapters content:(NSString *)content
+
+
+
++(NSMutableArray *)separateChapter:(NSString *)content
 {
-    [*chapters removeAllObjects];
+    NSMutableArray *chapters = [NSMutableArray array];
     NSString *parten = @"第[0-9一二三四五六七八九十百千]*[章回].*";
     NSError* error = NULL;
     NSRegularExpression *reg = [NSRegularExpression regularExpressionWithPattern:parten options:NSRegularExpressionCaseInsensitive error:&error];
@@ -30,7 +33,7 @@
                 model.title = @"开始";
                 NSUInteger len = local;
                 model.content = [content substringWithRange:NSMakeRange(0, len)];
-                [*chapters addObject:model];
+                [chapters addObject:model];
                 
             }
             if (idx > 0 ) {
@@ -38,14 +41,14 @@
                 model.title = [content substringWithRange:lastRange];
                 NSUInteger len = local-lastRange.location;
                 model.content = [content substringWithRange:NSMakeRange(lastRange.location, len)];
-                [*chapters addObject:model];
+                [chapters addObject:model];
                 
             }
             if (idx == match.count-1) {
                 LSYChapterModel *model = [[LSYChapterModel alloc] init];
                 model.title = [content substringWithRange:range];
                 model.content = [content substringWithRange:NSMakeRange(local, content.length-local)];
-                [*chapters addObject:model];
+                [chapters addObject:model];
             }
             lastRange = range;
         }];
@@ -53,9 +56,9 @@
     else{
         LSYChapterModel *model = [[LSYChapterModel alloc] init];
         model.content = content;
-        [*chapters addObject:model];
+        [chapters addObject:model];
     }
-    
+    return chapters;
 }
 +(NSString *)encodeWithURL:(NSURL *)url
 {

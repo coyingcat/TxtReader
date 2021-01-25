@@ -14,8 +14,7 @@
     self = [super init];
     if (self) {
         _content = content;
-        NSMutableArray *charpter = [NSMutableArray array];
-        [LSYReadUtilites separateChapter:&charpter content:content];
+        NSMutableArray *charpter = [LSYReadUtilites separateChapter: content];
         _chapters = charpter;
         _notes = [NSMutableArray array];
         _marks = [NSMutableArray array];
