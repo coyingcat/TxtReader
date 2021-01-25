@@ -24,7 +24,7 @@ typedef  NS_ENUM(NSInteger,ReaderType){
 
 @end
 
-@interface LSYChapterModel : NSObject<NSCopying,NSCoding>
+@interface LSYChapterModel : NSObject<NSCopying,NSSecureCoding>
 @property (nonatomic,strong) NSString *content;
 @property (nonatomic,strong) NSString *title;
 @property (nonatomic) NSUInteger pageCount;

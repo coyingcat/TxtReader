@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LSYReadConfig : NSObject<NSCoding>
+@interface LSYReadConfig : NSObject<NSSecureCoding>
 +(instancetype)shareInstance;
 @property (nonatomic) CGFloat fontSize;
 @property (nonatomic) CGFloat lineSpace;

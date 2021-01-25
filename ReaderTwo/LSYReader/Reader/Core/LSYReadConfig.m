@@ -53,7 +53,7 @@
 }
 +(void)updateLocalConfig:(LSYReadConfig *)config
 {
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initRequiringSecureCoding: false];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initRequiringSecureCoding: true];
     [archiver encodeObject:config forKey:@"ReadConfig"];
     [[NSUserDefaults standardUserDefaults] setObject: archiver.encodedData forKey:@"ReadConfig"];
 }
@@ -74,5 +74,11 @@
         self.theme = [aDecoder decodeObjectForKey:@"theme"];
     }
     return self;
+}
+
+
+
++ (BOOL)supportsSecureCoding{
+    return YES;
 }
 @end

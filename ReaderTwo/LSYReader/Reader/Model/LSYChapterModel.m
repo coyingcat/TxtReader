@@ -143,14 +143,7 @@
     [aCoder encodeObject:self.chapterpath forKey:@"chapterpath"];
     [aCoder encodeObject:self.html forKey:@"html"];
     [aCoder encodeObject:self.epubString forKey:@"epubString"];
-    /**
-     @property (nonatomic,copy) NSArray *epubframeRef;
-     @property (nonatomic,copy) NSString *epubImagePath;
-     @property (nonatomic,copy) NSArray <LSYImageData *> *imageArray;
-    
-     */
-//    [aCoder encodeObject:self.epubframeRef forKey:@"epubframeRef"];
-//    [aCoder encodeObject:self.epubImagePath forKey:@"epubImagePath"];
+
     
 }
 -(id)initWithCoder:(NSCoder *)aDecoder{
@@ -166,11 +159,19 @@
         self.chapterpath = [aDecoder decodeObjectForKey:@"chapterpath"];
         self.html = [aDecoder decodeObjectForKey:@"html"];
         self.epubString = [aDecoder decodeObjectForKey:@"epubString"];
-//        self.epubframeRef = [aDecoder decodeObjectForKey:@"epubframeRef"];
+
         
     }
     return self;
 }
+
+
+
++ (BOOL)supportsSecureCoding{
+    return YES;
+}
+
+
 @end
 
 @implementation LSYImageData

@@ -11,7 +11,7 @@
 #import "LSYNoteModel.h"
 #import "LSYChapterModel.h"
 #import "LSYRecordModel.h"
-@interface LSYReadModel : NSObject<NSCoding>
+@interface LSYReadModel : NSObject<NSSecureCoding>
 @property (nonatomic,strong) NSURL *resource;
 @property (nonatomic,copy) NSString *content;
 @property (nonatomic,assign) ReaderType type;

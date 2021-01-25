@@ -56,7 +56,7 @@
 {
     if (readModel != nil){
         NSString *key = [url.path lastPathComponent];
-        NSKeyedArchiver *archiver= [[NSKeyedArchiver alloc] initRequiringSecureCoding: false];
+        NSKeyedArchiver *archiver= [[NSKeyedArchiver alloc] initRequiringSecureCoding: true];
         [archiver encodeObject: readModel forKey:key];
         
         [[NSUserDefaults standardUserDefaults] setObject: archiver.encodedData forKey:key];
@@ -87,4 +87,10 @@
     LSYReadModel *model = [unarchive decodeObjectForKey:key];
     return model;
 }
+
++ (BOOL)supportsSecureCoding{
+    return YES;
+}
+
+
 @end
