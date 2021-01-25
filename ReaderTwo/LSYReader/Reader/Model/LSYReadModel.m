@@ -73,13 +73,6 @@
             [LSYReadModel updateLocalModel:model url:url];
             return model;
         }
-        else if ([[key pathExtension] isEqualToString:@"epub"]){
-            NSLog(@"this is epub");
-            LSYReadModel *model = [[LSYReadModel alloc] initWithePub:url.path];
-            model.resource = url;
-            [LSYReadModel updateLocalModel:model url:url];
-            return model;
-        }
         else{
             @throw [NSException exceptionWithName:@"FileException" reason:@"文件格式错误" userInfo:nil];
         }

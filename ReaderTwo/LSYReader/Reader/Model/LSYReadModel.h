@@ -22,7 +22,7 @@
 @property (nonatomic,strong) LSYRecordModel *record;
 
 -(instancetype)initWithContent:(NSString *)content;
--(instancetype)initWithePub:(NSString *)ePubPath;
+
 +(void)updateLocalModel:(LSYReadModel *)readModel url:(NSURL *)url;
 +(id)getLocalModelWithURL:(NSURL *)url;
 @end
