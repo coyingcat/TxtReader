@@ -35,8 +35,33 @@ class ReadParserIMP: NSObject {
             
             pageModels.append(pageModel)
         }
+        let rangesX = CoreText.pagingRanges(attrString: attrString, rect: rect)
+        var ranges = [NSRange]()
+        var i = 0
+        let count = rangesX.count
+        let final = rangesX[count - 1].location + rangesX[count - 1].length
+        let extra = 1
+        while i < count {
+            switch i{
+            case 0:
+                ranges.append(NSRange(location: rangesX[i].location, length: rangesX[i].length + extra))
+            default:
+                let begin = ranges[i - 1].location + ranges[i - 1].length
+                ranges.append(NSRange(location: begin, length: rangesX[i].length + extra))
+            }
+            i += 1
+        }
+        ranges = ranges.filter({ (range) -> Bool in
+            range.location < final
+        })
+        ranges = ranges.map({ (range) -> NSRange in
+            var r = range
+            if range.location + range.length > final{
+                r.length = final - range.location
+            }
+            return r
+        })
         
-        let ranges = CoreText.pagingRanges(attrString: attrString, rect: rect)
         
         if !ranges.isEmpty {
             
