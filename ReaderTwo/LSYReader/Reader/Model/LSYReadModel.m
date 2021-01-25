@@ -27,21 +27,7 @@
     }
     return self;
 }
--(instancetype)initWithePub:(NSString *)ePubPath;
-{
-    self = [super init];
-    if (self) {
-        _chapters = [LSYReadUtilites ePubFileHandle:ePubPath];
-        _notes = [NSMutableArray array];
-        _marks = [NSMutableArray array];
-        _record = [[LSYRecordModel alloc] init];
-        _record.chapterModel = _chapters.firstObject;
-        _record.chapterCount = _chapters.count;
-        _marksRecord = [NSMutableDictionary dictionary];
-        _type = ReaderEpub;
-    }
-    return self;
-}
+
 -(void)encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:self.content forKey:@"content"];
     [aCoder encodeObject:self.marks forKey:@"marks"];
@@ -71,7 +57,7 @@
     
     NSString *key = [url.path lastPathComponent];
     NSMutableData *data=[[NSMutableData alloc]init];
-    NSKeyedArchiver *archiver=[[NSKeyedArchiver alloc]initForWritingWithMutableData:data];
+    NSKeyedArchiver *archiver=[[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
     [archiver encodeObject:readModel forKey:key];
     [archiver finishEncoding];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:key];

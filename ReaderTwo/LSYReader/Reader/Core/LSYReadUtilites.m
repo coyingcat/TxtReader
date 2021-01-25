@@ -8,7 +8,7 @@
 
 #import "LSYReadUtilites.h"
 #import "LSYChapterModel.h"
-#import "ZipArchive.h"
+
 #import "TouchXML.h"
 
 @implementation LSYReadUtilites
@@ -125,35 +125,8 @@
 #pragma clang diagnostic pop
     
 }
-#pragma mark - ePub处理
-+(NSMutableArray *)ePubFileHandle:(NSString *)path;
-{
-    NSString *ePubPath = [self unZip:path];
-    if (!ePubPath) {
-        return nil;
-    }
-    NSString *OPFPath = [self OPFPath:ePubPath];
-    return [self parseOPF:OPFPath];
-    
-}
-#pragma mark - 解压文件路径
-+(NSString *)unZip:(NSString *)path
-{
-    ZipArchive *zip = [[ZipArchive alloc] init];
-    NSString *zipFile = [[path stringByDeletingPathExtension] lastPathComponent];
-    if ([zip UnzipOpenFile:path]) {
-        NSString *zipPath = [NSString stringWithFormat:@"%@/%@",kDocuments,zipFile];
-        NSFileManager *filemanager=[[NSFileManager alloc] init];
-        if ([filemanager fileExistsAtPath:zipPath]) {
-            NSError *error;
-            [filemanager removeItemAtPath:zipPath error:&error];
-        }
-        if ([zip UnzipFileTo:[NSString stringWithFormat:@"%@/",zipPath] overWrite:YES]) {
-            return zipFile;
-        }
-    }
-    return nil;
-}
+
+
 #pragma mark - OPF文件路径
 +(NSString *)OPFPath:(NSString *)epubPath
 {

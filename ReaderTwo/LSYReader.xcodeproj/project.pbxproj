@@ -23,11 +23,6 @@
 		871E61101D1252B20047AAFE /* CXMLUnsupportedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 871E60FF1D1252B20047AAFE /* CXMLUnsupportedNode.m */; };
 		871E61111D1252B20047AAFE /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 871E61021D1252B20047AAFE /* CTidy.m */; };
 		871E617A1D127D880047AAFE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 871E61791D127D880047AAFE /* libz.tbd */; };
-		871E61CA1D1282B80047AAFE /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 871E61C01D1282B80047AAFE /* ioapi.c */; };
-		871E61CB1D1282B80047AAFE /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 871E61C21D1282B80047AAFE /* mztools.c */; };
-		871E61CC1D1282B80047AAFE /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 871E61C41D1282B80047AAFE /* unzip.c */; };
-		871E61CD1D1282B80047AAFE /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 871E61C61D1282B80047AAFE /* zip.c */; };
-		871E61CE1D1282B80047AAFE /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = 871E61C91D1282B80047AAFE /* ZipArchive.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		871E61D31D12A6040047AAFE /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 871E61D21D12A6040047AAFE /* NSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		871E61D61D12A66A0047AAFE /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 871E61D51D12A66A0047AAFE /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8726DA4B1D07FF830072323A /* bt_tjcp_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8726DA4A1D07FF830072323A /* bt_tjcp_no@2x.png */; };
@@ -99,17 +94,6 @@
 		871E61021D1252B20047AAFE /* CTidy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTidy.m; sourceTree = "<group>"; };
 		871E61031D1252B20047AAFE /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
 		871E61791D127D880047AAFE /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		871E61BF1D1282B80047AAFE /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
-		871E61C01D1282B80047AAFE /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
-		871E61C11D1282B80047AAFE /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
-		871E61C21D1282B80047AAFE /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
-		871E61C31D1282B80047AAFE /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
-		871E61C41D1282B80047AAFE /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
-		871E61C51D1282B80047AAFE /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
-		871E61C61D1282B80047AAFE /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
-		871E61C71D1282B80047AAFE /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
-		871E61C81D1282B80047AAFE /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
-		871E61C91D1282B80047AAFE /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
 		871E61D11D12A6040047AAFE /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
 		871E61D21D12A6040047AAFE /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		871E61D41D12A66A0047AAFE /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
@@ -250,36 +234,9 @@
 			path = Tidy;
 			sourceTree = "<group>";
 		};
-		871E61BD1D1282B80047AAFE /* ZipArchive */ = {
-			isa = PBXGroup;
-			children = (
-				871E61BE1D1282B80047AAFE /* minizip */,
-				871E61C81D1282B80047AAFE /* ZipArchive.h */,
-				871E61C91D1282B80047AAFE /* ZipArchive.mm */,
-			);
-			path = ZipArchive;
-			sourceTree = "<group>";
-		};
-		871E61BE1D1282B80047AAFE /* minizip */ = {
-			isa = PBXGroup;
-			children = (
-				871E61BF1D1282B80047AAFE /* crypt.h */,
-				871E61C01D1282B80047AAFE /* ioapi.c */,
-				871E61C11D1282B80047AAFE /* ioapi.h */,
-				871E61C21D1282B80047AAFE /* mztools.c */,
-				871E61C31D1282B80047AAFE /* mztools.h */,
-				871E61C41D1282B80047AAFE /* unzip.c */,
-				871E61C51D1282B80047AAFE /* unzip.h */,
-				871E61C61D1282B80047AAFE /* zip.c */,
-				871E61C71D1282B80047AAFE /* zip.h */,
-			);
-			path = minizip;
-			sourceTree = "<group>";
-		};
 		87D8BD281CFFE5100087D8DA /* Third */ = {
 			isa = PBXGroup;
 			children = (
-				871E61BD1D1282B80047AAFE /* ZipArchive */,
 				871E60E31D1252B20047AAFE /* TouchXML */,
 				87D8BD291CFFE5100087D8DA /* LSYViewPagerVC.h */,
 				87D8BD2A1CFFE5100087D8DA /* LSYViewPagerVC.m */,
@@ -520,7 +477,6 @@
 				AB9A96F41CFD27FC0066030C /* LSYChapterModel.m in Sources */,
 				87D8BD311CFFE68E0087D8DA /* LSYReadView.m in Sources */,
 				AB9A96D71CFC2F6C0066030C /* LSYReadViewController.m in Sources */,
-				871E61CC1D1282B80047AAFE /* unzip.c in Sources */,
 				AB9A96E11CFC3A6A0066030C /* LSYReadParser.m in Sources */,
 				871E61111D1252B20047AAFE /* CTidy.m in Sources */,
 				871E61091D1252B20047AAFE /* CXMLElement.m in Sources */,
@@ -543,20 +499,16 @@
 				AB9A96F71CFD2EC70066030C /* LSYRecordModel.m in Sources */,
 				871E610D1D1252B20047AAFE /* CXMLNode.m in Sources */,
 				871E61051D1252B20047AAFE /* CXMLNode_CreationExtensions.m in Sources */,
-				871E61CA1D1282B80047AAFE /* ioapi.c in Sources */,
 				871E61061D1252B20047AAFE /* CXHTMLDocument.m in Sources */,
 				871E61101D1252B20047AAFE /* CXMLUnsupportedNode.m in Sources */,
 				871E61071D1252B20047AAFE /* CXMLDocument.m in Sources */,
 				AB9A96EB1CFD27C70066030C /* LSYReadModel.m in Sources */,
 				AB905C751D0D1BC400F3B2C9 /* LSYMagnifierView.m in Sources */,
 				AB9A96E71CFD25190066030C /* LSYReadUtilites.m in Sources */,
-				871E61CB1D1282B80047AAFE /* mztools.c in Sources */,
 				871E610E1D1252B20047AAFE /* CXMLNode_PrivateExtensions.m in Sources */,
 				ABE8ABD71CFEBB2400693078 /* LSYMenuView.m in Sources */,
 				87D8BD3B1D0013DF0087D8DA /* LSYNoteVC.m in Sources */,
-				871E61CD1D1282B80047AAFE /* zip.c in Sources */,
 				AB9A96BC1CFC2EE80066030C /* main.m in Sources */,
-				871E61CE1D1282B80047AAFE /* ZipArchive.mm in Sources */,
 				AB9A96DE1CFC3A4D0066030C /* LSYReadConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
