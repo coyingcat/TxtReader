@@ -183,7 +183,7 @@ class ReadConfigure: NSObject {
             
             // 行间距
             paragraphStyle.lineSpacing = lineSpacing
-            
+            paragraphStyle.lineBreakMode = .byCharWrapping
             // 段间距
             paragraphStyle.paragraphSpacing = paragraphSpacing
             
