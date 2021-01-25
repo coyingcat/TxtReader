@@ -25,8 +25,8 @@
     if (self) {
         NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"ReadConfig"];
         if (data) {
-            NSKeyedUnarchiver *unarchive = [[NSKeyedUnarchiver alloc] initForReadingFromData: data error: nil];
-            LSYReadConfig *config = [unarchive decodeObjectForKey:@"ReadConfig"];
+            NSSet * allow = [NSSet setWithArray: @[NSMutableArray.class, LSYReadModel.class, NSMutableDictionary.class, NSObject.class]];
+            LSYReadConfig *config = [NSKeyedUnarchiver unarchivedObjectOfClasses:allow fromData:data error: nil];
             [config addObserver:config forKeyPath:@"fontSize" options:NSKeyValueObservingOptionNew context:NULL];
             [config addObserver:config forKeyPath:@"lineSpace" options:NSKeyValueObservingOptionNew context:NULL];
             [config addObserver:config forKeyPath:@"fontColor" options:NSKeyValueObservingOptionNew context:NULL];
@@ -53,9 +53,8 @@
 }
 +(void)updateLocalConfig:(LSYReadConfig *)config
 {
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initRequiringSecureCoding: false];
-    [archiver encodeObject:config forKey:@"ReadConfig"];
-    [[NSUserDefaults standardUserDefaults] setObject: archiver.encodedData forKey:@"ReadConfig"];
+    NSData * data = [NSKeyedArchiver archivedDataWithRootObject:config requiringSecureCoding:false error: nil];
+    [[NSUserDefaults standardUserDefaults] setObject: data forKey:@"ReadConfig"];
 }
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
