@@ -11,7 +11,7 @@ class ViewController: UIViewController {
 
     
     
-    @IBOutlet weak var content: UILabel!
+    @IBOutlet weak var content: CustomLabel!
     
     
     
@@ -28,11 +28,13 @@ class ViewController: UIViewController {
         paragraphStyle.lineBreakMode = .byCharWrapping
      
         let property: [NSAttributedString.Key : Any] = [.foregroundColor : UIColor.magenta,
-             .paragraphStyle: paragraphStyle]
-        content.numberOfLines = 0
-        content.attributedText = NSAttributedString(string: info, attributes: property)
+             .paragraphStyle: paragraphStyle,
+             .font: UIFont.systemFont(ofSize: 18) ]
+        content.contentPage = NSAttributedString(string: info, attributes: property)
     }
 
 
+    
+    
 }
 

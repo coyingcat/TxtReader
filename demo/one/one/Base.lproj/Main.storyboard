@@ -16,26 +16,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="近重阳偏多风雨，绝怜此日暄明。666666666666666问秋香浓未，待携客、出西城。666666666666666 " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1Y-JG-8lZ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dlg-IY-JCQ" customClass="CustomLabel" customModule="one" customModuleProvider="target">
                                 <rect key="frame" x="30" y="423" width="354" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="qY0-qd-h7u"/>
+                                    <constraint firstAttribute="height" constant="60" id="snF-d5-VVx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
-                            <constraint firstItem="e1Y-JG-8lZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="GR3-WS-Jqb"/>
-                            <constraint firstItem="e1Y-JG-8lZ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="VEe-aX-Qw6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e1Y-JG-8lZ" secondAttribute="trailing" constant="30" id="l9g-p1-n5J"/>
+                            <constraint firstItem="dlg-IY-JCQ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="g4p-dC-IcE"/>
+                            <constraint firstItem="dlg-IY-JCQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="hfc-bp-wKe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dlg-IY-JCQ" secondAttribute="trailing" constant="30" id="jlr-pf-Bfl"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="content" destination="e1Y-JG-8lZ" id="OXC-7m-x32"/>
+                        <outlet property="content" destination="dlg-IY-JCQ" id="vdJ-WQ-YyM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -44,6 +42,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
