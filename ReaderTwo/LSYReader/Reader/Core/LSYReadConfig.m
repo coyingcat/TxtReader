@@ -25,7 +25,7 @@
     if (self) {
         NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"ReadConfig"];
         if (data) {
-            NSSet * allow = [NSSet setWithArray: @[NSMutableArray.class, LSYReadModel.class, NSMutableDictionary.class, NSObject.class]];
+            NSSet * allow = [NSSet setWithArray: @[NSMutableArray.class, LSYReadConfig.class, NSMutableDictionary.class, NSObject.class]];
             LSYReadConfig *config = [NSKeyedUnarchiver unarchivedObjectOfClasses:allow fromData:data error: nil];
             [config addObserver:config forKeyPath:@"fontSize" options:NSKeyValueObservingOptionNew context:NULL];
             [config addObserver:config forKeyPath:@"lineSpace" options:NSKeyValueObservingOptionNew context:NULL];
