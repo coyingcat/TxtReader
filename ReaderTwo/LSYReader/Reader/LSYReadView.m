@@ -267,6 +267,9 @@
         _frameRef = nil;
     }
 }
+
+
+
 -(void)drawRect:(CGRect)rect
 {
     if (!_frameRef) {
@@ -281,20 +284,17 @@
     _menuRect = CGRectZero;
     [self drawSelectedPath:_pathArray LeftDot:&leftDot RightDot:&rightDot];
     CTFrameDraw(_frameRef, ctx);
-//    [self fillImagePosition];
+
     if (_imageArray.count) {
         for (LSYImageData * imageData in self.imageArray) {
-            UIImage *image = [UIImage imageWithContentsOfFile:imageData.url];
+            UIImage *image = [UIImage imageWithContentsOfFile: imageData.url];
             CFRange range = CTFrameGetVisibleStringRange(_frameRef);
             
-            if (image&&(range.location<=imageData.position&&imageData.position<(range.length + range.location))) {
+            if (image && (range.location<=imageData.position && imageData.position<(range.length + range.location))){
                 [self fillImagePosition:imageData];
                 if (imageData.position==(range.length + range.location)) {
                     if ([self showImage]) {
                         CGContextDrawImage(ctx, imageData.imageRect, image.CGImage);
-                    }
-                    else{
-                        
                     }
                 }
                 else{
@@ -305,6 +305,8 @@
     }
     [self drawDotWithLeft:leftDot right:rightDot];
 }
+
+
 -(BOOL)showImage
 {
     NSArray *lines = (NSArray *)CTFrameGetLines(self.frameRef);
