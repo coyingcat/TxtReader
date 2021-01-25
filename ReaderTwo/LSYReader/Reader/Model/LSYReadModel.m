@@ -56,10 +56,8 @@
 {
     if (readModel != nil){
         NSString *key = [url.path lastPathComponent];
-        NSKeyedArchiver *archiver= [[NSKeyedArchiver alloc] initRequiringSecureCoding: false];
-        [archiver encodeObject: readModel forKey:key];
-        [archiver finishEncoding];
-        [[NSUserDefaults standardUserDefaults] setObject: archiver.encodedData forKey:key];
+        NSData * data = [NSKeyedArchiver archivedDataWithRootObject: readModel requiringSecureCoding: false error: nil];
+        [[NSUserDefaults standardUserDefaults] setObject: data forKey:key];
     }
     
 }
@@ -84,10 +82,12 @@
     }
     
     NSError * err;
-    NSKeyedUnarchiver *unarchive = [[NSKeyedUnarchiver alloc] initForReadingFromData: data error: &err];
+    NSSet * allow = [NSSet setWithArray: @[NSMutableArray.class, LSYReadModel.class, NSMutableDictionary.class, NSObject.class]];
+    LSYReadModel *model = [NSKeyedUnarchiver unarchivedObjectOfClasses:allow fromData:data error:  &err];
+           
     NSLog(@"aa%@", err);
     //主线程操作
-    LSYReadModel *model = [unarchive decodeObjectForKey:key];
+
     return model;
 }
 
