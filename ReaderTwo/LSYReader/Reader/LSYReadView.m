@@ -317,6 +317,10 @@
     [self drawSelectedPath:_pathArray LeftDot:&leftDot RightDot:&rightDot];
     CTFrameDraw(_frameRef, ctx);
 
+    
+    
+    
+    
     if (_imageArray.count) {
         for (LSYImageData * imageData in self.imageArray) {
             UIImage *image = [UIImage imageWithContentsOfFile: imageData.url];
