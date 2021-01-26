@@ -14,6 +14,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var content: CustomLabel!
     
     
+    
+    
+    @IBOutlet weak var plain: UILabel!
+    
+    
+    @IBOutlet weak var teo: UILabel!
+    
+    
     lazy var text = { () -> NSAttributedString in
         let info = "近重阳偏多风雨，绝怜此日暄明。666666666666666问秋香浓未，待携客、出西城。666666666666666"
         let paragraphStyle = NSMutableParagraphStyle()
@@ -33,7 +41,8 @@ class ViewController: UIViewController {
         
         view.backgroundColor = UIColor.white
         
-        
+        plain.text = "john\u{200B}@doe.com"
+        teo.text = "john.hasLongName\u{200B}@hasLongDomain.doe.com"
     }
 
 

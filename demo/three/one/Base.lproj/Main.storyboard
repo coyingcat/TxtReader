@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -23,17 +24,43 @@
                                     <constraint firstAttribute="height" constant="60" id="snF-d5-VVx"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="john.hasLongName\u{200B}@hasLongDomain.doe.com" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rX4-iP-C7A">
+                                <rect key="frame" x="97" y="710" width="220" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="swr-ng-Qqb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="john\u{200B}@doe.com" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Z0-9i-S1h">
+                                <rect key="frame" x="97" y="640" width="220" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1rJ-oZ-76f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
+                            <constraint firstItem="8Z0-9i-S1h" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0Hk-dE-znf"/>
+                            <constraint firstItem="rX4-iP-C7A" firstAttribute="height" secondItem="8Z0-9i-S1h" secondAttribute="height" id="5o8-8m-ud7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rX4-iP-C7A" secondAttribute="bottom" constant="102" id="H3p-P8-uGC"/>
+                            <constraint firstItem="rX4-iP-C7A" firstAttribute="top" secondItem="8Z0-9i-S1h" secondAttribute="bottom" constant="20" id="QIB-b7-8Oy"/>
+                            <constraint firstItem="rX4-iP-C7A" firstAttribute="width" secondItem="8Z0-9i-S1h" secondAttribute="width" id="TcP-Uq-DQD"/>
                             <constraint firstItem="dlg-IY-JCQ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="g4p-dC-IcE"/>
+                            <constraint firstItem="rX4-iP-C7A" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hUH-vU-4mO"/>
                             <constraint firstItem="dlg-IY-JCQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="hfc-bp-wKe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dlg-IY-JCQ" secondAttribute="trailing" constant="30" id="jlr-pf-Bfl"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="content" destination="dlg-IY-JCQ" id="vdJ-WQ-YyM"/>
+                        <outlet property="plain" destination="8Z0-9i-S1h" id="aST-Rm-A5i"/>
+                        <outlet property="teo" destination="rX4-iP-C7A" id="eWP-JI-Hct"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
