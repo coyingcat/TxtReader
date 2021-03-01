@@ -46,19 +46,19 @@ class TextRenderView: UIView {
     let frameRef:CTFrame
     let theSize: CGSize
     
-    let keyOne = "《会员服务协议》"
-    let keyTwo = "咨询客服"
+    let keyOne = "Willy's Wonderland"
+    let keyTwo = "威利的仙境"
     
     let rawTxt: String
     let contentPage: NSAttributedString
     let keyLocation: [Int]
     let points: [CGPoint?]
     override init(frame: CGRect){
-        rawTxt = "若开通会员即表示同意\(keyOne)，本产品为虚拟内容服务，支付后无法提供退款服务，查看用户协议与隐私政策如有疑问可\(keyTwo)"
+        rawTxt = "When his car breaks down, a quiet loner (Nic Cage) agrees to clean an abandoned family fun center in exchange for repairs. He soon finds himself waging war against possessed animatronic mascots while trapped inside \(keyOne).\n 当他的汽车发生故障时，一个安静的独行侠（Nic Cage）同意清洗一个废弃的家庭娱乐中心，以换取修理费。他很快发现自己被困在\(keyTwo)中，与拥有的电子吉祥物发动了战争。"
         let rangeOne = rawTxt.range(ns: keyOne)
         let rangeTwo = rawTxt.range(ns: keyTwo)
         keyLocation = [rangeOne.location + rangeOne.length / 2, rangeTwo.location + rangeTwo.length / 2]
-        contentPage = NSAttributedString(string: rawTxt, attributes: [NSAttributedString.Key.font: UIFont.regular(ofSize: 12), NSAttributedString.Key.foregroundColor: UIColor(rgb: 0xC3C3C3)])
+        contentPage = NSAttributedString(string: rawTxt, attributes: [NSAttributedString.Key.font: UIFont.regular(ofSize: 12), NSAttributedString.Key.foregroundColor: UIColor.blue])
         let calculatedSize = contentPage.boundingRect(with: CGSize(width: UI.std.width - 15 * 2, height: UI.std.height), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
         let padding: CGFloat = 10
         theSize = CGSize(width: calculatedSize.width, height: calculatedSize.height + padding)
@@ -77,11 +77,11 @@ class TextRenderView: UIView {
     
     
     required init?(coder: NSCoder) {
-        rawTxt = "若开通会员即表示同意\(keyOne)，本产品为虚拟内容服务，支付后无法提供退款服务，查看用户协议与隐私政策如有疑问可\(keyTwo)"
+        rawTxt = "When his car breaks down, a quiet loner (Nic Cage) agrees to clean an abandoned family fun center in exchange for repairs. He soon finds himself waging war against possessed animatronic mascots while trapped inside \(keyOne).\n 当他的汽车发生故障时，一个安静的独行侠（Nic Cage）同意清洗一个废弃的家庭娱乐中心，以换取修理费。他很快发现自己被困在\(keyTwo)中，与拥有的电子吉祥物发动了战争。"
         let rangeOne = rawTxt.range(ns: keyOne)
         let rangeTwo = rawTxt.range(ns: keyTwo)
         keyLocation = [rangeOne.location + rangeOne.length / 2, rangeTwo.location + rangeTwo.length / 2]
-        contentPage = NSAttributedString(string: rawTxt, attributes: [NSAttributedString.Key.font: UIFont.regular(ofSize: 12), NSAttributedString.Key.foregroundColor: UIColor(rgb: 0xC3C3C3)])
+        contentPage = NSAttributedString(string: rawTxt, attributes: [NSAttributedString.Key.font: UIFont.regular(ofSize: 12), NSAttributedString.Key.foregroundColor: UIColor.blue])
         let calculatedSize = contentPage.boundingRect(with: CGSize(width: UI.std.width - 15 * 2, height: UI.std.height), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
         let padding: CGFloat = 10
         theSize = CGSize(width: calculatedSize.width, height: calculatedSize.height + padding)
