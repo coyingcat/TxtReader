@@ -11,7 +11,7 @@ class ViewController: UIViewController {
 
     
     
-    var content = TextRenderView()
+    lazy var content = TextRenderView()
     
     
     override func viewDidLoad() {

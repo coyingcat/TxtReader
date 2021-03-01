@@ -54,7 +54,7 @@ class TextRenderView: UIView {
     let keyLocation: [Int]
     let points: [CGPoint?]
     override init(frame: CGRect){
-        rawTxt = "When his car breaks down, a quiet loner (Nic Cage) agrees to clean an abandoned family fun center in exchange for repairs. He soon finds himself waging war against possessed animatronic mascots while trapped inside \(keyOne).\n 当他的汽车发生故障时，一个安静的独行侠（Nic Cage）同意清洗一个废弃的家庭娱乐中心，以换取修理费。他很快发现自己被困在\(keyTwo)中，与拥有的电子吉祥物发动了战争。"
+        rawTxt = "When his car breaks down, a quiet loner (Nic Cage) agrees to clean an abandoned family fun center in exchange for repairs. He soon finds himself waging war against possessed animatronic mascots while trapped inside \(keyOne).\n\n 当他的汽车发生故障时，一个安静的独行侠（Nic Cage）同意清洗一个废弃的家庭娱乐中心，以换取修理费。他很快发现自己被困在\(keyTwo)中，与拥有的电子吉祥物发动了战争。"
         let rangeOne = rawTxt.range(ns: keyOne)
         let rangeTwo = rawTxt.range(ns: keyTwo)
         keyLocation = [rangeOne.location + rangeOne.length / 2, rangeTwo.location + rangeTwo.length / 2]
