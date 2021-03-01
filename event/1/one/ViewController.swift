@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController, UITextViewDelegate{
 
     
-    
+    @IBOutlet var textView: UITextView!
     lazy var content = TextRenderView()
     
     
@@ -21,6 +21,10 @@ class ViewController: UIViewController, UITextViewDelegate{
         content.frame = CGRect(origin: .zero, size: content.theSize)
         content.center = CGPoint(x: UI.std.width / 2, y: UI.std.height / 2)
         view.addSubview(content)
+        
+        
+        
+        ///
         let link = "https://baike.baidu.com/item/%E5%B0%BC%E5%8F%A4%E6%8B%89%E6%96%AF%C2%B7%E5%87%AF%E5%A5%87/1295347?fromtitle=%E5%B0%BC%E5%8F%A4%E6%8B%89%E6%96%AF%E5%87%AF%E5%A5%87&fromid=415246&fr=aladdin"
         let src = "cage 电影，\(link)"
         let attributedString = NSMutableAttributedString(string: src)
@@ -29,7 +33,7 @@ class ViewController: UIViewController, UITextViewDelegate{
     }
 
 
-    @IBOutlet var textView: UITextView!
+    
 
 
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
