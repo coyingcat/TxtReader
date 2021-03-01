@@ -11,8 +11,7 @@ import CoreText
 
 class TextRenderView: UIView {
 
-    
-    var maNiCao: (() -> Void)?
+
     let frameRef:CTFrame
     let theSize: CGSize
     
@@ -33,7 +32,7 @@ class TextRenderView: UIView {
             tempRanges.append(rangeTwo)
         }
         keyRanges = tempRanges
-        contentPage = NSAttributedString(string: rawTxt, attributes: [NSAttributedString.Key.font: UIFont.regular(ofSize: 12), NSAttributedString.Key.foregroundColor: UIColor(rgb: 0xC3C3C3)])
+        contentPage = NSAttributedString(string: rawTxt, attributes: [NSAttributedString.Key.font: UIFont.regular(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black])
         let calculatedSize = contentPage.boundingRect(with: CGSize(width: UI.std.width - 15 * 2, height: UI.std.height), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
         let padding: CGFloat = 10
         theSize = CGSize(width: calculatedSize.width, height: calculatedSize.height + padding)
@@ -72,7 +71,7 @@ class TextRenderView: UIView {
             return
         }
         if keyRanges[0].contains(pos){
-            maNiCao?()
+            print("000")
         }
         else if keyRanges[1].contains(pos){
             print("111")
