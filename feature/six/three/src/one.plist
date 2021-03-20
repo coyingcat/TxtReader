@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>list</key>
+	<array>
+		<dict>
+			<key>string</key>
+			<string>写字</string>
+			<key>type</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>闰年 闰月</string>
+			<key>string</key>
+			<string>闰： 闰年 闰月</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>闰</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>郑和 郑重</string>
+			<key>string</key>
+			<string>郑： 郑和 郑重</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>郑</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>2 少年闰土</string>
+</dict>
+</plist>
