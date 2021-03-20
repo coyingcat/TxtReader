@@ -43,7 +43,7 @@ extension P_intelligence{
             pairs.append(index)
             sucks.append(ri.string)
         }
-        return TxtRenderInfo(phrase: pairs,biaoZi: sucks, kao: beginIdx)
+        return TxtRenderInfo(phrase: pairs,strArr: sucks, kao: beginIdx)
     }
     
 }
@@ -53,13 +53,13 @@ extension P_intelligence{
 struct TxtRenderInfo {
     let phraseY: [Int]
     
-    let biaoZi: [String]
+    let strArr: [String]
     let beginIdx: Int?
     
-    init(phrase pairs: [Int], biaoZi sucks: [String], kao cao: Int?){
+    init(phrase pairs: [Int], strArr sucks: [String], kao cao: Int?){
         phraseY = pairs
 
-        biaoZi = sucks
+        strArr = sucks
         beginIdx = cao
     }
     

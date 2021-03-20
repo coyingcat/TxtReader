@@ -123,7 +123,7 @@ class InnerTextView: UIView{
     }
 
     func drawGrips(m info: TxtRenderInfo, lnH lnHeight: CGFloat, index i: Int, dB beginIdx: Int, lineOrigin lnOrigin: CGPoint, context ctx: CGContext, lnAscent lineAscent: CGFloat) -> CGFloat{
-        let content = info.biaoZi[i - beginIdx]
+        let content = info.strArr[i - beginIdx]
         let glyphCount = content.count
         var frameImg = TextContentConst.bgImgFrame
         let lnOffsset = (TextContentConst.padding - lnHeight) * 0.5
