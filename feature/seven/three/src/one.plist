@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>list</key>
+	<array>
+		<dict>
+			<key>string</key>
+			<string>一望无际</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>祭祀</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>郑重</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>2 少年闰土</string>
+</dict>
+</plist>
