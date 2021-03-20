@@ -76,7 +76,6 @@ struct TxtRenderInfo {
     let pronounceX: [Int]
     let writerX: [Int]
     
-    let hasWriter: Bool
     //
     let eightY: [Int]
     
@@ -86,7 +85,6 @@ struct TxtRenderInfo {
     let gouRiI: Int?
     
     init(pronounce pronInfo: [Int], phrase pairs: [Int], writerX wArr: [Int], biaoZi sucks: [String], kao cao: Int?){
-        hasWriter = false
         pronounceY = pronInfo
         pronounceX = pronounceY.map { (idx) -> Int in
             return idx - 1

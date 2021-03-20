@@ -94,12 +94,8 @@ class InnerTextView: UIView{
                     lastY -= 8
                 }
                 else{
-                    var authorIdx = 1
-                    if info.hasWriter{
-                        authorIdx = 2
-                    }
                     switch i {
-                    case authorIdx:
+                    case 1:
                         lastY -= TextContentConst.padding
                     default:
                         lastY -= 20
@@ -123,12 +119,7 @@ class InnerTextView: UIView{
                 lineOrigin.y += lastY
                // 调整成所需要的坐标
                 let yOffset = lineOrigin.y - lineDescent - 20
-                if info.hasWriter{
-                    if i == 1{
-                        ctx.draw(line: yOffset)
-                    }
-                }
-                else if i == 0{
+                if i == 0{
                     ctx.draw(line: yOffset)
                 }
                 ctx.textPosition = lineOrigin
