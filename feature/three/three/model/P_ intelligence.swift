@@ -36,7 +36,6 @@ extension P_intelligence{
         let cnt = list.count
         var i = 0
         var index = 0
-        var hasWriter = false
         var dogB: Int? = nil
         while i < cnt {
             let ri = list[i]
@@ -59,7 +58,7 @@ extension P_intelligence{
             }
             i += 1
         }
-        return TxtRenderInfo(hasWriter: hasWriter, pronounce: pronounceY, phrase: pairs, writerX: wArr, biaoZi: sucks, kao: dogB)
+        return TxtRenderInfo(pronounce: pronounceY, phrase: pairs, writerX: wArr, biaoZi: sucks, kao: dogB)
     }
     
 }
@@ -86,18 +85,13 @@ struct TxtRenderInfo {
     let biaoZi: [String]
     let gouRiI: Int?
     
-    init(hasWriter hasAuthor: Bool, pronounce pronInfo: [Int], phrase pairs: [Int], writerX wArr: [Int], biaoZi sucks: [String], kao cao: Int?){
-        hasWriter = hasAuthor
+    init(pronounce pronInfo: [Int], phrase pairs: [Int], writerX wArr: [Int], biaoZi sucks: [String], kao cao: Int?){
+        hasWriter = false
         pronounceY = pronInfo
         pronounceX = pronounceY.map { (idx) -> Int in
             return idx - 1
         }
-        if hasAuthor{
-            author = [1]
-        }
-        else{
-            author = []
-        }
+        author = []
         eightY = author + pronounceY
         phraseY = pairs
         writerX = wArr
