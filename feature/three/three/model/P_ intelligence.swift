@@ -8,48 +8,15 @@
 
 import Foundation
 
-
-
 struct P_intelligence: Decodable {
-    
-    let listen: String
-    
-    let see: Node_intelligence
-    
     
     let list: [Moron]
     
     let title: String
     
     
-    let pre: Int
-    
-    let next: Int
-    
-    private
-    let author: String?
-    let is_three: Bool?
-    
-    private enum CodingKeys : String, CodingKey {
-        case listen = "audio", see = "nodes"
-        case list,  title, pre = "prev_id"
-        case next = "next_id", author, is_three
-    }
-    
 }
 
-
-extension P_intelligence{
-    var writer: String?{
-        var w: String? = nil
-        if let val = author, val.count > 0{
-            w = val
-        }
-        return w
-    }
-    
-    
-}
 
 
 extension P_intelligence{
@@ -71,10 +38,6 @@ extension P_intelligence{
         var index = 0
         var hasWriter = false
         var dogB: Int? = nil
-        if let _ = writer{
-            hasWriter = true
-            index = 1
-        }
         while i < cnt {
             let ri = list[i]
             switch ri.type {
