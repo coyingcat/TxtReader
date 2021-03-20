@@ -10,7 +10,7 @@ import UIKit
 
 struct TextContentConst {
     static let padding = CGFloat(40)
-    static let fBgTypoImg = CGRect(origin: CGPoint(x: 40, y: 0), size: CGSize(width: 40, height: 40))
+    static let bgImgFrame = CGRect(origin: CGPoint(x: 40, y: 0), size: CGSize(width: 40, height: 40))
     static let offsetP = CGPoint(x: 10, y: 5)
 }
 
@@ -100,7 +100,7 @@ class InnerTextView: UIView{
                 }
         
                 if info.pronounceX.contains(i){
-                    let makeUp = TextContentConst.fBgTypoImg.width - CGFloat(sentenceW)
+                    let makeUp = TextContentConst.bgImgFrame.width - CGFloat(sentenceW)
                     lineOrigin.x += makeUp / 2
                 }
         
@@ -141,8 +141,8 @@ class InnerTextView: UIView{
             for j in 0..<pieceCnt{
                 switch j {
                 case 0:
-                    var frame = TextContentConst.fBgTypoImg
-                    frame.origin.y = lineOrigin.y + lineAscent - TextContentConst.fBgTypoImg.size.height + TextContentConst.offsetP.y
+                    var frame = TextContentConst.bgImgFrame
+                    frame.origin.y = lineOrigin.y + lineAscent - TextContentConst.bgImgFrame.size.height + TextContentConst.offsetP.y
                     bgGrip?.draw(in: frame)
                     zeroP.x += TextContentConst.offsetP.x
                 case 1:
