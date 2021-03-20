@@ -86,26 +86,17 @@ class InnerTextView: UIView{
                var lineAscent:CGFloat      = 0
                var lineDescent:CGFloat     = 0
                var lineLeading:CGFloat     = 0
-               let sentenceW = CTLineGetTypographicBounds(line , &lineAscent, &lineDescent, &lineLeading)
+               CTLineGetTypographicBounds(line , &lineAscent, &lineDescent, &lineLeading)
                
                 var lineOrigin = originsArray[i]
                 lineOrigin.x = TextContentConst.padding
-                if info.eightY.contains(i){
-                    lastY -= 8
-                }
-                else{
+                
                     switch i {
                     case 1:
                         lastY -= TextContentConst.padding
                     default:
                         lastY -= 20
                     }
-                }
-        
-                if info.pronounceX.contains(i){
-                    let makeUp = TextContentConst.fBgTypoImg.width - CGFloat(sentenceW)
-                    lineOrigin.x += makeUp / 2
-                }
         
                 switch i {
                 case 0:
@@ -121,10 +112,7 @@ class InnerTextView: UIView{
                     ctx.draw(line: yOffset)
                 }
                 ctx.textPosition = lineOrigin
-                if info.contains(pair: i){
-                    drawPairs(context: ctx, ln: line, startPoint: lineOrigin, ascent: lineAscent)
-                }
-                else if info.phraseY.contains(i), let dogB = info.gouRiI{
+                if info.phraseY.contains(i), let dogB = info.gouRiI{
                     let lnHeight = lineAscent + lineDescent + lineLeading
                     lastY -= drawGrips(m: info, lnH: lnHeight, index: i, dB: dogB, lineOrigin: lineOrigin, context: ctx, lnAscent: lineAscent)
                 }
