@@ -105,14 +105,10 @@ class InnerTextView: UIView{
                 }
                 
                 lineOrigin.y += lastY
-                let yOffset = lineOrigin.y - lineDescent - 20
-                if i == 0{
-                    ctx.draw(line: yOffset)
-                }
                 ctx.textPosition = lineOrigin
-                if info.phraseY.contains(i), let dogB = info.gouRiI{
+                if info.phraseY.contains(i), let beginIdx = info.beginIdx{
                     let lnHeight = lineAscent + lineDescent + lineLeading
-                    lastY -= drawGrips(m: info, lnH: lnHeight, index: i, dB: dogB, lineOrigin: lineOrigin, context: ctx, lnAscent: lineAscent)
+                    lastY -= drawGrips(m: info, lnH: lnHeight, index: i, dB: beginIdx, lineOrigin: lineOrigin, context: ctx, lnAscent: lineAscent)
                 }
                 else{
                     CTLineDraw(line, ctx)
@@ -126,8 +122,8 @@ class InnerTextView: UIView{
         fatalError()
     }
 
-    func drawGrips(m info: TxtRenderInfo, lnH lnHeight: CGFloat, index i: Int, dB dogB: Int, lineOrigin lnOrigin: CGPoint, context ctx: CGContext, lnAscent lineAscent: CGFloat) -> CGFloat{
-        let content = info.biaoZi[i - dogB]
+    func drawGrips(m info: TxtRenderInfo, lnH lnHeight: CGFloat, index i: Int, dB beginIdx: Int, lineOrigin lnOrigin: CGPoint, context ctx: CGContext, lnAscent lineAscent: CGFloat) -> CGFloat{
+        let content = info.biaoZi[i - beginIdx]
         let glyphCount = content.count
         var frameImg = TextContentConst.bgImgFrame
         let lnOffsset = (TextContentConst.padding - lnHeight) * 0.5

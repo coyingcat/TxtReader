@@ -33,17 +33,17 @@ extension P_intelligence{
         var sucks = [String]()
         let cnt = list.count
         var index = 0
-        var dogB: Int? = nil
+        var beginIdx: Int? = nil
         while index < cnt {
             let ri = list[index]
             index += 1
-            if dogB == nil{
-                dogB = index
+            if beginIdx == nil{
+                beginIdx = index
             }
             pairs.append(index)
             sucks.append(ri.string)
         }
-        return TxtRenderInfo(phrase: pairs,biaoZi: sucks, kao: dogB)
+        return TxtRenderInfo(phrase: pairs,biaoZi: sucks, kao: beginIdx)
     }
     
 }
@@ -54,13 +54,13 @@ struct TxtRenderInfo {
     let phraseY: [Int]
     
     let biaoZi: [String]
-    let gouRiI: Int?
+    let beginIdx: Int?
     
     init(phrase pairs: [Int], biaoZi sucks: [String], kao cao: Int?){
         phraseY = pairs
 
         biaoZi = sucks
-        gouRiI = cao
+        beginIdx = cao
     }
     
 }
