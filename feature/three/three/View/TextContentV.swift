@@ -112,12 +112,10 @@ class InnerTextView: UIView{
                     frameY = lineOrigin.y
                 default:
                     frameY = frameY - lineAscent
-                    //减去一个行间距，再减去第二行，字形的上部分 （循环）
                     lineOrigin.y = frameY
                 }
                 
                 lineOrigin.y += lastY
-               // 调整成所需要的坐标
                 let yOffset = lineOrigin.y - lineDescent - 20
                 if i == 0{
                     ctx.draw(line: yOffset)
@@ -133,7 +131,7 @@ class InnerTextView: UIView{
                 else{
                     CTLineDraw(line, ctx)
                 }
-                frameY = frameY - lineDescent//说明下这里，就是减去字形下面部分
+                frameY = frameY - lineDescent
                 if first == nil{
                     first = lineOrigin.y
                 }
@@ -152,15 +150,13 @@ class InnerTextView: UIView{
     
     
     func drawPairs(context ctx: CGContext, ln line: CTLine,startPoint lineOrigin: CGPoint, ascent lineAscent: CGFloat){
-        if let pieces = CTLineGetGlyphRuns(line) as? [CTRun], pieces.count == 2{
+        if let pieces = CTLineGetGlyphRuns(line) as? [CTRun]{
             let pieceCnt = pieces.count
             var zeroP = lineOrigin
             for j in 0..<pieceCnt{
                 switch j {
                 case 0:
                     var frame = TextContentConst.fBgTypoImg
-                    // 先做，位置还原
-                    // 再偏移到，我需要的地方
                     frame.origin.y = lineOrigin.y + lineAscent - TextContentConst.fBgTypoImg.size.height + TextContentConst.offsetP.y
                     bgGrip?.draw(in: frame)
                     zeroP.x += TextContentConst.offsetP.x
@@ -192,8 +188,6 @@ class InnerTextView: UIView{
               let typeOriginX = TextContentConst.padding * CGFloat(idx + 1)
               textP.x = typeOriginX + (TextContentConst.padding - lnSize.width) * 0.5
               ctx.textPosition = textP
-              // 先做，位置还原
-              // 再偏移到，我需要的地方
               frameImg.origin.x = typeOriginX
               frameImg.origin.y = lineOrigin.y + lineAscent - TextContentConst.fBgTypoImg.size.height + TextContentConst.offsetP.y
               bgGrip?.draw(in: frameImg)
