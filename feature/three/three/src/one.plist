@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>list</key>
+	<array>
+		<dict>
+			<key>string</key>
+			<string>识字</string>
+			<key>type</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>郑州 郑和</string>
+			<key>pronounce</key>
+			<string>zhèng</string>
+			<key>string</key>
+			<string>郑： 郑州 郑和</string>
+			<key>type</key>
+			<integer>1</integer>
+			<key>word</key>
+			<string>郑</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>秕子 秕糠</string>
+			<key>pronounce</key>
+			<string>bǐ</string>
+			<key>string</key>
+			<string>秕： 秕子 秕糠</string>
+			<key>type</key>
+			<integer>1</integer>
+			<key>word</key>
+			<string>秕</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>鹁鸪 鹁鸽</string>
+			<key>pronounce</key>
+			<string>bó</string>
+			<key>string</key>
+			<string>鹁： 鹁鸪 鹁鸽</string>
+			<key>type</key>
+			<integer>1</integer>
+			<key>word</key>
+			<string>鹁</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>鹁鸪 鹧鸪</string>
+			<key>pronounce</key>
+			<string>gū</string>
+			<key>string</key>
+			<string>鸪： 鹁鸪 鹧鸪</string>
+			<key>type</key>
+			<integer>1</integer>
+			<key>word</key>
+			<string>鸪</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>獾子 狼獾</string>
+			<key>pronounce</key>
+			<string>hūan</string>
+			<key>string</key>
+			<string>獾： 獾子 狼獾</string>
+			<key>type</key>
+			<integer>1</integer>
+			<key>word</key>
+			<string>獾</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>畜生 家畜</string>
+			<key>pronounce</key>
+			<string>chù</string>
+			<key>string</key>
+			<string>畜： 畜生 家畜</string>
+			<key>type</key>
+			<integer>1</integer>
+			<key>word</key>
+			<string>畜</string>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>写字</string>
+			<key>type</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>闰年 闰月</string>
+			<key>string</key>
+			<string>闰： 闰年 闰月</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>闰</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>胯下 胯骨</string>
+			<key>string</key>
+			<string>胯： 胯下 胯骨</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>胯</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>祭祀 奉祀</string>
+			<key>string</key>
+			<string>祀： 祭祀 奉祀</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>祀</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>郑和 郑重</string>
+			<key>string</key>
+			<string>郑： 郑和 郑重</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>郑</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>拜见 拜访</string>
+			<key>string</key>
+			<string>拜： 拜见 拜访</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>拜</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>租借 出租</string>
+			<key>string</key>
+			<string>租： 租借 出租</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>租</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>厨房 厨艺</string>
+			<key>string</key>
+			<string>厨： 厨房 厨艺</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>厨</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>毛毡 毡房</string>
+			<key>string</key>
+			<string>毡： 毛毡 毡房</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>毡</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>害羞 羞耻</string>
+			<key>string</key>
+			<string>羞： 害羞 羞耻</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>羞</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>牌匾 横匾</string>
+			<key>string</key>
+			<string>匾： 牌匾 横匾</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>匾</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>束缚 紧缚</string>
+			<key>string</key>
+			<string>缚： 束缚 紧缚</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>缚</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>刺猬 猬缩</string>
+			<key>string</key>
+			<string>猬： 刺猬 猬缩</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>猬</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>畜生 家畜</string>
+			<key>string</key>
+			<string>畜： 畜生 家畜</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>畜</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>伶俐 伶俜</string>
+			<key>string</key>
+			<string>伶： 伶俐 伶俜</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>伶</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>伶俐 俏俐</string>
+			<key>string</key>
+			<string>俐： 伶俐 俏俐</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>俐</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>流窜 逃窜</string>
+			<key>string</key>
+			<string>窜： 流窜 逃窜</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>窜</string>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>词语</string>
+			<key>type</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>一望无际</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>祭祀</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>郑重</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>正月</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>厨房</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>毡帽</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>怕羞</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>刺猬</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>畜生</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>伶俐</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>课文</string>
+			<key>type</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>深蓝的天空中挂着一轮金黄的圆月，</string>
+			<key>type</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>2 少年闰土</string>
+</dict>
+</plist>
