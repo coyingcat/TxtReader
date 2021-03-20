@@ -83,7 +83,7 @@ class InnerTextView: UIView{
                var lineAscent:CGFloat      = 0
                var lineDescent:CGFloat     = 0
                var lineLeading:CGFloat     = 0
-               let sentenceW = CTLineGetTypographicBounds(line , &lineAscent, &lineDescent, &lineLeading)
+               CTLineGetTypographicBounds(line , &lineAscent, &lineDescent, &lineLeading)
                
                 var lineOrigin = originsArray[i]
                 lineOrigin.x = TextContentConst.padding
