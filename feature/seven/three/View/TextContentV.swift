@@ -106,9 +106,23 @@ class InnerTextView: UIView{
                 
                 lineOrigin.y += lastY
                 ctx.textPosition = lineOrigin
-                if info.phraseY.contains(i), let beginIdx = info.beginIdx{
-                    let lnHeight = lineAscent + lineDescent + lineLeading
-                    lastY -= drawGrips(m: info, lnH: lnHeight, index: i, dB: beginIdx, lineOrigin: lineOrigin, context: ctx, lnAscent: lineAscent)
+                if info.phraseY.contains(i), let pieces = CTLineGetGlyphRuns(line) as? [CTRun], let first = pieces.first{
+                    
+                    let glyphCount = CTRunGetGlyphCount(first)
+                    
+                    var frameImg = TextContentConst.bgImgFrame
+                    var textP = lineOrigin
+                    for idx in 0..<glyphCount{
+                        
+                        let typeOriginX = TextContentConst.padding * CGFloat(idx + 1)
+                        textP.x = typeOriginX + 5
+                        ctx.textPosition = textP
+                        frameImg.origin.x = typeOriginX
+                        frameImg.origin.y = lineOrigin.y + lineAscent - TextContentConst.bgImgFrame.size.height + TextContentConst.offsetP.y
+                        bgGrip?.draw(in: frameImg)
+                        CTRunDraw(first, ctx, CFRange(location: idx, length: 1))
+                          
+                    }
                 }
                 else{
                     CTLineDraw(line, ctx)
@@ -120,29 +134,6 @@ class InnerTextView: UIView{
     
     required init?(coder: NSCoder) {
         fatalError()
-    }
-
-    func drawGrips(m info: TxtRenderInfo, lnH lnHeight: CGFloat, index i: Int, dB beginIdx: Int, lineOrigin lnOrigin: CGPoint, context ctx: CGContext, lnAscent lineAscent: CGFloat) -> CGFloat{
-        let content = info.strArr[i - beginIdx]
-        let glyphCount = content.count
-        var frameImg = TextContentConst.bgImgFrame
-        let lnOffsset = (TextContentConst.padding - lnHeight) * 0.5
-        var lineOrigin = lnOrigin
-        lineOrigin.y -= lnOffsset
-        var textP = lineOrigin
-        for idx in 0..<glyphCount{
-              let pieX = String(content[idx])
-              let ln = CTLineCreateWithAttributedString(pieX.word)
-              let lnSize = ln.lnSize
-              let typeOriginX = TextContentConst.padding * CGFloat(idx + 1)
-              textP.x = typeOriginX + (TextContentConst.padding - lnSize.width) * 0.5
-              ctx.textPosition = textP
-              frameImg.origin.x = typeOriginX
-              frameImg.origin.y = lineOrigin.y + lineAscent - TextContentConst.bgImgFrame.size.height + TextContentConst.offsetP.y
-              bgGrip?.draw(in: frameImg)
-              CTLineDraw(ln, ctx)
-        }
-        return lnOffsset
     }
 
 }
