@@ -28,37 +28,22 @@ extension P_intelligence{
 
     
     var textRender: TxtRenderInfo{
-        var pronounceY = [Int]()
-        var pairs = [Int]()
-        
         var wArr = [Int]()
-        var sucks = [String]()
         let cnt = list.count
         var i = 0
         var index = 0
-        var dogB: Int? = nil
         while i < cnt {
             let ri = list[i]
             switch ri.type {
-            case 1:
-                index += 2
-                pronounceY.append(index)
             case 3:
                 index += 1
                 wArr.append(index)
-            case 4:
-                index += 1
-                if dogB == nil{
-                    dogB = index
-                }
-                pairs.append(index)
-                sucks.append(ri.string)
             default:
                 index += 1
             }
             i += 1
         }
-        return TxtRenderInfo(pronounce: pronounceY, phrase: pairs, writerX: wArr, biaoZi: sucks, kao: dogB)
+        return TxtRenderInfo(writerX: wArr)
     }
     
 }
@@ -67,51 +52,17 @@ extension P_intelligence{
 
 struct TxtRenderInfo {
     
-    private
-    let author: [Int]
-    fileprivate
-    let pronounceY: [Int]
-    
-    
-    let pronounceX: [Int]
+  
+
     let writerX: [Int]
     
-    //
-    let eightY: [Int]
     
-    let phraseY: [Int]
-    
-    let biaoZi: [String]
-    let gouRiI: Int?
-    
-    init(pronounce pronInfo: [Int], phrase pairs: [Int], writerX wArr: [Int], biaoZi sucks: [String], kao cao: Int?){
-        pronounceY = pronInfo
-        pronounceX = pronounceY.map { (idx) -> Int in
-            return idx - 1
-        }
-        author = []
-        eightY = author + pronounceY
-        phraseY = pairs
+    init(writerX wArr: [Int]){
         writerX = wArr
-        biaoZi = sucks
-        gouRiI = cao
     }
     
 }
 
-
-
-extension TxtRenderInfo{
-    func contains(pair k: Int) -> Bool{
-        var fuc = false
-        if writerX.contains(k) || pronounceY.contains(k){
-            fuc = true
-        }
-        return fuc
-    }
-    
-    
-}
 
 
 
@@ -244,16 +195,6 @@ extension Array where Element == Moron{
             switch jujube.type {
             case 0:
                 info.append(jujube.string.richTitle)
-            case 1:
-                if let val = jujube.pronounce{
-                    info.append(val.pronounce)
-                }
-                if let val = jujube.word{
-                    info.append(val.word)
-                }
-                if let val = jujube.explain{
-                    info.append(val.phrase)
-                }
             case 3:
                 if let val = jujube.word{
                     info.append(val.word)
@@ -261,8 +202,6 @@ extension Array where Element == Moron{
                 if let val = jujube.explain{
                     info.append(val.phrase)
                 }
-            case 4:
-                info.append(jujube.string.money)
             default:
                 // 2
                 info.append(jujube.string.richBody)

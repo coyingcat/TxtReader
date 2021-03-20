@@ -87,21 +87,12 @@ class InnerTextView: UIView{
                
                 var lineOrigin = originsArray[i]
                 lineOrigin.x = TextContentConst.padding
-                if info.eightY.contains(i){
-                    lastY -= 8
-                }
-                else{
-                    switch i {
-                    case 1:
-                        lastY -= TextContentConst.padding
-                    default:
-                        lastY -= 20
-                    }
-                }
-        
-                if info.pronounceX.contains(i){
-                    let makeUp = TextContentConst.bgImgFrame.width - CGFloat(sentenceW)
-                    lineOrigin.x += makeUp / 2
+                
+                switch i {
+                case 1:
+                    lastY -= TextContentConst.padding
+                default:
+                    lastY -= 20
                 }
         
                 switch i {
@@ -118,7 +109,7 @@ class InnerTextView: UIView{
                     ctx.draw(line: yOffset)
                 }
                 ctx.textPosition = lineOrigin
-                if info.contains(pair: i){
+                if info.writerX.contains(i){
                     drawPairs(context: ctx, ln: line, startPoint: lineOrigin, ascent: lineAscent)
                 }
                 else{
