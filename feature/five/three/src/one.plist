@@ -6,12 +6,6 @@
 	<array>
 		<dict>
 			<key>string</key>
-			<string>词语</string>
-			<key>type</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>string</key>
 			<string>一望无际</string>
 			<key>type</key>
 			<integer>4</integer>

@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     var pIntelliJ_std: P_intelligence?
     
     
-    lazy var contentHan = TextContentV(frame: CGRect(x: 0, y: 0, width: UI.std.width, height: UI.std.height))
+    lazy var contentHan = TextContentV(frame: CGRect(x: 0, y: 100, width: UI.std.width, height: UI.std.height))
 
     override func viewDidLoad() {
         super.viewDidLoad()

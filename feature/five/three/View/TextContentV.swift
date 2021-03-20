@@ -10,7 +10,7 @@ import UIKit
 
 struct TextContentConst {
     static let padding = CGFloat(40)
-    static let fBgTypoImg = CGRect(origin: CGPoint(x: 40, y: 0), size: CGSize(width: 40, height: 40))
+    static let bgImgFrame = CGRect(origin: CGPoint(x: 40, y: 0), size: CGSize(width: 40, height: 40))
     static let offsetP = CGPoint(x: 10, y: 5)
 }
 
@@ -79,8 +79,6 @@ class InnerTextView: UIView{
        //用于存储每一行的坐标
        CTFrameGetLineOrigins(f, CFRangeMake(0, 0), &originsArray)
         var lastY: CGFloat = 0
-        var final: CGFloat = 0
-        var first: CGFloat? = nil
         
        for (i,line) in lines.enumerated(){
                var lineAscent:CGFloat      = 0
@@ -120,51 +118,18 @@ class InnerTextView: UIView{
                     CTLineDraw(line, ctx)
                 }
                 frameY = frameY - lineDescent
-                if first == nil{
-                    first = lineOrigin.y
-                }
-                let typoH = lineAscent + lineDescent
-                final = lineOrigin.y - typoH
        }
-        let one: CGFloat = first ?? 0
-        let h = one - final + 75 + TextContentConst.offsetP.y
-        delegate?.done(height: h)
     }
     
     
     required init?(coder: NSCoder) {
         fatalError()
     }
-    
-    
-    func drawPairs(context ctx: CGContext, ln line: CTLine,startPoint lineOrigin: CGPoint, ascent lineAscent: CGFloat){
-        if let pieces = CTLineGetGlyphRuns(line) as? [CTRun]{
-            let pieceCnt = pieces.count
-            var zeroP = lineOrigin
-            for j in 0..<pieceCnt{
-                switch j {
-                case 0:
-                    var frame = TextContentConst.fBgTypoImg
-                    frame.origin.y = lineOrigin.y + lineAscent - TextContentConst.fBgTypoImg.size.height + TextContentConst.offsetP.y
-                    bgGrip?.draw(in: frame)
-                    zeroP.x += TextContentConst.offsetP.x
-                case 1:
-                    zeroP.x = 92
-                default:
-                    ()
-                }
-                ctx.textPosition = zeroP
-                CTRunDraw(pieces[j], ctx, CFRange(location: 0, length: 0))
-            }
-        }
-    }
-    
-    
-    
+
     func drawGrips(m info: TxtRenderInfo, lnH lnHeight: CGFloat, index i: Int, dB dogB: Int, lineOrigin lnOrigin: CGPoint, context ctx: CGContext, lnAscent lineAscent: CGFloat) -> CGFloat{
         let content = info.biaoZi[i - dogB]
         let glyphCount = content.count
-        var frameImg = TextContentConst.fBgTypoImg
+        var frameImg = TextContentConst.bgImgFrame
         let lnOffsset = (TextContentConst.padding - lnHeight) * 0.5
         var lineOrigin = lnOrigin
         lineOrigin.y -= lnOffsset
@@ -177,7 +142,7 @@ class InnerTextView: UIView{
               textP.x = typeOriginX + (TextContentConst.padding - lnSize.width) * 0.5
               ctx.textPosition = textP
               frameImg.origin.x = typeOriginX
-              frameImg.origin.y = lineOrigin.y + lineAscent - TextContentConst.fBgTypoImg.size.height + TextContentConst.offsetP.y
+              frameImg.origin.y = lineOrigin.y + lineAscent - TextContentConst.bgImgFrame.size.height + TextContentConst.offsetP.y
               bgGrip?.draw(in: frameImg)
               CTLineDraw(ln, ctx)
         }

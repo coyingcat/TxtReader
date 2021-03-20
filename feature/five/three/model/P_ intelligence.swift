@@ -32,23 +32,16 @@ extension P_intelligence{
         
         var sucks = [String]()
         let cnt = list.count
-        var i = 0
         var index = 0
         var dogB: Int? = nil
-        while i < cnt {
-            let ri = list[i]
-            switch ri.type {
-            case 4:
-                index += 1
-                if dogB == nil{
-                    dogB = index
-                }
-                pairs.append(index)
-                sucks.append(ri.string)
-            default:
-                index += 1
+        while index < cnt {
+            let ri = list[index]
+            index += 1
+            if dogB == nil{
+                dogB = index
             }
-            i += 1
+            pairs.append(index)
+            sucks.append(ri.string)
         }
         return TxtRenderInfo(phrase: pairs,biaoZi: sucks, kao: dogB)
     }
