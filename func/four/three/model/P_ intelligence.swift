@@ -58,7 +58,7 @@ extension NetData{
             }
             i += 1
         }
-        return TxtRenderInfo(pronounce: pronounceY, phrase: pairs, writerX: wArr, biaoZi: sucks, kao: startIdx)
+        return TxtRenderInfo(pronounce: pronounceY, phrase: pairs, writerX: wArr, strs: sucks, kao: startIdx)
     }
     
 }
@@ -81,10 +81,10 @@ struct TxtRenderInfo {
     
     let phraseY: [Int]
     
-    let biaoZi: [String]
+    let strs: [String]
     let startIdx: Int?
     
-    init(pronounce pronInfo: [Int], phrase pairs: [Int], writerX wArr: [Int], biaoZi sucks: [String], kao beginIdx: Int?){
+    init(pronounce pronInfo: [Int], phrase pairs: [Int], writerX wArr: [Int], strs sucks: [String], kao beginIdx: Int?){
         pronounceY = pronInfo
         pronounceX = pronounceY.map { (idx) -> Int in
             return idx - 1
@@ -93,7 +93,7 @@ struct TxtRenderInfo {
         eightY = author + pronounceY
         phraseY = pairs
         writerX = wArr
-        biaoZi = sucks
+        strs = sucks
         startIdx = beginIdx
     }
     
