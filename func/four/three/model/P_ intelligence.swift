@@ -36,7 +36,7 @@ extension NetData{
         let cnt = list.count
         var i = 0
         var index = 0
-        var dogB: Int? = nil
+        var startIdx: Int? = nil
         while i < cnt {
             let ri = list[i]
             switch ri.type {
@@ -48,8 +48,8 @@ extension NetData{
                 wArr.append(index)
             case 4:
                 index += 1
-                if dogB == nil{
-                    dogB = index
+                if startIdx == nil{
+                    startIdx = index
                 }
                 pairs.append(index)
                 sucks.append(ri.string)
@@ -58,7 +58,7 @@ extension NetData{
             }
             i += 1
         }
-        return TxtRenderInfo(pronounce: pronounceY, phrase: pairs, writerX: wArr, biaoZi: sucks, kao: dogB)
+        return TxtRenderInfo(pronounce: pronounceY, phrase: pairs, writerX: wArr, biaoZi: sucks, kao: startIdx)
     }
     
 }
@@ -82,7 +82,7 @@ struct TxtRenderInfo {
     let phraseY: [Int]
     
     let biaoZi: [String]
-    let gouRiI: Int?
+    let startIdx: Int?
     
     init(pronounce pronInfo: [Int], phrase pairs: [Int], writerX wArr: [Int], biaoZi sucks: [String], kao cao: Int?){
         pronounceY = pronInfo
@@ -94,7 +94,7 @@ struct TxtRenderInfo {
         phraseY = pairs
         writerX = wArr
         biaoZi = sucks
-        gouRiI = cao
+        startIdx = cao
     }
     
 }

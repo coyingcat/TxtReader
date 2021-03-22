@@ -124,9 +124,9 @@ class InnerTextView: UIView{
                 if info.contains(pair: i){
                     drawPairs(context: ctx, ln: line, startPoint: lineOrigin, ascent: lineAscent)
                 }
-                else if info.phraseY.contains(i), let dogB = info.gouRiI{
+                else if info.phraseY.contains(i), let startIdx = info.startIdx{
                     let lnHeight = lineAscent + lineDescent + lineLeading
-                    lastY -= drawGrips(m: info, lnH: lnHeight, index: i, dB: dogB, lineOrigin: lineOrigin, context: ctx, lnAscent: lineAscent)
+                    lastY -= drawGrips(m: info, lnH: lnHeight, index: i, dB: startIdx, lineOrigin: lineOrigin, context: ctx, lnAscent: lineAscent)
                 }
                 else{
                     CTLineDraw(line, ctx)
@@ -173,8 +173,8 @@ class InnerTextView: UIView{
     
     
     
-    func drawGrips(m info: TxtRenderInfo, lnH lnHeight: CGFloat, index i: Int, dB dogB: Int, lineOrigin lnOrigin: CGPoint, context ctx: CGContext, lnAscent lineAscent: CGFloat) -> CGFloat{
-        let content = info.biaoZi[i - dogB]
+    func drawGrips(m info: TxtRenderInfo, lnH lnHeight: CGFloat, index i: Int, dB startIdx: Int, lineOrigin lnOrigin: CGPoint, context ctx: CGContext, lnAscent lineAscent: CGFloat) -> CGFloat{
+        let content = info.biaoZi[i - startIdx]
         let glyphCount = content.count
         var frameImg = TextContentConst.fBgTypoImg
         let lnOffsset = (TextContentConst.padding - lnHeight) * 0.5
