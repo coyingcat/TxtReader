@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct P_intelligence: Decodable {
+struct NetData: Decodable {
     
     let list: [Moron]
     
@@ -19,7 +19,7 @@ struct P_intelligence: Decodable {
 
 
 
-extension P_intelligence{
+extension NetData{
     
     
     var page: NSAttributedString?{

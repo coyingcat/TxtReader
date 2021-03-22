@@ -32,13 +32,13 @@ class CustomView: UIView{
         ctx.addPath(strokePath)
         ctx.setStrokeColor(UIColor.purple.cgColor)
         ctx.strokePath()
-        let path = CGMutablePath()
-        path.addRect(bounds)
+        
         let xHigh = bounds.size.height
         ctx.textMatrix = CGAffineTransform.identity
         ctx.translateBy(x: 0, y: xHigh)
         ctx.scaleBy(x: 1.0, y: -1.0)
-        
+        let path = CGMutablePath()
+        path.addRect(bounds)
            let ctFrameSetter = CTFramesetterCreateWithAttributedString(attributed)
            let ctFrame = CTFramesetterCreateFrame(ctFrameSetter, CFRangeMake(0, attributed.length), path, nil)
            let lines = CTFrameGetLines(ctFrame) as NSArray

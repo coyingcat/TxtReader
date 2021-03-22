@@ -14,10 +14,10 @@ import UIKit
 class ViewController: UIViewController {
     
     
-    var pIntelliJ_std: P_intelligence?
+    var netDat: NetData?
     
     
-    lazy var contentHan = TextContentV(frame: CGRect(x: 0, y: 0, width: UI.std.width, height: UI.std.height))
+    lazy var contentHan = TextContentV(frame: CGRect(x: 0, y: 100, width: UI.std.width, height: UI.std.height - 200))
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
             if let path = Bundle.main.url(forResource: "one", withExtension: "plist"){
                 let data = try Data(contentsOf: path)
                 let decoder = PropertyListDecoder()
-                self.pIntelliJ_std = try decoder.decode(P_intelligence.self, from: data)
+                self.netDat = try decoder.decode(NetData.self, from: data)
                 self.textHan()
             }
         }
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     
     func textHan(){
         
-        guard let dat = pIntelliJ_std else {
+        guard let dat = netDat else {
             return
         }
         let info = NSMutableAttributedString(attributedString: dat.title.richHead)
