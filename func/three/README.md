@@ -2,5 +2,8 @@
 
 
 
-###  [stack over flow](https://stackoverflow.com/questions/66719063/core-text-ctlinegetglyphruns-renders-strange-for-scenedelegate-project)
+###  [Core Text 实践：自定义每个字的位置](https://juejin.cn/post/6942410238125408270#heading-12)
 
+
+
+### 例子 2
