@@ -111,7 +111,7 @@ class InnerTextView: UIView{
                 case 0:
                     frameY = lineOrigin.y
                 default:
-                    frameY = frameY - lineAscent
+                    frameY = frameY - (lineAscent + lineDescent)
                     lineOrigin.y = frameY
                 }
                 
@@ -127,7 +127,6 @@ class InnerTextView: UIView{
                 else{
                     CTLineDraw(line, ctx)
                 }
-                frameY = frameY - lineDescent
                 if first == nil{
                     first = lineOrigin.y
                 }
