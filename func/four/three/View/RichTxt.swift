@@ -68,9 +68,9 @@ extension String{
             ]
         
         var gg = "\(self)"
-        let fuc = "\n"
-        if gg.hasSuffix(fuc) == false{
-            gg += fuc
+        let isOK = "\n"
+        if gg.hasSuffix(isOK) == false{
+            gg += isOK
         }
         return NSAttributedString(string: gg, attributes: contentAttri)
     }

@@ -111,7 +111,7 @@ class InnerTextView: UIView{
                 case 0:
                     frameY = lineOrigin.y
                 default:
-                    frameY = frameY - lineAscent
+                    frameY = frameY - (lineAscent + lineDescent)
                     lineOrigin.y = frameY
                 }
                 
@@ -131,7 +131,6 @@ class InnerTextView: UIView{
                 else{
                     CTLineDraw(line, ctx)
                 }
-                frameY = frameY - lineDescent
                 if first == nil{
                     first = lineOrigin.y
                 }
@@ -153,6 +152,7 @@ class InnerTextView: UIView{
         if let pieces = CTLineGetGlyphRuns(line) as? [CTRun]{
             let pieceCnt = pieces.count
             var zeroP = lineOrigin
+            zeroP.y -= 5
             for j in 0..<pieceCnt{
                 switch j {
                 case 0:

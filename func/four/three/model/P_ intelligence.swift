@@ -103,11 +103,11 @@ struct TxtRenderInfo {
 
 extension TxtRenderInfo{
     func contains(pair k: Int) -> Bool{
-        var fuc = false
+        var isOK = false
         if writerX.contains(k) || pronounceY.contains(k){
-            fuc = true
+            isOK = true
         }
-        return fuc
+        return isOK
     }
     
     
