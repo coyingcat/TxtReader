@@ -149,6 +149,7 @@ class InnerTextView: UIView{
         if let pieces = CTLineGetGlyphRuns(line) as? [CTRun]{
             let pieceCnt = pieces.count
             var zeroP = lineOrigin
+            zeroP.y -= 5
             for j in 0..<pieceCnt{
                 switch j {
                 case 0:
