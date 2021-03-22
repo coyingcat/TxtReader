@@ -84,7 +84,7 @@ struct TxtRenderInfo {
     let biaoZi: [String]
     let startIdx: Int?
     
-    init(pronounce pronInfo: [Int], phrase pairs: [Int], writerX wArr: [Int], biaoZi sucks: [String], kao cao: Int?){
+    init(pronounce pronInfo: [Int], phrase pairs: [Int], writerX wArr: [Int], biaoZi sucks: [String], kao beginIdx: Int?){
         pronounceY = pronInfo
         pronounceX = pronounceY.map { (idx) -> Int in
             return idx - 1
@@ -94,7 +94,7 @@ struct TxtRenderInfo {
         phraseY = pairs
         writerX = wArr
         biaoZi = sucks
-        startIdx = cao
+        startIdx = beginIdx
     }
     
 }
