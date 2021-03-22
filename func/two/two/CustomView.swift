@@ -17,7 +17,6 @@ class CustomView: UIView{
         fatalError()
     }
     
-    
     override func draw(_ rect: CGRect) {
         guard let ctx = UIGraphicsGetCurrentContext() else {
             return
@@ -52,10 +51,12 @@ class CustomView: UIView{
                var lineLeading:CGFloat     = 0
                CTLineGetTypographicBounds(line as! CTLine, &lineAscent, &lineDescent, &lineLeading)
                var lineOrigin = originsArray[i]
-               if (i > 0){
+               
+               if i > 0{
                    frameY = frameY - lineAscent - lineDescent
                    lineOrigin.y = frameY
-               } else{
+               }
+               else{
                    frameY = lineOrigin.y
                }
                ctx.textPosition = lineOrigin
