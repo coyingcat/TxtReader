@@ -7,14 +7,76 @@
 //
 
 import Foundation
+import UIKit
+
+
 
 struct NetData: Decodable {
     
-    let list: [Moron]
-    
     let title: String
     
+    private
+    let list: [Moron]
     
+    let renderGrid: [Moron]
+    
+    private enum CodingKeys : String, CodingKey {
+        case list,  title
+    }
+    
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        
+        if let value = try? container.decodeIfPresent([Moron].self, forKey: .list){
+            list = value
+        }
+        else{
+            list = []
+        }
+        if let value = try? container.decodeIfPresent(String.self, forKey: .title){
+            title = value
+        }
+        else{
+            title = ""
+        }
+        
+        
+// MARK:- 进入 init , computer
+        var info = [Moron]()
+        var current: Moron?
+        for jujube in list{
+            switch jujube.type{
+            case 4:
+                if var c = current{
+                    let reduceTmp = c.string + " " + jujube.string
+                    if reduceTmp.fourW >= TextContentConst.widthInUse{
+                        info.append(c)
+                        current = jujube
+                    }
+                    else{
+                        c.string = reduceTmp
+                        current = c
+                    }
+                }
+                else{
+                    current = jujube
+                }
+            default:
+                if let c = current{
+                    info.append(c)
+                    current = nil
+                }
+                info.append(jujube)
+            }
+        }
+        if let c = current{
+            info.append(c)
+        }
+        renderGrid = info
+        
+    }
 }
 
 
@@ -23,7 +85,7 @@ extension NetData{
     
     
     var page: NSAttributedString?{
-        list.page
+        renderGrid.page
     }
 
     
@@ -33,12 +95,12 @@ extension NetData{
         
         var wArr = [Int]()
         var sucks = [String]()
-        let cnt = list.count
+        let cnt = renderGrid.count
         var i = 0
         var index = 0
         var startIdx: Int? = nil
         while i < cnt {
-            let ri = list[i]
+            let ri = renderGrid[i]
             switch ri.type {
             case 1:
                 index += 2
@@ -60,6 +122,10 @@ extension NetData{
         }
         return TxtRenderInfo(pronounce: pronounceY, phrase: pairs, writerX: wArr, strs: sucks, kao: startIdx)
     }
+    
+    
+    
+    
     
 }
 
@@ -119,7 +185,9 @@ struct Moron: Decodable {
     private
     let phrase: String?
     let word: String?
-    let string: String
+    
+    
+    var string: String
     
     let type: Int
     let pronounce: String?
@@ -283,4 +351,13 @@ struct StartPlayIdxInfo {
     
     
     static let std = StartPlayIdxInfo()
+}
+
+
+
+
+extension String{
+    var fourW: CGFloat{
+        CGFloat(count) * 40
+    }
 }

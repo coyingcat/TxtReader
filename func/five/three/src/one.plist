@@ -58,6 +58,30 @@
             <key>type</key>
             <integer>4</integer>
         </dict>
+        <dict>
+            <key>string</key>
+            <string>柿</string>
+            <key>type</key>
+            <integer>4</integer>
+        </dict>
+        <dict>
+            <key>string</key>
+            <string>柿くえば</string>
+            <key>type</key>
+            <integer>4</integer>
+        </dict>
+        <dict>
+            <key>string</key>
+            <string>鐘が鳴るなり</string>
+            <key>type</key>
+            <integer>4</integer>
+        </dict>
+        <dict>
+            <key>string</key>
+            <string>法隆寺</string>
+            <key>type</key>
+            <integer>4</integer>
+        </dict>
 	</array>
 	<key>title</key>
 	<string>詩</string>

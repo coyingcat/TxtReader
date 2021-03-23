@@ -12,6 +12,10 @@ struct TextContentConst {
     static let padding = CGFloat(40)
     static let fBgTypoImg = CGRect(origin: CGPoint(x: 40, y: 0), size: CGSize(width: 40, height: 40))
     static let offsetP = CGPoint(x: 10, y: 5)
+    
+    static var widthInUse: CGFloat{
+           UI.std.width - TextContentConst.padding * 2
+    }
 }
 
 protocol DrawDoneProxy: class {
@@ -35,9 +39,8 @@ class InnerTextView: UIView{
             }
             
             // 计算文本框大小，因为 UIView 没有 UILabel 的 intrinsic  size
-            let widthInUse = UI.std.width - TextContentConst.padding * 2
-            let calculatedSize = page.boundingRect(with: CGSize(width: widthInUse, height: 3000), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
-            let siZ = CGSize(width: widthInUse, height: calculatedSize.height * 3)
+            let calculatedSize = page.boundingRect(with: CGSize(width: TextContentConst.widthInUse, height: 3000), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
+            let siZ = CGSize(width: TextContentConst.widthInUse, height: calculatedSize.height * 3)
             
             // 建立 core text 文本
             let framesetter = CTFramesetterCreateWithAttributedString(page)
@@ -190,8 +193,10 @@ class InnerTextView: UIView{
               ctx.textPosition = textP
               frameImg.origin.x = typeOriginX
               frameImg.origin.y = lineOrigin.y + lineAscent - TextContentConst.fBgTypoImg.size.height + TextContentConst.offsetP.y
-              bgGrip?.draw(in: frameImg)
-              CTLineDraw(ln, ctx)
+              if pieX != " "{
+                 bgGrip?.draw(in: frameImg)
+                 CTLineDraw(ln, ctx)
+              }
         }
         return lnOffsset
     }
