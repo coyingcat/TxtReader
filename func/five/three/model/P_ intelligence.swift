@@ -182,26 +182,10 @@ extension TxtRenderInfo{
 
 
 struct Coupling: Decodable {
-    private
-    let phrase: String?
-    let word: String?
-    
-    
     var string: String
     
     let type: Int
     let pronounce: String?
-}
-
-
-extension Coupling{
-    var explain: String?{
-        var result: String? = nil
-        if let ph = phrase{
-            result = ph.replacingOccurrences(of: " ", with: String(repeating: " ", count: 4))
-        }
-        return result
-    }
 }
 
 
@@ -312,23 +296,6 @@ extension Array where Element == Coupling{
             switch jujube.type {
             case 0:
                 info.append(jujube.string.richTitle)
-            case 1:
-                if let val = jujube.pronounce{
-                    info.append(val.pronounce)
-                }
-                if let val = jujube.word{
-                    info.append(val.word)
-                }
-                if let val = jujube.explain{
-                    info.append(val.phrase)
-                }
-            case 3:
-                if let val = jujube.word{
-                    info.append(val.word)
-                }
-                if let val = jujube.explain{
-                    info.append(val.phrase)
-                }
             case 4:
                 info.append(jujube.string.money)
             default:
