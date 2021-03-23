@@ -16,9 +16,9 @@ struct NetData: Decodable {
     let title: String
     
     private
-    let list: [Moron]
+    let list: [Coupling]
     
-    let renderGrid: [Moron]
+    let renderGrid: [Coupling]
     
     private enum CodingKeys : String, CodingKey {
         case list,  title
@@ -29,7 +29,7 @@ struct NetData: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         
-        if let value = try? container.decodeIfPresent([Moron].self, forKey: .list){
+        if let value = try? container.decodeIfPresent([Coupling].self, forKey: .list){
             list = value
         }
         else{
@@ -44,8 +44,8 @@ struct NetData: Decodable {
         
         
 // MARK:- 进入 init , computer
-        var info = [Moron]()
-        var current: Moron?
+        var info = [Coupling]()
+        var current: Coupling?
         for jujube in list{
             switch jujube.type{
             case 4:
@@ -181,7 +181,7 @@ extension TxtRenderInfo{
 
 
 
-struct Moron: Decodable {
+struct Coupling: Decodable {
     private
     let phrase: String?
     let word: String?
@@ -194,7 +194,7 @@ struct Moron: Decodable {
 }
 
 
-extension Moron{
+extension Coupling{
     var explain: String?{
         var result: String? = nil
         if let ph = phrase{
@@ -228,7 +228,7 @@ struct Federal_tag: Decodable{
 
 struct P_Bureau: Decodable {
 
-    let list: [Moron]
+    let list: [Coupling]
     let title: String
     let content: String
     let audio_path: String
@@ -303,7 +303,7 @@ struct WoX_intelligence: Decodable {
 
 
 
-extension Array where Element == Moron{
+extension Array where Element == Coupling{
     
     var page: NSAttributedString?{
         let info = NSMutableAttributedString()
