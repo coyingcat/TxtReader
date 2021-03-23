@@ -183,9 +183,7 @@ extension TxtRenderInfo{
 
 struct Coupling: Decodable {
     var string: String
-    
     let type: Int
-    let pronounce: String?
 }
 
 
