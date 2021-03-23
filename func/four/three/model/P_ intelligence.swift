@@ -32,7 +32,7 @@ extension NetData{
         var pairs = [Int]()
         
         var wArr = [Int]()
-        var sucks = [String]()
+        var strs = [String]()
         let cnt = list.count
         var i = 0
         var index = 0
@@ -52,13 +52,13 @@ extension NetData{
                     startIdx = index
                 }
                 pairs.append(index)
-                sucks.append(ri.string)
+                strs.append(ri.string)
             default:
                 index += 1
             }
             i += 1
         }
-        return TxtRenderInfo(pronounce: pronounceY, phrase: pairs, writerX: wArr, strs: sucks, kao: startIdx)
+        return TxtRenderInfo(pronounce: pronounceY, phrase: pairs, writerX: wArr, strs: strs, kao: startIdx)
     }
     
 }
