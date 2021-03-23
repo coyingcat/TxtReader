@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>list</key>
+	<array>
+		<dict>
+			<key>string</key>
+			<string>俳句</string>
+			<key>type</key>
+			<integer>0</integer>
+		</dict>
+        <dict>
+            <key>string</key>
+            <string>椿</string>
+            <key>type</key>
+            <integer>4</integer>
+        </dict>
+		<dict>
+			<key>string</key>
+			<string>赤い椿</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>白い椿と</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>落ちにけり</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+        <dict>
+            <key>string</key>
+            <string>初雪</string>
+            <key>type</key>
+            <integer>4</integer>
+        </dict>
+        <dict>
+            <key>string</key>
+            <string>初雪や</string>
+            <key>type</key>
+            <integer>4</integer>
+        </dict>
+        <dict>
+            <key>string</key>
+            <string>水仙の葉の</string>
+            <key>type</key>
+            <integer>4</integer>
+        </dict>
+        <dict>
+            <key>string</key>
+            <string>たわむまで</string>
+            <key>type</key>
+            <integer>4</integer>
+        </dict>
+	</array>
+	<key>title</key>
+	<string>詩</string>
+</dict>
+</plist>
