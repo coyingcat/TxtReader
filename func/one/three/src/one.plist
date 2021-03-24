@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>list</key>
+	<array>
+		<dict>
+			<key>string</key>
+			<string>歌詞</string>
+			<key>type</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>そう願ってた</string>
+			<key>pronounce</key>
+			<string>Gan</string>
+			<key>string</key>
+			<string>鸪： 鹁鸪 鹧鸪</string>
+			<key>type</key>
+			<integer>1</integer>
+			<key>word</key>
+			<string>願</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>離れる事もない</string>
+			<key>pronounce</key>
+			<string>Hanare</string>
+			<key>string</key>
+			<string>獾： 獾子 狼獾</string>
+			<key>type</key>
+			<integer>1</integer>
+			<key>word</key>
+			<string>離</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>満開の花が</string>
+			<key>pronounce</key>
+			<string>Hana</string>
+			<key>string</key>
+			<string>畜： 畜生 家畜</string>
+			<key>type</key>
+			<integer>1</integer>
+			<key>word</key>
+			<string>花</string>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>歌詞</string>
+			<key>type</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>そう願ってた</string>
+			<key>string</key>
+			<string>闰： 闰年 闰月</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>願</string>
+		</dict>
+		<dict>
+			<key>phrase</key>
+			<string>離れる事もない</string>
+			<key>string</key>
+			<string>郑： 郑和 郑重</string>
+			<key>type</key>
+			<integer>3</integer>
+			<key>word</key>
+			<string>離</string>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>歌詞</string>
+			<key>type</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>大都会に</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>僕はもう一人で</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+		<dict>
+			<key>string</key>
+			<string>星屑も</string>
+			<key>type</key>
+			<integer>4</integer>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>世界が終るまでは</string>
+</dict>
+</plist>
