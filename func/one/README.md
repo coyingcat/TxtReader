@@ -1,7 +1,7 @@
 # TxtReader
 
 
-###  [Core Text 实践：自定义每个字的位置](https://github.com/coyingcat/TxtReader/tree/master/func/five)
+###  [Core Text 实践 +：自动换行，与字级别的控制](https://juejin.cn/post/6943055021047021576)
 
 
 ### blog second part 3
