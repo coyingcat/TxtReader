@@ -132,27 +132,7 @@ class InnerTextView: UIView{
                 }
                 else{
                     CTLineDraw(line, ctx)
-                    ctx.setStrokeColor(UIColor.cyan.cgColor)
-                    for run in line.glyphRuns() {
-                        
-                        let font = run.font
-                        let glyphPositions = run.glyphPositions()
-                        let glyphs = run.glyphs()
-                        
-                        let glyphsBoundingRects = font.boundingRects(of: glyphs)
-                        
-                        //DRAW the bounding box for each glyph:
-                        
-                        for k in 0 ..< glyphPositions.count {
-                            let point = glyphPositions[k]
-                        
-                            var box = glyphsBoundingRects[k]
-                            box.origin = box.origin + point + originsArray[i]
-                            ctx.stroke(box)
-                                    
-                        }// for k
-                    
-                    }//for run
+                    drawBorders(context: ctx, ln: line, lnOrigin: lineOrigin)
                 }
                 if first == nil{
                     first = lineOrigin.y
@@ -217,6 +197,33 @@ class InnerTextView: UIView{
               CTLineDraw(ln, ctx)
         }
         return lnOffsset
+    }
+    
+    
+    
+    func drawBorders(context ctx: CGContext, ln line: CTLine, lnOrigin lineOrigin: CGPoint){
+        ctx.setStrokeColor(UIColor.systemPink.withAlphaComponent(0.6).cgColor)
+        for run in line.glyphRuns() {
+            
+            let font = run.font
+            let glyphPositions = run.glyphPositions()
+            let glyphs = run.glyphs()
+            
+            let glyphsBoundingRects = font.boundingRects(of: glyphs)
+            
+            //DRAW the bounding box for each glyph:
+            
+            for k in 0 ..< glyphPositions.count {
+                let point = glyphPositions[k]
+            
+                var box = glyphsBoundingRects[k]
+               // print("box: \(box), \n point: \(point) \n \n ")
+                box.origin = box.origin + point + lineOrigin
+                ctx.stroke(box)
+                        
+            }// for k
+        
+        }//for run
     }
 
 }
