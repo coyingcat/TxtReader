@@ -205,17 +205,17 @@ class InnerTextView: UIView{
     func drawBorders(context ctx: CGContext, ln line: CTLine, lnOrigin lineOrigin: CGPoint, omit shallOmit: Bool = true){
         ctx.setStrokeColor(UIColor.green.withAlphaComponent(0.6).cgColor)
         var notOmit = shallOmit
-        for run in line.glyphRuns() {
+        for run in line.glyphRuns{
             if notOmit{
                 let font = run.font
-                let glyphPositions = run.glyphPositions()
-                let glyphs = run.glyphs()
+                let glyphPositions = run.glyphPositions
+                let glyphs = run.glyphs
                 
                 let glyphsBoundingRects = font.boundingRects(of: glyphs)
                 
                 //DRAW the bounding box for each glyph:
                 
-                for k in 0 ..< glyphPositions.count {
+                for k in 0..<glyphPositions.count {
                     let point = glyphPositions[k]
                 
                     var box = glyphsBoundingRects[k]
@@ -354,9 +354,9 @@ extension Array where Element == CGGlyph {
 
 extension CTLine {
 
-  public func glyphRuns() -> [CTRun] {
-    CTLineGetGlyphRuns(self) as! [CTRun]
-  }
+    public var glyphRuns: [CTRun] {
+        CTLineGetGlyphRuns(self) as! [CTRun]
+    }
 
 
 }
@@ -367,7 +367,7 @@ extension CTRun {
     
     
     
-    public func glyphs() -> [CGGlyph] {
+    public var glyphs: [CGGlyph] {
       let runGlyphsCount = self.glyphsCount
       return [CGGlyph](unsafeUninitializedCapacity: runGlyphsCount) { (bufferPointer, count) in
         CTRunGetGlyphs(self, CFRange(), bufferPointer.baseAddress!)
@@ -384,7 +384,7 @@ extension CTRun {
     }
     
     /// The glyph positions in a run are relative to the origin of the line containing the run.
-    public func glyphPositions() -> [CGPoint] {
+    public var glyphPositions: [CGPoint] {
       let runGlyphsCount = glyphsCount
       return [CGPoint](unsafeUninitializedCapacity: runGlyphsCount) { (bufferPointer, count) in
         CTRunGetPositions(self, CFRange(), bufferPointer.baseAddress!)
@@ -419,8 +419,6 @@ public struct CTStringAttributeName: Hashable, RawRepresentable, CustomStringCon
     rawValue
   }
 
-  @available(OSX, introduced: 10.5, deprecated: 10.11, message: "Use feature type kCharacterShapeType with the appropriate selector")
-  public static let characterShape = CTStringAttributeName(rawValue: kCTCharacterShapeAttributeName as String)!
   public static let font = CTStringAttributeName(rawValue: kCTFontAttributeName as String)!
   public static let kern = CTStringAttributeName(rawValue: kCTKernAttributeName as String)!
   public static let ligature = CTStringAttributeName(rawValue: kCTLigatureAttributeName as String)!
