@@ -165,6 +165,7 @@ class InnerTextView: UIView{
                     zeroP.x += TextContentConst.offsetP.x
                 case 1:
                     zeroP.x = 92
+                    drawBorders(context: ctx, ln: line, lnOrigin: zeroP, omit: false)
                 default:
                     ()
                 }
@@ -201,28 +202,30 @@ class InnerTextView: UIView{
     
     
     
-    func drawBorders(context ctx: CGContext, ln line: CTLine, lnOrigin lineOrigin: CGPoint){
-        ctx.setStrokeColor(UIColor.systemPink.withAlphaComponent(0.6).cgColor)
+    func drawBorders(context ctx: CGContext, ln line: CTLine, lnOrigin lineOrigin: CGPoint, omit shallOmit: Bool = true){
+        ctx.setStrokeColor(UIColor.green.withAlphaComponent(0.6).cgColor)
+        var notOmit = shallOmit
         for run in line.glyphRuns() {
-            
-            let font = run.font
-            let glyphPositions = run.glyphPositions()
-            let glyphs = run.glyphs()
-            
-            let glyphsBoundingRects = font.boundingRects(of: glyphs)
-            
-            //DRAW the bounding box for each glyph:
-            
-            for k in 0 ..< glyphPositions.count {
-                let point = glyphPositions[k]
-            
-                var box = glyphsBoundingRects[k]
-               // print("box: \(box), \n point: \(point) \n \n ")
-                box.origin = box.origin + point + lineOrigin
-                ctx.stroke(box)
-                        
-            }// for k
-        
+            if notOmit{
+                let font = run.font
+                let glyphPositions = run.glyphPositions()
+                let glyphs = run.glyphs()
+                
+                let glyphsBoundingRects = font.boundingRects(of: glyphs)
+                
+                //DRAW the bounding box for each glyph:
+                
+                for k in 0 ..< glyphPositions.count {
+                    let point = glyphPositions[k]
+                
+                    var box = glyphsBoundingRects[k]
+                   // print("box: \(box), \n point: \(point) \n \n ")
+                    box.origin = box.origin + point + lineOrigin
+                    ctx.stroke(box)
+                            
+                }// for k
+            }
+            notOmit = true
         }//for run
     }
 
