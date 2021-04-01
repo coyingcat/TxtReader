@@ -2,8 +2,10 @@
 
 
 
-###  [Core Text 实践 +：自动换行，与字级别的控制](https://juejin.cn/post/6943055021047021576)
+###  [ Core Text 实践 +：文字随心所欲摆放](https://juejin.cn/post/6943055021047021576)
 
 
 
 ### blog third
+
+第三篇
