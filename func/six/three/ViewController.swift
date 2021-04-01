@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         if let p = dat.page{
             info.append(p)
         }
-        contentSong.enRender = dat.renderEn
+        contentSong.enRender = dat.renderTwo
         contentSong.contentPageEn = info.cp
         contentSong.refreshEn()
     }

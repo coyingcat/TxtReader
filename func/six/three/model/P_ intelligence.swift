@@ -17,8 +17,8 @@ struct NetData: Decodable {
     
     private
     let list: [Coupling]
-    let renderBritain: [Coupling]
-    let renderEn: EnRenderInfo
+    let renderOne: [Coupling]
+    let renderTwo: EnRenderInfo
     
     private enum CodingKeys : String, CodingKey {
         case list,  title
@@ -122,8 +122,8 @@ struct NetData: Decodable {
                 }
             }
         }
-        renderBritain = info
-        renderEn = EnRenderInfo(titlesBelowS: titlesBelowS, en: infoEn, restTitles: restTitleS, lineIndex: 0, eightY: acht, twelve: zehn)
+        renderOne = info
+        renderTwo = EnRenderInfo(titlesBelowS: titlesBelowS, en: infoEn, restTitles: restTitleS, lineIndex: 0, eightY: acht, twelve: zehn)
         
     }
 }
@@ -133,7 +133,7 @@ struct NetData: Decodable {
 extension NetData{
     
     var page: NSAttributedString?{
-        renderBritain.pageEn
+        renderOne.pageEn
     }
 
 }
