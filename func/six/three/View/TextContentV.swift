@@ -138,8 +138,8 @@ class InnerTextViewEn: UIView{
                     }
                     else{
                         let biscuit = info.en[index - 1]
-                     //   ctx.textPosition = CGPoint(x: lineOrigin.x + TextContentConst.indentSecond, y: lineOrigin.y)
-                        // CTLineDraw(biscuit.lines[biscuit.cnt - (f - i)], ctx)
+                        ctx.textPosition = CGPoint(x: lineOrigin.x + TextContentConst.indentSecond, y: lineOrigin.y)
+                        CTLineDraw(biscuit.lines[biscuit.cnt - (f - i)], ctx)
                         toDraw = true
                     }
                 }
@@ -153,17 +153,17 @@ class InnerTextViewEn: UIView{
                         attributedStr = biscuit.t.eight(toBreak: false)
                     }
                     let ln = CTLineCreateWithAttributedString(attributedStr)
-                    // CTLineDraw(ln, ctx)
-                   // ctx.textPosition = CGPoint(x: lineOrigin.x + TextContentConst.indentSecond, y: lineOrigin.y)
-                    // CTLineDraw(biscuit.lines[0], ctx)
+                    CTLineDraw(ln, ctx)
+                    ctx.textPosition = CGPoint(x: lineOrigin.x + TextContentConst.indentSecond, y: lineOrigin.y)
+                    CTLineDraw(biscuit.lines[0], ctx)
                     toDraw = true
                     startIndex = i + biscuit.cnt
                     index += 1
                 }
                 if toDraw == false{
-                    // CTLineDraw(line, ctx)
+                    CTLineDraw(line, ctx)
                 }
-                CTLineDraw(line, ctx)
+                // CTLineDraw(line, ctx)
                 if first == nil{
                     first = lineOrigin.y
                 }
