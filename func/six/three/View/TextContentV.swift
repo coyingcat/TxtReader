@@ -85,7 +85,7 @@ class InnerTextViewEn: UIView{
         var final: CGFloat = 0
         var first: CGFloat? = nil
         var index = 0
-        let limit = info.en.count
+        let limit = info.paragraph.count
         var startIndex: Int? = nil
        for (i,line) in lines.enumerated(){
                 var lineAscent:CGFloat      = 0
@@ -137,14 +137,14 @@ class InnerTextViewEn: UIView{
                         startIndex = nil
                     }
                     else{
-                        let biscuit = info.en[index - 1]
+                        let biscuit = info.paragraph[index - 1]
                         ctx.textPosition = CGPoint(x: lineOrigin.x + TextContentConst.indentSecond, y: lineOrigin.y)
                         CTLineDraw(biscuit.lines[biscuit.cnt - (f - i)], ctx)
                         toDraw = true
                     }
                 }
-                if index < limit, info.en[index].lineIdx == i{
-                    let biscuit = info.en[index]
+                if index < limit, info.paragraph[index].lineIdx == i{
+                    let biscuit = info.paragraph[index]
                     let attributedStr: NSAttributedString
                     if biscuit.beBlack{
                         attributedStr = biscuit.t.seven(toBreak: false)

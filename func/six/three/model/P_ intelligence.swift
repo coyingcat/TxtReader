@@ -46,7 +46,7 @@ struct NetData: Decodable {
 // MARK:- 进入 init , computer
         var info = [Coupling]()
         let product = "ha ha ha"
-        var infoEn = [TxtRenderInfoEn]()
+        var infoEn = [ParagraphRenderer]()
         var enLineIdx = 1
        
         var titlesBelowS = [Int]()
@@ -85,7 +85,7 @@ struct NetData: Decodable {
                         acht.append($0 + enLineIdx)
                     }
                     m.subList = [String](repeating: product, count: len)
-                    infoEn.append(TxtRenderInfoEn(lineIdx: enLineIdx, content: jujube.string, cnt: len, t: m.title ?? "", beBlack: true))
+                    infoEn.append(ParagraphRenderer(lineIdx: enLineIdx, content: jujube.string, cnt: len, t: m.title ?? "", beBlack: true))
                 }
                 else{
                     m.type = 101
@@ -107,7 +107,7 @@ struct NetData: Decodable {
                         acht.append($0 + enLineIdx)
                     }
                     m.subList = [String](repeating: product, count: len)
-                    infoEn.append(TxtRenderInfoEn(lineIdx: enLineIdx, content: jujube.string, cnt: len, t: m.title ?? "", beBlack: false))
+                    infoEn.append(ParagraphRenderer(lineIdx: enLineIdx, content: jujube.string, cnt: len, t: m.title ?? "", beBlack: false))
                 }
                 else{
                     m.type = 102
@@ -145,7 +145,7 @@ extension NetData{
 struct Renderer{
     
     let titlesBelowS: [Int]
-    let en: [TxtRenderInfoEn]
+    let paragraph: [ParagraphRenderer]
     let restTitles: [Int]
     
     
@@ -154,14 +154,14 @@ struct Renderer{
     let twelve: [Int]
     
     
-    init(titlesBelowS: [Int], en qiqi: [TxtRenderInfoEn], restTitles: [Int], lineIndex: Int, eightY: [Int], twelve: [Int]) {
+    init(titlesBelowS: [Int], en qiqi: [ParagraphRenderer], restTitles: [Int], lineIndex: Int, eightY: [Int], twelve: [Int]) {
         self.titlesBelowS = titlesBelowS
         self.restTitles = restTitles
         self.lineIndex = lineIndex
         self.eightY = eightY
         self.twelve = twelve
         
-        en = qiqi.map({ (balle) in
+        paragraph = qiqi.map({ (balle) in
             var leMonde = balle
             let attributedStr: NSAttributedString
             if balle.beBlack{
@@ -183,7 +183,7 @@ struct Renderer{
 }
 
 
-struct TxtRenderInfoEn {
+struct ParagraphRenderer{
     let lineIdx: Int
     let content: String
     let cnt: Int
