@@ -7,29 +7,25 @@
 
 import UIKit
 
-
-
-
-
 class ViewController: UIViewController {
     
     
     var netDat: NetData?
     
     
-    lazy var contentHan = TextContentV(frame: CGRect(x: 0, y: 100, width: UI.std.width, height: UI.std.height - 200))
+    lazy var contentSong = TextContentV(frame: CGRect(x: 0, y: 100, width: UI.std.width, height: UI.std.height - 200))
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.addSubs([contentHan])
+        view.addSubs([contentSong])
         do{
             
             if let path = Bundle.main.url(forResource: "one", withExtension: "plist"){
                 let data = try Data(contentsOf: path)
                 let decoder = PropertyListDecoder()
                 self.netDat = try decoder.decode(NetData.self, from: data)
-                self.textHan()
+                self.textSong()
             }
         }
         catch let error as NSError{
@@ -42,7 +38,7 @@ class ViewController: UIViewController {
 
     
     
-    func textHan(){
+    func textSong(){
         
         guard let dat = netDat else {
             return
@@ -51,9 +47,9 @@ class ViewController: UIViewController {
         if let p = dat.page{
             info.append(p)
         }
-        contentHan.textRender = dat.textRender
-        contentHan.contentPage = info.cp
-        contentHan.refresh()
+        contentSong.textRender = dat.textRender
+        contentSong.contentPage = info.cp
+        contentSong.refresh()
     }
 }
 
