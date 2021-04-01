@@ -166,3 +166,63 @@ extension String{
         return NSAttributedString(string: "\(self)\n", attributes: contentAttri)
     }
 }
+
+
+
+
+
+
+extension String{
+    
+    
+    
+    func six(toBreak brk: Bool) -> NSAttributedString{
+        var tmp = self
+        if brk{
+            tmp += "\n"
+        }
+        let contentC = UIColor(rgb: 0x1A1B1C)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 10
+        let contentAttri: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor : contentC,
+             NSAttributedString.Key.font : UIFont.semibold(ofSize: 18),
+             NSAttributedString.Key.paragraphStyle : paragraphStyle
+            ]
+        return NSAttributedString(string: tmp, attributes: contentAttri)
+    }
+    
+    
+    func seven(toBreak brk: Bool) -> NSAttributedString{
+        var tmp = self
+        if brk{
+            tmp += "\n"
+        }
+        let contentC = UIColor(rgb: 0x1A1B1C)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 10
+        let contentAttri: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor : contentC,
+             NSAttributedString.Key.font : UIFont.regular(ofSize: 16),
+             NSAttributedString.Key.paragraphStyle : paragraphStyle
+            ]
+        return NSAttributedString(string: tmp, attributes: contentAttri)
+    }
+    
+    
+    func eight(toBreak brk: Bool) -> NSAttributedString{
+        var tmp = self
+        if brk{
+            tmp += "\n"
+        }
+        let contentC = UIColor(rgb: 0x9397A1)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 10
+        let contentAttri: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor : contentC,
+             NSAttributedString.Key.font : UIFont.regular(ofSize: 16),
+             NSAttributedString.Key.paragraphStyle : paragraphStyle
+            ]
+        return NSAttributedString(string: tmp, attributes: contentAttri)
+    }
+    
+    
+    
+}

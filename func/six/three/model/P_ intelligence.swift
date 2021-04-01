@@ -17,8 +17,8 @@ struct NetData: Decodable {
     
     private
     let list: [Coupling]
-    
-    let renderGrid: [Coupling]
+    let renderBritain: [Coupling]
+    let renderEn: EnRenderInfo
     
     private enum CodingKeys : String, CodingKey {
         case list,  title
@@ -45,15 +45,85 @@ struct NetData: Decodable {
         
 // MARK:- 进入 init , computer
         var info = [Coupling]()
+        let product = "ha ha ha"
+        var infoEn = [TxtRenderInfoEn]()
+        var enLineIdx = 1
+       
+        var titlesBelowS = [Int]()
+        var titleFirstS: Bool = false
+        var restTitleS = [Int]()
+        
+        var acht = [Int]()
+        var zehn = [Int]()
         for jujube in list{
             switch jujube.type{
-            case 4:
-                ()
-            default:
+            case 0:
+                if titleFirstS{
+                    restTitleS.append(enLineIdx)
+                }
+                titlesBelowS.append(enLineIdx + 1)
+                titleFirstS = true
                 info.append(jujube)
+                enLineIdx += 1
+            case 6:
+                restTitleS.append(enLineIdx)
+                info.append(jujube)
+                enLineIdx += 1
+            case 7:
+                let contentC = UIColor(rgb: 0x1A1B1C)
+                let contentAttri: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor : contentC,
+                     NSAttributedString.Key.font : UIFont.regular(ofSize: 16)
+                    ]
+                let belongStr = NSAttributedString(string: jujube.string, attributes: contentAttri)
+                let lnTwo = CTLineCreateWithAttributedString(belongStr)
+                let w = lnTwo.lnSize.width
+                let cnt = w / TextContentConst.widthBritain
+                var m = jujube
+                let len = Int(ceil(cnt))
+                if len > 1{
+                    (1..<len).forEach {
+                        acht.append($0 + enLineIdx)
+                    }
+                    m.subList = [String](repeating: product, count: len)
+                    infoEn.append(TxtRenderInfoEn(lineIdx: enLineIdx, content: jujube.string, cnt: len, t: m.title ?? "", beBlack: true))
+                }
+                else{
+                    m.type = 101
+                }
+                info.append(m)
+                enLineIdx += len
+            case 8:
+                let contentC = UIColor(rgb: 0x9397A1)
+                let contentAttri: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor : contentC,
+                     NSAttributedString.Key.font : UIFont.regular(ofSize: 16) ]
+                let belongStr = NSAttributedString(string: jujube.string, attributes: contentAttri)
+                let lnTwo = CTLineCreateWithAttributedString(belongStr)
+                let w = lnTwo.lnSize.width
+                let cnt = w / TextContentConst.widthBritain
+                var m = jujube
+                let len = Int(ceil(cnt))
+                if len > 1{
+                    (1..<len).forEach {
+                        acht.append($0 + enLineIdx)
+                    }
+                    m.subList = [String](repeating: product, count: len)
+                    infoEn.append(TxtRenderInfoEn(lineIdx: enLineIdx, content: jujube.string, cnt: len, t: m.title ?? "", beBlack: false))
+                }
+                else{
+                    m.type = 102
+                }
+                info.append(m)
+                zehn.append(enLineIdx)
+                enLineIdx += len
+            default:
+                if jujube.string != "\\n"{
+                    info.append(jujube)
+                    enLineIdx += 1
+                }
             }
         }
-        renderGrid = info
+        renderBritain = info
+        renderEn = EnRenderInfo(titlesBelowS: titlesBelowS, en: infoEn, restTitles: restTitleS, lineIndex: 0, eightY: acht, twelve: zehn)
         
     }
 }
@@ -62,50 +132,10 @@ struct NetData: Decodable {
 
 extension NetData{
     
-    
     var page: NSAttributedString?{
-        renderGrid.page
+        renderBritain.pageEn
     }
 
-    
-    var textRender: TxtRenderInfo{
-        var pronounceY = [Int]()
-        var pairs = [Int]()
-        
-        var wArr = [Int]()
-        var sucks = [String]()
-        let cnt = renderGrid.count
-        var i = 0
-        var index = 0
-        var startIdx: Int? = nil
-        while i < cnt {
-            let ri = renderGrid[i]
-            switch ri.type {
-            case 1:
-                index += 2
-                pronounceY.append(index)
-            case 3:
-                index += 1
-                wArr.append(index)
-            case 4:
-                index += 1
-                if startIdx == nil{
-                    startIdx = index
-                }
-                pairs.append(index)
-                sucks.append(ri.string)
-            default:
-                index += 1
-            }
-            i += 1
-        }
-        return TxtRenderInfo(pronounce: pronounceY, phrase: pairs, writerX: wArr, strs: sucks, kao: startIdx)
-    }
-    
-    
-    
-    
-    
 }
 
 
@@ -168,8 +198,18 @@ struct TxtRenderInfoEn {
 
 
 struct Coupling: Decodable {
+    
+    private
+    let phrase: String?
+    let word: String?
+    
     var string: String
-    let type: Int
+    
+    var type: Int
+    let pronounce: String?
+    let title: String?
+
+    var subList: [String]?
 }
 
 
@@ -240,7 +280,7 @@ extension P_Bureau{
     
     
     var page: NSAttributedString?{
-        list.page
+        list.pageEn
     }
     
     
@@ -273,15 +313,45 @@ struct WoX_intelligence: Decodable {
 
 extension Array where Element == Coupling{
     
-    var page: NSAttributedString?{
+    var pageEn: NSAttributedString?{
         let info = NSMutableAttributedString()
-        
         for jujube in self{
             switch jujube.type {
             case 0:
                 info.append(jujube.string.richTitle)
-            case 4:
-                info.append(jujube.string.money)
+            case 6:
+                if let val = jujube.title{
+                    info.append(val.six(toBreak: false))
+                }
+                info.append(jujube.string.six(toBreak: true))
+            case 7:
+                if let val = jujube.title{
+                    info.append(val.seven(toBreak: false))
+                }
+                if let val = jujube.subList{
+                    val.forEach {
+                        info.append($0.seven(toBreak: true))
+                    }
+                }
+            case 8:
+                if let val = jujube.title{
+                    info.append(val.eight(toBreak: false))
+                }
+                if let val = jujube.subList{
+                    val.forEach {
+                        info.append($0.eight(toBreak: true))
+                    }
+                }
+            case 101:
+                if let val = jujube.title{
+                    info.append(val.seven(toBreak: false))
+                }
+                info.append(jujube.string.seven(toBreak: true))
+            case 102:
+                if let val = jujube.title{
+                    info.append(val.eight(toBreak: false))
+                }
+                info.append(jujube.string.eight(toBreak: true))
             default:
                 // 2
                 info.append(jujube.string.richBody)
