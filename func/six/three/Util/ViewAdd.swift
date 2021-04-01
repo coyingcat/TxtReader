@@ -7,48 +7,6 @@
 //
 
 import UIKit
-
-
-protocol DarkMask {
-    func isMask()
-}
-
-protocol CornerClip {
-    func corner(_ clip: CGFloat)
-}
-
-
-
-extension UIView: DarkMask{
-    
-    func isMask(){
-        backgroundColor = UIColor.black
-        alpha = 0.6
-        
-    }
-  
-}
-
-
-
-extension UIView: CornerClip{
-    
-    func corner(_ clip: CGFloat) {
-        layer.cornerRadius = clip
-        clipsToBounds = true
-        
-    }
-    
-    
-    func border(color col: UIColor, bordW wid: CGFloat = 1) {
-        layer.borderWidth = wid
-        layer.borderColor = col.cgColor
-        
-    }
-
-}
-
-
 extension UIView{
     
     static func white() -> UIView{

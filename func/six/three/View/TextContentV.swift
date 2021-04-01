@@ -12,13 +12,13 @@ struct TextContentConst {
     static let padding = CGFloat(40)
 
     static let offsetP = CGPoint(x: 10, y: 5)
-    
+    static let indentSecond = CGFloat(48)
     static var widthInUse: CGFloat{
            UI.std.width - TextContentConst.padding * 2
     }
     
     static var widthBritain: CGFloat{
-           UI.std.width - TextContentConst.padding * 2 - 48
+           UI.std.width - TextContentConst.padding * 2 - indentSecond
     }
 }
 
@@ -26,13 +26,7 @@ protocol DrawDoneProxy: class {
     func done(height h: CGFloat)
 }
 
-
-
-
-
 class InnerTextViewEn: UIView{
-    
-    
     var frameRef:CTFrame?
     var textRenderX: EnRenderInfo?
     var s: CGSize?
@@ -71,8 +65,7 @@ class InnerTextViewEn: UIView{
        guard let ctx = UIGraphicsGetCurrentContext(), let f = frameRef, let info = textRenderX else{
            return
        }
-        
-        let xHigh = bounds.size.height
+       let xHigh = bounds.size.height
        ctx.textMatrix = CGAffineTransform.identity
        ctx.translateBy(x: 0, y: xHigh)
        ctx.scaleBy(x: 1.0, y: -1.0)
@@ -94,14 +87,12 @@ class InnerTextViewEn: UIView{
         var index = 0
         let limit = info.en.count
         var startIndex: Int? = nil
-        let insetX = CGFloat(48)
        for (i,line) in lines.enumerated(){
                 var lineAscent:CGFloat      = 0
                 var lineDescent:CGFloat     = 0
                 var lineLeading:CGFloat     = 0
                 CTLineGetTypographicBounds(line , &lineAscent, &lineDescent, &lineLeading)
                 var lineOrigin = originsArray[i]
-                // print(lineOrigin)
                 lineOrigin.x = TextContentConst.padding + lineOrigin.x
                 if info.eightY.contains(i){
                     lastY -= 3
@@ -147,7 +138,7 @@ class InnerTextViewEn: UIView{
                     }
                     else{
                         let biscuit = info.en[index - 1]
-                        ctx.textPosition = CGPoint(x: lineOrigin.x + insetX, y: lineOrigin.y)
+                        ctx.textPosition = CGPoint(x: lineOrigin.x + TextContentConst.indentSecond, y: lineOrigin.y)
                         CTLineDraw(biscuit.lines[biscuit.cnt - (f - i)], ctx)
                         toDraw = true
                     }
@@ -163,7 +154,7 @@ class InnerTextViewEn: UIView{
                     }
                     let ln = CTLineCreateWithAttributedString(attributedStr)
                     CTLineDraw(ln, ctx)
-                    ctx.textPosition = CGPoint(x: lineOrigin.x + insetX, y: lineOrigin.y)
+                    ctx.textPosition = CGPoint(x: lineOrigin.x + TextContentConst.indentSecond, y: lineOrigin.y)
                     CTLineDraw(biscuit.lines[0], ctx)
                     toDraw = true
                     startIndex = i + biscuit.cnt
