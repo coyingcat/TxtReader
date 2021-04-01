@@ -320,9 +320,6 @@ extension Array where Element == Coupling{
             case 0:
                 info.append(jujube.string.richTitle)
             case 6:
-                if let val = jujube.title{
-                    info.append(val.six(toBreak: false))
-                }
                 info.append(jujube.string.six(toBreak: true))
             case 7:
                 if let val = jujube.title{
