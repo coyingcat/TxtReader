@@ -18,7 +18,7 @@ struct NetData: Decodable {
     private
     let list: [Coupling]
     let renderOne: [Coupling]
-    let renderTwo: EnRenderInfo
+    let renderTwo: Renderer
     
     private enum CodingKeys : String, CodingKey {
         case list,  title
@@ -123,7 +123,7 @@ struct NetData: Decodable {
             }
         }
         renderOne = info
-        renderTwo = EnRenderInfo(titlesBelowS: titlesBelowS, en: infoEn, restTitles: restTitleS, lineIndex: 0, eightY: acht, twelve: zehn)
+        renderTwo = Renderer(titlesBelowS: titlesBelowS, en: infoEn, restTitles: restTitleS, lineIndex: 0, eightY: acht, twelve: zehn)
         
     }
 }
@@ -142,7 +142,7 @@ extension NetData{
 
 
 
-struct EnRenderInfo{
+struct Renderer{
     
     let titlesBelowS: [Int]
     let en: [TxtRenderInfoEn]
@@ -198,15 +198,9 @@ struct TxtRenderInfoEn {
 
 
 struct Coupling: Decodable {
-    
-    private
-    let phrase: String?
-    let word: String?
-    
     var string: String
     
     var type: Int
-    let pronounce: String?
     let title: String?
 
     var subList: [String]?

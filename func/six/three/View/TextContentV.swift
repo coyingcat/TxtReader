@@ -28,7 +28,7 @@ protocol DrawDoneProxy: class {
 
 class InnerTextViewEn: UIView{
     var frameRef:CTFrame?
-    var textRenderX: EnRenderInfo?
+    var textRenderX: Renderer?
     var s: CGSize?
     
     let bgGrip = UIImage(named: "6_typo_grip")
@@ -198,7 +198,7 @@ class TextContentV: UIScrollView {
             s = contentEnV.s
         }
     }
-    var enRender: EnRenderInfo?
+    var enRender: Renderer?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
