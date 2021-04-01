@@ -62,7 +62,6 @@ class InnerTextViewEn: UIView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        isHidden = true
         backgroundColor = UIColor.white
     }
 
