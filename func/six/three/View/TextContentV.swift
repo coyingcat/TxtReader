@@ -16,30 +16,38 @@ struct TextContentConst {
     static var widthInUse: CGFloat{
            UI.std.width - TextContentConst.padding * 2
     }
+    
+    static var widthBritain: CGFloat{
+           UI.std.width - TextContentConst.padding * 2 - 48
+    }
 }
 
 protocol DrawDoneProxy: class {
     func done(height h: CGFloat)
 }
 
-class InnerTextView: UIView{
+
+
+
+
+class InnerTextViewEn: UIView{
     
     
     var frameRef:CTFrame?
-    var textRender: TxtRenderInfo?
+    var textRenderX: EnRenderInfo?
     var s: CGSize?
     
     let bgGrip = UIImage(named: "6_typo_grip")
     weak var delegate: DrawDoneProxy?
     
-    var contentPage: NSAttributedString?{
+    var contentPageX: NSAttributedString?{
         didSet{
-            guard let page = contentPage else{
+            guard let page = contentPageX else{
                 return
             }
             
             // 计算文本框大小，因为 UIView 没有 UILabel 的 intrinsic  size
-            let calculatedSize = page.boundingRect(with: CGSize(width: TextContentConst.widthInUse, height: 3000), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
+            let calculatedSize = page.bound(height: 3000)
             let siZ = CGSize(width: TextContentConst.widthInUse, height: calculatedSize.height * 3)
             
             // 建立 core text 文本
@@ -54,14 +62,14 @@ class InnerTextView: UIView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        isHidden = true
         backgroundColor = UIColor.white
     }
 
  
     // 绘制文本
     override func draw(_ rect: CGRect){
-       guard let ctx = UIGraphicsGetCurrentContext(), let f = frameRef, let info = textRender else{
+       guard let ctx = UIGraphicsGetCurrentContext(), let f = frameRef, let info = textRenderX else{
            return
        }
         
@@ -84,30 +92,37 @@ class InnerTextView: UIView{
         var lastY: CGFloat = 0
         var final: CGFloat = 0
         var first: CGFloat? = nil
-        
+        var index = 0
+        let limit = info.en.count
+        var fuk: Int? = nil
+        let insetX = CGFloat(58)
        for (i,line) in lines.enumerated(){
-               var lineAscent:CGFloat      = 0
-               var lineDescent:CGFloat     = 0
-               var lineLeading:CGFloat     = 0
-               let sentenceW = CTLineGetTypographicBounds(line , &lineAscent, &lineDescent, &lineLeading)
-               
+                var lineAscent:CGFloat      = 0
+                var lineDescent:CGFloat     = 0
+                var lineLeading:CGFloat     = 0
+                CTLineGetTypographicBounds(line , &lineAscent, &lineDescent, &lineLeading)
                 var lineOrigin = originsArray[i]
-                lineOrigin.x = TextContentConst.padding
+                // print(lineOrigin)
+                lineOrigin.x = TextContentConst.padding + lineOrigin.x
                 if info.eightY.contains(i){
-                    lastY -= 8
+                    lastY -= 3
+                }
+                else if info.twelve.contains(i){
+                    lastY -= 11
+                }
+                else if info.titlesBelowS.contains(i){
+                    lastY -= 20
+                }
+                else if info.restTitles.contains(i){
+                    lastY -= TextContentConst.padding
                 }
                 else{
                     switch i {
-                    case 1:
+                    case info.lineIndex + 1:
                         lastY -= TextContentConst.padding
                     default:
                         lastY -= 20
                     }
-                }
-        
-                if info.pronounceX.contains(i){
-                    let makeUp = TextContentConst.fBgTypoImg.width - CGFloat(sentenceW)
-                    lineOrigin.x += makeUp / 2
                 }
         
                 switch i {
@@ -115,23 +130,47 @@ class InnerTextView: UIView{
                     frameY = lineOrigin.y
                 default:
                     frameY = frameY - (lineAscent + lineDescent)
+                    //减去一个行间距，再减去第二行，字形的上部分 （循环）
                     lineOrigin.y = frameY
                 }
                 
                 lineOrigin.y += lastY
+               // 调整成所需要的坐标
                 let yOffset = lineOrigin.y - lineDescent - 20
-                if i == 0{
+                if i == info.lineIndex{
                     ctx.draw(line: yOffset)
                 }
                 ctx.textPosition = lineOrigin
-                if info.contains(pair: i){
-                    drawPairs(context: ctx, ln: line, startPoint: lineOrigin, ascent: lineAscent)
+                var toDraw = false
+                if let f = fuk{
+                    if i >= f{
+                        fuk = nil
+                    }
+                    else{
+                        let biscuit = info.en[index - 1]
+                        ctx.textPosition = CGPoint(x: lineOrigin.x + insetX, y: lineOrigin.y)
+                        CTLineDraw(biscuit.lines[biscuit.cnt - (f - i)], ctx)
+                        toDraw = true
+                    }
                 }
-                else if info.phraseY.contains(i), let startIdx = info.startIdx{
-                    let lnHeight = lineAscent + lineDescent + lineLeading
-                    lastY -= drawGrips(m: info, lnH: lnHeight, index: i, dB: startIdx, lineOrigin: lineOrigin, context: ctx, lnAscent: lineAscent)
+                if index < limit, info.en[index].lineIdx == i{
+                    let biscuit = info.en[index]
+                    let dépression: NSAttributedString
+                    if biscuit.beBlack{
+                        dépression = biscuit.t.seven(toBreak: false)
+                    }
+                    else{
+                        dépression = biscuit.t.eight(toBreak: false)
+                    }
+                    let ln = CTLineCreateWithAttributedString(dépression)
+                    CTLineDraw(ln, ctx)
+                    ctx.textPosition = CGPoint(x: lineOrigin.x + insetX, y: lineOrigin.y)
+                    CTLineDraw(biscuit.lines[0], ctx)
+                    toDraw = true
+                    fuk = i + biscuit.cnt
+                    index += 1
                 }
-                else{
+                if toDraw == false{
                     CTLineDraw(line, ctx)
                 }
                 if first == nil{
@@ -149,81 +188,32 @@ class InnerTextView: UIView{
     required init?(coder: NSCoder) {
         fatalError()
     }
-    
-    
-    func drawPairs(context ctx: CGContext, ln line: CTLine,startPoint lineOrigin: CGPoint, ascent lineAscent: CGFloat){
-        if let pieces = CTLineGetGlyphRuns(line) as? [CTRun]{
-            let pieceCnt = pieces.count
-            var zeroP = lineOrigin
-            zeroP.y -= 5
-            for j in 0..<pieceCnt{
-                switch j {
-                case 0:
-                    var frame = TextContentConst.fBgTypoImg
-                    frame.origin.y = lineOrigin.y + lineAscent - TextContentConst.fBgTypoImg.size.height + TextContentConst.offsetP.y
-                    bgGrip?.draw(in: frame)
-                    zeroP.x += TextContentConst.offsetP.x
-                case 1:
-                    zeroP.x = 92
-                default:
-                    ()
-                }
-                ctx.textPosition = zeroP
-                CTRunDraw(pieces[j], ctx, CFRange(location: 0, length: 0))
-            }
-        }
-    }
-    
-    
-    
-    func drawGrips(m info: TxtRenderInfo, lnH lnHeight: CGFloat, index i: Int, dB startIdx: Int, lineOrigin lnOrigin: CGPoint, context ctx: CGContext, lnAscent lineAscent: CGFloat) -> CGFloat{
-        let content = info.strs[i - startIdx]
-        let glyphCount = content.count
-        var frameImg = TextContentConst.fBgTypoImg
-        let lnOffsset = (TextContentConst.padding - lnHeight) * 0.5
-        var lineOrigin = lnOrigin
-        lineOrigin.y -= lnOffsset
-        var textP = lineOrigin
-        for idx in 0..<glyphCount{
-              let pieX = String(content[idx])
-              let ln = CTLineCreateWithAttributedString(pieX.word)
-              let lnSize = ln.lnSize
-              let typeOriginX = TextContentConst.padding * CGFloat(idx + 1)
-              textP.x = typeOriginX + (TextContentConst.padding - lnSize.width) * 0.5
-              ctx.textPosition = textP
-              frameImg.origin.x = typeOriginX
-              frameImg.origin.y = lineOrigin.y + lineAscent - TextContentConst.fBgTypoImg.size.height + TextContentConst.offsetP.y
-              if pieX != " "{
-                 bgGrip?.draw(in: frameImg)
-                 CTLineDraw(ln, ctx)
-              }
-        }
-        return lnOffsset
-    }
-
 }
+
+
+
 
 
 class TextContentV: UIScrollView {
 
-    lazy var contentV = InnerTextView()
+    lazy var contentEnV = InnerTextViewEn()
     
     var s: CGSize?
     
-    var contentPage: NSAttributedString?{
+    var contentPageEn: NSAttributedString?{
         didSet{
-            contentV.textRender = textRender
-            contentV.contentPage = contentPage
-            s = contentV.s
+            contentEnV.textRenderX = enRender
+            contentEnV.contentPageX = contentPageEn
+            s = contentEnV.s
         }
     }
-    var textRender: TxtRenderInfo?
+    var enRender: EnRenderInfo?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         bounces = false
-        contentV.delegate = self
-        addSubs([contentV])
+        contentEnV.delegate = self
+        addSubs([contentEnV])
         showsHorizontalScrollIndicator = false
         showsVerticalScrollIndicator = false
         backgroundColor = UIColor.white
@@ -233,12 +223,12 @@ class TextContentV: UIScrollView {
         fatalError()
     }
 
-    func refresh(){
+    func refreshEn(){
         if let sCont = s{
-            contentV.frame = CGRect(x: 0, y: 0, width: UI.std.width, height: sCont.height)
+            contentEnV.frame = CGRect(x: 0, y: 0, width: UI.std.width, height: sCont.height)
             contentSize = sCont
         }
-        contentV.setNeedsDisplay()
+        contentEnV.setNeedsDisplay()
     }
 }
 
@@ -294,4 +284,15 @@ extension CTLine{
         let lnHeight = lnAscent + lnDescent + lnLeading
         return CGSize(width: CGFloat(glyphW), height: lnHeight)
     }
+}
+
+
+
+
+
+extension NSAttributedString{
+    func bound(height h: CGFloat) -> CGSize{
+        return boundingRect(with: CGSize(width: TextContentConst.widthInUse, height: h), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
+    }
+    
 }

@@ -110,52 +110,59 @@ extension NetData{
 
 
 
-struct TxtRenderInfo {
+
+
+struct EnRenderInfo{
     
-    private
-    let author: [Int]
-    fileprivate
-    let pronounceY: [Int]
+    let titlesBelowS: [Int]
+    let en: [TxtRenderInfoEn]
+    let restTitles: [Int]
     
     
-    let pronounceX: [Int]
-    let writerX: [Int]
-    
-    //
+    let lineIndex: Int
     let eightY: [Int]
+    let twelve: [Int]
     
-    let phraseY: [Int]
     
-    let strs: [String]
-    let startIdx: Int?
-    
-    init(pronounce pronInfo: [Int], phrase pairs: [Int], writerX wArr: [Int], strs sucks: [String], kao beginIdx: Int?){
-        pronounceY = pronInfo
-        pronounceX = pronounceY.map { (idx) -> Int in
-            return idx - 1
-        }
-        author = []
-        eightY = author + pronounceY
-        phraseY = pairs
-        writerX = wArr
-        strs = sucks
-        startIdx = beginIdx
+    init(titlesBelowS: [Int], en qiqi: [TxtRenderInfoEn], restTitles: [Int], lineIndex: Int, eightY: [Int], twelve: [Int]) {
+        self.titlesBelowS = titlesBelowS
+        self.restTitles = restTitles
+        self.lineIndex = lineIndex
+        self.eightY = eightY
+        self.twelve = twelve
+        
+        en = qiqi.map({ (balle) in
+            var leMonde = balle
+            let dépression: NSAttributedString
+            if balle.beBlack{
+                dépression = balle.content.seven(toBreak: false)
+            }
+            else{
+                dépression = balle.content.eight(toBreak: false)
+            }
+            let framesetter = CTFramesetterCreateWithAttributedString(dépression)
+            let path = CGPath(rect: CGRect(origin: CGPoint.zero, size: CGSize(width: TextContentConst.widthBritain, height: 45 * CGFloat(balle.cnt))), transform: nil)
+            let f = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, nil)
+            guard let lines = CTFrameGetLines(f) as? [CTLine] else{
+                return leMonde
+            }
+            leMonde.lines = lines
+            return leMonde
+        })
     }
-    
 }
 
 
-
-extension TxtRenderInfo{
-    func contains(pair k: Int) -> Bool{
-        var isOK = false
-        if writerX.contains(k) || pronounceY.contains(k){
-            isOK = true
-        }
-        return isOK
-    }
+struct TxtRenderInfoEn {
+    let lineIdx: Int
+    let content: String
+    let cnt: Int
+    
+    let t: String
+    let beBlack: Bool
     
     
+    var lines = [CTLine]()
 }
 
 
