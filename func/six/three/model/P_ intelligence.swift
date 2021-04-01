@@ -213,49 +213,6 @@ struct Coupling: Decodable {
 }
 
 
-struct Node_intelligence: Decodable {
-
-    let wav_lengths: [TimeInterval]
-    let node: [Federal_tag]?
-    
-}
-
-
-
-struct Federal_tag: Decodable{
-    let index: Int
-    let title: String
-}
-
-
-
-
-
-
-
-
-struct P_Bureau: Decodable {
-
-    let list: [Coupling]
-    let title: String
-    let content: String
-    let audio_path: String
-    let language: String
-    
-    let nodes: WoX_intelligence
-    
-    let next: Int
-    
-    let pre: Int
-    
-    
-    private enum CodingKeys : String, CodingKey {
-        case list,  title, audio_path = "audio"
-        case nodes, content, language
-        case pre = "prev_id", next = "next_id"
-    }
-    
-}
 
 enum LanOpt{
     case en
@@ -276,38 +233,6 @@ enum LanOpt{
 
 
 
-extension P_Bureau{
-    
-    
-    var page: NSAttributedString?{
-        list.pageEn
-    }
-    
-    
-    
-    var nodeX: [TimeInterval]{
-        nodes.wav_lengths
-    }
-    
-    
-    var lan: LanOpt{
-        if language == "chinese"{
-            return .ch
-        }
-        else{
-            return .en
-        }
-    }
-}
-
-
-
-struct WoX_intelligence: Decodable {
-
-    let wav_lengths: [TimeInterval]
-    
-    
-}
 
 
 
@@ -357,25 +282,4 @@ extension Array where Element == Coupling{
         return info.cp
     }
     
-}
-
-
-
-
-struct StartPlayIdxInfo {
-    
-    let interval: TimeInterval = 3
-    let repeatTime = 1
-    
-    
-    static let std = StartPlayIdxInfo()
-}
-
-
-
-
-extension String{
-    var fourW: CGFloat{
-        CGFloat(count) * 40
-    }
 }
