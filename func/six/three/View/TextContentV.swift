@@ -94,7 +94,7 @@ class InnerTextViewEn: UIView{
         var index = 0
         let limit = info.en.count
         var fuk: Int? = nil
-        let insetX = CGFloat(58)
+        let insetX = CGFloat(48)
        for (i,line) in lines.enumerated(){
                 var lineAscent:CGFloat      = 0
                 var lineDescent:CGFloat     = 0
