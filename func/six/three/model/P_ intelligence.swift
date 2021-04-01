@@ -163,14 +163,14 @@ struct EnRenderInfo{
         
         en = qiqi.map({ (balle) in
             var leMonde = balle
-            let dépression: NSAttributedString
+            let attributedStr: NSAttributedString
             if balle.beBlack{
-                dépression = balle.content.seven(toBreak: false)
+                attributedStr = balle.content.seven(toBreak: false)
             }
             else{
-                dépression = balle.content.eight(toBreak: false)
+                attributedStr = balle.content.eight(toBreak: false)
             }
-            let framesetter = CTFramesetterCreateWithAttributedString(dépression)
+            let framesetter = CTFramesetterCreateWithAttributedString(attributedStr)
             let path = CGPath(rect: CGRect(origin: CGPoint.zero, size: CGSize(width: TextContentConst.widthBritain, height: 45 * CGFloat(balle.cnt))), transform: nil)
             let f = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, nil)
             guard let lines = CTFrameGetLines(f) as? [CTLine] else{
