@@ -2,7 +2,7 @@
 
 
 
-###  [ Core Text 实践 +：文字随心所欲摆放](https://juejin.cn/post/6946261265559846943)
+###  [ Core Text 雕虫小技： 建立指示行 ](https://juejin.cn/post/6978890527861112868)
 
 
 
