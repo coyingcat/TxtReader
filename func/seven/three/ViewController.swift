@@ -18,8 +18,8 @@ class ViewController: UIViewController {
     
     lazy var ln: UIView = {
         let v = UIView(frame: CGRect(x: 0, y: TxtCustomConst.kLnTop + 100, width: UI.std.width, height: 4))
-        v.backgroundColor = UIColor(rgb: 0xD2E8FF)
-        v.alpha = 0.6
+        v.backgroundColor = UIColor.red
+        v.alpha = 0.2
         return v
     }()
     
