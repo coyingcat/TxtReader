@@ -18,7 +18,7 @@ struct TextContentConst {
     }
 }
 
-protocol DrawDoneProxy: class {
+protocol DrawDoneProxy: AnyObject {
     func done(height h: CGFloat)
 }
 

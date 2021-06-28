@@ -15,7 +15,7 @@ struct TextContentConst {
     static let offsetP = CGPoint(x: 10, y: 5)
 }
 
-protocol DrawDoneProxy: class {
+protocol DrawDoneProxy: AnyObject {
     func done(height h: CGFloat)
 }
 
