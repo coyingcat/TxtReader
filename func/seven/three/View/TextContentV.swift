@@ -170,7 +170,6 @@ class ReadScrollV: UIScrollView {
     
     func setup(){
         bounces = false
-        isHidden = true
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         
@@ -386,9 +385,8 @@ class ReadScrollV_xxxx: UIScrollView {
     
     
     
-    
-    init() {
-        super.init(frame: CGRect.zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setup()
     }
     
@@ -396,7 +394,6 @@ class ReadScrollV_xxxx: UIScrollView {
     
     func setup(){
         bounces = false
-        isHidden = true
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
         

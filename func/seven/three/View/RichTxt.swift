@@ -11,6 +11,22 @@ import UIKit
 
 extension String{
     
+    
+    var customHead: NSAttributedString{
+        let headC = UIColor(rgb: 0x313836)
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.paragraphSpacing = 40
+        
+        let headAttri: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor : headC,
+            NSAttributedString.Key.font : UIFont.semibold(ofSize: 20),
+            NSAttributedString.Key.paragraphStyle : paragraphStyle
+                ]
+        
+        return NSAttributedString(string: "\(self)\n", attributes: headAttri)
+        
+    }
+    
     var richHead: NSAttributedString{
         let headC = UIColor(rgb: 0x313836)
         
@@ -107,11 +123,23 @@ extension String{
         return NSAttributedString(string: tmp, attributes: contentAttri)
     }
     
-    
+    var normalLn: NSAttributedString{
+        let contentC = UIColor.darkText
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 20
+        
+        let contentAttri: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor : contentC,
+             NSAttributedString.Key.font : UIFont.regular(ofSize: 16),
+             NSAttributedString.Key.paragraphStyle : paragraphStyle
+            ]
+        
+        return NSAttributedString(string: self, attributes: contentAttri)
+    }
     
     
     var highLn: NSAttributedString{
-        let contentC = UIColor(rgb: 0x0080FF)
+        let contentC = UIColor.red
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 20
