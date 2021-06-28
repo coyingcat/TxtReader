@@ -1,48 +1,52 @@
 //
-//  TextContentV.swift
+//  ReadScrollV.swift
 //  petit
 //
-//  Created by Jz D on 2021/3/17.
+//  Created by Jz D on 2021/6/18.
 //  Copyright © 2021 swift. All rights reserved.
 //
 
 import UIKit
 
-struct TextContentConst {
-    static let padding = CGFloat(40)
-
-    static let offsetP = CGPoint(x: 10, y: 5)
-    static let indentSecond = CGFloat(48)
-    static var widthInUse: CGFloat{
-           UI.std.width - TextContentConst.padding * 2
-    }
-    
-    static var widthBritain: CGFloat{
-           UI.std.width - TextContentConst.padding * 2 - indentSecond
-    }
-}
 
 protocol DrawDoneProxy: AnyObject {
     func done(height h: CGFloat)
 }
 
-class InnerTextViewEn: UIView{
+
+
+
+struct TxtCustomConst {
+    static let padding = CGFloat(16)
+
+    
+    static let kLnTop: CGFloat = 250
+    
+    static var widthInUse: CGFloat{
+           UI.std.width - TxtCustomConst.padding * 2
+    }
+    
+}
+
+
+class TxtViewCustom: UIView{
+    
+    
     var frameRef:CTFrame?
-    var textRenderX: Renderer?
+    var txtRenderX: Int?
     var s: CGSize?
     
-    let bgGrip = UIImage(named: "6_typo_grip")
     weak var delegate: DrawDoneProxy?
     
-    var contentPageX: NSAttributedString?{
+    var contentPageX__h: NSAttributedString?{
         didSet{
-            guard let page = contentPageX else{
+            guard let page = contentPageX__h else{
                 return
             }
             
             // 计算文本框大小，因为 UIView 没有 UILabel 的 intrinsic  size
-            let calculatedSize = page.bound(height: 3000)
-            let siZ = CGSize(width: TextContentConst.widthInUse, height: calculatedSize.height * 3)
+            let calculatedSize = page.custom(bound: 3000)
+            let siZ = CGSize(width: TxtCustomConst.widthInUse, height: calculatedSize.height * 3)
             
             // 建立 core text 文本
             let framesetter = CTFramesetterCreateWithAttributedString(page)
@@ -59,13 +63,15 @@ class InnerTextViewEn: UIView{
         backgroundColor = UIColor.white
     }
 
+    
  
     // 绘制文本
     override func draw(_ rect: CGRect){
-       guard let ctx = UIGraphicsGetCurrentContext(), let f = frameRef, let info = textRenderX else{
+       guard let ctx = UIGraphicsGetCurrentContext(), let f = frameRef, let lineIndex = txtRenderX else{
            return
        }
-       let xHigh = bounds.size.height
+        
+        let xHigh = bounds.size.height
        ctx.textMatrix = CGAffineTransform.identity
        ctx.translateBy(x: 0, y: xHigh)
        ctx.scaleBy(x: 1.0, y: -1.0)
@@ -76,94 +82,36 @@ class InnerTextViewEn: UIView{
        guard lineCount > 0 else {
            return
        }
-       var frameY:CGFloat              = 0
 
        var originsArray = [CGPoint](repeating: CGPoint.zero, count: lineCount)
        //用于存储每一行的坐标
        CTFrameGetLineOrigins(f, CFRangeMake(0, 0), &originsArray)
-        var lastY: CGFloat = 0
         var final: CGFloat = 0
         var first: CGFloat? = nil
-        var index = 0
-        let limit = info.paragraph.count
-        var startIndex: Int? = nil
+        var lastY: CGFloat = -16
        for (i,line) in lines.enumerated(){
                 var lineAscent:CGFloat      = 0
                 var lineDescent:CGFloat     = 0
                 var lineLeading:CGFloat     = 0
                 CTLineGetTypographicBounds(line , &lineAscent, &lineDescent, &lineLeading)
                 var lineOrigin = originsArray[i]
-                lineOrigin.x = TextContentConst.padding + lineOrigin.x
-                if info.eightY.contains(i){
-                    lastY -= 3
-                }
-                else if info.twelve.contains(i){
-                    lastY -= 11
-                }
-                else if info.titlesBelowS.contains(i){
-                    lastY -= 20
-                }
-                else if info.restTitles.contains(i){
-                    lastY -= TextContentConst.padding
-                }
-                else{
-                    switch i {
-                    case info.lineIndex + 1:
-                        lastY -= TextContentConst.padding
-                    default:
-                        lastY -= 20
-                    }
-                }
-        
-                switch i {
-                case 0:
-                    frameY = lineOrigin.y
-                default:
-                    frameY = frameY - (lineAscent + lineDescent)
-                    //减去一个行间距，再减去第二行，字形的上部分 （循环）
-                    lineOrigin.y = frameY
-                }
+                lineOrigin.x = TxtCustomConst.padding + lineOrigin.x
                 
                 lineOrigin.y += lastY
-               // 调整成所需要的坐标
-                let yOffset = lineOrigin.y - lineDescent - 20
-                if i == info.lineIndex{
-                    ctx.draw(line: yOffset)
+                
+                if i == lineIndex{
+                    let yOffset = lineOrigin.y - lineDescent - 20
+                    ctx.line(draw: yOffset)
+                }
+                if i <= lineIndex{
+                    lastY -= 11
+                }
+                else{
+                    lastY -= 7
                 }
                 ctx.textPosition = lineOrigin
-                var toDraw = false
-                if let f = startIndex{
-                    if i >= f{
-                        startIndex = nil
-                    }
-                    else{
-                        let biscuit = info.paragraph[index - 1]
-                        ctx.textPosition = CGPoint(x: lineOrigin.x + TextContentConst.indentSecond, y: lineOrigin.y)
-                        CTLineDraw(biscuit.lines[biscuit.cnt - (f - i)], ctx)
-                        toDraw = true
-                    }
-                }
-                if index < limit, info.paragraph[index].lineIdx == i{
-                    let biscuit = info.paragraph[index]
-                    let attributedStr: NSAttributedString
-                    if biscuit.beBlack{
-                        attributedStr = biscuit.t.seven(toBreak: false)
-                    }
-                    else{
-                        attributedStr = biscuit.t.eight(toBreak: false)
-                    }
-                    let ln = CTLineCreateWithAttributedString(attributedStr)
-                    CTLineDraw(ln, ctx)
-                    ctx.textPosition = CGPoint(x: lineOrigin.x + TextContentConst.indentSecond, y: lineOrigin.y)
-                    CTLineDraw(biscuit.lines[0], ctx)
-                    toDraw = true
-                    startIndex = i + biscuit.cnt
-                    index += 1
-                }
-                if toDraw == false{
-                    CTLineDraw(line, ctx)
-                }
-                // CTLineDraw(line, ctx)
+                CTLineDraw(line, ctx)
+                
                 if first == nil{
                     first = lineOrigin.y
                 }
@@ -171,7 +119,211 @@ class InnerTextViewEn: UIView{
                 final = lineOrigin.y - typoH
        }
         let one: CGFloat = first ?? 0
-        let h = one - final + 75 + TextContentConst.offsetP.y
+        let h = one - final + 75
+        delegate?.done(height: h)
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+}
+
+
+
+class ReadScrollV: UIScrollView {
+    
+    fileprivate lazy var ccc = TxtViewCustom()
+    
+    var s: CGSize?
+    
+    var renderIdx: Int?
+    
+    
+    var contentPageLai: NSAttributedString?{
+        didSet{
+            ccc.txtRenderX = renderIdx
+            ccc.contentPageX__h = contentPageLai
+            s = ccc.s
+            if let sCont = s{
+                let f = CGRect(x: 0, y: 0, width: UI.std.width, height: sCont.height)
+                ccc.frame = f
+                var reSize = f.size
+                reSize.height += h_newP_bottom
+                contentSize = reSize
+            }
+            ccc.setNeedsDisplay()
+        }
+    }
+    
+    
+    let h_newP_bottom: CGFloat = 128 + 8 + 50 + CGFloat(88 << 1) + 24
+    
+    
+    
+    init() {
+        
+        let rect = CGRect(x: 0, y: 100, width: UI.std.width, height: UI.std.height - 200)
+        super.init(frame: rect)
+        setup()
+    }
+    
+    func setup(){
+        bounces = false
+        isHidden = true
+        showsVerticalScrollIndicator = false
+        showsHorizontalScrollIndicator = false
+        
+        
+        backgroundColor = UIColor.white
+        ccc.delegate = self
+        
+        
+        subs(ccc)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+        
+    }
+
+}
+
+
+
+
+extension ReadScrollV: DrawDoneProxy{
+    func done(height h: CGFloat) {
+        
+        let cccS = ccc.frame.size
+        
+        contentSize = CGSize(width: cccS.width, height: max(h, UI.std.height - CGFloat(64 * 2) - 40 + 8))
+       
+    }
+}
+
+
+
+class TxtViewCustom_xxxx: UIView{
+    
+    
+    var frameRef:CTFrame?
+    var txtRenderX: Int?
+    var s: CGSize?
+    
+    var criteria = TxtCustomConst.kLnTop
+    
+    
+    weak var delegate: DrawDoneProxy?
+    
+    var contentPageX__h: NSAttributedString?{
+        didSet{
+            guard let page = contentPageX__h else{
+                return
+            }
+            
+            // 计算文本框大小，因为 UIView 没有 UILabel 的 intrinsic  size
+            let calculatedSize = page.custom(bound: 3000)
+            let siZ = CGSize(width: TxtCustomConst.widthInUse, height: calculatedSize.height * 3)
+            
+            // 建立 core text 文本
+            let framesetter = CTFramesetterCreateWithAttributedString(page)
+            let path = CGPath(rect: CGRect(origin: CGPoint.zero, size: siZ), transform: nil)
+            frameRef = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), path, nil)
+            s = siZ
+            
+        }
+    }
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = UIColor.white
+    }
+
+    
+ 
+    // 绘制文本
+    override func draw(_ rect: CGRect){
+       guard let ctx = UIGraphicsGetCurrentContext(), let f = frameRef, let lineIndex = txtRenderX else{
+           return
+       }
+        
+        let xHigh = bounds.size.height
+       ctx.textMatrix = CGAffineTransform.identity
+       ctx.translateBy(x: 0, y: xHigh)
+       ctx.scaleBy(x: 1.0, y: -1.0)
+       guard let lines = CTFrameGetLines(f) as? [CTLine] else{
+           return
+       }
+       let lineCount = lines.count
+       guard lineCount > 0 else {
+           return
+       }
+
+       var originsArray = [CGPoint](repeating: CGPoint.zero, count: lineCount)
+       //用于存储每一行的坐标
+       CTFrameGetLineOrigins(f, CFRangeMake(0, 0), &originsArray)
+        var final: CGFloat = 0
+        var first: CGFloat? = nil
+        var lastY: CGFloat = -16
+        var toRender:Bool? = nil
+       for (i,line) in lines.enumerated(){
+                var lineAscent:CGFloat      = 0
+                var lineDescent:CGFloat     = 0
+                var lineLeading:CGFloat     = 0
+                CTLineGetTypographicBounds(line , &lineAscent, &lineDescent, &lineLeading)
+                var lineOrigin = originsArray[i]
+                lineOrigin.x = TxtCustomConst.padding + lineOrigin.x
+                
+                lineOrigin.y += lastY
+                
+                if i == lineIndex{
+                    let yOffset = lineOrigin.y - lineDescent - 20
+                    ctx.line(draw: yOffset)
+                }
+                if i <= lineIndex{
+                    lastY -= 11
+                }
+                else{
+                    lastY -= 7
+                }
+                ctx.textPosition = lineOrigin
+                
+                if first == nil{
+                    first = lineOrigin.y
+                }
+                let typoH = lineAscent + lineDescent
+                final = lineOrigin.y - typoH
+                let oneX: CGFloat = first ?? 0
+                if toRender == nil, oneX - final + typoH >= criteria{   // 差不多吧
+                    toRender = true
+                }
+        
+                if let re = toRender, re{
+                    toRender = false
+                    let lineRange = CTLineGetStringRange(line)
+                    
+                    let range = NSMakeRange(lineRange.location == kCFNotFound ? NSNotFound : lineRange.location, lineRange.length)
+                    
+                    if let content = contentPageX__h{
+                        let sub = content.string[range.location..<(range.location + range.length)]
+                        let new = String(sub)
+                        let lnTwo = CTLineCreateWithAttributedString(new.highLn)
+                        CTLineDraw(lnTwo, ctx)
+                    }
+                }
+                else{
+                    CTLineDraw(line, ctx)
+                }
+
+        
+                
+                
+       }
+        let one: CGFloat = first ?? 0
+        let h = one - final + 75
         delegate?.done(height: h)
     }
     
@@ -185,50 +337,138 @@ class InnerTextViewEn: UIView{
 
 
 
-class TextContentV: UIScrollView {
 
-    lazy var contentEnV = InnerTextViewEn()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class ReadScrollV_xxxx: UIScrollView {
+    
+    fileprivate lazy var ccc = TxtViewCustom_xxxx()
     
     var s: CGSize?
     
-    var contentPageEn: NSAttributedString?{
+    var renderIdx: Int?
+    
+    
+    var timerQu: Timer?
+    
+    
+    var contentPageLai: NSAttributedString?{
         didSet{
-            contentEnV.textRenderX = enRender
-            contentEnV.contentPageX = contentPageEn
-            s = contentEnV.s
+            ccc.txtRenderX = renderIdx
+            ccc.contentPageX__h = contentPageLai
+            s = ccc.s
+            if let sCont = s{
+                let f = CGRect(x: 0, y: 0, width: UI.std.width, height: sCont.height)
+                ccc.frame = f
+                contentSize = f.size
+            }
+            ccc.setNeedsDisplay()
         }
     }
-    var enRender: Renderer?
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        bounces = false
-        contentEnV.delegate = self
-        addSubs([contentEnV])
-        showsHorizontalScrollIndicator = false
-        showsVerticalScrollIndicator = false
-        backgroundColor = UIColor.white
+    
+    
+    
+    
+    init() {
+        super.init(frame: CGRect.zero)
+        setup()
     }
+    
+    
+    
+    func setup(){
+        bounces = false
+        isHidden = true
+        showsVerticalScrollIndicator = false
+        showsHorizontalScrollIndicator = false
+        
+        
+        backgroundColor = UIColor.white
+        ccc.delegate = self
+        
+        
+        subs(ccc)
+        
+        let t: TimeInterval = 0.1
+        timerQu = Timer.scheduledTimer(timeInterval: t , target: self, selector: #selector(ReadScrollV_xxxx.loops), userInfo: nil, repeats: true)
+        timerQu?.fire()
+        if timerQu != nil{
+            RunLoop.main.add( timerQu! , forMode: RunLoop.Mode.common)
+        }
+        
+    }
+    
+    
+    
+    
+    @objc func loops(){
+        if isDragging || isTracking{
+            ccc.criteria = contentOffset.y + TxtCustomConst.kLnTop
+            ccc.setNeedsDisplay()
+        }
+        
+    }
+    
+    
     
     required init?(coder: NSCoder) {
         fatalError()
+        
     }
 
-    func refreshEn(){
-        if let sCont = s{
-            contentEnV.frame = CGRect(x: 0, y: 0, width: UI.std.width, height: sCont.height)
-            contentSize = sCont
-        }
-        contentEnV.setNeedsDisplay()
+    
+    func ggg(){
+        timerQu?.invalidate()
+        timerQu = nil
+    }
+    
+    
+}
+
+
+
+
+extension ReadScrollV_xxxx: DrawDoneProxy{
+    func done(height h: CGFloat) {
+        
+        let cccS = ccc.frame.size
+       
+        contentSize = CGSize(width: cccS.width, height: max(h, UI.std.height - CGFloat(64 * 2) - 40 + 8))
+        
     }
 }
 
 
-extension TextContentV: DrawDoneProxy{
-    func done(height h: CGFloat) {
-        let s = contentSize
-        contentSize = CGSize(width: s.width, height: h)
+
+
+
+
+extension NSAttributedString{
+   
+    func custom(bound h: CGFloat) -> CGSize{
+        return boundingRect(with: CGSize(width: TxtCustomConst.widthInUse, height: h), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
     }
+    
+    
+    
 }
 
 
@@ -236,36 +476,31 @@ extension TextContentV: DrawDoneProxy{
 
 extension CGContext{
     
-    func draw(line y: CGFloat){
-        let xOffset: CGFloat = 40
+    
+    func line(draw y: CGFloat){
+        let xOffset: CGFloat = 16
         setLineWidth(1.0)
         setStrokeColor(UIColor(rgb: 0xE8E8E8).cgColor)
         move(to: CGPoint(x: xOffset, y: y))
         addLine(to: CGPoint(x: UI.std.width - xOffset, y: y))
         strokePath()
     }
-    
-}
-
-
-extension CTLine{
-    var lnSize: CGSize{
-        var lnAscent:CGFloat      = 0
-        var lnDescent:CGFloat     = 0
-        var lnLeading:CGFloat     = 0
-        let glyphW = CTLineGetTypographicBounds(self , &lnAscent, &lnDescent, &lnLeading)
-        let lnHeight = lnAscent + lnDescent + lnLeading
-        return CGSize(width: CGFloat(glyphW), height: lnHeight)
-    }
 }
 
 
 
 
-
-extension NSAttributedString{
-    func bound(height h: CGFloat) -> CGSize{
-        return boundingRect(with: CGSize(width: TextContentConst.widthInUse, height: h), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
+extension StringProtocol {
+    subscript(offset: Int) -> Character { self[index(startIndex, offsetBy: offset)] }
+    subscript(range: Range<Int>) -> SubSequence {
+        let startIndex = index(self.startIndex, offsetBy: range.lowerBound)
+        return self[startIndex..<index(startIndex, offsetBy: range.count)]
     }
-    
+    subscript(range: ClosedRange<Int>) -> SubSequence {
+        let startIndex = index(self.startIndex, offsetBy: range.lowerBound)
+        return self[startIndex..<index(startIndex, offsetBy: range.count)]
+    }
+    subscript(range: PartialRangeFrom<Int>) -> SubSequence { self[index(startIndex, offsetBy: range.lowerBound)...] }
+    subscript(range: PartialRangeThrough<Int>) -> SubSequence { self[...index(startIndex, offsetBy: range.upperBound)] }
+    subscript(range: PartialRangeUpTo<Int>) -> SubSequence { self[..<index(startIndex, offsetBy: range.upperBound)] }
 }

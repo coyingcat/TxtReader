@@ -109,4 +109,19 @@ extension String{
     
     
     
+    
+    var highLn: NSAttributedString{
+        let contentC = UIColor(rgb: 0x0080FF)
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 20
+        
+        let contentAttri: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor : contentC,
+             NSAttributedString.Key.font : UIFont.regular(ofSize: 16),
+             NSAttributedString.Key.paragraphStyle : paragraphStyle
+            ]
+        
+        return NSAttributedString(string: self, attributes: contentAttri)
+    }
+    
 }
