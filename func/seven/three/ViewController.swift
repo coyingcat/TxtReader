@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     
     
-    lazy var contentV = ReadScrollV_xxxx(frame: CGRect(x: 0, y: 100, width: UI.std.width, height: UI.std.height - 200))
+    lazy var contentV = ReadScrollV(frame: CGRect(x: 0, y: 100, width: UI.std.width, height: UI.std.height - 200))
         
     
     
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         info.append(p)
         
         contentV.renderIdx = 0
-        contentV.contentPageLai = info.cp
+        contentV.contentPage = info.cp
         
     }
 

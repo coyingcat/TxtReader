@@ -27,10 +27,7 @@ struct TxtCustomConst {
 }
 
 
-
-
-class TxtViewCustom_xxxx: UIView{
-    
+class TxtViewCustom: UIView{
     
     var frameRef:CTFrame?
     var txtRenderX: Int?
@@ -40,9 +37,9 @@ class TxtViewCustom_xxxx: UIView{
     
     weak var delegate: DrawDoneProxy?
     
-    var contentPageX__h: NSAttributedString?{
+    var contentPageX: NSAttributedString?{
         didSet{
-            guard let page = contentPageX__h else{
+            guard let page = contentPageX else{
                 return
             }
             
@@ -120,8 +117,11 @@ class TxtViewCustom_xxxx: UIView{
                 let typoH = lineAscent + lineDescent
                 final = lineOrigin.y - typoH
                 let oneX: CGFloat = first ?? 0
-                if toRender == nil, oneX - final + typoH >= criteria{   // 差不多吧
+                
+                if toRender == nil, oneX - final + typoH * 2 - 10 >= criteria{
                     toRender = true
+                    ctx.line(red: final + typoH * 2)
+                    ctx.line(red: final )
                 }
         
                 if let re = toRender, re{
@@ -130,7 +130,7 @@ class TxtViewCustom_xxxx: UIView{
                     
                     let range = NSMakeRange(lineRange.location == kCFNotFound ? NSNotFound : lineRange.location, lineRange.length)
                     
-                    if let content = contentPageX__h{
+                    if let content = contentPageX{
                         let sub = content.string[range.location..<(range.location + range.length)]
                         let new = String(sub)
                         let lnTwo = CTLineCreateWithAttributedString(new.highLn)
@@ -140,10 +140,6 @@ class TxtViewCustom_xxxx: UIView{
                 else{
                     CTLineDraw(line, ctx)
                 }
-
-        
-                
-                
        }
         let one: CGFloat = first ?? 0
         let h = one - final + 75
@@ -157,22 +153,22 @@ class TxtViewCustom_xxxx: UIView{
 }
 
 
-class ReadScrollV_xxxx: UIScrollView {
+class ReadScrollV: UIScrollView {
     
-    fileprivate lazy var ccc = TxtViewCustom_xxxx()
+    fileprivate lazy var ccc = TxtViewCustom()
     
     var s: CGSize?
     
     var renderIdx: Int?
     
     
-    var timerQu: Timer?
+    var timer: Timer?
     
     
-    var contentPageLai: NSAttributedString?{
+    var contentPage: NSAttributedString?{
         didSet{
             ccc.txtRenderX = renderIdx
-            ccc.contentPageX__h = contentPageLai
+            ccc.contentPageX = contentPage
             s = ccc.s
             if let sCont = s{
                 let f = CGRect(x: 0, y: 0, width: UI.std.width, height: sCont.height)
@@ -206,10 +202,10 @@ class ReadScrollV_xxxx: UIScrollView {
         subs(ccc)
         
         let t: TimeInterval = 0.1
-        timerQu = Timer.scheduledTimer(timeInterval: t , target: self, selector: #selector(ReadScrollV_xxxx.loops), userInfo: nil, repeats: true)
-        timerQu?.fire()
-        if timerQu != nil{
-            RunLoop.main.add( timerQu! , forMode: RunLoop.Mode.common)
+        timer = Timer.scheduledTimer(timeInterval: t , target: self, selector: #selector(ReadScrollV.loops), userInfo: nil, repeats: true)
+        timer?.fire()
+        if timer != nil{
+            RunLoop.main.add( timer! , forMode: RunLoop.Mode.common)
         }
         
     }
@@ -234,8 +230,8 @@ class ReadScrollV_xxxx: UIScrollView {
 
     
     func ggg(){
-        timerQu?.invalidate()
-        timerQu = nil
+        timer?.invalidate()
+        timer = nil
     }
     
     
@@ -244,13 +240,10 @@ class ReadScrollV_xxxx: UIScrollView {
 
 
 
-extension ReadScrollV_xxxx: DrawDoneProxy{
-    func done(height h: CGFloat) {
-        
+extension ReadScrollV: DrawDoneProxy{
+    func done(height h: CGFloat){
         let cccS = ccc.frame.size
-       
-        contentSize = CGSize(width: cccS.width, height: max(h, UI.std.height - CGFloat(64 * 2) - 40 + 8))
-        
+        contentSize = CGSize(width: cccS.width, height: max(h + 400, UI.std.height - CGFloat(64 * 2) - 40 + 8))
     }
 }
 
@@ -260,13 +253,9 @@ extension ReadScrollV_xxxx: DrawDoneProxy{
 
 
 extension NSAttributedString{
-   
     func custom(bound h: CGFloat) -> CGSize{
         return boundingRect(with: CGSize(width: TxtCustomConst.widthInUse, height: h), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
     }
-    
-    
-    
 }
 
 
@@ -279,6 +268,15 @@ extension CGContext{
         let xOffset: CGFloat = 16
         setLineWidth(1.0)
         setStrokeColor(UIColor(rgb: 0xE8E8E8).cgColor)
+        move(to: CGPoint(x: xOffset, y: y))
+        addLine(to: CGPoint(x: UI.std.width - xOffset, y: y))
+        strokePath()
+    }
+    
+    func line(red y: CGFloat){
+        let xOffset: CGFloat = 16
+        setLineWidth(1.0)
+        setStrokeColor(UIColor.red.withAlphaComponent(0.3).cgColor)
         move(to: CGPoint(x: xOffset, y: y))
         addLine(to: CGPoint(x: UI.std.width - xOffset, y: y))
         strokePath()
