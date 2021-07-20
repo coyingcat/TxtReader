@@ -307,21 +307,13 @@ extension ColumnListHeader{
             
         }
         
-        /*
         
-        top.kf.imgX(with: m.cover)
+        top.image = UIImage(named: "a")
+
         nick.text = m.netname
-        avatar.kf.imgX(with: m.profile_photo)
+
         
-        playTotalL.text = String(m.playTotal)
-        
-        
-        ///
-        let hidMK = (m.hidMk || m.content.count == 0)
-        columnHeadBtn.isHidden = hidMK
-        
-        
-        */
+ 
         
     }
     

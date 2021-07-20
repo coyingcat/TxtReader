@@ -42,6 +42,8 @@
 		269D09D326A7275800964449 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 269D09AE26A7216600964449 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		269D09D726A72DB500964449 /* one.plist in Resources */ = {isa = PBXBuildFile; fileRef = 269D09D526A72DB500964449 /* one.plist */; };
 		269D09D826A72DB500964449 /* two.plist in Resources */ = {isa = PBXBuildFile; fileRef = 269D09D626A72DB500964449 /* two.plist */; };
+		269D09DB26A7382800964449 /* b in Resources */ = {isa = PBXBuildFile; fileRef = 269D09D926A7382700964449 /* b */; };
+		269D09DC26A7382800964449 /* a in Resources */ = {isa = PBXBuildFile; fileRef = 269D09DA26A7382700964449 /* a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -95,6 +97,8 @@
 		269D09C526A7265F00964449 /* NotiAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotiAdd.swift; sourceTree = "<group>"; };
 		269D09D526A72DB500964449 /* one.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = one.plist; sourceTree = "<group>"; };
 		269D09D626A72DB500964449 /* two.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = two.plist; sourceTree = "<group>"; };
+		269D09D926A7382700964449 /* b */ = {isa = PBXFileReference; lastKnownFileType = file; path = b; sourceTree = "<group>"; };
+		269D09DA26A7382700964449 /* a */ = {isa = PBXFileReference; lastKnownFileType = file; path = a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +237,8 @@
 		269D09D426A72DB500964449 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				269D09DA26A7382700964449 /* a */,
+				269D09D926A7382700964449 /* b */,
 				269D09D526A72DB500964449 /* one.plist */,
 				269D09D626A72DB500964449 /* two.plist */,
 			);
@@ -298,10 +304,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				269D09AA26A720E700964449 /* ColumnListCel.xib in Resources */,
+				269D09DB26A7382800964449 /* b in Resources */,
 				269D09D726A72DB500964449 /* one.plist in Resources */,
 				26451BD22605BB83007023FB /* LaunchScreen.storyboard in Resources */,
 				26451BCF2605BB83007023FB /* Assets.xcassets in Resources */,
 				26451BCD2605BB81007023FB /* Main.storyboard in Resources */,
+				269D09DC26A7382800964449 /* a in Resources */,
 				269D09D826A72DB500964449 /* two.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -50,8 +50,8 @@ class ColumnListCel: UITableViewCell {
         
         
         ///
+        img.image = UIImage(named: "b")
         
-        // img.kf.imgX(with: m.cover)
         title.text = m.title
         
         
