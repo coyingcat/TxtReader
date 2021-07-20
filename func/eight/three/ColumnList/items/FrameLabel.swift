@@ -191,7 +191,6 @@ class FrameZeroLabel: UIView{
     
     init() {
         super.init(frame: CGRect.zero)
-        
         backgroundColor = UIColor.white
 
     }
