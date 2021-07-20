@@ -22,29 +22,6 @@ class ColumnListController: UIViewController {
     
     var tableHeadExpanded: CGFloat?
     
-    var selected = [Int]()
-    
-    
-    var dels: [Int]{
-        if let d = received{
-            return selected.map { item in
-                d.content[item].contentID
-            }
-        }
-        else{
-            return []
-        }
-    }
-        
-        
-        
-    var showSelect: Bool = false {
-        didSet {
-            if showSelect{
-                settingsTb.allowsSelection = false
-            }
-        }
-    }
     
     
     lazy var lhsArrow = UIImageView(image: UIImage(named: "preacher_1001"))
@@ -75,14 +52,12 @@ class ColumnListController: UIViewController {
     }()
     
     
-    let key: Int
-    
     
     var received: Column_detail?
     
 
-    init(key k: Int){
-        key = k
+    init(){
+
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -111,8 +86,7 @@ class ColumnListController: UIViewController {
     
         
         doEvents()
-        
-        reqColumnList()
+
         
     }
     
@@ -216,16 +190,9 @@ extension ColumnListController: UITableViewDataSource{
         
         let row = indexPath.row
         let item = tableView.dequeue(for: ColumnListCel.self, ip: indexPath)
-        item.delegate = self
-        var choosen: Bool? = nil
+
+        let choosen: Bool? = nil
         
-        if showSelect{
-            choosen = false
-        }
-            
-        if selected.contains(row){
-            choosen = true
-        }
         if let dat = received{
             item.data(config: dat.content[row], index: row, selected: choosen)
         }
@@ -268,45 +235,9 @@ extension ColumnListController: ColumnListHeaderProxy{
     }
     
     
-    
-    
-    func toggleClick(columnHeader show: Bool){
-        if show == false{
-            selected.removeAll()
-        }
-        showSelect = show
-        settingsTb.reloadData()
-        
-    }
-    
-    
-    
-    
-    
-    
-    
 }
 
 
-
-
-
-
-
-
-
-extension ColumnListController: ColumnListCelProxy{
-    
-    func click(columnCel idx: Int) {
-        
-        selected.keep(many: idx)
-
-        settingsTb.reloadRows(at: [IndexPath(row: idx, section: 0)], with: .automatic)
-    }
-    
-
-    
-}
 
 
 

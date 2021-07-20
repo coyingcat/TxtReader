@@ -10,9 +10,7 @@ import UIKit
 
 import NSObject_Rx
 
-protocol ColumnListCelProxy: AnyObject {
-    func click(columnCel idx: Int)
-}
+
 
 
 class ColumnListCel: UITableViewCell {
@@ -20,8 +18,7 @@ class ColumnListCel: UITableViewCell {
     
     
     @IBOutlet weak var selectedImg: UIButton!
-    
-    weak var delegate: ColumnListCelProxy?
+
     
     var hasChoosen: Bool?
     
@@ -87,15 +84,7 @@ class ColumnListCel: UITableViewCell {
         
         selectedImg.setImage(UIImage(named: "1001_dot_blank_selected"), for: .selected)
         
-        
-        
-        
-        selectedImg.rx.tap.subscribeOo { () in
-            if let idx = self.index{
-                self.delegate?.click(columnCel: idx)
-            }
-            
-        }.disposed(by: rx.disposeBag)
+
         
         modifyTimeL.font = UIFont.regular(ofSize: 12)
         modifyTimeL.textColor = UIColor(rgb: 0x9397A1)

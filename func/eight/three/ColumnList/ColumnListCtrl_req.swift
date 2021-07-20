@@ -14,14 +14,8 @@ extension ColumnListController{
     
     
     
-    func reqColumnList(){
-       
-        /*
+    func reqColumnList(x m: Column_detail){
             self.received = m
-            
-            
-            self.editImg.isHidden = m.hidMk
-            self.delImg.isHidden = m.hidMk
             
             self.tbHead.update(dat: m)
             if self.tbHead.changed{
@@ -30,7 +24,7 @@ extension ColumnListController{
                 self.resetH()
             }
             self.settingsTb.reloadData()
-        */
+        
     }
     
     
