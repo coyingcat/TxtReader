@@ -1,0 +1,11 @@
+framework module NSObject_Rx {
+  umbrella header "NSObject+Rx-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module NSObject_Rx.Swift {
+    header "NSObject_Rx-Swift.h"
+    requires objc
+}
