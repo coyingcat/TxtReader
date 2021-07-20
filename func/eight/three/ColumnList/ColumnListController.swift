@@ -83,7 +83,7 @@ class ColumnListController: UIViewController {
 
         settingsTb.addSubview(tbHead)
         
-    
+        navigationController?.navigationBar.isHidden = true
         
         doEvents()
 

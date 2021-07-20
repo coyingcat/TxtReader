@@ -50,10 +50,6 @@ class ColumnListHeader: UIView {
     
     
     
-    
-    lazy var tinyMark = UIImageView(image: UIImage(named: "1_1001_tiny_Bookmarks"))
-    lazy var tinyPlay = UIImageView(image: UIImage(named: "1_1001_tiny_play"))
-    
     var top_theBottomConstraint: ConstraintMakerEditable?
     
     var topX_bottomY: CGFloat = 170
@@ -96,8 +92,7 @@ class ColumnListHeader: UIView {
         
         let lineBg = UIView()
         lineBg.backgroundColor = UIColor(rgb: 0xF9F9F9)
-        
-       // top.layer.debug()
+
         rhsBottom.text = "66"
         top.clipsToBounds = true
         top.contentMode = .scaleAspectFill
@@ -126,7 +121,7 @@ class ColumnListHeader: UIView {
         addSubs([ belowTitle, lineBg, top,
                   cancelB,
                   midTxt, midTitle, expandB ])
-        top.addSubs([ rhsBottom, tinyMark, tinyPlay,
+        top.addSubs([ rhsBottom,
                       avatar , nick , playTotalL])
         
         
@@ -172,33 +167,8 @@ class ColumnListHeader: UIView {
         }
         
 
-        
-        avatar.snp.makeConstraints { m in
-            m.leading.equalToSuperview().offset(16)
-            m.bottom.equalToSuperview().offset(16.neg)
-            m.size.equalTo(CGSize(width: 32, height: 32))
-        }
-        
-        nick.snp.makeConstraints { m in
-            m.leading.equalTo(avatar.snp.trailing).offset(8)
-            m.bottom.equalTo(avatar)
-        }
-        
-        
+
   
-        playTotalL.snp.makeConstraints { m in
-            m.leading.equalTo(tinyPlay.snp.trailing)
-            m.trailing.equalToSuperview().offset(-16)
-            m.centerY.equalTo(tinyPlay)
-        }
-        
-        
-        tinyPlay.snp.makeConstraints { m in
-            m.trailing.equalToSuperview().offset(-39)
-            m.bottom.equalToSuperview().offset(-18)
-            m.size.equalTo(CGSize(width: 14, height: 14))
-        }
-        
         
         expandB.snp.makeConstraints { m in
             m.trailing.equalToSuperview().offset(29.neg)
