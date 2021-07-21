@@ -2,10 +2,10 @@
 
 
 
-###  [ Core Text 雕虫小技： 建立指示行 ](https://juejin.cn/post/6978890527861112868)
+###  [ Core Text: 不规则文本的省略号，处理思路  ](https://juejin.cn/post/6987214668158730254)
 
 
 
 ### blog fourth
 
-第 4 篇
+第 5 篇
