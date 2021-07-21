@@ -217,7 +217,7 @@ class FrameZeroLabel: UIView{
         }
         
         
-        let total = max(lineCount, 3)
+        let total = min(lineCount, 3)
         
         var originsArray = [CGPoint](repeating: CGPoint.zero, count: lineCount)
         //用于存储每一行的坐标
