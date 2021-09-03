@@ -59,7 +59,7 @@ class TextRenderView: UIView {
         let rangeTwo = rawTxt.range(ns: keyTwo)
         keyLocation = [rangeOne.location + rangeOne.length / 2, rangeTwo.location + rangeTwo.length / 2]
         contentPage = NSAttributedString(string: rawTxt, attributes: [NSAttributedString.Key.font: UIFont.regular(ofSize: 12), NSAttributedString.Key.foregroundColor: UIColor.blue])
-        let calculatedSize = contentPage.boundingRect(with: CGSize(width: UI.std.width - 15 * 2, height: UI.std.height), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
+        let calculatedSize = contentPage.boundingRect(with: CGSize(width: UI.std.width - CGFloat(15 * 2), height: UI.std.height), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
         let padding: CGFloat = 10
         theSize = CGSize(width: calculatedSize.width, height: calculatedSize.height + padding)
         let framesetter = CTFramesetterCreateWithAttributedString(contentPage)
@@ -82,7 +82,7 @@ class TextRenderView: UIView {
         let rangeTwo = rawTxt.range(ns: keyTwo)
         keyLocation = [rangeOne.location + rangeOne.length / 2, rangeTwo.location + rangeTwo.length / 2]
         contentPage = NSAttributedString(string: rawTxt, attributes: [NSAttributedString.Key.font: UIFont.regular(ofSize: 12), NSAttributedString.Key.foregroundColor: UIColor.blue])
-        let calculatedSize = contentPage.boundingRect(with: CGSize(width: UI.std.width - 15 * 2, height: UI.std.height), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
+        let calculatedSize = contentPage.boundingRect(with: CGSize(width: UI.std.width - CGFloat(15 * 2), height: UI.std.height), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
         let padding: CGFloat = 10
         theSize = CGSize(width: calculatedSize.width, height: calculatedSize.height + padding)
         let framesetter = CTFramesetterCreateWithAttributedString(contentPage)

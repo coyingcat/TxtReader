@@ -33,7 +33,7 @@ class TextRenderView: UIView {
         }
         keyRanges = tempRanges
         contentPage = NSAttributedString(string: rawTxt, attributes: [NSAttributedString.Key.font: UIFont.regular(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.black])
-        let calculatedSize = contentPage.boundingRect(with: CGSize(width: UI.std.width - 15 * 2, height: UI.std.height), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
+        let calculatedSize = contentPage.boundingRect(with: CGSize(width: UI.std.width - CGFloat(15 * 2), height: UI.std.height), options: [.usesFontLeading, .usesLineFragmentOrigin], context: nil).size
         let padding: CGFloat = 10
         theSize = CGSize(width: calculatedSize.width, height: calculatedSize.height + padding)
         let framesetter = CTFramesetterCreateWithAttributedString(contentPage)
